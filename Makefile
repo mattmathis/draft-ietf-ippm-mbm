@@ -3,7 +3,7 @@ TARGETS=$(NAME).txt $(NAME).html
 TARGETS=$(NAME).html $(NAME).txt
 # Doc and thie Makefile MUST NOT contain any Google private information
 # and must be in gmail (not corp) "anybody with URL can access"
-DOCID=1-WxkTWGuMV0hxdXT4Z_a5XpoZEXxeLUA618_8jpyP_A
+# DOCID=1-WxkTWGuMV0hxdXT4Z_a5XpoZEXxeLUA618_8jpyP_A
 WEBNAME=draft-ietf-ippm-model-based-metrics
 # Make file below a link to the most recent published version
 PRIOR=prior
@@ -46,9 +46,8 @@ less: trigger $(NAME).txt changebar
 	less $(NAME).txt.bar
 
 # This fetches the shared source from Google docs
-$(NAME).xml: $(NAME).trig
-	wget -O$(NAME).tmp 'https://docs.google.com/document/d/${DOCID}/export?format=txt&authkey=${DOCKEY}#'
-	iconv --verbose -c -t ASCII//TRANSLIT $(NAME).tmp | sed -e 's/\[[a-z]]//g' -e 's/\[[a-z][a-z]]//g'  -e "s/FORMATTED/$(FORMATTED)/g" -e '/<\/rfc>/q' -e '/%/a\\ ' > $(NAME).xml
+$(NAME).xml: PRIOR.$(NAME).xml $(NAME).trig
+	cat PRIOR.$(NAME).xml | sed  -e "s/FORMATTED/$(FORMATTED)/g" -e '/<\/rfc>/q' -e '/%/a\\ ' > $(NAME).xml
 
 $(NAME).pdf: $(NAME).xml
 	-echo Making $(NAME).pdf ======
@@ -61,6 +60,6 @@ $(NAME).txt: $(NAME).xml
 $(NAME).html: $(NAME).xml
 	-echo Making $(NAME).html and $(NAME).color.html ======
 	export $(LIB); xml2html $(NAME).xml
-	./decorate.py $(NAME).html > color.html
+#	./decorate.py $(NAME).html > color.html
 
 
