@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='RFC2026'>
+
+<front>
+<title abbrev='Internet Standards Process'>The Internet Standards Process -- Revision 3</title>
+<author initials='S.' surname='Bradner' fullname='Scott O. Bradner'>
+<organization>Harvard University</organization>
+<address>
+<postal>
+<street>1350 Mass. Ave.</street>
+<city>Cambridge</city>
+<region>MA</region>
+<code>02138</code>
+<country>US</country></postal>
+<phone>+1 617 495 3864</phone>
+<email>sob@harvard.edu</email></address></author>
+<date year='1996' month='October' />
+<abstract>
+<t>This memo documents the process used by the Internet community for the standardization of protocols and procedures.  It defines the stages in the standardization process, the requirements for moving a document between stages and the types of documents used during this process.  It also addresses the intellectual property rights and copyright issues associated with the standards process.</t></abstract></front>
+
+<seriesInfo name='BCP' value='9' />
+<seriesInfo name='RFC' value='2026' />
+<format type='TXT' octets='86731' target='http://www.rfc-editor.org/rfc/rfc2026.txt' />
+</reference>

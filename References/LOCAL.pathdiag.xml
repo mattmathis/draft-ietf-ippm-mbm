@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='EmptyRef'>
+
+<front>
+<title >TITLE</title> <!-- abbrev='TITLE' -->
+<author initials='M.' surname='Mathis' > <!-- fullname='Matt Mathis' -->
+<!-- <organization>Google</organization> -->
+<!-- <address>
+<postal><street></street><city></city><region>CA</region><code>94043</code><country>US</country></postal>
+<phone></phone>
+<email></email></address> -->
+</author>
+<date year='2012' month='Sept' />
+<!-- <abstract><t>This memo.... </t></abstract> -->
+</front>
+<!-- <seriesInfo name='RFC' value='0000' /> -->
+</reference>

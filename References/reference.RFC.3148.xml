@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='RFC3148'>
+
+<front>
+<title>A Framework for Defining Empirical Bulk Transfer Capacity Metrics</title>
+<author initials='M.' surname='Mathis' fullname='M. Mathis'>
+<organization /></author>
+<author initials='M.' surname='Allman' fullname='M. Allman'>
+<organization /></author>
+<date year='2001' month='July' />
+<abstract>
+<t>This document defines a framework for standardizing multiple BTC (Bulk Transport Capacity) metrics that parallel the permitted transport diversity.  This memo provides information for the Internet community.</t></abstract></front>
+
+<seriesInfo name='RFC' value='3148' />
+<format type='TXT' octets='36041' target='http://www.rfc-editor.org/rfc/rfc3148.txt' />
+</reference>
