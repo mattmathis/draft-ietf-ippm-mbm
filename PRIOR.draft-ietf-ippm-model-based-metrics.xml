@@ -59,6 +59,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
     <workgroup>IP Performance Working Group</workgroup>
     <!-- ======================================================== -->
     <abstract>
+
       <t>We introduce a new class of Model Based Metrics designed
       to assess if a complete Internet path can be expected to meet
       a predefined Target Transport Performance by applying a suite
@@ -68,6 +69,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       devices, to accurately detect if any part of the
       infrastructure will prevent paths traversing it from meeting
       the Target Transport Performance.</t>
+
       <t>For Bulk Transport Capacity, the IP diagnostics are built
       on test streams that mimic TCP over the complete path and
       statistical criteria for evaluating the packet transfer
@@ -81,6 +83,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       models applied to the Target Transport Performance of the
       complete path. The success criteria also does not depend on
       the details of the subpath, end systems or application.</t>
+
       <t>Model Based Metrics exhibit several important new
       properties not present in other Bulk Transport Capacity
       Metrics, including the ability to reason about concatenated
@@ -88,11 +91,13 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       which is critical for supporting independent validation of
       tests by comparing results from multiple measurement
       points.</t>
+
       <t>This document does not define the IP diagnostic tests, but
       provides a framework for designing suites of IP diagnostic
       tests that are tailored to confirming that infrastructure can
       meet the predetermined Target Transport Performance.</t>
       <!--  Comment out to publish
+
 <t>Interim DRAFT Formatted: FORMATTED</t>
 -->
     </abstract>
@@ -100,6 +105,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
   <middle>
     <!-- ======================================================== 1. -->
     <section anchor="introduction" title="Introduction">
+
       <t>Model Based Metrics (MBM) rely on mathematical models to
       specify a Targeted Suite of IP Diagnostic tests, designed to
       assess whether common transport protocols can be expected to
@@ -108,6 +114,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       derive the test parameters for accessing an Internet path's
       ability to support a predetermined Bulk Transport
       Capacity.</t>
+
       <t>Each test in the Targeted IP Diagnostic Suite (TIDS)
       measures some aspect of IP packet transfer needed to meet the
       Target Transport Performance. For Bulk Transport Capacity the
@@ -121,6 +128,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       yield pass/fail evaluations of the ability of standard
       transport protocols to meet the specific performance
       objective over some network path.</t>
+
       <t>In most cases the IP diagnostic tests can be implemented
       by combining existing IPPM metrics with additional controls
       for generating test streams having a specified temporal
@@ -130,12 +138,14 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       behavior over the complete path, the statistical criteria
       models the transport protocol's response to less than ideal
       IP packet transfer.</t>
+
       <t>This note describes an alternative to the approach
       presented in "A Framework for Defining Empirical Bulk
       Transfer Capacity Metrics" 
       <xref target="RFC3148" />. In the future, other Model Based
       Metrics may cover other applications and transports, such as
       VoIP over RTP.</t>
+
       <t>The MBM approach, mapping Target Transport Performance to
       a Targeted IP Diagnostic Suite (TIDS) of IP tests, solves
       some intrinsic problems with using TCP or other throughput
@@ -150,6 +160,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       that of the measurement itself. These problems are discussed
       at length in 
       <xref target="background" />.</t>
+
       <t>A Targeted IP Diagnostic Suite does not have such
       difficulties. IP diagnostics can be constructed such that
       they make strong statistical statements about path properties
@@ -158,91 +169,136 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       are designed to bridge the gap between empirical IP
       measurements and expected TCP performance.</t>
       <section title="Version Control">
+
         <t>RFC Editor: Please remove this entire subsection prior
         to publication.</t>
+
         <t>Please send comments about this draft to ippm@ietf.org.
         See http://goo.gl/02tkD for more information including:
         interim drafts, an up to date todo list and information on
         contributing.</t>
+
         <t>Formatted: FORMATTED</t>
+
         <t>Changes since -06 draft: 
         <list style="symbols">
+
           <t>More language nits:
           <list style="symbols">
+
             <t>"Targeted IP Diagnostic Suite (TIDS)" replaces
             "Targeted Diagnostic Suite (TDS)".</t>
+
             <t>"implied bottleneck IP capacity" replaces "implied
             bottleneck IP rate".</t>
+
             <t>Updated to ECN CE Marks.</t>
+
             <t>Added "specified temporal structure"</t>
+
             <t>"test stream" replaces "test traffic"</t>
+
             <t>"packet transfer" replaces "packet delivery"</t>
+
             <t>Reworked discussion of slowstart, bursts and
             pacing.</t>
+
             <t>RFC 7567 replaces RFC 2309.</t>
           </list></t>
         </list></t>
+
         <t>Changes since -05 draft: 
         <list style="symbols">
+
           <t>Wordsmithing on sections overhauled in -05 draft.</t>
+
           <t>Reorganized the document:
           <list style="symbols">
+
             <t>Relocated subsection "Preconditions".</t>
+
             <t>Relocated subsection "New Requirements relative to
             RFC 2330".</t>
           </list></t>
+
           <t>Addressed nits and not so nits by Ruediger Geib.
           (Thanks!)</t>
+
           <t>Substantially tightened the entire definitions
           section.</t>
+
           <t>Many terminology changes, to better conform to other
           docs :
           <list style="symbols">
+
             <t>IP rate and IP capacity (following RFC 5136)
             replaces various forms of link data rate.</t>
+
             <t>subpath replaces link.</t>
+
             <t>target_window_size replaces target_pipe_size.</t>
+
             <t>implied bottleneck IP rate replaces effective
             bottleneck link rate.</t>
+
             <t>Packet delivery statistics replaces delivery
             statistics.</t>
           </list></t>
         </list></t>
+
         <t>Changes since -04 draft: 
         <list style="symbols">
+
           <t>The introduction was heavily overhauled: split into a
           separate introduction and overview.</t>
+
           <t>The new shorter introduction: 
           <list style="symbols">
+
             <t>Is a problem statement;</t>
+
             <t>This document provides a framework;</t>
+
             <t>That it replaces TCP measurement by IP tests;</t>
+
             <t>That the results are pass/fail.</t>
           </list></t>
+
           <t>Added a diagram of the framework to the overview</t>
+
           <t>and introduces all of the elements of the
           framework.</t>
+
           <t>Renumbered sections, reducing the depth of some
           section numbers.</t>
+
           <t>Updated definitions to better agree with other
           documents: 
           <list style="symbols">
+
             <t>Reordered section 2</t>
+
             <t>Bulk [data] performance -&gt; Bulk Transport
             Capacity, everywhere including the title.</t>
+
             <t>loss rate and loss probability -&gt; packet loss
             ratio</t>
+
             <t>end-to-end path -&gt; complete path</t>
+
             <t>[end-to-end][target] performance -&gt; Target
             Transport Performance</t>
+
             <t>load test -&gt; capacity test</t>
           </list></t>
         </list></t>
         <!--
+
 <t>This interim draft is a partial update since the WGLC, to collect an additional round of feedback on the Introduction, overview, and terminology sections.   Note that some of the prior WGLC comments are still pending.   Later sections (4 and beyond) have only been updated to track changes in the terminology section.   We intend to produce an additional draft prior to the IETF, incorporating  still pending comments from the WGLC and any additional comments on the introduction and overview.  remove/updated</t> -->
       </section>
     </section>
     <section anchor="overview" title="Overview">
+
       <t>This document describes a modeling framework for deriving
       a Targeted IP Diagnostic Suite from a predetermined Target
       Transport Performance. It is not a complete specification,
@@ -254,6 +310,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       to the subset of such a specification that is in scope for
       this document. This terminology is defined in 
       <xref target="terminology" />.</t>
+
       <t><xref target="background" /> describes some key aspects of TCP
       behavior and what they imply about the requirements for IP
       packet transfer. Most of the IP diagnostic tests needed to
@@ -265,6 +322,7 @@ docName="draft-ietf-ippm-model-based-metrics-07.txt">
       <xref target="standing_queue" />, don't correspond to
       existing IPPM metrics, but suitable metrics can be patterned
       after existing tools.)</t>
+
       <t><xref target="fig1" /> shows the MBM modeling and measurement
       framework. The Target Transport Performance, at the top of
       the figure, is determined by the needs of the user or
@@ -318,6 +376,7 @@ Traffic parameters |            | Statistical criteria
     fail/inconclusive            pass/fail/inconclusive    
 ]]></artwork>
 <postamble>Overall Modeling Framework</postamble></figure>
+
       <t>The mathematical models are used to design traffic
       patterns that mimic TCP or other transport protocol
       delivering bulk data and operating at the Target Data Rate,
@@ -332,6 +391,7 @@ Traffic parameters |            | Statistical criteria
       methodology, measurement points, measurement vantage or path
       partitioning affect the details of the measurement
       traffic.</t>
+
       <t>
       <xref target="results" /> describes packet transfer statistics
       and methods test them against the bounds provided by the
@@ -346,6 +406,7 @@ Traffic parameters |            | Statistical criteria
       loss. The criteria for passing each test of a TIDS is an
       apportioned share of the total bound determined by the
       mathematical model from the Target Transport Performance.</t>
+
       <t>
       <xref target="tests" /> describes the suite of individual
       tests needed to verify all of required IP delivery
@@ -361,6 +422,7 @@ Traffic parameters |            | Statistical criteria
       preconditions. If all tests pass, except some are
       inconclusive then the entire suite is deemed to be
       inconclusive.</t>
+
       <t>In 
       <xref target="examples" /> we present an example TIDS that
       might be representative of HD video, and illustrate how Model
@@ -368,27 +430,33 @@ Traffic parameters |            | Statistical criteria
       situations, such as confirming that intercarrier exchanges
       have sufficient performance and capacity to deliver HD video
       between ISPs.</t>
+
       <t>Since there is some uncertainty in the modeling process, 
       <xref target="validation" /> describes a validation procedure
       to diagnose and minimize false positive and false negative
       results.</t>
       <!--
+
 <t>A TIDS includes the target parameters, documentation of the models and assumptions used to derive the IP diagnostic test parameters, specifications for the traffic patterns and packet transfer statistics for the tests themselves, and a description of a test setup that can be used to validate the tests and models.</t>
 -->
     </section>
     <!-- ===================================================== 2 -->
     <section anchor="terminology" title="Terminology">
       <!--  copy:          <t hangText=""></t>                 -->
+
       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",
       "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
       and "OPTIONAL" in this document are to be interpreted as
       described in 
       <xref target="RFC2119" />.</t>
+
       <t>Note that terms containing underscores (rather than
       spaces) appear in equations in the modeling sections. In some
       cases both forms are used for aesthetic reasons, they do not
       have different meanings.</t>
+
       <t>General Terminology:</t>
+
       <t>
         <list style="hanging">
           <t hangText="Target:">A general term for any parameter
@@ -485,9 +553,11 @@ Traffic parameters |            | Statistical criteria
 -->
         </list>
       </t>
+
       <t>Terminology about paths, etc. See 
       <xref target="RFC2330" /> and 
       <xref target="RFC7398" />.</t>
+
       <t>
         <list style="hanging">
           <t hangText="data sender:">Host sending data and
@@ -527,9 +597,11 @@ Traffic parameters |            | Statistical criteria
           (bandwidth and/or queue capacity).</t>
         </list>
       </t>
+
       <t>Properties determined by the complete path and
       application. These are described in more detail in 
       <xref target="target" />.</t>
+
       <t>
         <list style="hanging">
           <t hangText="Application Data Rate:">General term for the
@@ -591,12 +663,14 @@ Traffic parameters |            | Statistical criteria
           header_overhead.</t>
         </list>
       </t>
+
       <t>Basic parameters common to models and subpath tests are
       defined here are described in more detail in 
       <xref target="models" />. Note that these are mixed between
       application transport performance (excludes headers) and IP
       performance (which include TCP headers and retransmissions as
       part of the IP payload).</t>
+
       <t>
         <list style="hanging">
           <t hangText="Window [size]:">The total quantity of data
@@ -641,7 +715,9 @@ Traffic parameters |            | Statistical criteria
           implementations.</t>
         </list>
       </t>
+
       <t>Ancillary parameters used for some tests:</t>
+
       <t>
         <list style="hanging">
           <t hangText="derating:">Under some conditions the
@@ -670,6 +746,7 @@ Traffic parameters |            | Statistical criteria
           <!-- <t hangText="@:">@ @</t> -->
         </list>
       </t>
+
       <t>The terminology below is used to define temporal patterns
       for test stream. These patterns are designed to mimic TCP
       behavior, as described in 
@@ -714,8 +791,10 @@ Traffic parameters |            | Statistical criteria
         specified), and the ECN CE marks and lost packets are
         counted.</t>
       </list></t>
+
       <t>The tests described in this note can be grouped according
       to their applicability.</t>
+
       <t>
         <list style="hanging">
           <t hangText="Capacity tests:">Capacity tests determine if
@@ -760,6 +839,7 @@ Traffic parameters |            | Statistical criteria
     </section>
     <!-- ======================================================== 4 -->
     <section anchor="background" title="Background">
+
       <t>At the time the IPPM WG was chartered, sound Bulk
       Transport Capacity measurement was known to be well beyond
       our capabilities. Even at the time that Framework for IP
@@ -768,9 +848,11 @@ Traffic parameters |            | Statistical criteria
       fully understand the problem. Now, by hindsight we understand
       why BTC is such a hard problem:
       <list style="symbols">
+
         <t>TCP is a control system with circular dependencies -
         everything affects performance, including components that
         are explicitly not part of the test.</t>
+
         <t>Congestion control is an equilibrium process, such that
         transport protocols change the packet transfer statistics
         (raise the packet loss ratio and/or RTT) to conform to
@@ -781,12 +863,14 @@ Traffic parameters |            | Statistical criteria
         bottleneck is 100% utilized) the packet loss and ECN CE
         marks are mostly determined by TCP and how hard TCP drives
         the network at that rate and not by the network itself.</t>
+
         <t>TCP's ability to compensate for network flaws is
         directly proportional to the number of roundtrips per
         second (i.e. inversely proportional to the RTT). As a
         consequence a flawed subpath may pass a short RTT local
         test even though it fails when the subpath is extended by
         an effectively perfect network to some larger RTT.</t>
+
         <t>TCP has an extreme form of the Heisenberg problem -
         Measurement and cross traffic interact in unknown and ill
         defined ways. The situation is actually worse than the
@@ -798,6 +882,7 @@ Traffic parameters |            | Statistical criteria
         relative magnitude of the uncertainty that might be
         introduced by any interaction.</t>
       </list></t>
+
       <t>These properties are a consequence of the equilibrium
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control
@@ -809,6 +894,7 @@ Traffic parameters |            | Statistical criteria
       are nonlinear, the entire system is nonlinear, and any change
       anywhere causes difficult to predict changes in every
       parameter.</t>
+
       <t>Model Based Metrics overcome these problems by making the
       measurement system open loop: the packet transfer statistics
       (akin to the network estimators) do not affect the traffic or
@@ -819,6 +905,7 @@ Traffic parameters |            | Statistical criteria
       the control systems slow the traffic below the Target Data
       Rate.</t>
       <section anchor="tcp" title="TCP properties">
+
         <t>TCP and SCTP are self clocked protocols that carry the
         vast majority of all Internet data. Their dominant behavior
         is to have an approximately fixed quantity of data and
@@ -835,9 +922,11 @@ Traffic parameters |            | Statistical criteria
         is self clocked: The data transmissions are a reflection of
         the ACKs that were delivered by the network, the ACKs are a
         reflection of the data arriving from the network.</t>
+
         <t>A number of protocol features cause bursts of data, even
         in idealized networks that can be modeled as simple
         queueing systems.</t>
+
         <t>During slowstart the IP rate is doubled on each RTT by
         sending twice as much data as was delivered to the receiver
         during the prior RTT. Each returning ACK causes the sender
@@ -852,12 +941,14 @@ Traffic parameters |            | Statistical criteria
         the pipe size (i.e. the window is twice the pipe size) so
         when the window is halved in response to the first packet
         loss, the new window will be the pipe size.</t>
+
         <t>Note that if the bottleneck IP rate is less that half of
         the capacity of the front path (which is almost always the
         case), the slowstart bursts will not by themselves cause
         significant queues anywhere else along the front path; they
         primarily exercise the queue at the dominant
         bottleneck.</t>
+
         <t>Several common efficiency algorithms also cause bursts.
         The self clock is typically applied to groups of packets:
         the receiver's delayed ACK algorithm generally sends only
@@ -868,11 +959,13 @@ Traffic parameters |            | Statistical criteria
         segments on the wire. The net effect of TSO, delayed ACK
         and other efficiency algorithms is to send bursts of
         segments at full sender interface rate.</t>
+
         <t>Note that these efficiency algorithms are almost always
         in effect, including during slowstart, such that slowstart
         typically has a two level burst structure. 
         <xref target="paced" /> describes slowstart in more
         detail.</t>
+
         <t>Additional sources of bursts include TCP's initial
         window 
         <xref target="RFC6928" />, application pauses, channel
@@ -886,6 +979,7 @@ Traffic parameters |            | Statistical criteria
         realistic application, the network has to be able to
         tolerate sender interface rate bursts large enough to
         restore the prior window following application pauses.</t>
+
         <t>Although the sender interface rate bursts are typically
         smaller than the last burst of a slowstart, they are at a
         higher IP rate so they potentially exercise queues at
@@ -893,26 +987,32 @@ Traffic parameters |            | Statistical criteria
         up to and including the queue at the dominant bottleneck.
         There is no model for how frequent or what sizes of sender
         rate bursts the network should tolerate.</t>
+
         <t>In conclusion, to verify that a path can meet a Target
         Transport Performance, it is necessary to independently
         confirm that the path can tolerate bursts at the scales
         that can be caused by these mechanisms. Three cases are
         believed to be sufficient:</t>
+
         <t>
           <list style="symbols">
+
             <t>Two level slowstart bursts sufficient to get
             connections started properly.</t>
+
             <t>Ubiquitous sender interface rate bursts caused by
             efficiency algorithms. We assume 4 packet bursts to be
             the most common case, since it matches the effects of
             delayed ACK during slowstart. These bursts should be
             assumed not to significantly affect packet transfer
             statistics.</t>
+
             <t>Infrequent sender interface rate bursts that are
             full target_window_size. Target_run_length may be
             derated for these large fast bursts.</t>
           </list>
         </t>
+
         <t>If a subpath can meet the required packet loss ratio for
         bursts at all of these scales then it has sufficient
         buffering at all potential bottlenecks to tolerate any of
@@ -921,39 +1021,47 @@ Traffic parameters |            | Statistical criteria
       </section>
       <section anchor="approach" title="Diagnostic Approach">
         <!--
+
 <t>Reinstate? @@@@   Therefore each subpath's contribution to the end-to-end packet transfer statistics can be assumed to be independent, and spatial composition techniques such as <xref target="RFC5835" /> and <xref target="RFC6049" /> apply. </t> -->
+
         <t>A complete path of a given RTT and MTU, which are equal
         to or smaller than the Target RTT and equal to or larger
         than the Target MTU respectively, is expected to be able to
         attain a specified Bulk Transport Capacity when all of the
         following conditions are met:
         <list style="numbers">
+
           <t>The IP capacity is above the Target Data Rate by
           sufficient margin to cover all TCP/IP overheads. This can
           be confirmed by the tests described in 
           <xref target="basicdata" /> or any number of IP capacity
           tests adapted to implement MBM.</t>
+
           <t>The observed packet transfer statistics are better
           than required by a suitable TCP performance model (e.g.
           fewer packet losses or ECN CE marks). See 
           <xref target="basicdata" /> or any number of low rate
           packet loss tests outside of MBM.</t>
+
           <t>There is sufficient buffering at the dominant
           bottleneck to absorb a slowstart bursts large enough to
           get the flow out of slowstart at a suitable window size.
           See 
           <xref target="slowstart" />.</t>
+
           <t>There is sufficient buffering in the front path to
           absorb and smooth sender interface rate bursts at all
           scales that are likely to be generated by the
           application, any channel arbitration in the ACK path or
           any other mechanisms. See 
           <xref target="sender_rate" />.</t>
+
           <t>When there is a slowly rising standing queue at the
           bottleneck the onset of packet loss has to be at an
           appropriate point (time or queue depth) and progressive 
           <xref target="RFC7567" />. See 
           <xref target="standing_queue" />.</t>
+
           <t>When there is a standing queue at a bottleneck for a
           shared media subpath (e.g. half duplex), there must be a
           suitable bounds on the interaction between ACKs and data,
@@ -961,6 +1069,7 @@ Traffic parameters |            | Statistical criteria
           
           <xref target="self_interference" />.</t>
         </list></t>
+
         <t>Note that conditions 1 through 4 require capacity tests
         for validation, and thus may need to be monitored on an
         ongoing basis. Conditions 5 and 6 require engineering
@@ -968,6 +1077,7 @@ Traffic parameters |            | Statistical criteria
         such as a bench test. They won't generally fail due to
         load, but may fail in the field due to configuration
         errors, etc. and should be spot checked.</t>
+
         <t>We are developing a tool that can perform many of the
         tests described here 
         <xref target="MBMSource" />.</t>
@@ -975,6 +1085,7 @@ Traffic parameters |            | Statistical criteria
       </section>
       <section anchor="requirements"
       title="New requirements relative to RFC 2330">
+
         <t>Model Based Metrics are designed to fulfill some
         additional requirements that were not recognized at the
         time RFC 2330 was written 
@@ -982,14 +1093,17 @@ Traffic parameters |            | Statistical criteria
         have significantly contributed to policy difficulties in
         the IP measurement space. Some additional requirements are:
         <list style="symbols">
+
           <t>IP metrics must be actionable by the ISP - they have
           to be interpreted in terms of behaviors or properties at
           the IP or lower layers, that an ISP can test, repair and
           verify.</t>
+
           <t>Metrics should be spatially composable, such that
           measures of concatenated paths should be predictable from
           subpaths. 
           <!-- Ideally they should also be differentiable: the metrics of a subpath should be  @@ oops  --></t>
+
           <t>Metrics must be vantage point invariant over a
           significant range of measurement point choices, including
           off path measurement points. The only requirements on MP
@@ -1004,6 +1118,7 @@ Traffic parameters |            | Statistical criteria
           IP capacity as the subpath under test, some do not, for
           example Background Packet Transfer Tests described in 
           <xref target="backloss" />.</t>
+
           <t>Metric measurements must be repeatable by multiple
           parties with no specialized access to MPs or diagnostic
           infrastructure. It must be possible for different parties
@@ -1021,6 +1136,7 @@ Traffic parameters |            | Statistical criteria
     title="Common Models and Parameters">
       <section anchor="target"
       title="Target End-to-end parameters">
+
         <t>The target end-to-end parameters are the Target Data
         Rate, Target RTT and Target MTU as defined in 
         <xref target="terminology" />. These parameters are
@@ -1031,10 +1147,12 @@ Traffic parameters |            | Statistical criteria
         delivered to the application, above TCP. They exclude
         overheads associated with TCP and IP headers, retransmits
         and other protocols (e.g. DNS).</t>
+
         <t>Other end-to-end parameters defined in 
         <xref target="terminology" /> include the effective
         bottleneck data rate, the sender interface data rate and
         the TCP and IP header sizes.</t>
+
         <t>The target_data_rate must be smaller than all subpath IP
         capacities by enough headroom to carry the transport
         protocol overhead, explicitly including retransmissions and
@@ -1042,10 +1160,12 @@ Traffic parameters |            | Statistical criteria
         Specifying a target_data_rate with insufficient headroom is
         likely to result in brittle measurements having little
         predictive value.</t>
+
         <t>Note that the target parameters can be specified for a
         hypothetical path, for example to construct TIDS designed
         for bench testing in the absence of a real application; or
         for a live in situ test of production infrastructure.</t>
+
         <t>The number of concurrent connections is explicitly not a
         parameter to this model. If a subpath requires multiple
         connections in order to meet the specified performance,
@@ -1054,13 +1174,17 @@ Traffic parameters |            | Statistical criteria
         <xref target="channelized" /> applies.</t>
       </section>
       <section anchor="models" title="Common Model Calculations">
+
         <t>The Target Transport Performance is used to derive the
         target_window_size and the reference target_run_length.</t>
+
         <t>The target_window_size, is the average window size in
         packets needed to meet the target_rate, for the specified
         target_RTT and target_MTU. It is given by:</t>
+
         <t>target_window_size = ceiling( target_rate * target_RTT /
         ( target_MTU - header_overhead ) )</t>
+
         <t>Target_run_length is an estimate of the minimum required
         number of unmarked packets that must be delivered between
         losses or ECN Congestion Experienced (CE) marks, as
@@ -1068,12 +1192,14 @@ Traffic parameters |            | Statistical criteria
         The derivation here follows 
         <xref target="MSMO97" />, and by design is quite
         conservative.</t>
+
         <t>Reference target_run_length is derived as follows:
         assume the subpath_IP_capacity is infinitesimally larger
         than the target_data_rate plus the required
         header_overhead. Then target_window_size also predicts the
         onset of queueing. A larger window will cause a standing
         queue at the bottleneck.</t>
+
         <t>Assume the transport protocol is using standard Reno
         style Additive Increase, Multiplicative Decrease (AIMD)
         congestion control 
@@ -1093,7 +1219,9 @@ Traffic parameters |            | Statistical criteria
         be no more frequent than every 1 in
         ((3/2)*target_window_size)*(2*target_window_size) packets,
         which simplifies to:</t>
+
         <t>target_run_length = 3*(target_window_size^2)</t>
+
         <t>Note that this calculation is very conservative and is
         based on a number of assumptions that may not apply. 
         <xref target="derive" /> discusses these assumptions and
@@ -1103,12 +1231,14 @@ Traffic parameters |            | Statistical criteria
         between alternate target_run_length and the reference
         target_run_length calculated above, along with a discussion
         of the rationale for the underlying assumptions.</t>
+
         <t>These two parameters, target_window_size and
         target_run_length, directly imply most of the individual
         parameters for the tests in 
         <xref target="tests" />.</t>
       </section>
       <section anchor="derate" title="Parameter Derating">
+
         <t>Since some aspects of the models are very conservative,
         the MBM framework permits some latitude in derating test
         parameters. Rather than trying to formalize more
@@ -1116,24 +1246,29 @@ Traffic parameters |            | Statistical criteria
         relaxed as long as they meet some additional procedural
         constraints: 
         <list style="symbols">
+
           <t>The TIDS or FSTIDS MUST document and justify the
           actual method used to compute the derated metric
           parameters.</t>
+
           <t>The validation procedures described in 
           <xref target="validation" /> must be used to demonstrate
           the feasibility of meeting the Target Transport
           Performance with infrastructure that infinitesimally
           passes the derated tests.</t>
+
           <t>The validation process for a FSTIDS itself must be
           documented is such a way that other researchers can
           duplicate the validation experiments.</t>
         </list></t>
+
         <t>Except as noted, all tests below assume no derating.
         Tests where there is not currently a well established model
         for the required parameters explicitly include derating as
         a way to indicate flexibility in the parameters.</t>
       </section>
       <section anchor="qualifications" title="Test Preconditions">
+
         <t>Many tests have preconditions which are required to
         assure their validity. Examples include: the presence or
         nonpresence of cross traffic on specific subpaths;
@@ -1147,6 +1282,7 @@ Traffic parameters |            | Statistical criteria
         it is not useful for the intended test. Such diagnostic
         information and partial test data may be useful for
         improving the test in the future.</t>
+
         <t>It is important to preserve the record that a test was
         scheduled, because otherwise precondition enforcement
         mechanisms can introduce sampling bias. For example,
@@ -1154,12 +1290,14 @@ Traffic parameters |            | Statistical criteria
         links might introduce sampling bias in tests of the rest of
         the network by reducing the number of tests during peak
         network load.</t>
+
         <t>Test preconditions and failure actions MUST be specified
         in a FSTIDS.</t>
       </section>
     </section>
     <!-- ======================================================== 6 -->
     <section anchor="generation" title="Generating test streams">
+
       <t>Many important properties of Model Based Metrics, such as
       vantage independence, are a consequence of using test streams
       that have temporal structures that mimic TCP or other
@@ -1175,15 +1313,18 @@ Traffic parameters |            | Statistical criteria
       exercise the queueing at any bottleneck to determine if the
       subpath can support the full Target Transport Performance
       over the complete path.</t>
+
       <t>Failing to authentically mimic TCP's temporal structure is
       part the reason why simple performance tools such as iperf,
       netperf, nc, etc have the reputation of yielding false pass
       results over short test paths, even when some subpath has a
       flaw.</t>
+
       <t>The definitions in 
       <xref target="terminology" /> are sufficient for most test
       streams. We describe the slowstart and standing queue test
       streams in more detail.</t>
+
       <t>In conventional measurement practice stochastic processes
       are used to eliminate many unintended correlations and sample
       biases. However MBM tests are designed to explicitly mimic
@@ -1200,11 +1341,13 @@ Traffic parameters |            | Statistical criteria
       example TCP's RTT estimator used to determine the Retransmit
       Time Out (RTO), can be fooled by periodic cross traffic or
       start-stop applications.</t>
+
       <t>At some point in the future it may make sense to introduce
       fine grained noise sources into the models used for
       generating test streams, but they are not warranted at this
       time.</t>
       <section anchor="paced" title="Mimicking slowstart">
+
         <t>TCP slowstart has a two level burst structure as shown
         in 
         <xref target="fig2" />. The fine structure is caused by the
@@ -1223,6 +1366,7 @@ Traffic parameters |            | Statistical criteria
         to sending at an average rate equal to twice the effective
         bottleneck IP rate. This fine structure defines one
         slowstart rate burst.</t>
+
         <t>For a transport protocol the slowstart bursts are
         repeated every target_RTT. Each slowstart burst is twice as
         large as the previous burst, and slowstart ends on the
@@ -1231,6 +1375,7 @@ Traffic parameters |            | Statistical criteria
         manipulate the burst size and headway to measure the
         ability of the dominant bottleneck to absorb and smooth
         slowstart bursts.</t>
+
         <t>Note that a stream of repeated slowstart bursts has
         three different average rates, depending on the averaging
         interval. At the finest time scale (a few packet times at
@@ -1268,6 +1413,7 @@ Packet stream:
       </section>
       <section anchor="constant_window"
       title="Constant window pseudo CBR">
+
         <t>Implement pseudo constant bit rate by running a standard
         protocol such as TCP with a fixed window size, such that it
         is self clocked. Data packets arriving at the receiver
@@ -1277,6 +1423,7 @@ Packet stream:
         actual RTT of the test path. The rate is only maintained in
         average over each RTT, and is subject to limitations of the
         transport protocol.</t>
+
         <t>Since the window size is constrained to be an integer
         number of packets, for small RTTs or low data rates there
         may not be sufficiently precise control over the data rate.
@@ -1289,12 +1436,14 @@ Packet stream:
         strenuous. A FSTIDS specifying a constant window CBR tests
         MUST explicitly indicate under what conditions errors in
         the data rate causes tests to inconclusive.</t>
+
         <t>Since constant window pseudo CBR testing is sensitive to
         RTT fluctuations it is less accurate at controling the data
         rate in environments with fluctuating delays.</t>
       </section>
       <section anchor="scanned_window"
       title="Scanned window pseudo CBR">
+
         <t>Scanned window pseudo CBR is similar to the constant
         window CBR described above, except the window is scanned
         across a range of sizes designed to include two key events,
@@ -1305,6 +1454,7 @@ Packet stream:
         congestion avoidance when delayed ACKs are in effect.
         Normally the window increases separated by intervals
         slightly longer than twice the target_RTT.</t>
+
         <t>There are two ways to implement this test: one built by
         applying a window clamp to standard congestion control in a
         standard protocol such as TCP and the other built by
@@ -1315,6 +1465,7 @@ Packet stream:
         size. The NPAD pathdiag tool is an example of this class of
         algorithms 
         <xref target="Pathdiag" />.</t>
+
         <t>Alternatively a non-standard congestion control
         algorithm can respond to losses by transmitting extra data,
         such that it maintains the specified window size
@@ -1327,6 +1478,7 @@ Packet stream:
         implements such a test 
         <xref target="WPING" />. The tool described in the paper
         has been updated.<xref target="mpingSource" /></t>
+
         <t>The test procedures in 
         <xref target="standing_queue" /> describe how to the
         partition the scans into regions and how to interpret the
@@ -1334,6 +1486,7 @@ Packet stream:
       </section>
       <section anchor="channelized"
       title="Concurrent or channelized testing">
+
         <t>The procedures described in this document are only
         directly applicable to single stream measurement, e.g. one
         TCP connection or measurement stream. In an ideal world, we
@@ -1346,6 +1499,7 @@ Packet stream:
         Although the former problem might be overcome through
         different design decisions, the later problem is more
         deeply rooted.</t>
+
         <t>All congestion control algorithms that are
         philosophically aligned with the standard 
         <xref target="RFC5681" /> (e.g. claim some level of TCP
@@ -1359,6 +1513,7 @@ Packet stream:
         design and the requirement in 
         <xref target="RFC5681" /> that all transport protocols have
         similar responses to congestion.</t>
+
         <t>There are a number of reasons to want to specify
         performance in term of multiple concurrent flows, however
         this approach is not recommended for data rates below
@@ -1367,6 +1522,7 @@ Packet stream:
         required run length goes as the square of the data rate, at
         higher rates the run lengths can be unreasonably large, and
         multiple flows might be the only feasible approach.</t>
+
         <t>If multiple flows are deemed necessary to meet aggregate
         performance targets then this MUST be stated both the
         design of the TIDS and in any claims about network
@@ -1378,12 +1534,14 @@ Packet stream:
     </section>
     <section anchor="results" title="Interpreting the Results">
       <section anchor="score" title="Test outcomes">
+
         <t>To perform an exhaustive test of a complete network
         path, each test of the TIDS is applied to each subpath of
         the complete path. If any subpath fails any test then a
         standard transport protocol running over the complete path
         can also be expected to fail to attain the Target Transport
         Performance under some conditions.</t>
+
         <t>In addition to passing or failing, a test can be deemed
         to be inconclusive for a number of reasons. Proper
         instrumentation and treatment of inconclusive outcomes is
@@ -1394,6 +1552,7 @@ Packet stream:
         significant; and others causes such as failing to meet some
         required preconditions for the test. See 
         <xref target="qualifications" /></t>
+
         <t>For example consider a test that implements Constant
         Window Pseudo CBR (<xref target="constant_window" />)
 	by adding rate controls
@@ -1408,12 +1567,14 @@ Packet stream:
         reduced data rate was caused by a TCP problem or a network
         problem, or if the reduced data rate had a material effect
         on the observed packet transfer statistics.</t>
+
         <t>Note that for capacity tests, if the observed packet
         transfer statistics meet the statistical criteria for
         failing (accepting hypnosis H1 in 
         <xref target="statistics" />), the test can can be
         considered to have failed because it doesn't really matter
         that the test didn't attain the required data rate.</t>
+
         <t>The really important new properties of MBM, such as
         vantage independence, are a direct consequence of opening
         the control loops in the protocols, such that the test
@@ -1424,25 +1585,30 @@ Packet stream:
         properties. Any exceptional event that indicates that such
         feedback has happened should cause the test to be
         considered inconclusive.</t>
+
         <t>One way to view inconclusive tests is that they reflect
         situations where a test outcome is ambiguous between
         limitations of the network and some unknown limitation of
         the IP diagnostic test itself, which may have been caused
         by some uncontrolled feedback from the network.</t>
+
         <t>Note that procedures that attempt to sweep the target
         parameter space to find the limits on some parameter such
         as target_data_rate are at risk of breaking the location
         independent properties of Model Based Metrics, if any part
         of the boundary between passing and inconclusive results is
         sensitive to RTT (which is normally the case).</t>
+
         <t>One of the goals for evolving TIDS designs will be to
         keep sharpening distinction between inconclusive, passing
         and failing tests. The criteria for for passing, failing
         and inconclusive tests MUST be explicitly stated for every
         test in the TIDS or FSTIDS.</t>
+
         <t>One of the goals of evolving the testing process,
         procedures, tools and measurement point selection should be
         to minimize the number of inconclusive tests.</t>
+
         <t>It may be useful to keep raw packet transfer statistics
         and ancillary metrics 
         <xref target="RFC3148" /> for deeper study of the behavior
@@ -1461,6 +1627,7 @@ Packet stream:
       </section>
       <section anchor="statistics"
       title="Statistical criteria for estimating run_length">
+
         <t>When evaluating the observed run_length, we need to
         determine appropriate packet stream sizes and acceptable
         error levels for efficient measurement. In practice, can we
@@ -1469,21 +1636,25 @@ Packet stream:
         as the sample size grows? How large a sample is needed to
         say that the measurements of packet transfer indicate a
         particular run length is present?</t>
+
         <t>The generalized measurement can be described as
         recursive testing: send packets (individually or in
         patterns) and observe the packet delivery performance
         (packet loss ratio or other metric, any marking we
         define).</t>
+
         <t>As each packet is sent and measured, we have an ongoing
         estimate of the performance in terms of the ratio of packet
         loss or ECN CE mark to total packets (i.e. an empirical
         probability). We continue to send until conditions support
         a conclusion or a maximum sending limit has been
         reached.</t>
+
         <t>We have a target_mark_probability, 1 mark per
         target_run_length, where a "mark" is defined as a lost
         packet, a packet with ECN CE mark, or other signal. This
         constitutes the null Hypothesis:</t>
+
         <t>
           <list style="hanging">
             <t hangText="H0:">no more than one mark in
@@ -1491,28 +1662,34 @@ Packet stream:
             packets</t>
           </list>
         </t>
+
         <t>and we can stop sending packets if on-going measurements
         support accepting H0 with the specified Type I error =
         alpha (= 0.05 for example).</t>
+
         <t>We also have an alternative Hypothesis to evaluate: if
         performance is significantly lower than the
         target_mark_probability. Based on analysis of typical
         values and practical limits on measurement duration, we
         choose four times the H0 probability:</t>
+
         <t>
           <list style="hanging">
             <t hangText="H1:">one or more marks in
             (target_run_length/4) packets</t>
           </list>
         </t>
+
         <t>and we can stop sending packets if measurements support
         rejecting H0 with the specified Type II error = beta (=
         0.05 for example), thus preferring the alternate hypothesis
         H1.</t>
+
         <t>H0 and H1 constitute the Success and Failure outcomes
         described elsewhere in the memo, and while the ongoing
         measurements do not support either hypothesis the current
         status of measurements is inconclusive.</t>
+
         <t>The problem above is formulated to match the Sequential
         Probability Ratio Test (SPRT) 
         <xref target="StatQC" />. Note that as originally framed
@@ -1520,8 +1697,10 @@ Packet stream:
         defects. In networking, ECN CE marks and lost packets are
         not defects but signals, indicating that the transport
         protocol should slow down.</t>
+
         <t>The Sequential Probability Ratio Test also starts with a
         pair of hypothesis specified as above:</t>
+
         <t>
         <list style="hanging">
           <t hangText="H0:">p0 = one defect in
@@ -1532,12 +1711,14 @@ Packet stream:
         tester evaluates the cumulative defect count against two
         boundaries representing H0 Acceptance or Rejection (and
         acceptance of H1):</t>
+
         <t>
         <list style="hanging">
           <t hangText="Acceptance line:">Xa = -h1 + s*n</t>
           <t hangText="Rejection line:">Xr = h2 + s*n</t>
         </list>where n increases linearly for each packet sent
         and</t>
+
         <t>
         <list style="hanging">
           <t hangText="h1 =">{ log((1-alpha)/beta) }/k</t>
@@ -1547,41 +1728,54 @@ Packet stream:
         </list>for p0 and p1 as defined in the null and alternative
         Hypotheses statements above, and alpha and beta as the Type
         I and Type II errors.</t>
+
         <t>The SPRT specifies simple stopping rules:</t>
+
         <t>
           <list style="symbols">
+
             <t>Xa &lt; defect_count(n) &lt; Xb: continue
             testing</t>
+
             <t>defect_count(n) &lt;= Xa: Accept H0</t>
+
             <t>defect_count(n) &gt;= Xb: Accept H1</t>
           </list>
         </t>
+
         <t>The calculations above are implemented in the R-tool for
         Statistical Analysis 
         <xref target="Rtool" /> , in the add-on package for
         Cross-Validation via Sequential Testing (CVST) 
         <xref target="CVST" />.</t>
+
         <t>Using the equations above, we can calculate the minimum
         number of packets (n) needed to accept H0 when x defects
         are observed. For example, when x = 0:</t>
+
         <t>
           <list style="hanging">
             <t hangText="Xa = 0">= -h1 + s*n</t>
             <t hangText="and">n = h1 / s</t>
           </list>
         </t>
+
         <!-- @@ DID NOT MAKE IT <t>For an example of these calculations see <xref target="examples" />.</t> -->
         <!--
 <section anchor="statistics2" title="Alternate criteria for measuring run_length">
 
 
+
 <t>An alternate calculation, contributed by Alex Gilgur (Google).</t>
+
 
 
 <t>The probability of failure within an interval whose length is target_run_length is given by an exponential distribution with rate = 1 / target_run_length (a memoryless process).  The implication of this is that it will be different, depending on the total count of packets that have been through the pipe, the formula being:</t>
 
 
+
 <t>P(t1 < T < t2) = R(t1) - R(t2), </t>
+
 
 
 <t>where 
@@ -1594,6 +1788,7 @@ R = failure rate:
 R(t1) = exp (-t1/target_run_length) 
 R(t2) = exp (-t2/target_run_length) 
 ]]></artwork></figure></t>
+
 
 
 <t>The algorithm:
@@ -1627,6 +1822,7 @@ continue the loop
 ]]></artwork></figure></t>
 
 
+
 <t>This algorithm allows accurate comparison of the observed failure probability with the corresponding values predicted based on a fixed target_failure_rate, which is equal to 1.0 / target_run_length.</t>
 
 
@@ -1634,6 +1830,7 @@ continue the loop
 -->
       </section>
       <section title="Reordering Tolerance">
+
         <t>All tests must be instrumented for packet level
         reordering 
         <xref target="RFC4737" />. However, there is no consensus
@@ -1648,6 +1845,7 @@ continue the loop
         routing. These techniques increase parallelism in network
         and are critical to enabling overall Internet growth to
         exceed Moore's Law.</t>
+
         <t>Note that transport retransmission strategies can trade
         off reordering tolerance vs how quickly they can repair
         losses vs overhead from spurious retransmissions. In
@@ -1657,6 +1855,7 @@ continue the loop
         more than the maximum of one quarter window or 1 mS,
         whichever is larger. Within this limit on reorder extent,
         there should be no bound on reordering density.</t>
+
         <t>By implication, recording which is less than these
         bounds should not be treated as a network impairment.
         However 
@@ -1665,11 +1864,13 @@ continue the loop
         properly characterized by the test (e.g. bound on history
         buffers) should be recorded with the measurement
         results.</t>
+
         <t>Reordering tolerance and diagnostic limitations, such as
         the size of the history buffer used to diagnose packets
         that are way out-of-order, MUST be specified in a
         FSTIDS.</t>
         <!--
+
 <t>Section 5 of <xref target="RFC4737" /> proposed a metric that may be sufficient to designate isolated reordered packets as effectively lost, because TCP's retransmission response would be the same.</t>
 
 -->
@@ -1677,12 +1878,14 @@ continue the loop
     </section>
     <!-- ======================================================== 7 -->
     <section anchor="tests" title="IP Diagnostic Tests">
+
       <t>The IP diagnostic tests below are organized by traffic
       pattern: basic data rate and packet transfer statistics,
       standing queues, slowstart bursts, and sender rate bursts. We
       also introduce some combined tests which are more efficient
       when networks are expected to pass, but conflate diagnostic
       signatures when they fail.</t>
+
       <t>There are a number of test details which are not fully
       defined here. They must be fully specified in a FSTIDS. From
       a standardization perspective, this lack of specificity will
@@ -1695,11 +1898,13 @@ continue the loop
       details can be fully specified.</t>
       <section anchor="basicdata"
       title="Basic Data Rate and Packet Transfer Tests">
+
         <t>We propose several versions of the basic data rate and
         packet transfer statistics test. All measure the number of
         packets delivered between losses or ECN Congestion
         Experienced (CE) marks, using a data stream that is rate
         controlled at or below the target_data_rate.</t>
+
         <t>The tests below differ in how the data rate is
         controlled. The data can be paced on a timer, or window
         controlled at full Target Data Rate. The first two tests
@@ -1709,15 +1914,19 @@ continue the loop
         or periodic auditing process. The third, background packet
         transfer statistics, is a low rate test designed for
         ongoing monitoring for changes in subpath quality.</t>
+
         <t>All rely on the data receiver accumulating packet
         transfer statistics as described in 
         <xref target="statistics" /> to score the outcome:</t>
+
         <t>Pass: it is statistically significant that the observed
         interval between losses or ECN CE marks is larger than the
         target_run_length.</t>
+
         <t>Fail: it is statistically significant that the observed
         interval between losses or ECN CE marks is smaller than the
         target_run_length.</t>
+
         <t>A test is considered to be inconclusive if it failed to
         meet the data rate as specified below, meet the
         qualifications defined in 
@@ -1726,20 +1935,24 @@ continue the loop
         duration.</t>
         <section title="Delivery Statistics at Paced Full Data Rate">
 
+
           <t>Confirm that the observed run length is at least the
           target_run_length while relying on timer to send data at
           the target_rate using the procedure described in in 
           <xref target="paced" /> with a burst size of 1 (single
           packets) or 2 (packet pairs).</t>
+
           <t>The test is considered to be inconclusive if the
           packet transmission can not be accurately controlled for
           any reason.</t>
+
           <t>RFC 6673 
           <xref target="RFC6673" /> is appropriate for measuring
           packet transfer statistics at full data rate.</t>
         </section>
         <section anchor="windowed_rate"
         title="Delivery Statistics at Full Data Windowed Rate">
+
           <t>Confirm that the observed run length is at least the
           target_run_length while sending at an average rate
           approximately equal to the target_data_rate, by
@@ -1752,6 +1965,7 @@ continue the loop
           slightly to compensate for the resulting inflated RTT.
           However see the discussion in 
           <xref target="self_interference" />.</t>
+
           <t>Since losses and ECN CE marks cause transport
           protocols to reduce their data rates, this test is
           expected to be less precise about controlling its data
@@ -1766,6 +1980,7 @@ continue the loop
         </section>
         <section anchor="backloss"
         title="Background Packet Transfer Statistics Tests">
+
           <t>The background run length is a low rate version of the
           target target rate test above, designed for ongoing
           lightweight monitoring for changes in the observed
@@ -1773,6 +1988,7 @@ continue the loop
           used in conjunction with one of the above full rate tests
           because it does not confirm that the subpath can support
           raw data rate.</t>
+
           <t>RFC 6673 
           <xref target="RFC6673" /> is appropriate for measuring
           background packet transfer statistics.</t>
@@ -1780,6 +1996,7 @@ continue the loop
       </section>
       <section anchor="standing_queue"
       title="Standing Queue Tests">
+
         <t>These engineering tests confirm that the bottleneck is
         well behaved across the onset of packet loss, which
         typically follows after the onset of queueing. Well behaved
@@ -1801,6 +2018,7 @@ continue the loop
         in this section use the same basic scanning algorithm,
         described here, but score the link or subpath on the basis
         of how well it avoids each of these problems.</t>
+
         <t>For some technologies the data might not be subject to
         increasing delays, in which case the data rate will vary
         with the window size all the way up to the onset of load
@@ -1808,6 +2026,7 @@ continue the loop
         technologies, the discussion of queueing does not apply,
         but it is still required that the onset of losses or ECN CE
         marks be at an appropriate point and progressive.</t>
+
         <t>Use the procedure in 
         <xref target="scanned_window" /> to sweep the window across
         the onset of queueing and the onset of loss. The tests
@@ -1817,6 +2036,7 @@ continue the loop
         scan can typically be divided into three regions: below the
         onset of queueing, a standing queue, and at or beyond the
         onset of loss.</t>
+
         <t>Below the onset of queueing the RTT is typically fairly
         constant, and the data rate varies in proportion to the
         window size. Once the data rate reaches the subpath IP
@@ -1827,11 +2047,13 @@ continue the loop
         ratio data rate over the RTT. The network power can be
         computed at each window size, and the window with the
         maximum are taken as the start of the queueing region.</t>
+
         <t>For technologies that do not have conventional queues,
         start the scan at a window equal to the
         test_window=target_data_rate*test_path_RTT/target_MTU, i.e.
         starting at the target rate, instead of the power
         point.</t>
+
         <t>If there is random background loss (e.g. bit errors,
         etc), precise determination of the onset of queue induced
         packet loss may require multiple scans. Above the onset of
@@ -1849,6 +2071,7 @@ continue the loop
         <!-- One more sentence @@ --></t>
         <section anchor="congestion_avoidance"
         title="Congestion Avoidance">
+
           <t>A subpath passes the congestion avoidance standing
           queue test if more than target_run_length packets are
           delivered between the onset of queueing (as determined by
@@ -1858,6 +2081,7 @@ continue the loop
           can be performed in situ in the production internet as a
           capacity test. For an example of such a test see 
           <xref target="Pathdiag" />.</t>
+
           <t>For technologies that do not have conventional queues,
           use the test_window in place of the onset of queueing.
           i.e. A subpath passes the congestion avoidance standing
@@ -1866,6 +2090,7 @@ continue the loop
           the first loss or ECN CE mark.</t>
         </section>
         <section anchor="buffer_bloat" title="Bufferbloat">
+
           <t>This test confirms that there is some mechanism to
           limit buffer occupancy (e.g. that prevents bufferbloat).
           Note that this is not strictly a requirement for single
@@ -1878,6 +2103,7 @@ continue the loop
           symptoms for the dominant flow, but has the potential to
           make the subpath unusable for other flows and
           applications.</t>
+
           <t>Pass if the onset of loss occurs before a standing
           queue has introduced more delay than than twice
           target_RTT, or other well defined and specified limit.
@@ -1887,10 +2113,12 @@ continue the loop
           previous test, this test implies that the first loss
           should occur at a queueing delay which is between one and
           two times the target_RTT.</t>
+
           <t>Specified RTT limits that are larger than twice the
           target_RTT must be fully justified in the FSTIDS.</t>
         </section>
         <section anchor="excessive" title="Non excessive loss">
+
           <t>This test confirm that the onset of loss is not
           excessive. Pass if losses are equal or less than the
           increase in the cross traffic plus the test stream window
@@ -1903,6 +2131,7 @@ continue the loop
           tests in this document will have sufficient queue space
           to hold one RTT worth of data).</t>
           <!-- @@ Links that exhibit punitive behaviors such as sudden high loss under overload may not interact well with TCP's self clock. -->
+
           <t>Note that conventional Internet policers will not pass
           this test, which is correct. TCP often fails to come into
           equilibrium at more than a small fraction of the
@@ -1912,9 +2141,11 @@ continue the loop
         </section>
         <section anchor="self_interference"
         title="Duplex Self Interference">
+
           <t>This engineering test confirms a bound on the
           interactions between the forward data path and the ACK
           return path.</t>
+
           <t>Some historical half duplex technologies had the
           property that each direction held the channel until it
           completely drained its queue. When a self clocked
@@ -1925,6 +2156,7 @@ continue the loop
           packet times, once as it passes through the data path,
           and once for the additional delay incurred by the ACK
           waiting on the return path.</t>
+
           <t>The duplex self interference test fails if the RTT
           rises by more than a fixed bound above the expected
           queueing time computed from trom the excess window
@@ -1936,13 +2168,16 @@ continue the loop
         </section>
       </section>
       <section anchor="slowstart" title="Slowstart tests">
+
         <t>These tests mimic slowstart: data is sent at twice the
         effective bottleneck rate to exercise the queue at the
         dominant bottleneck.</t>
         <section title="Full Window slowstart test">
+
           <t>This is a capacity test to confirm that slowstart is
           not likely to exit prematurely. Send slowstart bursts
           that are target_window_size total packets.</t>
+
           <t>Accumulate packet transfer statistics as described in 
           <xref target="statistics" /> to score the outcome. Pass if
           it is statistically significant that the observed number
@@ -1951,6 +2186,7 @@ continue the loop
           statistically significant that the observed interval
           between losses or ECN CE marks is smaller than the
           target_run_length.</t>
+
           <t>It is deemed inconclusive if the elapsed time to send
           the data burst is not less than half of the time to
           receive the ACKs. (i.e. sending data too fast is ok, but
@@ -1958,11 +2194,13 @@ continue the loop
           as indicated by the ACKs is deemed inconclusive). The
           headway for the slowstart bursts should be the
           target_RTT.</t>
+
           <t>Note that these are the same parameters as the Sender
           Full Window burst test, except the burst rate is at
           slowestart rate, rather than sender interface rate.</t>
         </section>
         <section title="Slowstart AQM test">
+
           <t>Do a continuous slowstart (send data continuously at
           twice the implied IP bottleneck capacity), until the
           first loss, stop, allow the network to drain and repeat,
@@ -1975,6 +2213,7 @@ continue the loop
           balances between long and short flows (the "mice vs
           elephants" problem). The queue at the time of the first
           loss should be at least one half of the target_RTT.</t>
+
           <t>This is an engineering test: It must be performed on a
           quiescent network or testbed, since cross traffic has the
           potential to change the results.</t>
@@ -1982,6 +2221,7 @@ continue the loop
       </section>
       <section anchor="sender_rate"
       title="Sender Rate Burst tests">
+
         <t>These tests determine how well the network can deliver
         bursts sent at sender's interface rate. Note that this test
         most heavily exercises the front path, and is likely to
@@ -1990,11 +2230,13 @@ continue the loop
         compression, thinning or channel arbitration in the access
         ISP. See 
         <xref target="complex" />.</t>
+
         <t>Also, there are a several details that are not precisely
         defined. For starters there is not a standard server
         interface rate. 1 Gb/s and 10 Gb/s are common today, but
         higher rates will become cost effective and can be expected
         to be dominant some time in the future.</t>
+
         <t>Current standards permit TCP to send a full window
         bursts following an application pause. (Congestion Window
         Validation 
@@ -2007,6 +2249,7 @@ continue the loop
         the AIMD sawtooth requires a peak window that is twice
         target_window_size, so the worst case burst may be
         2*target_window_size.</t>
+
         <t>It is also understood in the application and serving
         community that interface rate bursts have a cost to the
         network that has to be balanced against other costs in the
@@ -2018,6 +2261,7 @@ continue the loop
 	It remains to be
         determined if and how quickly these changes will be
         deployed.</t>
+
         <t>There is not yet theory to unify these costs or to
         provide a framework for trying to optimize global
         efficiency. We do not yet have a model for how much the
@@ -2025,6 +2269,7 @@ continue the loop
         must be tolerated by the network, but it is probably
         unreasonable to expect the network to be able to
         efficiently deliver all data as a series of bursts.</t>
+
         <t>For this reason, this is the only test for which we
         encourage derating. A TIDS could include a table of pairs
         of derating parameters: burst sizes and how much each burst
@@ -2033,7 +2278,9 @@ continue the loop
       </section>
       <section anchor="combined"
       title="Combined and Implicit Tests">
+
         <!-- <t>@@ @@ and implicit </t>  -->
+
         <t>Combined tests efficiently confirm multiple network
         properties in a single test, possibly as a side effect of
         normal content delivery. They require less measurement
@@ -2043,30 +2290,38 @@ continue the loop
         nominally expected to pass all tests.</t>
         <section anchor="sustained_burst"
         title="Sustained Bursts Test">
+
           <t>The sustained burst test implements a combined worst
           case version of all of the capacity tests above. It is
           simply:</t>
+
           <t>Send target_window_size bursts of packets at server
           interface rate with target_RTT burst headway (burst start
           to burst start). Verify that the observed packet transfer
           statistics meets the target_run_length.</t>
+
           <t>Key observations:
           <list style="symbols">
+
             <t>The subpath under test is expected to go idle for
             some fraction of the time:
             (subpath_IP_capacity-target_rate/(target_MTU-header_overhead)*target_MTU)/subpath_IP_capacity.
             Failing to do so indicates a problem with the procedure
             and an inconclusive test result.</t>
+
             <t>The burst sensitivity can be derated by sending
             smaller bursts more frequently. E.g. send
             target_window_size*derate packet bursts every
             target_RTT*derate.</t>
+
             <t>When not derated, this test is the most strenuous
             capacity test.</t>
+
             <t>A subpath that passes this test is likely to be able
             to sustain higher rates (close to subpath_IP_capacity)
             for paths with RTTs significantly smaller than the
             target_RTT.</t>
+
             <t>This test can be implemented with instrumented TCP 
             <xref target="RFC4898" />, using a specialized
             measurement application at one end 
@@ -2074,9 +2329,11 @@ continue the loop
             other end 
             <xref target="RFC0863" />
             <xref target="RFC0864" />.</t>
+
             <t>This test is efficient to implement, since it does
             not require per-packet timers, and can make use of TSO
             in modern NIC hardware.</t>
+
             <t>If a subpath is known to pass the Standing Queue
             engineering tests (particularly that it has a
             progressive onset of loss at an appropriate queue
@@ -2087,6 +2344,7 @@ continue the loop
             <xref target="standing_queue" /> for a discussion of the
             standing queue tests.</t>
           </list></t>
+
           <t>Note that this test is clearly independent of the
           subpath RTT, or other details of the measurement
           infrastructure, as long as the measurement infrastructure
@@ -2094,6 +2352,7 @@ continue the loop
           to the subpath under test.</t>
         </section>
         <section anchor="streaming_media" title="Streaming Media">
+
           <t>Model Based Metrics can be implicitly implemented as a
           side effect any non-throughput maximizing application,
           such as streaming media, with some additional controls
@@ -2102,14 +2361,17 @@ continue the loop
           that even with arbitrary application pauses and bursts
           the data rate and burst sizes stay within the envelope
           defined by the individual tests described above.</t>
+
           <t>If the application's serving_data_rate is less than or
           equal to the target_data_rate and the serving_RTT (the
           RTT between the sender and client) is less than the
           target_RTT, this constraint is most easily implemented by
           clamping the transport window size to be no larger
           than:</t>
+
           <t>
           serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)</t>
+
           <t>Under the above constraints the serving_window_clamp
           will limit the both the serving data rate and burst sizes
           to be no larger than the procedures in 
@@ -2126,14 +2388,17 @@ continue the loop
           significantly smoother than specified by any of the burst
           tests.)</t>
           <!--
+
 <t>Note that it is important that the target_data_rate be above the actual average rate needed by the application so it can recover after transient pauses caused by congestion or the application itself.  @@ @@ not really</t>
 -->
+
           <t>In an alternative implementation the data rate and
           bursts might be explicitly controlled by a programmable
           traffic shaper or pacing at the sender. This would
           provide better control over transmissions but it is
           substantially more complicated to implement and would be
           likely to have a higher CPU overhead.</t>
+
           <t>Note that these techniques can be applied to any
           content delivery that can be subjected to a reduced data
           rate in order to inhibit TCP equilibrium behavior.</t>
@@ -2143,6 +2408,7 @@ continue the loop
     </section>
     <!-- ======================================================== 9 -->
     <section anchor="examples" title="An Example">
+
       <t>In this section a we illustrate a TIDS designed to confirm
       that an access ISP can reliably deliver HD video from
       multiple content providers to all of their customers. With
@@ -2179,6 +2445,7 @@ continue the loop
         <c>363</c>
         <c>packets</c>
       </texttable>
+
       <t>Table 1 shows the default TCP model with no derating, and
       as such is quite conservative. The simplest TIDS would be to
       use the sustained burst test, described in 
@@ -2186,6 +2453,7 @@ continue the loop
       packet bursts every 50mS, and confirming that there was no
       more than 1 packet loss per 33 bursts (363 total packets in
       1.650 seconds).</t>
+
       <t>Since this number represents is the entire end-to-end loss
       budget, independent subpath tests could be implemented by
       apportioning the packet loss ratio across subpaths. For
@@ -2197,6 +2465,7 @@ continue the loop
       subpaths would be expected to be within the end-to-end loss
       budget.</t>
       <!-- @@@@ move to conclusion? -->
+
       <t>Testing interconnects has generally been problematic:
       conventional performance tests run between measurement points
       adjacent to either side of the interconnect, are not
@@ -2213,10 +2482,12 @@ continue the loop
       For our example, when apportioned 40% of the losses, 11
       packet bursts sent every 50mS should have fewer than one loss
       per 82 bursts (902 packets).</t>
+
       <!-- <t> @@ SPRT example here, or remove reference above </t> -->
       <!--   @@ consider 10 or 20 mS RTT. -->
       <!--
 <section anchor="SDvideo" title="Far serving SD streaming video">
+
 <t>Standard Quality video typically fits in 1 Mb/s [@@SDvideo].   This can be reasonably delivered via longer paths with larger.   We assume 100mS.</t>
 
 
@@ -2233,11 +2504,13 @@ continue the loop
 <c>target_window_size</c><c>9</c><c>packets</c>
 <c>target_run_length</c><c>243</c><c>packets</c>
 </texttable>
+
 <t>This example uses the most conservative TCP model and no derating.</t>
 
 
 </section>
 <section anchor="BulkData" title="Bulk delivery of remote scientific data">
+
 <t>This example corresponds to 100 Mb/s bulk scientific data over a moderately long RTT.  Note that the target_run_length is infeasible for most networks.</t>
 
 
@@ -2268,6 +2541,7 @@ Data_table">
     </section>
     <!-- ======================================================== 9 -->
     <section anchor="validation" title="Validation">
+
       <t>Since some aspects of the models are likely to be too
       conservative, 
       <xref target="models" /> permits alternate protocol models and
@@ -2282,6 +2556,7 @@ Data_table">
       implicitly requires validating a TIDS against all possible
       subpaths and subpaths. The procedures described here are
       still experimental.</t>
+
       <t>We suggest two approaches, both of which should be
       applied: first, publish a fully open description of the TIDS,
       including what assumptions were used and and how it was
@@ -2290,6 +2565,7 @@ Data_table">
       applicability; and second, demonstrate that an applications
       running over an infinitesimally passing testbed do meet the
       performance targets.</t>
+
       <t>An infinitesimally passing testbed resembles a
       epsilon-delta proof in calculus. Construct a test network
       such that all of the individual tests of the TIDS pass by
@@ -2300,6 +2576,7 @@ Data_table">
       workloads should include multiple types of streaming media
       and transaction oriented short flows (e.g. synthetic web
       traffic).</t>
+
       <t>For example, for the HD streaming video TIDS described in 
       <xref target="examples" />, the IP capacity should be exactly
       the header overhead above 2.5 Mb/s, the per packet random
@@ -2314,6 +2591,7 @@ Data_table">
       passing network it should be possible for a real application
       using a stock TCP implementation in the vendor's default
       configuration to attain 2.5 Mb/s over an 50 mS path.</t>
+
       <t>The most difficult part of setting up such a testbed is
       arranging for it to infinitesimally pass the individual
       tests. Two approaches: constraining the network devices not
@@ -2325,6 +2603,7 @@ Data_table">
       can exploit extra latitude in some parameters (such as data
       rate) to partially compensate for constraints in other
       parameters (queue space, or viceversa).</t>
+
       <t>To the extent that a TIDS is used to inform public dialog
       it should be fully publicly documented, including the details
       of the tests, what assumptions were used and how it was
@@ -2336,12 +2615,14 @@ Data_table">
       research community.</t>
     </section>
     <section anchor="security" title="Security Considerations">
+
       <t>Measurement is often used to inform business and policy
       decisions, and as a consequence is potentially subject to
       manipulation. Model Based Metrics are expected to be a huge
       step forward because equivalent measurements can be performed
       from multiple vantage points, such that performance claims
       can be independently validated by multiple parties.</t>
+
       <t>Much of the acrimony in the Net Neutrality debate is due
       by the historical lack of any effective vantage independent
       tools to characterize network performance. Traditional
@@ -2352,24 +2633,30 @@ Data_table">
       customer can repeat the other's measurements, leading to high
       levels of distrust and acrimony. Model Based Metrics are
       expected to greatly improve this situation.</t>
+
       <t>This document only describes a framework for designing
       Fully Specified Targeted IP Diagnostic Suite. Each FSTIDS
       MUST include its own security section.</t>
     </section>
     <!-- ======================================================== 10 -->
     <section title="Acknowledgements">
+
       <t>Ganga Maguluri suggested the statistical test for
       measuring loss probability in the target run length. Alex
       Gilgur for helping with the statistics.</t>
+
       <t>Meredith Whittaker for improving the clarity of the
       communications.</t>
+
       <t>Ruediger Geib provided feedback which greatly improved the
       document.</t>
+
       <t>This work was inspired by Measurement Lab: open tools
       running on an open platform, using open tools to collect open
       data. See http://www.measurementlab.net/</t>
     </section>
     <section anchor="ISNA" title="IANA Considerations">
+
       <t>This document has no actions for IANA.</t>
     </section>
   </middle>
@@ -2411,6 +2698,7 @@ Data_table">
             <!-- fullname='Matt Mathis' -->
           </author>
           <date year='1994' month='June' />
+
           <!-- <abstract><t>This memo.... </t></abstract> -->
         </front>
         <seriesInfo name='INET' value='94' />
@@ -2431,6 +2719,7 @@ Data_table">
             <!-- fullname='Dominic Hamon' -->
           </author>
           <date year='2013' month='Sept' />
+
           <!-- <abstract><t>This memo.... </t></abstract> -->
         </front>
       </reference>
@@ -2449,6 +2738,7 @@ Data_table">
             <!-- fullname='Hung-li Chen' -->
           </author>
           <date year='2013' month='Sept' />
+
           <!-- <abstract><t>This memo.... </t></abstract> -->
         </front>
       </reference>
@@ -2461,6 +2751,7 @@ Data_table">
           <author initials='P.' surname="O'Neil"></author>
           <author initials='P.' surname='Siemsen'></author>
           <date year='2008' month='June' />
+
           <!-- <abstract><t>This memo.... </t></abstract> -->
         </front>
         <seriesInfo name='Passive and Active Measurement'
@@ -2629,6 +2920,7 @@ Data_table">
     <!-- ======================================================== A -->
     <section anchor="derive" title="Model Derivations">
       <!-- @@ @@ review language against the models section -->
+
       <t>The reference target_run_length described in 
       <xref target="models" /> is based on very conservative
       assumptions: that all window above target_window_size
@@ -2636,9 +2928,11 @@ Data_table">
       classic Reno congestion control with delayed ACKs are in
       effect. In this section we provide two alternative
       calculations using different assumptions.</t>
+
       <t>It may seem out of place to allow such latitude in a
       measurement standard, but this section provides offsetting
       requirements.</t>
+
       <t>The estimates provided by these models make the most sense
       if network performance is viewed logarithmically. In the
       operational Internet, data rates span more than 8 orders of
@@ -2648,6 +2942,7 @@ Data_table">
       correspond to 80 dB of dynamic range. On an 80 dB scale, a 3
       dB error is less than 4% of the scale, even though it
       represents a factor of 2 in untransformed parameter.</t>
+
       <t>This document gives a lot of latitude for calculating
       target_run_length, however people designing a TIDS should
       consider the effect of their choices on the ongoing tussle
@@ -2662,12 +2957,14 @@ Data_table">
       protocols, for example by increasing the number of
       connections that they open concurrently.</t>
       <section anchor="reno_aggregate" title="Queueless Reno">
+
         <t>In 
         <xref target="models" /> models were derived based on the
         assumption that the subpath IP rate matches the target rate
         plus overhead, such that the excess window needed for the
         AIMD sawtooth causes a fluctuating queue at the
         bottleneck.</t>
+
         <t>An alternate situation would be a bottleneck where there
         is no significant queue and losses are caused by some
         mechanism that does not involve extra delay, for example by
@@ -2680,6 +2977,7 @@ Data_table">
         data rate meet some goal which is equal or greater than the
         target_rate. The necessary run length to meet the
         target_rate can be computed as follows:</t>
+
         <t>For some value of Wmin, the window will sweep from Wmin
         packets to 2*Wmin packets in 2*Wmin RTT (due to delayed
         ACK). Unlike the queueing case where Wmin =
@@ -2687,11 +2985,15 @@ Data_table">
         to be the target_window_size, so the average data rate is
         the target rate. Thus we want Wmin =
         (2/3)*target_window_size.</t>
+
         <t>Between losses each sawtooth delivers
         (1/2)(Wmin+2*Wmin)(2Wmin) packets in 2*Wmin round trip
         times.</t>
+
         <t>Substituting these together we get:</t>
+
         <t>target_run_length = (4/3)(target_window_size^2)</t>
+
         <t>Note that this is 44% of the reference_run_length
         computed earlier. This makes sense because under the
         assumptions in 
@@ -2700,6 +3002,7 @@ Data_table">
       </section>
       <!--
 <section anchor="cubic" title="CUBIC">
+
 
 
 
@@ -2716,6 +3019,7 @@ Data_table">
             target_run_length and the requirement for progressive loss (AQM).</t>
 
 
+
             <t>Although CUBIC window increase depends on continuous time, the
             authors transform the time to reach the maximum Window size in terms
             of RTT and a parameter for the multiplicative rate decrease on
@@ -2725,19 +3029,24 @@ Data_table">
             (values from 0.01 to 4).</t>
 
 
+
             <t>E[W] = ( C*(RTT/p)^3 * ((4-beta)/beta) )^-4</t>
+
 
 
             <t>and, further assuming Poisson arrival, the mean throughput, x,
             is</t>
 
 
+
             <t>x = E[W]/RTT</t>
+
 
 
             <t>We note that under these conditions (deterministic single losses),
             the value of E[W] is always greater than 0.8 of the maximum window
             size ~= reference_run_length.</t>
+
 
 
  <t>This needs one more equation and a closing paragraph  @ @ @ @</t>
@@ -2751,6 +3060,7 @@ Data_table">
     <!-- ======================================================== B -->
     <section anchor="complex"
     title="The effects of ACK scheduling">
+
       <t>For many network technologies simple queueing models don't
       apply: the network schedules, thins or otherwise alters the
       timing of ACKs and data, generally to raise the efficiency of
@@ -2758,6 +3068,7 @@ Data_table">
       relatively widely spaced small ACKs. These efficiency
       strategies are ubiquitous for half duplex, wireless and
       broadcast media.</t>
+
       <t>Altering the ACK stream by holding or thinning ACKs
       typically has two consequences: it raises the implied
       bottleneck IP capacity, making the fine grained slowstart
@@ -2767,6 +3078,7 @@ Data_table">
       ACKs once they are beyond the bottleneck on the return path
       to the sender, however this further raises the effective
       RTT.</t>
+
       <t>The most extreme example of this sort of behavior would be
       a half duplex channel that is not released as long as the
       endpoint currently holding the channel has more traffic (data
@@ -2776,6 +3088,7 @@ Data_table">
       to send an entire window of data as a single contiguous burst
       on the forward path, followed by the entire window of ACKs on
       the return path.</t>
+
       <t>If a particular return path contains a subpath or device
       that alters the timing of the ACK stream, then the entire
       front path from the sender up to the bottleneck must be
@@ -2787,11 +3100,13 @@ Data_table">
       discarding some ACKs) requires larger sender interface bursts
       to offset the longer times between ACK in order to maintain
       the average data rate.</t>
+
       <t>It is important to note that due to ubiquitous self
       clocking in Internet protocols, ill conceived channel
       allocation mechanisms increases the queueing stress on the
       front path because they cause larger full sender rate data
       bursts.</t>
+
       <t>Holding data or ACKs for channel allocation or other
       reasons (such as forward error correction) always raises the
       effective RTT relative to the minimum delay for the path.
@@ -2803,7 +3118,9 @@ Data_table">
     </section>
     <!-- ======================================================== C -->
     <section title="Version Control">
+
       <t>This section to be removed prior to publication.</t>
+
       <t>Formatted: Thu Apr 7 18:12:37 PDT 2016</t>
     </section>
   </back>
