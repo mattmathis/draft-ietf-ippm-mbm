@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd">
+<!--
+
+The source for this document is at https://github.com/mattmathis/draft-ietf-ippm-mbm .
+
+Please see the README file for additional information.
+
+-->
+<!-- draft-ietf-ippm-model-based-bulk-capacity-xx.txt -->
+<?rfc toc="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="yes"?>
+<?rfc tocdepth="6"?>
+<?rfc symrefs="yes"?>
+<rfc ipr="trust200902" category="exp"
+docName="draft-ietf-ippm-model-based-metrics-07bis.txt">
+  <front>
+    <title abbrev="Model Based Metrics">Model Based Metrics for
+    Bulk Transport Capacity</title>
+    <author fullname="Matt Mathis" initials="M." surname="Mathis">
+      <organization>Google, Inc</organization>
+      <address>
+        <postal>
+          <street>1600 Amphitheater Parkway</street>
+          <city>Mountain View</city>
+          <code>94043</code>
+          <region>California</region>
+          <country>USA</country>
+        </postal>
+        <email>mattmathis@google.com</email>
+      </address>
+    </author>
+    <author fullname="Al Morton" initials="A." surname="Morton">
+      <organization>AT&amp;T Labs</organization>
+      <address>
+        <postal>
+          <street>200 Laurel Avenue South</street>
+          <city>Middletown</city>
+          <region>NJ</region>
+          <code>07748</code>
+          <country>USA</country>
+        </postal>
+        <phone>+1 732 420 1571</phone>
+        <email>acmorton@att.com</email>
+        <uri>http://home.comcast.net/~acmacm/</uri>
+      </address>
+    </author>
+    <date month="Apr" day="1" year="2016" />
+    <area>Operations Area</area>
+    <workgroup>IP Performance Working Group</workgroup>
+    <!-- ======================================================== -->
+#include src/abstract.xml
+  </front>
+  <middle>
+#include src/introduction.xml
+#include src/overview.xml
+#include src/terminology.xml
+#include src/background.xml
+    <!-- ===================================================== 5 -->
+    <section anchor="all_models"
+    title="Common Models and Parameters">
+#include src/target.xml
+#include src/models.xml
+#include src/qualifications.xml
+    </section>
+#include src/generation.xml
+    <section anchor="results" title="Interpreting the Results">
+#include src/score.xml
+#include src/statistics.xml
+#include src/reordering.xml
+    </section>
+#include src/tests.xml
+#include src/examples.xml
+#include src/validation.xml
+#include src/security.xml
+#include src/acknowledgments.xml
+    <section anchor="IANA" title="IANA Considerations">
+
+      <t>This document has no actions for IANA.</t>
+    </section>
+  </middle>
+  <back>
+#include src/references.xml
+#include src/derive.xml
+#include src/complex.xml
+    <!-- ======================================================== C -->
+    <section title="Version Control">
+
+      <t>This section to be removed prior to publication.</t>
+
+      <t>Formatted: Thu Apr 7 18:12:37 PDT 2016</t>
+    </section>
+  </back>
+</rfc>
