@@ -1,0 +1,17 @@
+    <!-- ======================================================== 10 -->
+    <section anchor="acknowledgments" title="Acknowledgements">
+
+      <t>Ganga Maguluri suggested the statistical test for
+      measuring loss probability in the target run length. Alex
+      Gilgur for helping with the statistics.</t>
+
+      <t>Meredith Whittaker for improving the clarity of the
+      communications.</t>
+
+      <t>Ruediger Geib provided feedback which greatly improved the
+      document.</t>
+
+      <t>This work was inspired by Measurement Lab: open tools
+      running on an open platform, using open tools to collect open
+      data. See http://www.measurementlab.net/</t>
+    </section>

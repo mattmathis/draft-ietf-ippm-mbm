@@ -1,0 +1,256 @@
+    <!-- ======================================================== 11 -->
+    <references title='Normative References'>
+      <?rfc include="References/reference.RFC.2119"?>
+      <!-- <?rfc include="References/reference.RFC.2026"?> -->
+    </references>
+    <references title='Informative References'>
+      <?rfc include="References/reference.RFC.0863.xml"?>
+      <?rfc include="References/reference.RFC.0864.xml"?>
+      <!-- <?rfc include="References/reference.RFC.2309.xml"?> -->
+      <?rfc include="References/reference.RFC.2330.xml"?>
+      <?rfc include="References/reference.RFC.2861.xml"?>
+      <?rfc include="References/reference.RFC.3148.xml"?>
+      <?rfc include="References/reference.RFC.3465.xml"?>
+      <?rfc include="References/reference.RFC.4015.xml"?>
+      <?rfc include="References/reference.RFC.4737.xml"?>
+      <?rfc include="References/reference.RFC.4898.xml"?>
+      <?rfc include="References/reference.RFC.5136.xml"?>
+      <?rfc include="References/reference.RFC.5681.xml"?>
+      <?rfc include="References/reference.RFC.5835.xml"?>
+      <?rfc include="References/reference.RFC.6049.xml"?>
+      <?rfc include="References/reference.RFC.6673.xml"?>
+      <?rfc include="References/reference.RFC.6928.xml"?>
+      <?rfc include="References/reference.RFC.7312.xml"?>
+      <?rfc include="References/reference.RFC.7398.xml"?>
+      <?rfc include="References/reference.RFC.7567.xml"?>
+      <?rfc include="References/reference.I-D.draft-ietf-ippm-2680-bis.xml"?>
+      <!-- <?rfc include="References/reference.I-D.draft-ietf-aqm-recommendation.xml"?> -->
+      <?rfc include="References/LOCAL.mathis07macro.xml"?>
+      <reference anchor='WPING'>
+        <front>
+          <title>Windowed Ping: An IP Level Performance
+          Diagnostic</title>
+          <!-- abbrev='TITLE' -->
+          <author initials='M.' surname='Mathis'>
+            <!-- fullname='Matt Mathis' -->
+          </author>
+          <date year='1994' month='June' />
+
+          <!-- <abstract><t>This memo.... </t></abstract> -->
+        </front>
+        <seriesInfo name='INET' value='94' />
+      </reference>
+      <reference anchor='mpingSource'
+      target='https://github.com/m-lab/mping'>
+        <front>
+          <title>Git Repository for mping: An IP Level Performance
+          Diagnostic</title>
+          <!-- abbrev='TITLE' -->
+          <author initials='X.' surname='Fan'>
+            <!-- fullname='Xun Fan' -->
+          </author>
+          <author initials='M.' surname='Mathis'>
+            <!-- fullname='Matt Mathis' -->
+          </author>
+          <author initials='D.' surname='Hamon'>
+            <!-- fullname='Dominic Hamon' -->
+          </author>
+          <date year='2013' month='Sept' />
+
+          <!-- <abstract><t>This memo.... </t></abstract> -->
+        </front>
+      </reference>
+      <reference anchor='MBMSource'
+      target='https://github.com/m-lab/MBM'>
+        <front>
+          <title>Git Repository for Model Based Metrics</title>
+          <!-- abbrev='TITLE' -->
+          <author initials='D.' surname='Hamon'>
+            <!-- fullname='Dominic Hamon' -->
+          </author>
+          <author initials='S.' surname='Stuart'>
+            <!-- fullname='Stephen Stuart' -->
+          </author>
+          <author initials='H.' surname='Chen'>
+            <!-- fullname='Hung-li Chen' -->
+          </author>
+          <date year='2013' month='Sept' />
+
+          <!-- <abstract><t>This memo.... </t></abstract> -->
+        </front>
+      </reference>
+      <reference anchor='Pathdiag'>
+        <front>
+          <title>Pathdiag: Automated TCP Diagnosis</title>
+          <!-- abbrev='TITLE' -->
+          <author initials='M.' surname='Mathis'></author>
+          <author initials='J.' surname='Heffner'></author>
+          <author initials='P.' surname="O'Neil"></author>
+          <author initials='P.' surname='Siemsen'></author>
+          <date year='2008' month='June' />
+
+          <!-- <abstract><t>This memo.... </t></abstract> -->
+        </front>
+        <seriesInfo name='Passive and Active Measurement'
+        value="" />
+      </reference>
+      <reference anchor='iperf'
+      target="http://en.wikipedia.org/w/index.php?title=Iperf&amp;oldid=649720021">
+
+        <front>
+          <title>iPerf</title>
+          <author surname='Wikipedia Contributors'></author>
+          <date year='2015' month='cited March' />
+        </front>
+        <seriesInfo name='Wikipedia, The Free Encyclopedia'
+        value="" />
+      </reference>
+      <!--
+<reference anchor='BScope' target="http://www.browserscope.org/?category=network">
+<front>
+<title>Browserscope Network tests</title>
+<author surname='Broswerscope' >
+</author>
+<date year='2012' month='Sept' />
+</front>
+<annotation>See Max Connections column</annotation>
+</reference>
+-->
+      <reference anchor="StatQC">
+        <front>
+          <title>Introduction to Statistical Quality Control - 2nd
+          ed.</title>
+          <author fullname="Douglas C. Montgomery" initials="D."
+          surname="Montgomery">
+            <!-- fullname="D.C.Montgomery" -->
+            <organization abbrev=""></organization>
+          </author>
+          <date month="" year="1990" />
+        </front>
+        <seriesInfo name="ISBN" value="0-471-51988-X" />
+      </reference>
+      <reference anchor="Rtool">
+        <front>
+          <title>R: A language and environment for statistical
+          computing. R Foundation for Statistical Computing,
+          Vienna, Austria. ISBN 3-900051-07-0, URL
+          http://www.R-project.org/</title>
+          <author fullname="R Development Core Team" initials=""
+          surname="R Development Core Team"></author>
+          <date month="" year="2011" />
+        </front>
+        <seriesInfo name="" value="" />
+      </reference>
+      <reference anchor="CVST">
+        <front>
+          <title>R package: Fast Cross-Validation via Sequential
+          Testing</title>
+          <author fullname="Tammo Krueger" initials="T."
+          surname="Krueger">
+            <organization abbrev="TU">Technical University -
+            Berlin</organization>
+          </author>
+          <author fullname="Mikio Braun" initials="M."
+          surname="Braun"></author>
+          <date month="11" year="2012" />
+        </front>
+        <seriesInfo name="version" value="0.1" />
+      </reference>
+      <!--
+<reference anchor="CUBIC">
+<front>
+<title >CUBIC: a new TCP-friendly high-speed TCP variant</title> 
+<author initials='S.' surname='Ha' ></author>
+<author initials='I.' surname='Rhee' ></author>
+<author initials='L.' surname='Xu' ></author>
+<date year='2008' month='July' />
+</front>
+<seriesInfo name='SIGOPS Oper. Syst. Rev.' value='42, 5' />
+</reference>
+
+
+<reference anchor="LMCUBIC">
+            <front>
+              <title>A Deterministic Loss Model Based Analysis of CUBIC, IEEE
+              International Conference on Computing, Networking and Communications
+              (ICNC), E-ISBN : 978-1-4673-5286-4</title>
+
+
+              <author fullname="R.I. Ledesma Goyzueta" initials="R.I."
+                      surname="Ledesma Goyzueta">
+                <organization/>
+              </author>
+
+
+              <author fullname="Yu Chen" initials="Y." surname="Chen">
+                <organization/>
+              </author>
+
+
+              <date day="28" month="January" year="2013"/>
+            </front>
+          </reference>
+-->
+      <reference anchor='AFD'>
+        <front>
+          <title>Approximate fairness through differential
+          dropping</title>
+          <author initials='R.' surname='Pan'></author>
+          <author initials='L.' surname='Breslau'></author>
+          <author initials='B.' surname='Prabhakar'></author>
+          <author initials='S.' surname='Shenker'></author>
+          <date year='2003' month='April' />
+        </front>
+        <seriesInfo name='SIGCOMM Comput. Commun. Rev.'
+        value='33, 2' />
+      </reference>
+      <reference anchor='wikiBloat'>
+        <front>
+          <title>Bufferbloat</title>
+          <author surname='Wikipedia'></author>
+          <date year='2015' month='March' />
+        </front>
+        <seriesInfo name='http://en.wikipedia.org/w/'
+        value='index.php?title=Bufferbloat&amp;oldid=608805474' />
+      </reference>
+      <reference anchor='CCscaling'>
+        <front>
+          <title>Scalable laws for stable network congestion
+          control</title>
+          <author initials='F.' surname='Fernando'></author>
+          <author initials='J. C.' surname='Doyle'></author>
+          <author initials='S. H.' surname='Steven'></author>
+          <date year='2001' month="December" />
+        </front>
+        <seriesInfo name='Proceedings of Conference on Decision and Control,'
+        value="http://www.ee.ucla.edu/~paganini" />
+      </reference>
+      <reference anchor='TSO_pacing'>
+        <front>
+          <title>TSO sizing and the FQ scheduler</title>
+          <author initials='J.' surname='Corbet'></author>
+          <date year='2013' month='Aug' />
+        </front>
+        <seriesInfo name='LWN.net'
+        value='https://lwn.net/Articles/564978/' />
+      </reference>
+      <reference anchor='TSO_fq_pacing'>
+        <front>
+          <title>TSO, fair queuing, pacing: three's a charm</title>
+          <author initials='E.' surname='Dumazet'></author>
+          <author initials='Y.' surname='Chen'></author>
+          <date year='2013' month='Nov' />
+        </front>
+        <seriesInfo name='Proceedings of IETF 88, TCPM WG'
+        value='https://www.ietf.org/proceedings/88/slides/slides-88-tcpm-9.pdf' />
+      </reference>
+      <!--
+<reference anchor='EmptyRef'><front>
+<title >TITLE</title>
+<author initials='.' surname='' > </author>
+<date year='2012' month='Sept' />
+</front>
+<seriesInfo name='RFC' value='0000' />
+</reference>
+-->
+    </references>

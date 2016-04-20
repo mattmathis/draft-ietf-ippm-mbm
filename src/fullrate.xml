@@ -1,0 +1,17 @@
+        <section anchor="fullrate" title="Delivery Statistics at Paced Full Data Rate">
+
+
+          <t>Confirm that the observed run length is at least the
+          target_run_length while relying on timer to send data at
+          the target_rate using the procedure described in in 
+          <xref target="paced" /> with a burst size of 1 (single
+          packets) or 2 (packet pairs).</t>
+
+          <t>The test is considered to be inconclusive if the
+          packet transmission can not be accurately controlled for
+          any reason.</t>
+
+          <t>RFC 6673 
+          <xref target="RFC6673" /> is appropriate for measuring
+          packet transfer statistics at full data rate.</t>
+        </section>

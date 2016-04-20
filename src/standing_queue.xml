@@ -1,0 +1,80 @@
+      <section anchor="standing_queue"
+      title="Standing Queue Tests">
+
+        <t>These engineering tests confirm that the bottleneck is
+        well behaved across the onset of packet loss, which
+        typically follows after the onset of queueing. Well behaved
+        generally means lossless for transient queues, but once the
+        queue has been sustained for a sufficient period of time
+        (or reaches a sufficient queue depth) there should be a
+        small number of losses to signal to the transport protocol
+        that it should reduce its window. Losses that are too early
+        can prevent the transport from averaging at the
+        target_data_rate. Losses that are too late indicate that
+        the queue might be subject to bufferbloat 
+        <xref target="wikiBloat" /> and inflict excess queuing
+        delays on all flows sharing the bottleneck queue. Excess
+        losses (more than half of the window) at the onset of
+        congestion make loss recovery problematic for the transport
+        protocol. Non-linear, erratic or excessive RTT increases
+        suggest poor interactions between the channel acquisition
+        algorithms and the transport self clock. All of the tests
+        in this section use the same basic scanning algorithm,
+        described here, but score the link or subpath on the basis
+        of how well it avoids each of these problems.</t>
+
+        <t>For some technologies the data might not be subject to
+        increasing delays, in which case the data rate will vary
+        with the window size all the way up to the onset of load
+        induced packet loss or ECN CE marks. For theses
+        technologies, the discussion of queueing does not apply,
+        but it is still required that the onset of losses or ECN CE
+        marks be at an appropriate point and progressive.</t>
+
+        <t>Use the procedure in 
+        <xref target="scanned_window" /> to sweep the window across
+        the onset of queueing and the onset of loss. The tests
+        below all assume that the scan emulates standard additive
+        increase and delayed ACK by incrementing the window by one
+        packet for every 2*target_window_size packets delivered. A
+        scan can typically be divided into three regions: below the
+        onset of queueing, a standing queue, and at or beyond the
+        onset of loss.</t>
+
+        <t>Below the onset of queueing the RTT is typically fairly
+        constant, and the data rate varies in proportion to the
+        window size. Once the data rate reaches the subpath IP
+        rate, the data rate becomes fairly constant, and the RTT
+        increases in proportion to the increase in window size. The
+        precise transition across the start of queueing can be
+        identified by the maximum network power, defined to be the
+        ratio data rate over the RTT. The network power can be
+        computed at each window size, and the window with the
+        maximum are taken as the start of the queueing region.</t>
+
+        <t>For technologies that do not have conventional queues,
+        start the scan at a window equal to the
+        test_window=target_data_rate*test_path_RTT/target_MTU, i.e.
+        starting at the target rate, instead of the power
+        point.</t>
+
+        <t>If there is random background loss (e.g. bit errors,
+        etc), precise determination of the onset of queue induced
+        packet loss may require multiple scans. Above the onset of
+        queuing loss, all transport protocols are expected to
+        experience periodic losses determined by the interaction
+        between the congestion control and AQM algorithms. For
+        standard congestion control algorithms the periodic losses
+        are likely to be relatively widely spaced and the details
+        are typically dominated by the behavior of the transport
+        protocol itself. For the stiffened transport protocols case
+        (with non-standard, aggressive congestion control
+        algorithms) the details of periodic losses will be
+        dominated by how the the window increase function responds
+        to loss. 
+        <!-- One more sentence @@ --></t>
+#include src/congestion_avoidance.xml
+#include src/buffer_bloat.xml
+#include src/excessive.xml
+#include src/self_interference.xml
+      </section>

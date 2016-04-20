@@ -1,0 +1,47 @@
+      <section anchor="channelized"
+      title="Concurrent or channelized testing">
+
+        <t>The procedures described in this document are only
+        directly applicable to single stream measurement, e.g. one
+        TCP connection or measurement stream. In an ideal world, we
+        would disallow all performance claims based multiple
+        concurrent streams, but this is not practical due to at
+        least two different issues. First, many very high rate link
+        technologies are channelized and at last partially pin the
+        flow to channel mapping to minimize packet reordering
+        within flows. Second, TCP itself has scaling limits.
+        Although the former problem might be overcome through
+        different design decisions, the later problem is more
+        deeply rooted.</t>
+
+        <t>All congestion control algorithms that are
+        philosophically aligned with the standard 
+        <xref target="RFC5681" /> (e.g. claim some level of TCP
+        compatibility, friendliness or fairness) have scaling
+        limits, in the sense that as a long fast network (LFN) with
+        a fixed RTT and MTU gets faster, these congestion control
+        algorithms get less accurate and as a consequence have
+        difficulty filling the network <xref target="CCscaling" />.
+        These properties are a
+        consequence of the original Reno AIMD congestion control
+        design and the requirement in 
+        <xref target="RFC5681" /> that all transport protocols have
+        similar responses to congestion.</t>
+
+        <t>There are a number of reasons to want to specify
+        performance in term of multiple concurrent flows, however
+        this approach is not recommended for data rates below
+        several megabits per second, which can be attained with run
+        lengths under 10000 packets on many paths. Since the
+        required run length goes as the square of the data rate, at
+        higher rates the run lengths can be unreasonably large, and
+        multiple flows might be the only feasible approach.</t>
+
+        <t>If multiple flows are deemed necessary to meet aggregate
+        performance targets then this MUST be stated both the
+        design of the TIDS and in any claims about network
+        performance. The IP diagnostic tests MUST be performed
+        concurrently with the specified number of connections. For
+        the the tests that use bursty test streams, the bursts
+        should be synchronized across streams.</t>
+      </section>

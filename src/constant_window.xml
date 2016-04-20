@@ -1,0 +1,30 @@
+      <section anchor="constant_window"
+      title="Constant window pseudo CBR">
+
+        <t>Implement pseudo constant bit rate by running a standard
+        protocol such as TCP with a fixed window size, such that it
+        is self clocked. Data packets arriving at the receiver
+        trigger acknowledgements (ACKs) which travel back to the
+        sender where they trigger additional transmissions. The
+        window size is computed from the target_data_rate and the
+        actual RTT of the test path. The rate is only maintained in
+        average over each RTT, and is subject to limitations of the
+        transport protocol.</t>
+
+        <t>Since the window size is constrained to be an integer
+        number of packets, for small RTTs or low data rates there
+        may not be sufficiently precise control over the data rate.
+        Rounding the window size up (the default) is likely to be
+        result in data rates that are higher than the target rate,
+        but reducing the window by one packet may result in data
+        rates that are too small. Also cross traffic potentially
+        raises the RTT, implicitly reducing the rate. Cross traffic
+        that raises the RTT nearly always makes the test more
+        strenuous. A FSTIDS specifying a constant window CBR tests
+        MUST explicitly indicate under what conditions errors in
+        the data rate causes tests to inconclusive.</t>
+
+        <t>Since constant window pseudo CBR testing is sensitive to
+        RTT fluctuations it is less accurate at controling the data
+        rate in environments with fluctuating delays.</t>
+      </section>

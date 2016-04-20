@@ -1,0 +1,46 @@
+      <section anchor="reordering" title="Reordering Tolerance">
+
+        <t>All tests must be instrumented for packet level
+        reordering 
+        <xref target="RFC4737" />. However, there is no consensus
+        for how much reordering should be acceptable. Over the last
+        two decades the general trend has been to make protocols
+        and applications more tolerant to reordering (see for
+        example 
+        <xref target="RFC4015" />), in response to the gradual
+        increase in reordering in the network. This increase has
+        been due to the deployment of technologies such as multi
+        threaded routing lookups and Equal Cost MultiPath (ECMP)
+        routing. These techniques increase parallelism in network
+        and are critical to enabling overall Internet growth to
+        exceed Moore's Law.</t>
+
+        <t>Note that transport retransmission strategies can trade
+        off reordering tolerance vs how quickly they can repair
+        losses vs overhead from spurious retransmissions. In
+        advance of new retransmission strategies we propose the
+        following strawman: Transport protocols should be able to
+        adapt to reordering as long as the reordering extent is not
+        more than the maximum of one quarter window or 1 mS,
+        whichever is larger. Within this limit on reorder extent,
+        there should be no bound on reordering density.</t>
+
+        <t>By implication, recording which is less than these
+        bounds should not be treated as a network impairment.
+        However 
+        <xref target="RFC4737" /> still applies: reordering should
+        be instrumented and the maximum reordering that can be
+        properly characterized by the test (e.g. bound on history
+        buffers) should be recorded with the measurement
+        results.</t>
+
+        <t>Reordering tolerance and diagnostic limitations, such as
+        the size of the history buffer used to diagnose packets
+        that are way out-of-order, MUST be specified in a
+        FSTIDS.</t>
+        <!--
+
+<t>Section 5 of <xref target="RFC4737" /> proposed a metric that may be sufficient to designate isolated reordered packets as effectively lost, because TCP's retransmission response would be the same.</t>
+
+-->
+      </section>

@@ -1,0 +1,133 @@
+    <!-- ======================================================== 9 -->
+    <section anchor="examples" title="An Example">
+
+      <t>In this section a we illustrate a TIDS designed to confirm
+      that an access ISP can reliably deliver HD video from
+      multiple content providers to all of their customers. With
+      modern codecs, minimal HD video (720p) generally fits in 2.5
+      Mb/s. Due to their geographical size, network topology and
+      modem designs the ISP determines that most content is within
+      a 50 mS RTT from their users (This is a sufficient to cover
+      continental Europe or either US coast from a single serving
+      site.)</t>
+      <texttable anchor="HDvideo_table">
+        <preamble>2.5 Mb/s over a 50 ms path</preamble>
+        <ttcol>End-to-End Parameter</ttcol>
+        <ttcol>value</ttcol>
+        <ttcol>units</ttcol>
+        <c>target_rate</c>
+        <c>2.5</c>
+        <c>Mb/s</c>
+        <c>target_RTT</c>
+        <c>50</c>
+        <c>ms</c>
+        <c>target_MTU</c>
+        <c>1500</c>
+        <c>bytes</c>
+        <c>header_overhead</c>
+        <c>64</c>
+        <c>bytes</c>
+        <c></c>
+        <c></c>
+        <c></c>
+        <c>target_window_size</c>
+        <c>11</c>
+        <c>packets</c>
+        <c>target_run_length</c>
+        <c>363</c>
+        <c>packets</c>
+      </texttable>
+
+      <t>Table 1 shows the default TCP model with no derating, and
+      as such is quite conservative. The simplest TIDS would be to
+      use the sustained burst test, described in 
+      <xref target="sustained_burst" />. Such a test would send 11
+      packet bursts every 50mS, and confirming that there was no
+      more than 1 packet loss per 33 bursts (363 total packets in
+      1.650 seconds).</t>
+
+      <t>Since this number represents is the entire end-to-end loss
+      budget, independent subpath tests could be implemented by
+      apportioning the packet loss ratio across subpaths. For
+      example 50% of the losses might be allocated to the access or
+      last mile link to the user, 40% to the interconnects with
+      other ISPs and 1% to each internal hop (assuming no more than
+      10 internal hops). Then all of the subpaths can be tested
+      independently, and the spatial composition of passing
+      subpaths would be expected to be within the end-to-end loss
+      budget.</t>
+      <!-- @@@@ move to conclusion? -->
+
+      <t>Testing interconnects has generally been problematic:
+      conventional performance tests run between measurement points
+      adjacent to either side of the interconnect, are not
+      generally useful. Unconstrained TCP tests, such as iperf 
+      <xref target="iperf" /> are usually overly aggressive because
+      the RTT is so small (often less than 1 mS). With a short RTT
+      these tools are likely to report inflated numbers because for
+      short RTTs these tools can tolerate very high packet loss
+      ratios and can push other cross traffic off of the network.
+      As a consequence they are useless for predicting actual user
+      performance, and may themselves be quite disruptive. Model
+      Based Metrics solves this problem. The same test pattern as
+      used on other subpaths can be applied to the interconnect.
+      For our example, when apportioned 40% of the losses, 11
+      packet bursts sent every 50mS should have fewer than one loss
+      per 82 bursts (902 packets).</t>
+
+      <!-- <t> @@ SPRT example here, or remove reference above </t> -->
+      <!--   @@ consider 10 or 20 mS RTT. -->
+      <!--
+<section anchor="SDvideo" title="Far serving SD streaming video">
+
+<t>Standard Quality video typically fits in 1 Mb/s [@@SDvideo].   This can be reasonably delivered via longer paths with larger.   We assume 100mS.</t>
+
+
+<texttable anchor="SDvideo_table">
+<preamble>1 Mb/s over a 100 ms path</preamble>
+<ttcol>End-to-End Parameter </ttcol>
+<ttcol>Value</ttcol>
+<ttcol>units</ttcol>
+<c>target_rate</c><c>1</c><c>Mb/s</c>
+<c>target_RTT</c><c>100</c><c>ms</c>
+<c>traget_MTU</c><c>1500</c><c>bytes</c>
+
+
+<c>target_window_size</c><c>9</c><c>packets</c>
+<c>target_run_length</c><c>243</c><c>packets</c>
+</texttable>
+
+<t>This example uses the most conservative TCP model and no derating.</t>
+
+
+</section>
+<section anchor="BulkData" title="Bulk delivery of remote scientific data">
+
+<t>This example corresponds to 100 Mb/s bulk scientific data over a moderately long RTT.  Note that the target_run_length is infeasible for most networks.</t>
+
+
+<texttable anchor="Bulk
+Data_table">
+<preamble>100 Mb/s over a 200 ms path</preamble>
+<ttcol>End-to-End Parameter </ttcol>
+<ttcol>Value</ttcol>
+<ttcol>units</ttcol>
+<c>target_rate</c><c>100</c><c>Mb/s</c>
+<c>target_RTT</c><c>200</c><c>ms</c>
+<c>traget_MTU</c><c>1500</c><c>bytes</c>
+
+
+<c>target_window_size</c><c>1741</c><c>packets</c>
+<c>target_run_length</c><c>9093243</c><c>packets</c>
+</texttable>
+
+
+
+
+
+
+
+
+</section>
+-->
+    </section>

@@ -1,0 +1,15 @@
+        <section anchor="backloss"
+        title="Background Packet Transfer Statistics Tests">
+
+          <t>The background run length is a low rate version of the
+          target target rate test above, designed for ongoing
+          lightweight monitoring for changes in the observed
+          subpath run length without disrupting users. It should be
+          used in conjunction with one of the above full rate tests
+          because it does not confirm that the subpath can support
+          raw data rate.</t>
+
+          <t>RFC 6673 
+          <xref target="RFC6673" /> is appropriate for measuring
+          background packet transfer statistics.</t>
+        </section>

@@ -1,0 +1,294 @@
+    <!-- ======================================================== 4 -->
+    <section anchor="background" title="Background">
+
+      <t>At the time the IPPM WG was chartered, sound Bulk
+      Transport Capacity measurement was known to be well beyond
+      our capabilities. Even at the time that Framework for IP
+      Performance Metrics 
+      <xref target="RFC3148" /> was written we knew that we didn't
+      fully understand the problem. Now, by hindsight we understand
+      why BTC is such a hard problem:
+      <list style="symbols">
+
+        <t>TCP is a control system with circular dependencies -
+        everything affects performance, including components that
+        are explicitly not part of the test.</t>
+
+        <t>Congestion control is an equilibrium process, such that
+        transport protocols change the packet transfer statistics
+        (raise the packet loss ratio and/or RTT) to conform to
+        their behavior. By design TCP congestion control keeps
+        raising the data rate until the network gives some
+        indication that it is full by dropping or ECN CE marking
+        packets. If TCP successfully fills the network (e.g. the
+        bottleneck is 100% utilized) the packet loss and ECN CE
+        marks are mostly determined by TCP and how hard TCP drives
+        the network at that rate and not by the network itself.</t>
+
+        <t>TCP's ability to compensate for network flaws is
+        directly proportional to the number of roundtrips per
+        second (i.e. inversely proportional to the RTT). As a
+        consequence a flawed subpath may pass a short RTT local
+        test even though it fails when the subpath is extended by
+        an effectively perfect network to some larger RTT.</t>
+
+        <t>TCP has an extreme form of the Heisenberg problem -
+        Measurement and cross traffic interact in unknown and ill
+        defined ways. The situation is actually worse than the
+        traditional physics problem where you can at least estimate
+        bounds on the relative momentum of the measurement and
+        measured particles. For network measurement you can not in
+        general determine the relative "mass" of either the test
+        stream or the cross traffic, so you can not gauge the
+        relative magnitude of the uncertainty that might be
+        introduced by any interaction.</t>
+      </list></t>
+
+      <t>These properties are a consequence of the equilibrium
+      behavior intrinsic to how all throughput maximizing protocols
+      interact with the Internet. These protocols rely on control
+      systems based on estimated network parameters to regulate the
+      quantity of data sent into the network. The sent data in turn
+      alters the network properties observed by the estimators,
+      such that there are circular dependencies between every
+      component and every property. Since some of these properties
+      are nonlinear, the entire system is nonlinear, and any change
+      anywhere causes difficult to predict changes in every
+      parameter.</t>
+
+      <t>Model Based Metrics overcome these problems by making the
+      measurement system open loop: the packet transfer statistics
+      (akin to the network estimators) do not affect the traffic or
+      traffic patterns (bursts), which computed on the basis of the
+      Target Transport Performance. In order for a network to pass,
+      the resulting packet transfer statistics and corresponding
+      network estimators have to be such that they would not cause
+      the control systems slow the traffic below the Target Data
+      Rate.</t>
+      <section anchor="tcp" title="TCP properties">
+
+        <t>TCP and SCTP are self clocked protocols that carry the
+        vast majority of all Internet data. Their dominant behavior
+        is to have an approximately fixed quantity of data and
+        acknowledgements (ACKs) circulating in the network. The
+        data receiver reports arriving data by returning ACKs to
+        the data sender, the data sender typically responds by
+        sending exactly the same quantity of data back into the
+        network. The total quantity of data plus the data
+        represented by ACKs circulating in the network is referred
+        to as the window. The mandatory congestion control
+        algorithms incrementally adjust the window by sending
+        slightly more or less data in response to each ACK. The
+        fundamentally important property of this system is that it
+        is self clocked: The data transmissions are a reflection of
+        the ACKs that were delivered by the network, the ACKs are a
+        reflection of the data arriving from the network.</t>
+
+        <t>A number of protocol features cause bursts of data, even
+        in idealized networks that can be modeled as simple
+        queueing systems.</t>
+
+        <t>During slowstart the IP rate is doubled on each RTT by
+        sending twice as much data as was delivered to the receiver
+        during the prior RTT. Each returning ACK causes the sender
+        to transmit twice the data the ACK reported arriving at the
+        receiver. For slowstart to be able to fill a network the
+        network must be able to tolerate slowstart bursts up to the
+        full pipe size inflated by the anticipated window reduction
+        on the first loss or ECN CE mark. For example, with classic
+        Reno congestion control, an optimal slowstart has to end
+        with a burst that is twice the bottleneck rate for one RTT
+        in duration. This burst causes a queue which is equal to
+        the pipe size (i.e. the window is twice the pipe size) so
+        when the window is halved in response to the first packet
+        loss, the new window will be the pipe size.</t>
+
+        <t>Note that if the bottleneck IP rate is less that half of
+        the capacity of the front path (which is almost always the
+        case), the slowstart bursts will not by themselves cause
+        significant queues anywhere else along the front path; they
+        primarily exercise the queue at the dominant
+        bottleneck.</t>
+
+        <t>Several common efficiency algorithms also cause bursts.
+        The self clock is typically applied to groups of packets:
+        the receiver's delayed ACK algorithm generally sends only
+        one ACK per two data segments. Furthermore the modern
+        senders use TCP segmentation offload (TSO) to reduce CPU
+        overhead. The sender's software stack builds supersized TCP
+        segments that the TSO hardware splits into MTU sized
+        segments on the wire. The net effect of TSO, delayed ACK
+        and other efficiency algorithms is to send bursts of
+        segments at full sender interface rate.</t>
+
+        <t>Note that these efficiency algorithms are almost always
+        in effect, including during slowstart, such that slowstart
+        typically has a two level burst structure. 
+        <xref target="paced" /> describes slowstart in more
+        detail.</t>
+
+        <t>Additional sources of bursts include TCP's initial
+        window 
+        <xref target="RFC6928" />, application pauses, channel
+        allocation mechanisms and network devices that schedule
+        ACKs. 
+        <xref target="complex" /> describes these last two items. If
+        the application pauses (stops reading or writing data) for
+        some fraction of an RTT, many TCP implementations catch up
+        to their earlier window size by sending a burst of data at
+        the full sender interface rate. To fill a network with a
+        realistic application, the network has to be able to
+        tolerate sender interface rate bursts large enough to
+        restore the prior window following application pauses.</t>
+
+        <t>Although the sender interface rate bursts are typically
+        smaller than the last burst of a slowstart, they are at a
+        higher IP rate so they potentially exercise queues at
+        arbitrary points along the front path from the data sender
+        up to and including the queue at the dominant bottleneck.
+        There is no model for how frequent or what sizes of sender
+        rate bursts the network should tolerate.</t>
+
+        <t>In conclusion, to verify that a path can meet a Target
+        Transport Performance, it is necessary to independently
+        confirm that the path can tolerate bursts at the scales
+        that can be caused by these mechanisms. Three cases are
+        believed to be sufficient:</t>
+
+        <t>
+          <list style="symbols">
+
+            <t>Two level slowstart bursts sufficient to get
+            connections started properly.</t>
+
+            <t>Ubiquitous sender interface rate bursts caused by
+            efficiency algorithms. We assume 4 packet bursts to be
+            the most common case, since it matches the effects of
+            delayed ACK during slowstart. These bursts should be
+            assumed not to significantly affect packet transfer
+            statistics.</t>
+
+            <t>Infrequent sender interface rate bursts that are
+            full target_window_size. Target_run_length may be
+            derated for these large fast bursts.</t>
+          </list>
+        </t>
+
+        <t>If a subpath can meet the required packet loss ratio for
+        bursts at all of these scales then it has sufficient
+        buffering at all potential bottlenecks to tolerate any of
+        the bursts that are likely introduced by TCP or other
+        transport protocols.</t>
+      </section>
+      <section anchor="approach" title="Diagnostic Approach">
+        <!--
+
+<t>Reinstate? @@@@   Therefore each subpath's contribution to the end-to-end packet transfer statistics can be assumed to be independent, and spatial composition techniques such as <xref target="RFC5835" /> and <xref target="RFC6049" /> apply. </t> -->
+
+        <t>A complete path of a given RTT and MTU, which are equal
+        to or smaller than the Target RTT and equal to or larger
+        than the Target MTU respectively, is expected to be able to
+        attain a specified Bulk Transport Capacity when all of the
+        following conditions are met:
+        <list style="numbers">
+
+          <t>The IP capacity is above the Target Data Rate by
+          sufficient margin to cover all TCP/IP overheads. This can
+          be confirmed by the tests described in 
+          <xref target="basicdata" /> or any number of IP capacity
+          tests adapted to implement MBM.</t>
+
+          <t>The observed packet transfer statistics are better
+          than required by a suitable TCP performance model (e.g.
+          fewer packet losses or ECN CE marks). See 
+          <xref target="basicdata" /> or any number of low rate
+          packet loss tests outside of MBM.</t>
+
+          <t>There is sufficient buffering at the dominant
+          bottleneck to absorb a slowstart bursts large enough to
+          get the flow out of slowstart at a suitable window size.
+          See 
+          <xref target="slowstart" />.</t>
+
+          <t>There is sufficient buffering in the front path to
+          absorb and smooth sender interface rate bursts at all
+          scales that are likely to be generated by the
+          application, any channel arbitration in the ACK path or
+          any other mechanisms. See 
+          <xref target="sender_rate" />.</t>
+
+          <t>When there is a slowly rising standing queue at the
+          bottleneck the onset of packet loss has to be at an
+          appropriate point (time or queue depth) and progressive 
+          <xref target="RFC7567" />. See 
+          <xref target="standing_queue" />.</t>
+
+          <t>When there is a standing queue at a bottleneck for a
+          shared media subpath (e.g. half duplex), there must be a
+          suitable bounds on the interaction between ACKs and data,
+          for example due to the channel arbitration mechanism. See
+          
+          <xref target="self_interference" />.</t>
+        </list></t>
+
+        <t>Note that conditions 1 through 4 require capacity tests
+        for validation, and thus may need to be monitored on an
+        ongoing basis. Conditions 5 and 6 require engineering
+        tests, which are best performed in controlled environments
+        such as a bench test. They won't generally fail due to
+        load, but may fail in the field due to configuration
+        errors, etc. and should be spot checked.</t>
+
+        <t>We are developing a tool that can perform many of the
+        tests described here 
+        <xref target="MBMSource" />.</t>
+        <!-- @@ move? -->
+      </section>
+      <section anchor="requirements"
+      title="New requirements relative to RFC 2330">
+
+        <t>Model Based Metrics are designed to fulfill some
+        additional requirements that were not recognized at the
+        time RFC 2330 was written 
+        <xref target="RFC2330" />. These missing requirements may
+        have significantly contributed to policy difficulties in
+        the IP measurement space. Some additional requirements are:
+        <list style="symbols">
+
+          <t>IP metrics must be actionable by the ISP - they have
+          to be interpreted in terms of behaviors or properties at
+          the IP or lower layers, that an ISP can test, repair and
+          verify.</t>
+
+          <t>Metrics should be spatially composable, such that
+          measures of concatenated paths should be predictable from
+          subpaths. 
+          <!-- Ideally they should also be differentiable: the metrics of a subpath should be  @@ oops  --></t>
+
+          <t>Metrics must be vantage point invariant over a
+          significant range of measurement point choices, including
+          off path measurement points. The only requirements on MP
+          selection should be that the RTT between the MPs is below
+          some reasonable bound, and that the effects of the "test
+          leads" connecting MPs to the subpath under test can be
+          can be calibrated out of the measurements. The latter
+          might be be accomplished if the test leads are
+          effectively ideal or their properties can be deducted
+          from the measurements between the MPs. While many of
+          tests require that the test leads have at least as much
+          IP capacity as the subpath under test, some do not, for
+          example Background Packet Transfer Tests described in 
+          <xref target="backloss" />.</t>
+
+          <t>Metric measurements must be repeatable by multiple
+          parties with no specialized access to MPs or diagnostic
+          infrastructure. It must be possible for different parties
+          to make the same measurement and observe the same
+          results. In particular it is specifically important that
+          both a consumer (or their delegate) and ISP be able to
+          perform the same measurement and get the same result.
+          Note that vantage independence is key to meeting this
+          requirement.</t>
+        </list></t>
+      </section>
+    </section>

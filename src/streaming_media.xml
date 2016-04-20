@@ -1,0 +1,53 @@
+        <section anchor="streaming_media" title="Streaming Media">
+
+          <t>Model Based Metrics can be implicitly implemented as a
+          side effect any non-throughput maximizing application,
+          such as streaming media, with some additional controls
+          and instrumentation in the servers. The essential
+          requirement is that the data rate be constrained such
+          that even with arbitrary application pauses and bursts
+          the data rate and burst sizes stay within the envelope
+          defined by the individual tests described above.</t>
+
+          <t>If the application's serving_data_rate is less than or
+          equal to the target_data_rate and the serving_RTT (the
+          RTT between the sender and client) is less than the
+          target_RTT, this constraint is most easily implemented by
+          clamping the transport window size to be no larger
+          than:</t>
+
+          <t>
+          serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)</t>
+
+          <t>Under the above constraints the serving_window_clamp
+          will limit the both the serving data rate and burst sizes
+          to be no larger than the procedures in 
+          <xref target="windowed_rate" /> and 
+          <xref target="sender_rate" /> or 
+          <xref target="sustained_burst" />. Since the serving RTT
+          is smaller than the target_RTT, the worst case bursts
+          that might be generated under these conditions will be
+          smaller than called for by 
+          <xref target="sender_rate" /> and the sender rate burst
+          sizes are implicitly derated by the serving_window_clamp
+          divided by the target_window_size at the very least.
+          (Depending on the application behavior, the data might be
+          significantly smoother than specified by any of the burst
+          tests.)</t>
+          <!--
+
+<t>Note that it is important that the target_data_rate be above the actual average rate needed by the application so it can recover after transient pauses caused by congestion or the application itself.  @@ @@ not really</t>
+-->
+
+          <t>In an alternative implementation the data rate and
+          bursts might be explicitly controlled by a programmable
+          traffic shaper or pacing at the sender. This would
+          provide better control over transmissions but it is
+          substantially more complicated to implement and would be
+          likely to have a higher CPU overhead.</t>
+
+          <t>Note that these techniques can be applied to any
+          content delivery that can be subjected to a reduced data
+          rate in order to inhibit TCP equilibrium behavior.</t>
+          <!-- @@ @@ cite TCP trickle, -->
+        </section>

@@ -1,0 +1,54 @@
+      <section anchor="basicdata"
+      title="Basic Data Rate and Packet Transfer Tests">
+
+        <t>We propose several versions of the basic data rate and
+        packet transfer statistics test. All measure the number of
+        packets delivered between losses or ECN Congestion
+        Experienced (CE) marks, using a data stream that is rate
+        controlled at or below the target_data_rate.</t>
+
+        <t>The tests below differ in how the data rate is
+        controlled. The data can be paced on a timer, or window
+        controlled at full Target Data Rate. The first two tests
+        implicitly confirm that sub_path has sufficient raw
+        capacity to carry the target_data_rate. They are recommend
+        for relatively infrequent testing, such as an installation
+        or periodic auditing process. The third, background packet
+        transfer statistics, is a low rate test designed for
+        ongoing monitoring for changes in subpath quality.</t>
+
+        <t>All rely on the data receiver accumulating packet
+        transfer statistics as described in 
+        <xref target="statistics" /> to score the outcome:</t>
+
+        <t>Pass: it is statistically significant that the observed
+        interval between losses or ECN CE marks is larger than the
+        target_run_length.</t>
+
+        <t>Fail: it is statistically significant that the observed
+        interval between losses or ECN CE marks is smaller than the
+        target_run_length.</t>
+
+        <t>A test is considered to be inconclusive if it failed to
+        meet the data rate as specified below, meet the
+        qualifications defined in 
+        <xref target="qualifications" /> or neither run length
+        statistical hypothesis was confirmed in the allotted test
+        duration.</t>
+        <section title="Delivery Statistics at Paced Full Data Rate">
+
+
+          <t>Confirm that the observed run length is at least the
+          target_run_length while relying on timer to send data at
+          the target_rate using the procedure described in in 
+          <xref target="paced" /> with a burst size of 1 (single
+          packets) or 2 (packet pairs).</t>
+
+          <t>The test is considered to be inconclusive if the
+          packet transmission can not be accurately controlled for
+          any reason.</t>
+
+          <t>RFC 6673 
+          <xref target="RFC6673" /> is appropriate for measuring
+          packet transfer statistics at full data rate.</t>
+        </section>
