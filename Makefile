@@ -1,9 +1,6 @@
 NAME=draft-ietf-ippm-model-based-metrics
 TARGETS=$(NAME).txt $(NAME).html
 TARGETS=$(NAME).html $(NAME).txt
-# Doc and thie Makefile MUST NOT contain any Google private information
-# and must be in gmail (not corp) "anybody with URL can access"
-# DOCID=1-WxkTWGuMV0hxdXT4Z_a5XpoZEXxeLUA618_8jpyP_A
 WEBNAME=draft-ietf-ippm-model-based-metrics
 # Make file below a link to the most recent published version
 PRIOR=prior
@@ -13,9 +10,6 @@ WEBDIR=${HOME}/www/drafts
 BUILDKIT=MBM_buildkit.tgz
 FORMATTED=`date`
 LIB='XML_LIBRARY='${PWD}
-
-.SUFFIXES:
-.SUFFIXES: .stamp .tex .pdf
 
 top: all
 
@@ -28,10 +22,7 @@ stage: $(NAME).txt $(NAME).html ${BUILDKIT}
 	cp ${BUILDKIT} ${WEBDIR}/
 	chmod 644 ${WEBDIR}/${WEBNAME}*
 
-buildkit ${BUILDKIT}:
-	tar czvf ${BUILDKIT} decorateMBM decorate.py Makefile Pub References
-
-all: trigger $(TARGETS)
+all: trigger $(TARGETS)  
 
 trigger $(NAME).trig:
 	touch $(NAME).trig
@@ -39,15 +30,25 @@ trigger $(NAME).trig:
 clean:
 	rm -f $(NAME).trig $(NAME).tmp $(NAME).xml $(NAME).pdf $(NAME).txt $(NAME).html $(NAME).txt.bar ${BUILDKIT}
 
+# link $(PRIOR).txt to Pub/whatever 
+rfcdiff: $(NAME).txt
+	tools/rfcdiff $(PRIOR).txt $(NAME).txt
+	@echo See $(NAME)-from-$(PRIOR).diff.html
+
 changebar: $(NAME).txt
-	changebar  $(NAME).txt $(PRIOR).txt
+	changebar $(NAME).txt $(PRIOR).txt
 
 less: trigger $(NAME).txt changebar
 	less $(NAME).txt.bar
 
-# This fetches the shared source from Google docs
-$(NAME).xml: PRIOR.$(NAME).xml $(NAME).trig
-	cat PRIOR.$(NAME).xml | sed  -e "s/FORMATTED/$(FORMATTED)/g" -e '/<\/rfc>/q' -e '/%/a\\ ' > $(NAME).xml
+checkxml:
+	for f in src/*.xml; do tidy -e -q -xml $$f ; done
+
+# TODO: enumerate all source files
+.PHONY: $(NAME).xml
+$(NAME).xml: $(NAME).trig
+	tools/merge.py main.xml | sed  -e "s/FORMATTED/$(FORMATTED)/g" -e '/<\/rfc>/q' -e '/%/a\\ ' > $(NAME).tmp
+	mv $(NAME).tmp $(NAME).xml
 
 $(NAME).pdf: $(NAME).xml
 	-echo Making $(NAME).pdf ======
