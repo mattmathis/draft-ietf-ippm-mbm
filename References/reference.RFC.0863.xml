@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='RFC0863'>
+
+<front>
+<title>Discard Protocol</title>
+<author initials='J.' surname='Postel' fullname='J. Postel'>
+<organization>University of Southern California (USC)/Information Sciences Institute</organization>
+<address>
+<postal>
+<street>4676 Admiralty Way</street>
+<city>Marina del Rey</city>
+<region>CA</region>
+<code>90291</code>
+<country>US</country></postal>
+<phone>+1 213 822 1511</phone></address></author>
+<date year='1983' day='1' month='May' />
+<abstract>
+<t>This RFC specifies a standard for the ARPA Internet community.  Hosts on the ARPA Internet that choose to implement a Discard Protocol are expected to adopt and implement this standard.</t>
+<t>A useful debugging and measurement tool is a discard service.  A discard service simply throws away any data it receives.</t></abstract></front>
+
+<seriesInfo name='STD' value='21' />
+<seriesInfo name='RFC' value='863' />
+<format type='TXT' octets='1297' target='http://www.rfc-editor.org/rfc/rfc863.txt' />
+</reference>

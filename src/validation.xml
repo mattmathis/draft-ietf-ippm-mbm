@@ -1,0 +1,75 @@
+    <!-- ======================================================== 9 -->
+    <section anchor="validation" title="Validation">
+
+      <t>Since some aspects of the models are likely to be too
+      conservative, 
+      <xref target="models" /> permits alternate protocol models and
+      
+      <xref target="derate" /> permits test parameter derating. If
+      either of these techniques are used, we require
+      demonstrations that such a TIDS can robustly detect subpaths
+      that will prevent authentic applications using
+      state-of-the-art protocol implementations from meeting the
+      specified Target Transport Performance. This correctness
+      criteria is potentially difficult to prove, because it
+      implicitly requires validating a TIDS against all possible
+      subpaths and subpaths. The procedures described here are
+      still experimental.</t>
+
+      <t>We suggest two approaches, both of which should be
+      applied: first, publish a fully open description of the TIDS,
+      including what assumptions were used and and how it was
+      derived, such that the research community can evaluate the
+      design decisions, test them and comment on their
+      applicability; and second, demonstrate that an applications
+      running over an infinitesimally passing testbed do meet the
+      performance targets.</t>
+
+      <t>An infinitesimally passing testbed resembles a
+      epsilon-delta proof in calculus. Construct a test network
+      such that all of the individual tests of the TIDS pass by
+      only small (infinitesimal) margins, and demonstrate that a
+      variety of authentic applications running over real TCP
+      implementations (or other protocol as appropriate) meets the
+      Target Transport Performance over such a network. The
+      workloads should include multiple types of streaming media
+      and transaction oriented short flows (e.g. synthetic web
+      traffic).</t>
+
+      <t>For example, for the HD streaming video TIDS described in 
+      <xref target="examples" />, the IP capacity should be exactly
+      the header overhead above 2.5 Mb/s, the per packet random
+      background loss ratio should be 1/363, for a run length of
+      363 packets, the bottleneck queue should be 11 packets and
+      the front path should have just enough buffering to withstand
+      11 packet interface rate bursts. We want every one of the
+      TIDS tests to fail if we slightly increase the relevant test
+      parameter, so for example sending a 12 packet bursts should
+      cause excess (possibly deterministic) packet drops at the
+      dominant queue at the bottleneck. On this infinitesimally
+      passing network it should be possible for a real application
+      using a stock TCP implementation in the vendor's default
+      configuration to attain 2.5 Mb/s over an 50 mS path.</t>
+
+      <t>The most difficult part of setting up such a testbed is
+      arranging for it to infinitesimally pass the individual
+      tests. Two approaches: constraining the network devices not
+      to use all available resources (e.g. by limiting available
+      buffer space or data rate); and preloading subpaths with
+      cross traffic. Note that is it important that a single
+      environment be constructed which infinitesimally passes all
+      tests at the same time, otherwise there is a chance that TCP
+      can exploit extra latitude in some parameters (such as data
+      rate) to partially compensate for constraints in other
+      parameters (queue space, or viceversa).</t>
+
+      <t>To the extent that a TIDS is used to inform public dialog
+      it should be fully publicly documented, including the details
+      of the tests, what assumptions were used and how it was
+      derived. All of the details of the validation experiment
+      should also be published with sufficient detail for the
+      experiments to be replicated by other researchers. All
+      components should either be open source of fully described
+      proprietary implementations that are available to the
+      research community.</t>
+    </section>

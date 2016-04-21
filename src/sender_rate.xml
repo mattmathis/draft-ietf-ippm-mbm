@@ -1,0 +1,57 @@
+      <section anchor="sender_rate"
+      title="Sender Rate Burst tests">
+
+        <t>These tests determine how well the network can deliver
+        bursts sent at sender's interface rate. Note that this test
+        most heavily exercises the front path, and is likely to
+        include infrastructure may be out of scope for an access
+        ISP, even though the bursts might be caused by ACK
+        compression, thinning or channel arbitration in the access
+        ISP. See 
+        <xref target="complex" />.</t>
+
+        <t>Also, there are a several details that are not precisely
+        defined. For starters there is not a standard server
+        interface rate. 1 Gb/s and 10 Gb/s are common today, but
+        higher rates will become cost effective and can be expected
+        to be dominant some time in the future.</t>
+
+        <t>Current standards permit TCP to send a full window
+        bursts following an application pause. (Congestion Window
+        Validation 
+        <xref target="RFC2861" />, is not required, but even if
+        was, it does not take effect until an application pause is
+        longer than an RTO.) Since full window bursts are
+        consistent with standard behavior, it is desirable that the
+        network be able to deliver such bursts, otherwise
+        application pauses will cause unwarranted losses. Note that
+        the AIMD sawtooth requires a peak window that is twice
+        target_window_size, so the worst case burst may be
+        2*target_window_size.</t>
+
+        <t>It is also understood in the application and serving
+        community that interface rate bursts have a cost to the
+        network that has to be balanced against other costs in the
+        servers themselves. For example TCP Segmentation Offload
+        (TSO) reduces server CPU in exchange for larger network
+        bursts, which increase the stress on network buffer memory.
+        Some newer TCP implementations can pace traffic at scale 
+        <xref target="TSO_pacing" /><xref target="TSO_fq_pacing" />.
+	It remains to be
+        determined if and how quickly these changes will be
+        deployed.</t>
+
+        <t>There is not yet theory to unify these costs or to
+        provide a framework for trying to optimize global
+        efficiency. We do not yet have a model for how much the
+        network should tolerate server rate bursts. Some bursts
+        must be tolerated by the network, but it is probably
+        unreasonable to expect the network to be able to
+        efficiently deliver all data as a series of bursts.</t>
+
+        <t>For this reason, this is the only test for which we
+        encourage derating. A TIDS could include a table of pairs
+        of derating parameters: burst sizes and how much each burst
+        size is permitted to reduce the run length, relative to to
+        the target_run_length.</t>
+      </section>

@@ -1,0 +1,194 @@
+    <!-- ======================================================== 1. -->
+    <section anchor="introduction" title="Introduction">
+
+      <t>Model Based Metrics (MBM) rely on mathematical models to
+      specify a Targeted Suite of IP Diagnostic tests, designed to
+      assess whether common transport protocols can be expected to
+      meet a predetermined Target Transport Performance over an
+      Internet path. This note describes the modeling framework to
+      derive the test parameters for accessing an Internet path's
+      ability to support a predetermined Bulk Transport
+      Capacity.</t>
+
+      <t>Each test in the Targeted IP Diagnostic Suite (TIDS)
+      measures some aspect of IP packet transfer needed to meet the
+      Target Transport Performance. For Bulk Transport Capacity the
+      TIDS includes IP diagnostic tests to verify that there is:
+      sufficient IP capacity (data rate); sufficient queue space at
+      bottlenecks to absorb and deliver typical transport bursts;
+      and that the background packet loss ratio is low enough not
+      to interfere with congestion control; and other properties
+      described below. Unlike typical IPPM metrics which yield
+      measures of network properties, Model Based Metrics nominally
+      yield pass/fail evaluations of the ability of standard
+      transport protocols to meet the specific performance
+      objective over some network path.</t>
+
+      <t>In most cases the IP diagnostic tests can be implemented
+      by combining existing IPPM metrics with additional controls
+      for generating test streams having a specified temporal
+      structure (busts or standing queues, etc) and statistical
+      criteria for evaluating packet transfer. The temporal
+      structure of the test streams mimic transport protocol
+      behavior over the complete path, the statistical criteria
+      models the transport protocol's response to less than ideal
+      IP packet transfer.</t>
+
+      <t>This note describes an alternative to the approach
+      presented in "A Framework for Defining Empirical Bulk
+      Transfer Capacity Metrics" 
+      <xref target="RFC3148" />. In the future, other Model Based
+      Metrics may cover other applications and transports, such as
+      VoIP over RTP.</t>
+
+      <t>The MBM approach, mapping Target Transport Performance to
+      a Targeted IP Diagnostic Suite (TIDS) of IP tests, solves
+      some intrinsic problems with using TCP or other throughput
+      maximizing protocols for measurement. In particular all
+      throughput maximizing protocols (and TCP congestion control
+      in particular) cause some level of congestion in order to
+      detect when they have filled the network. This self inflicted
+      congestion obscures the network properties of interest and
+      introduces non-linear equilibrium behaviors that make any
+      resulting measurements useless as metrics because they have
+      no predictive value for conditions or paths different than
+      that of the measurement itself. These problems are discussed
+      at length in 
+      <xref target="background" />.</t>
+
+      <t>A Targeted IP Diagnostic Suite does not have such
+      difficulties. IP diagnostics can be constructed such that
+      they make strong statistical statements about path properties
+      that are independent of the measurement details, such as
+      vantage and choice of measurement points. Model Based Metrics
+      are designed to bridge the gap between empirical IP
+      measurements and expected TCP performance.</t>
+      <section title="Version Control">
+
+        <t>RFC Editor: Please remove this entire subsection prior
+        to publication.</t>
+
+        <t>Please send comments about this draft to ippm@ietf.org.
+        See http://goo.gl/02tkD for more information including:
+        interim drafts, an up to date todo list and information on
+        contributing.</t>
+
+        <t>Formatted: FORMATTED</t>
+
+        <t>Changes since -06 draft: 
+        <list style="symbols">
+
+          <t>More language nits:
+          <list style="symbols">
+
+            <t>"Targeted IP Diagnostic Suite (TIDS)" replaces
+            "Targeted Diagnostic Suite (TDS)".</t>
+
+            <t>"implied bottleneck IP capacity" replaces "implied
+            bottleneck IP rate".</t>
+
+            <t>Updated to ECN CE Marks.</t>
+
+            <t>Added "specified temporal structure"</t>
+
+            <t>"test stream" replaces "test traffic"</t>
+
+            <t>"packet transfer" replaces "packet delivery"</t>
+
+            <t>Reworked discussion of slowstart, bursts and
+            pacing.</t>
+
+            <t>RFC 7567 replaces RFC 2309.</t>
+          </list></t>
+        </list></t>
+
+        <t>Changes since -05 draft: 
+        <list style="symbols">
+
+          <t>Wordsmithing on sections overhauled in -05 draft.</t>
+
+          <t>Reorganized the document:
+          <list style="symbols">
+
+            <t>Relocated subsection "Preconditions".</t>
+
+            <t>Relocated subsection "New Requirements relative to
+            RFC 2330".</t>
+          </list></t>
+
+          <t>Addressed nits and not so nits by Ruediger Geib.
+          (Thanks!)</t>
+
+          <t>Substantially tightened the entire definitions
+          section.</t>
+
+          <t>Many terminology changes, to better conform to other
+          docs :
+          <list style="symbols">
+
+            <t>IP rate and IP capacity (following RFC 5136)
+            replaces various forms of link data rate.</t>
+
+            <t>subpath replaces link.</t>
+
+            <t>target_window_size replaces target_pipe_size.</t>
+
+            <t>implied bottleneck IP rate replaces effective
+            bottleneck link rate.</t>
+
+            <t>Packet delivery statistics replaces delivery
+            statistics.</t>
+          </list></t>
+        </list></t>
+
+        <t>Changes since -04 draft: 
+        <list style="symbols">
+
+          <t>The introduction was heavily overhauled: split into a
+          separate introduction and overview.</t>
+
+          <t>The new shorter introduction: 
+          <list style="symbols">
+
+            <t>Is a problem statement;</t>
+
+            <t>This document provides a framework;</t>
+
+            <t>That it replaces TCP measurement by IP tests;</t>
+
+            <t>That the results are pass/fail.</t>
+          </list></t>
+
+          <t>Added a diagram of the framework to the overview</t>
+
+          <t>and introduces all of the elements of the
+          framework.</t>
+
+          <t>Renumbered sections, reducing the depth of some
+          section numbers.</t>
+
+          <t>Updated definitions to better agree with other
+          documents: 
+          <list style="symbols">
+
+            <t>Reordered section 2</t>
+
+            <t>Bulk [data] performance -&gt; Bulk Transport
+            Capacity, everywhere including the title.</t>
+
+            <t>loss rate and loss probability -&gt; packet loss
+            ratio</t>
+
+            <t>end-to-end path -&gt; complete path</t>
+
+            <t>[end-to-end][target] performance -&gt; Target
+            Transport Performance</t>
+
+            <t>load test -&gt; capacity test</t>
+          </list></t>
+        </list></t>
+        <!--
+
+<t>This interim draft is a partial update since the WGLC, to collect an additional round of feedback on the Introduction, overview, and terminology sections.   Note that some of the prior WGLC comments are still pending.   Later sections (4 and beyond) have only been updated to track changes in the terminology section.   We intend to produce an additional draft prior to the IETF, incorporating  still pending comments from the WGLC and any additional comments on the introduction and overview.  remove/updated</t> -->
+      </section>
+    </section>

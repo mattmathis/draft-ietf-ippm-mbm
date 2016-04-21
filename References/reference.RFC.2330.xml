@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='RFC2330'>
+
+<front>
+<title>Framework for IP Performance Metrics</title>
+<author initials='V.' surname='Paxson' fullname='Vern Paxson'>
+<organization>MS 50B/2239</organization>
+<address>
+<postal>
+<street>Lawrence Berkeley National Laboratory</street>
+<street>University of California</street>
+<city>Berkeley</city>
+<region>CA</region>
+<code>94720</code>
+<country>USA</country></postal>
+<phone>+1 510/486-7504</phone>
+<email>vern@ee.lbl.gov</email></address></author>
+<author initials='G.' surname='Almes' fullname='Guy Almes'>
+<organization>Advanced Network &amp; Services, Inc.</organization>
+<address>
+<postal>
+<street>200 Business Park Drive</street>
+<city>Armonk</city>
+<region>NY</region>
+<code>10504</code>
+<country>USA</country></postal>
+<phone>+1 914/765-1120</phone>
+<email>almes@advanced.org</email></address></author>
+<author initials='J.' surname='Mahdavi' fullname='Jamshid Mahdavi'>
+<organization>Pittsburgh Supercomputing Center</organization>
+<address>
+<postal>
+<street>4400 5th Avenue</street>
+<city>Pittsburgh</city>
+<region>PA</region>
+<code>15213</code>
+<country>USA</country></postal>
+<phone>+1 412/268-6282</phone>
+<email>mahdavi@psc.edu</email></address></author>
+<author initials='M.' surname='Mathis' fullname='Matt Mathis'>
+<organization>Pittsburgh Supercomputing Center</organization>
+<address>
+<postal>
+<street>4400 5th Avenue</street>
+<city>Pittsburgh</city>
+<region>PA</region>
+<code>15213</code>
+<country>USA</country></postal>
+<phone>+1 412/268-3319</phone>
+<email>mathis@psc.edu</email></address></author>
+<date year='1998' month='May' />
+<area>Internet</area>
+<area>Operations</area>
+<keyword>IP</keyword>
+<keyword>metrics</keyword></front>
+
+<seriesInfo name='RFC' value='2330' />
+<format type='TXT' octets='94387' target='http://www.rfc-editor.org/rfc/rfc2330.txt' />
+<format type='HTML' octets='108716' target='http://xml.resource.org/public/rfc/html/rfc2330.html' />
+<format type='XML' octets='92729' target='http://xml.resource.org/public/rfc/xml/rfc2330.xml' />
+</reference>

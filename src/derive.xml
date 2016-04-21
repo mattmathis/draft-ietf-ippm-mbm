@@ -1,0 +1,140 @@
+    <!-- ======================================================== A -->
+    <section anchor="derive" title="Model Derivations">
+      <!-- @@ @@ review language against the models section -->
+
+      <t>The reference target_run_length described in 
+      <xref target="models" /> is based on very conservative
+      assumptions: that all window above target_window_size
+      contributes to a standing queue that raises the RTT, and that
+      classic Reno congestion control with delayed ACKs are in
+      effect. In this section we provide two alternative
+      calculations using different assumptions.</t>
+
+      <t>It may seem out of place to allow such latitude in a
+      measurement standard, but this section provides offsetting
+      requirements.</t>
+
+      <t>The estimates provided by these models make the most sense
+      if network performance is viewed logarithmically. In the
+      operational Internet, data rates span more than 8 orders of
+      magnitude, RTT spans more than 3 orders of magnitude, and
+      packet loss ratio spans at least 8 orders of magnitude if not
+      more. When viewed logarithmically (as in decibels), these
+      correspond to 80 dB of dynamic range. On an 80 dB scale, a 3
+      dB error is less than 4% of the scale, even though it
+      represents a factor of 2 in untransformed parameter.</t>
+
+      <t>This document gives a lot of latitude for calculating
+      target_run_length, however people designing a TIDS should
+      consider the effect of their choices on the ongoing tussle
+      about the relevance of "TCP friendliness" as an appropriate
+      model for Internet capacity allocation. Choosing a
+      target_run_length that is substantially smaller than the
+      reference target_run_length specified in 
+      <xref target="models" /> strengthens the argument that it may
+      be appropriate to abandon "TCP friendliness" as the Internet
+      fairness model. This gives developers incentive and
+      permission to develop even more aggressive applications and
+      protocols, for example by increasing the number of
+      connections that they open concurrently.</t>
+      <section anchor="reno_aggregate" title="Queueless Reno">
+
+        <t>In 
+        <xref target="models" /> models were derived based on the
+        assumption that the subpath IP rate matches the target rate
+        plus overhead, such that the excess window needed for the
+        AIMD sawtooth causes a fluctuating queue at the
+        bottleneck.</t>
+
+        <t>An alternate situation would be a bottleneck where there
+        is no significant queue and losses are caused by some
+        mechanism that does not involve extra delay, for example by
+        the use of a virtual queue as done in Approximate Fair
+        Dropping 
+        <xref target="AFD" />. A flow controlled by such a
+        bottleneck would have a constant RTT and a data rate that
+        fluctuates in a sawtooth due to AIMD congestion control.
+        Assume the losses are being controlled to make the average
+        data rate meet some goal which is equal or greater than the
+        target_rate. The necessary run length to meet the
+        target_rate can be computed as follows:</t>
+
+        <t>For some value of Wmin, the window will sweep from Wmin
+        packets to 2*Wmin packets in 2*Wmin RTT (due to delayed
+        ACK). Unlike the queueing case where Wmin =
+        target_window_size, we want the average of Wmin and 2*Wmin
+        to be the target_window_size, so the average data rate is
+        the target rate. Thus we want Wmin =
+        (2/3)*target_window_size.</t>
+
+        <t>Between losses each sawtooth delivers
+        (1/2)(Wmin+2*Wmin)(2Wmin) packets in 2*Wmin round trip
+        times.</t>
+
+        <t>Substituting these together we get:</t>
+
+        <t>target_run_length = (4/3)(target_window_size^2)</t>
+
+        <t>Note that this is 44% of the reference_run_length
+        computed earlier. This makes sense because under the
+        assumptions in 
+        <xref target="models" /> the AMID sawtooth caused a queue at
+        the bottleneck, which raised the effective RTT by 50%.</t>
+      </section>
+      <!--
+<section anchor="cubic" title="CUBIC">
+
+
+
+
+
+
+
+            <t>CUBIC has three operating regions. The model for the expected value
+            of window size derived in <xref target="LMCUBIC"/> assumes operation
+            in the "concave" region only, which is a non-TCP friendly region for
+            long-lived flows. The authors make the following assumptions: packet
+            loss probability, p, is independent and periodic, losses occur one at a
+            time, and they are true losses due to tail drop or corruption. This
+            definition of p aligns very well with our definition of
+            target_run_length and the requirement for progressive loss (AQM).</t>
+
+
+
+            <t>Although CUBIC window increase depends on continuous time, the
+            authors transform the time to reach the maximum Window size in terms
+            of RTT and a parameter for the multiplicative rate decrease on
+            observing loss, beta (whose default value is 0.2 in CUBIC). The
+            expected value of Window size, E[W], is also dependent on C, a
+            parameter of CUBIC that determines its window-growth aggressiveness
+            (values from 0.01 to 4).</t>
+
+
+
+            <t>E[W] = ( C*(RTT/p)^3 * ((4-beta)/beta) )^-4</t>
+
+
+
+            <t>and, further assuming Poisson arrival, the mean throughput, x,
+            is</t>
+
+
+
+            <t>x = E[W]/RTT</t>
+
+
+
+            <t>We note that under these conditions (deterministic single losses),
+            the value of E[W] is always greater than 0.8 of the maximum window
+            size ~= reference_run_length.</t>
+
+
+
+ <t>This needs one more equation and a closing paragraph  @ @ @ @</t>
+
+
+
+
+</section>
+ -->
+    </section>

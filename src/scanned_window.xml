@@ -1,0 +1,43 @@
+      <section anchor="scanned_window"
+      title="Scanned window pseudo CBR">
+
+        <t>Scanned window pseudo CBR is similar to the constant
+        window CBR described above, except the window is scanned
+        across a range of sizes designed to include two key events,
+        the onset of queueing and the onset of packet loss or ECN
+        CE marks. The window is scanned by incrementing it by one
+        packet every 2*target_window_size delivered packets. This
+        mimics the additive increase phase of standard Reno TCP
+        congestion avoidance when delayed ACKs are in effect.
+        Normally the window increases separated by intervals
+        slightly longer than twice the target_RTT.</t>
+
+        <t>There are two ways to implement this test: one built by
+        applying a window clamp to standard congestion control in a
+        standard protocol such as TCP and the other built by
+        stiffening a non-standard transport protocol. When standard
+        congestion control is in effect, any losses or ECN CE marks
+        cause the transport to revert to a window smaller than the
+        clamp such that the scanning clamp loses control the window
+        size. The NPAD pathdiag tool is an example of this class of
+        algorithms 
+        <xref target="Pathdiag" />.</t>
+
+        <t>Alternatively a non-standard congestion control
+        algorithm can respond to losses by transmitting extra data,
+        such that it maintains the specified window size
+        independent of losses or ECN CE marks. Such a stiffened
+        transport explicitly violates mandatory Internet congestion
+        control 
+        <xref target="RFC5681" /> and is not suitable for in situ
+        testing. It is only appropriate for engineering testing
+        under laboratory conditions. The Windowed Ping tool
+        implements such a test 
+        <xref target="WPING" />. The tool described in the paper
+        has been updated.<xref target="mpingSource" /></t>
+
+        <t>The test procedures in 
+        <xref target="standing_queue" /> describe how to the
+        partition the scans into regions and how to interpret the
+        results.</t>
+      </section>

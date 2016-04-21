@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='RFC0864'>
+
+<front>
+<title>Character Generator Protocol</title>
+<author initials='J.' surname='Postel' fullname='J. Postel'>
+<organization>University of Southern California (USC)/Information Sciences Institute</organization>
+<address>
+<postal>
+<street>4676 Admiralty Way</street>
+<city>Marina del Rey</city>
+<region>CA</region>
+<code>90291</code>
+<country>US</country></postal>
+<phone>+1 213 822 1511</phone></address></author>
+<date year='1983' day='1' month='May' />
+<abstract>
+<t>This RFC specifies a standard for the ARPA Internet community.  Hosts on the ARPA Internet that choose to implement a Character Generator Protocol are expected to adopt and implement this standard.</t>
+<t>A useful debugging and measurement tool is a character generator service.  A character generator service simply sends data without regard to the input.</t></abstract></front>
+
+<seriesInfo name='STD' value='22' />
+<seriesInfo name='RFC' value='864' />
+<format type='TXT' octets='7016' target='http://www.rfc-editor.org/rfc/rfc864.txt' />
+</reference>

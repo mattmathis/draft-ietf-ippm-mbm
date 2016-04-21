@@ -1,0 +1,63 @@
+        <section anchor="sustained_burst"
+        title="Sustained Bursts Test">
+
+          <t>The sustained burst test implements a combined worst
+          case version of all of the capacity tests above. It is
+          simply:</t>
+
+          <t>Send target_window_size bursts of packets at server
+          interface rate with target_RTT burst headway (burst start
+          to burst start). Verify that the observed packet transfer
+          statistics meets the target_run_length.</t>
+
+          <t>Key observations:
+          <list style="symbols">
+
+            <t>The subpath under test is expected to go idle for
+            some fraction of the time:
+            (subpath_IP_capacity-target_rate/(target_MTU-header_overhead)*target_MTU)/subpath_IP_capacity.
+            Failing to do so indicates a problem with the procedure
+            and an inconclusive test result.</t>
+
+            <t>The burst sensitivity can be derated by sending
+            smaller bursts more frequently. E.g. send
+            target_window_size*derate packet bursts every
+            target_RTT*derate.</t>
+
+            <t>When not derated, this test is the most strenuous
+            capacity test.</t>
+
+            <t>A subpath that passes this test is likely to be able
+            to sustain higher rates (close to subpath_IP_capacity)
+            for paths with RTTs significantly smaller than the
+            target_RTT.</t>
+
+            <t>This test can be implemented with instrumented TCP 
+            <xref target="RFC4898" />, using a specialized
+            measurement application at one end 
+            <xref target="MBMSource" /> and a minimal service at the
+            other end 
+            <xref target="RFC0863" />
+            <xref target="RFC0864" />.</t>
+
+            <t>This test is efficient to implement, since it does
+            not require per-packet timers, and can make use of TSO
+            in modern NIC hardware.</t>
+
+            <t>If a subpath is known to pass the Standing Queue
+            engineering tests (particularly that it has a
+            progressive onset of loss at an appropriate queue
+            depth), then the Sustained Burst Test is sufficient to
+            assure that the subpath under test will not impair Bulk
+            Transport Capacity at the target performance under all
+            conditions. See 
+            <xref target="standing_queue" /> for a discussion of the
+            standing queue tests.</t>
+          </list></t>
+
+          <t>Note that this test is clearly independent of the
+          subpath RTT, or other details of the measurement
+          infrastructure, as long as the measurement infrastructure
+          can accurately and reliably deliver the required bursts
+          to the subpath under test.</t>
+        </section>

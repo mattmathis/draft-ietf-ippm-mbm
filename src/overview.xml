@@ -1,0 +1,143 @@
+    <section anchor="overview" title="Overview">
+
+      <t>This document describes a modeling framework for deriving
+      a Targeted IP Diagnostic Suite from a predetermined Target
+      Transport Performance. It is not a complete specification,
+      and relies on other standards documents to define important
+      details such as packet type-p selection, sampling techniques,
+      vantage selection, etc. We imagine Fully Specified Targeted
+      IP Diagnostic Suites (FSTIDS), that define all of these
+      details. We use Targeted IP Diagnostic Suite (TIDS) to refer
+      to the subset of such a specification that is in scope for
+      this document. This terminology is defined in 
+      <xref target="terminology" />.</t>
+
+      <t><xref target="background" /> describes some key aspects of TCP
+      behavior and what they imply about the requirements for IP
+      packet transfer. Most of the IP diagnostic tests needed to
+      confirm that the path meets these properties can be built on
+      existing IPPM metrics, with the addition of statistical
+      criteria for evaluating packet transfer and in a few cases,
+      new mechanisms to implement the required temporal structure.
+      (One group of tests, the standing queue tests described in 
+      <xref target="standing_queue" />, don't correspond to
+      existing IPPM metrics, but suitable metrics can be patterned
+      after existing tools.)</t>
+
+      <t><xref target="fig1" /> shows the MBM modeling and measurement
+      framework. The Target Transport Performance, at the top of
+      the figure, is determined by the needs of the user or
+      application, outside the scope of this document. For Bulk
+      Transport Capacity, the main performance parameter of
+      interest is the Target Data Rate. However, since TCP's
+      ability to compensate for less than ideal network conditions
+      is fundamentally affected by the Round Trip Time (RTT) and
+      the Maximum Transmission Unit (MTU) of the complete path,
+      these parameters must also be specified in advance based on
+      knowledge about the intended application setting. They may
+      reflect a specific application over real path through the
+      Internet or an idealized application and hypothetical path
+      representing a typical user community. 
+      <xref target="all_models" /> describes the common parameters
+      and models derived from the Target Transport Performance.</t>
+
+
+
+
+<!-- 6789112345678921234567893123456789412345678951234567896123456789712 -->
+<figure anchor="fig1">
+<artwork><![CDATA[
+            Target Transport Performance  
+  (Target Data Rate, Target RTT and Target MTU)
+                         |
+                 ________V_________
+                 |  mathematical  |
+                 |     models     |
+                 |                |
+                 ------------------
+Traffic parameters |            | Statistical criteria
+                   |            |
+            _______V____________V____Targeted_______
+           |       |   * * *    | Diagnostic Suite  |
+      _____|_______V____________V________________   |
+    __|____________V____________V______________  |  |
+    |           IP diagnostic test             | |  |
+    |              |            |              | |  |
+    | _____________V__        __V____________  | |  |
+    | |     test     |        |   Delivery  |  | |  |
+    | |    stream    |        |  Evaluation |  | |  |
+    | |  generation  |        |             |  | |  |
+    | -------v--------        ------^--------  | |  |
+    |   |    v    test stream via   ^      |   | |--
+    |   |  -->======================>--    |   | |
+    |   |       subpath under test         |   |-
+    ----V----------------------------------V--- |
+        | |  |                             | |  |
+        V V  V                             V V  V
+    fail/inconclusive            pass/fail/inconclusive    
+]]></artwork>
+<postamble>Overall Modeling Framework</postamble></figure>
+
+      <t>The mathematical models are used to design traffic
+      patterns that mimic TCP or other transport protocol
+      delivering bulk data and operating at the Target Data Rate,
+      MTU and RTT over a full range of conditions, including flows
+      that are bursty at multiple time scales. The traffic patterns
+      are generated based on the three target parameters of
+      complete path and independent of the properties of individual
+      subpaths using the techniques described in 
+      <xref target="generation" />. As much as possible the
+      measurement traffic is generated deterministically
+      (precomputed) to minimize the extent to which test
+      methodology, measurement points, measurement vantage or path
+      partitioning affect the details of the measurement
+      traffic.</t>
+
+      <t>
+      <xref target="results" /> describes packet transfer statistics
+      and methods test them against the bounds provided by the
+      mathematical models. Since these statistics are typically the
+      composition of subpaths of the complete path 
+      <xref target="RFC6049" /> , in situ testing requires that the
+      end-to-end statistical bounds be apportioned as separate
+      bounds for each subpath. Subpaths that are expected to be
+      bottlenecks may be expected to contribute a larger fraction
+      of the total packet loss. In compensation, non-bottlenecked
+      subpaths have to be constrained to contribute less packet
+      loss. The criteria for passing each test of a TIDS is an
+      apportioned share of the total bound determined by the
+      mathematical model from the Target Transport Performance.</t>
+
+      <t>
+      <xref target="tests" /> describes the suite of individual
+      tests needed to verify all of required IP delivery
+      properties. A subpath passes if and only if all of the
+      individual IP diagnostic tests pass. Any subpath that fails
+      any test indicates that some users are likely fail to attain
+      their Target Transport Performance under some conditions. In
+      addition to passing or failing, a test can be deemed to be
+      inconclusive for a number of reasons including: the
+      precomputed traffic pattern was not accurately generated; the
+      measurement results were not statistically significant; and
+      others such as failing to meet some required test
+      preconditions. If all tests pass, except some are
+      inconclusive then the entire suite is deemed to be
+      inconclusive.</t>
+
+      <t>In 
+      <xref target="examples" /> we present an example TIDS that
+      might be representative of HD video, and illustrate how Model
+      Based Metrics can be used to address difficult measurement
+      situations, such as confirming that intercarrier exchanges
+      have sufficient performance and capacity to deliver HD video
+      between ISPs.</t>
+
+      <t>Since there is some uncertainty in the modeling process, 
+      <xref target="validation" /> describes a validation procedure
+      to diagnose and minimize false positive and false negative
+      results.</t>
+      <!--
+
+<t>A TIDS includes the target parameters, documentation of the models and assumptions used to derive the IP diagnostic test parameters, specifications for the traffic patterns and packet transfer statistics for the tests themselves, and a description of a test setup that can be used to validate the tests and models.</t>
+-->
+    </section>

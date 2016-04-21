@@ -1,0 +1,28 @@
+        <section anchor="buffer_bloat" title="Bufferbloat">
+
+          <t>This test confirms that there is some mechanism to
+          limit buffer occupancy (e.g. that prevents bufferbloat).
+          Note that this is not strictly a requirement for single
+          stream bulk transport capacity, however if there is no
+          mechanism to limit buffer queue occupancy then a single
+          stream with sufficient data to deliver is likely to cause
+          the problems described in 
+          <xref target="RFC7567" />, and 
+          <xref target='wikiBloat' />. This may cause only minor
+          symptoms for the dominant flow, but has the potential to
+          make the subpath unusable for other flows and
+          applications.</t>
+
+          <t>Pass if the onset of loss occurs before a standing
+          queue has introduced more delay than than twice
+          target_RTT, or other well defined and specified limit.
+          Note that there is not yet a model for how much standing
+          queue is acceptable. The factor of two chosen here
+          reflects a rule of thumb. In conjunction with the
+          previous test, this test implies that the first loss
+          should occur at a queueing delay which is between one and
+          two times the target_RTT.</t>
+
+          <t>Specified RTT limits that are larger than twice the
+          target_RTT must be fully justified in the FSTIDS.</t>
+        </section>

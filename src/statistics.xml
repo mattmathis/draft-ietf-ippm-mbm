@@ -1,0 +1,204 @@
+      <section anchor="statistics"
+      title="Statistical criteria for estimating run_length">
+
+        <t>When evaluating the observed run_length, we need to
+        determine appropriate packet stream sizes and acceptable
+        error levels for efficient measurement. In practice, can we
+        compare the empirically estimated packet loss and ECN
+        Congestion Experienced (CE) marking ratios with the targets
+        as the sample size grows? How large a sample is needed to
+        say that the measurements of packet transfer indicate a
+        particular run length is present?</t>
+
+        <t>The generalized measurement can be described as
+        recursive testing: send packets (individually or in
+        patterns) and observe the packet delivery performance
+        (packet loss ratio or other metric, any marking we
+        define).</t>
+
+        <t>As each packet is sent and measured, we have an ongoing
+        estimate of the performance in terms of the ratio of packet
+        loss or ECN CE mark to total packets (i.e. an empirical
+        probability). We continue to send until conditions support
+        a conclusion or a maximum sending limit has been
+        reached.</t>
+
+        <t>We have a target_mark_probability, 1 mark per
+        target_run_length, where a "mark" is defined as a lost
+        packet, a packet with ECN CE mark, or other signal. This
+        constitutes the null Hypothesis:</t>
+
+        <t>
+          <list style="hanging">
+            <t hangText="H0:">no more than one mark in
+            target_run_length = 3*(target_window_size)^2
+            packets</t>
+          </list>
+        </t>
+
+        <t>and we can stop sending packets if on-going measurements
+        support accepting H0 with the specified Type I error =
+        alpha (= 0.05 for example).</t>
+
+        <t>We also have an alternative Hypothesis to evaluate: if
+        performance is significantly lower than the
+        target_mark_probability. Based on analysis of typical
+        values and practical limits on measurement duration, we
+        choose four times the H0 probability:</t>
+
+        <t>
+          <list style="hanging">
+            <t hangText="H1:">one or more marks in
+            (target_run_length/4) packets</t>
+          </list>
+        </t>
+
+        <t>and we can stop sending packets if measurements support
+        rejecting H0 with the specified Type II error = beta (=
+        0.05 for example), thus preferring the alternate hypothesis
+        H1.</t>
+
+        <t>H0 and H1 constitute the Success and Failure outcomes
+        described elsewhere in the memo, and while the ongoing
+        measurements do not support either hypothesis the current
+        status of measurements is inconclusive.</t>
+
+        <t>The problem above is formulated to match the Sequential
+        Probability Ratio Test (SPRT) 
+        <xref target="StatQC" />. Note that as originally framed
+        the events under consideration were all manufacturing
+        defects. In networking, ECN CE marks and lost packets are
+        not defects but signals, indicating that the transport
+        protocol should slow down.</t>
+
+        <t>The Sequential Probability Ratio Test also starts with a
+        pair of hypothesis specified as above:</t>
+
+        <t>
+        <list style="hanging">
+          <t hangText="H0:">p0 = one defect in
+          target_run_length</t>
+          <t hangText="H1:">p1 = one defect in
+          target_run_length/4</t>
+        </list>As packets are sent and measurements collected, the
+        tester evaluates the cumulative defect count against two
+        boundaries representing H0 Acceptance or Rejection (and
+        acceptance of H1):</t>
+
+        <t>
+        <list style="hanging">
+          <t hangText="Acceptance line:">Xa = -h1 + s*n</t>
+          <t hangText="Rejection line:">Xr = h2 + s*n</t>
+        </list>where n increases linearly for each packet sent
+        and</t>
+
+        <t>
+        <list style="hanging">
+          <t hangText="h1 =">{ log((1-alpha)/beta) }/k</t>
+          <t hangText="h2 =">{ log((1-beta)/alpha) }/k</t>
+          <t hangText="k  =">log{ (p1(1-p0)) / (p0(1-p1)) }</t>
+          <t hangText="s  =">[ log{ (1-p0)/(1-p1) } ]/k</t>
+        </list>for p0 and p1 as defined in the null and alternative
+        Hypotheses statements above, and alpha and beta as the Type
+        I and Type II errors.</t>
+
+        <t>The SPRT specifies simple stopping rules:</t>
+
+        <t>
+          <list style="symbols">
+
+            <t>Xa &lt; defect_count(n) &lt; Xb: continue
+            testing</t>
+
+            <t>defect_count(n) &lt;= Xa: Accept H0</t>
+
+            <t>defect_count(n) &gt;= Xb: Accept H1</t>
+          </list>
+        </t>
+
+        <t>The calculations above are implemented in the R-tool for
+        Statistical Analysis 
+        <xref target="Rtool" /> , in the add-on package for
+        Cross-Validation via Sequential Testing (CVST) 
+        <xref target="CVST" />.</t>
+
+        <t>Using the equations above, we can calculate the minimum
+        number of packets (n) needed to accept H0 when x defects
+        are observed. For example, when x = 0:</t>
+
+        <t>
+          <list style="hanging">
+            <t hangText="Xa = 0">= -h1 + s*n</t>
+            <t hangText="and">n = h1 / s</t>
+          </list>
+        </t>
+
+        <!-- @@ DID NOT MAKE IT <t>For an example of these calculations see <xref target="examples" />.</t> -->
+        <!--
+<section anchor="statistics2" title="Alternate criteria for measuring run_length">
+
+
+
+<t>An alternate calculation, contributed by Alex Gilgur (Google).</t>
+
+
+
+<t>The probability of failure within an interval whose length is target_run_length is given by an exponential distribution with rate = 1 / target_run_length (a memoryless process).  The implication of this is that it will be different, depending on the total count of packets that have been through the pipe, the formula being:</t>
+
+
+
+<t>P(t1 < T < t2) = R(t1) - R(t2), </t>
+
+
+
+<t>where 
+<figure><artwork><![CDATA[
+T = number of packets at which a failure will occur with probability P; 
+t = number of packets:
+t1 = number of packets (e.g., when failure last occurred)
+t2 = t1 + target_run_length
+R = failure rate:
+R(t1) = exp (-t1/target_run_length) 
+R(t2) = exp (-t2/target_run_length) 
+]]></artwork></figure></t>
+
+
+
+<t>The algorithm:
+<figure><artwork><![CDATA[
+initialize the packet.counter = 0
+initialize the failed.packet.counter = 0
+start the loop
+if paket_response = ACK:
+increment the packet.counter
+else:
+### The packet failed
+increment the packet.counter
+increment the failed.packet.counter
+
+
+P_fail_observed = failed.packet.counter/packet.counter
+
+
+upper_bound =  packet.counter + target.run.length / 2
+lower_bound =  packet.counter - target.run.length / 2
+
+
+R1 = exp( -upper_bound / target.run.length)
+R0 = R(max(0, lower_bound)/ target.run.length)
+
+
+P_fail_predicted = R1-R0
+Compare P_fail_observed vs. P_fail_predicted
+end-if
+continue the loop
+]]></artwork></figure></t>
+
+
+
+<t>This algorithm allows accurate comparison of the observed failure probability with the corresponding values predicted based on a fixed target_failure_rate, which is equal to 1.0 / target_run_length.</t>
+
+
+</section>
+-->
+      </section>

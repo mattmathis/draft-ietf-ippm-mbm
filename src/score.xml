@@ -1,0 +1,92 @@
+      <section anchor="score" title="Test outcomes">
+
+        <t>To perform an exhaustive test of a complete network
+        path, each test of the TIDS is applied to each subpath of
+        the complete path. If any subpath fails any test then a
+        standard transport protocol running over the complete path
+        can also be expected to fail to attain the Target Transport
+        Performance under some conditions.</t>
+
+        <t>In addition to passing or failing, a test can be deemed
+        to be inconclusive for a number of reasons. Proper
+        instrumentation and treatment of inconclusive outcomes is
+        critical to the accuracy and robustness of Model Based
+        Metrics. Tests can be inconclusive if the precomputed
+        traffic pattern or data rates were not accurately
+        generated; the measurement results were not statistically
+        significant; and others causes such as failing to meet some
+        required preconditions for the test. See 
+        <xref target="qualifications" /></t>
+
+        <t>For example consider a test that implements Constant
+        Window Pseudo CBR (<xref target="constant_window" />)
+	by adding rate controls
+        and detailed IP packet transfer instrumentation to TCP
+        (e.g. 
+        <xref target="RFC4898" />). TCP includes built in control
+        systems which might interfere with the sending data rate.
+        If such a test meets the required packet transfer
+        statistics (e.g. run length) while failing to attain the
+        specified data rate it must be treated as an inconclusive
+        result, because we can not a priori determine if the
+        reduced data rate was caused by a TCP problem or a network
+        problem, or if the reduced data rate had a material effect
+        on the observed packet transfer statistics.</t>
+
+        <t>Note that for capacity tests, if the observed packet
+        transfer statistics meet the statistical criteria for
+        failing (accepting hypnosis H1 in 
+        <xref target="statistics" />), the test can can be
+        considered to have failed because it doesn't really matter
+        that the test didn't attain the required data rate.</t>
+
+        <t>The really important new properties of MBM, such as
+        vantage independence, are a direct consequence of opening
+        the control loops in the protocols, such that the test
+        stream does not depend on network conditions or IP packets
+        received. Any mechanism that introduces feedback between
+        the path's measurements and the test stream generation is
+        at risk of introducing nonlinearities that spoil these
+        properties. Any exceptional event that indicates that such
+        feedback has happened should cause the test to be
+        considered inconclusive.</t>
+
+        <t>One way to view inconclusive tests is that they reflect
+        situations where a test outcome is ambiguous between
+        limitations of the network and some unknown limitation of
+        the IP diagnostic test itself, which may have been caused
+        by some uncontrolled feedback from the network.</t>
+
+        <t>Note that procedures that attempt to sweep the target
+        parameter space to find the limits on some parameter such
+        as target_data_rate are at risk of breaking the location
+        independent properties of Model Based Metrics, if any part
+        of the boundary between passing and inconclusive results is
+        sensitive to RTT (which is normally the case).</t>
+
+        <t>One of the goals for evolving TIDS designs will be to
+        keep sharpening distinction between inconclusive, passing
+        and failing tests. The criteria for for passing, failing
+        and inconclusive tests MUST be explicitly stated for every
+        test in the TIDS or FSTIDS.</t>
+
+        <t>One of the goals of evolving the testing process,
+        procedures, tools and measurement point selection should be
+        to minimize the number of inconclusive tests.</t>
+
+        <t>It may be useful to keep raw packet transfer statistics
+        and ancillary metrics 
+        <xref target="RFC3148" /> for deeper study of the behavior
+        of the network path and to measure the tools themselves.
+        Raw packet transfer statistics can help to drive tool
+        evolution. Under some conditions it might be possible to
+        reevaluate the raw data for satisfying alternate Target
+        Transport Performance. However it is important to guard
+        against sampling bias and other implicit feedback which can
+        cause false results and exhibit measurement point vantage
+        sensitivity. Simply applying different delivery criteria
+        based on a different Target Transport Performance is
+        insufficient if the test traffic patterns (bursts, etc)
+        does not match the alternate Target Transport
+        Performance.</t>
+      </section>

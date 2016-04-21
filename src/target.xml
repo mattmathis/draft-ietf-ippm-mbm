@@ -1,0 +1,39 @@
+      <section anchor="target"
+      title="Target End-to-end parameters">
+
+        <t>The target end-to-end parameters are the Target Data
+        Rate, Target RTT and Target MTU as defined in 
+        <xref target="terminology" />. These parameters are
+        determined by the needs of the application or the ultimate
+        end user and the complete Internet path over which the
+        application is expected to operate. The target parameters
+        are in units that make sense to upper layers: payload bytes
+        delivered to the application, above TCP. They exclude
+        overheads associated with TCP and IP headers, retransmits
+        and other protocols (e.g. DNS).</t>
+
+        <t>Other end-to-end parameters defined in 
+        <xref target="terminology" /> include the effective
+        bottleneck data rate, the sender interface data rate and
+        the TCP and IP header sizes.</t>
+
+        <t>The target_data_rate must be smaller than all subpath IP
+        capacities by enough headroom to carry the transport
+        protocol overhead, explicitly including retransmissions and
+        an allowance for fluctuations in TCP's actual data rate.
+        Specifying a target_data_rate with insufficient headroom is
+        likely to result in brittle measurements having little
+        predictive value.</t>
+
+        <t>Note that the target parameters can be specified for a
+        hypothetical path, for example to construct TIDS designed
+        for bench testing in the absence of a real application; or
+        for a live in situ test of production infrastructure.</t>
+
+        <t>The number of concurrent connections is explicitly not a
+        parameter to this model. If a subpath requires multiple
+        connections in order to meet the specified performance,
+        that must be stated explicitly and the procedure described
+        in 
+        <xref target="channelized" /> applies.</t>
+      </section>

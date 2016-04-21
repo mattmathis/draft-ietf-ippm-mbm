@@ -1,0 +1,27 @@
+      <section anchor="qualifications" title="Test Preconditions">
+
+        <t>Many tests have preconditions which are required to
+        assure their validity. Examples include: the presence or
+        nonpresence of cross traffic on specific subpaths;
+        negotiating ECN; and appropriate preloading to put reactive
+        network elements into the proper states 
+        <xref target="RFC7312" />. If preconditions are not
+        properly satisfied for some reason, the tests should be
+        considered to be inconclusive. In general it is useful to
+        preserve diagnostic information as to why the preconditions
+        were not met, and any test data that was collected even if
+        it is not useful for the intended test. Such diagnostic
+        information and partial test data may be useful for
+        improving the test in the future.</t>
+
+        <t>It is important to preserve the record that a test was
+        scheduled, because otherwise precondition enforcement
+        mechanisms can introduce sampling bias. For example,
+        canceling tests due to cross traffic on subscriber access
+        links might introduce sampling bias in tests of the rest of
+        the network by reducing the number of tests during peak
+        network load.</t>
+
+        <t>Test preconditions and failure actions MUST be specified
+        in a FSTIDS.</t>
+      </section>

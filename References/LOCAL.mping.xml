@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<reference anchor='WPING'>
+
+<front>
+<title>Windowed Ping: An IP Level Performance Diagnostic</title> <!-- abbrev='TITLE' -->
+<author initials='M.' surname='Mathis' > <!-- fullname='Matt Mathis' -->
+<!-- <organization>Google</organization> -->
+<!-- <address>
+<postal><street></street><city></city><region>CA</region><code>94043</code><country>US</country></postal>
+<phone></phone>
+<email></email></address> -->
+</author>
+<date year='1994' month='June' />
+<!-- <abstract><t>This memo.... </t></abstract> -->
+</front>
+<seriesInfo name='INET' value='94' />
+</reference>
+
