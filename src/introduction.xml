@@ -1,7 +1,8 @@
     <!-- ======================================================== 1. -->
     <section anchor="introduction" title="Introduction">
 
-      <t>Model Based Metrics (MBM) rely on mathematical models to
+      <t>Model Based Metrics (MBM) rely on peer-reviewed
+      mathematical models to
       specify a Targeted Suite of IP Diagnostic tests, designed to
       assess whether common transport protocols can be expected to
       meet a predetermined Target Transport Performance over an
