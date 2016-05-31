@@ -5,66 +5,76 @@
       Transport Capacity measurement was known to be well beyond
       our capabilities. Even at the time that Framework for IP
       Performance Metrics 
-      <xref target="RFC3148" /> was written we knew that we didn't
+      <xref target="RFC2330" /> was written we knew that we didn't
       fully understand the problem. Now, by hindsight we understand
-      why BTC is such a hard problem:
+      why assessing BTC is such a hard problem:
       <list style="symbols">
 
         <t>TCP is a control system with circular dependencies -
         everything affects performance, including components that
-        are explicitly not part of the test.</t>
+        are explicitly not part of the test (for example, the host 
+        processing power is not in-scope of path performance tests).</t>
 
-        <t>Congestion control is an equilibrium process, such that
-        transport protocols change the packet transfer statistics
-        (raise the packet loss ratio and/or RTT) to conform to
-        their behavior. By design TCP congestion control keeps
+        <t>TCP congestion control seeks equilibrium through a process 
+        of measuring packet transfer metrics (packet loss ratio and/or
+        mean RTT) and modifying packet transmission characteristics in response. By design TCP congestion control keeps
         raising the data rate until the network gives some
-        indication that it is full by dropping or ECN CE marking
-        packets. If TCP successfully fills the network (e.g. the
-        bottleneck is 100% utilized) the packet loss and ECN CE
-        marks are mostly determined by TCP and how hard TCP drives
-        the network at that rate and not by the network itself.</t>
+        indication that its capacity has been exceeded by dropping 
+        packets (or marking packets CE, Congestion Experienced on ECN-capable connections). If a TCP sender successfully reaches network 
+        capacity of a connection, (e.g. the bottleneck is 100% utilized),
+        then packet losses and ECN CE marks are mostly determined by 
+        the TCP sender and how aggressively it seeks additional capacity 
+        from the network, not the network itself.</t>
 
-        <t>TCP's ability to compensate for network flaws is
-        directly proportional to the number of roundtrips per
+        <t>TCP's ability to compensate for network impairments is
+        directly proportional to the number of send-ACK roundtrip exchanges per
         second (i.e. inversely proportional to the RTT). As a
-        consequence a flawed subpath may pass a short RTT local
+        consequence a subpath with limiting bottleneck may pass a short RTT local
         test even though it fails when the subpath is extended by
         an effectively perfect network to some larger RTT.</t>
 
-        <t>TCP has an extreme form of the Heisenberg problem -
+        <t>TCP has an extreme form of the Observer Effect -
         Measurement and cross traffic interact in unknown and ill
-        defined ways. The situation is actually worse than the
+        defined ways, and influence the result. 
+        see https://en.wikipedia.org/wiki/Observer_effect_%28physics%29
+        (if we agree this is the right reference, need to re-work text below)
+        The situation is actually worse than the
         traditional physics problem where you can at least estimate
         bounds on the relative momentum of the measurement and
         measured particles. For network measurement you can not in
         general determine the relative "mass" of either the test
         stream or the cross traffic, so you can not gauge the
         relative magnitude of the uncertainty that might be
-        introduced by any interaction.</t>
+        introduced by their interaction.</t>
+
+        <t>It is difficult, if not impossible, for two independent
+        implementations (HW and SW) of TCP congestion control to produce 
+        equivalent performance results (add ref to RFC 6576)
+        under the same network conditions, as an outcome of the
+        other properties listed. </t>
       </list></t>
 
       <t>These properties are a consequence of the equilibrium
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control
-      systems based on estimated network parameters to regulate the
-      quantity of data sent into the network. The sent data in turn
-      alters the network properties observed by the estimators,
-      such that there are circular dependencies between every
-      component and every property. Since some of these properties
-      are nonlinear, the entire system is nonlinear, and any change
-      anywhere causes difficult to predict changes in every
-      parameter.</t>
+      systems based on estimated network metrics to regulate the
+      quantity of data sent into the network. The packet sending 
+      characteristics in turn alter the network properties
+      estimated by the control system metrics, such that there are 
+      circular dependencies between every transmission characteristic
+      and every estimated metric. Since some of these dependencies
+      are nonlinear, the entire system is nonlinear, and any change 
+      causes a response in packet sending characteristics or
+      estimated network metrics that is difficult to predict.</t>
 
       <t>Model Based Metrics overcome these problems by making the
       measurement system open loop: the packet transfer statistics
       (akin to the network estimators) do not affect the traffic or
-      traffic patterns (bursts), which computed on the basis of the
-      Target Transport Performance. In order for a network to pass,
-      the resulting packet transfer statistics and corresponding
-      network estimators have to be such that they would not cause
-      the control systems slow the traffic below the Target Data
-      Rate.</t>
+      traffic patterns (bursts), which are computed on the basis of the
+      Target Transport Performance. A path or subpath meeting the Target 
+      Transfer Performance requirements would exhibit packet transfer 
+      statistics and estimated metrics that would not cause the control
+      system to slow the traffic below the Target Data Rate.</t>
       <section anchor="tcp" title="TCP properties">
 
         <t>TCP and SCTP are self clocked protocols that carry the
@@ -92,7 +102,7 @@
         sending twice as much data as was delivered to the receiver
         during the prior RTT. Each returning ACK causes the sender
         to transmit twice the data the ACK reported arriving at the
-        receiver. For slowstart to be able to fill a network the
+        receiver. For slowstart to be able to fill the pipe, the
         network must be able to tolerate slowstart bursts up to the
         full pipe size inflated by the anticipated window reduction
         on the first loss or ECN CE mark. For example, with classic
@@ -152,7 +162,7 @@
         <t>In conclusion, to verify that a path can meet a Target
         Transport Performance, it is necessary to independently
         confirm that the path can tolerate bursts at the scales
-        that can be caused by these mechanisms. Three cases are
+        that can be caused by the above mechanisms. Three cases are
         believed to be sufficient:</t>
 
         <t>
@@ -280,9 +290,12 @@
           example Background Packet Transfer Tests described in 
           <xref target="backloss" />.</t>
 
-          <t>Metric measurements must be repeatable by multiple
+          <t>Metric measurements should be repeatable by multiple
           parties with no specialized access to MPs or diagnostic
-          infrastructure. It must be possible for different parties
+          infrastructure. (Comment: I agree this form of reproducibility 
+    is ideal, but we have no evidence (? or do we ?)
+    that the methods described here can achieve this goal => "should")
+          It must be possible for different parties
           to make the same measurement and observe the same
           results. In particular it is specifically important that
           both a consumer (or their delegate) and ISP be able to
