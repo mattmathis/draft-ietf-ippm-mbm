@@ -2,8 +2,9 @@
 
         <t>Many tests have preconditions which are required to
         assure their validity. Examples include: the presence or
-        nonpresence of cross traffic on specific subpaths;
-        negotiating ECN; and appropriate preloading to put reactive
+        non-presence of cross traffic on specific subpaths;
+        negotiating ECN; and appropriate preamble packet stream 
+        to testing to put reactive
         network elements into the proper states 
         <xref target="RFC7312" />. If preconditions are not
         properly satisfied for some reason, the tests should be

@@ -10,7 +10,10 @@
         are in units that make sense to upper layers: payload bytes
         delivered to the application, above TCP. They exclude
         overheads associated with TCP and IP headers, retransmits
-        and other protocols (e.g. DNS).</t>
+        and other protocols (e.g. DNS). Note that IP-based network 
+        services include TCP headers and retransmissions as part of 
+        delivered payload, and this difference is recognized in 
+        calculations below (header_overhead). </t>
 
         <t>Other end-to-end parameters defined in 
         <xref target="terminology" /> include the effective
