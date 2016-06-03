@@ -9,10 +9,10 @@
       signatures when they fail.</t>
 
       <t>There are a number of test details which are not fully
-      defined here. They must be fully specified in a FSTIDS. From
+      defined here. They must be fully specified in a FS-TIDS. From
       a standardization perspective, this lack of specificity will
       weaken this version of Model Based Metrics, however it is
-      anticipated that this it be more than offset by the extent to
+      anticipated that this weakness is than offset by the extent to
       which MBM suppresses the problems caused by using transport
       protocols for measurement. e.g. non-specific MBM metrics are
       likely to have better repeatability than many existing BTC

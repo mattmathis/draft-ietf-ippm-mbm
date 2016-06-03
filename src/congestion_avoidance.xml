@@ -5,8 +5,9 @@
           queue test if more than target_run_length packets are
           delivered between the onset of queueing (as determined by
           the window with the maximum network power) and the first
+@@@@@ what is the maximum network power? - ACM
           loss or ECN CE mark. If this test is implemented using a
-          standards congestion control algorithm with a clamp, it
+          standard congestion control algorithm with a clamp, it
           can be performed in situ in the production internet as a
           capacity test. For an example of such a test see 
           <xref target="Pathdiag" />.</t>

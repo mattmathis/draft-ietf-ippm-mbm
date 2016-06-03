@@ -11,7 +11,7 @@
         controlled. The data can be paced on a timer, or window
         controlled at full Target Data Rate. The first two tests
         implicitly confirm that sub_path has sufficient raw
-        capacity to carry the target_data_rate. They are recommend
+        capacity to carry the target_data_rate. They are recommended
         for relatively infrequent testing, such as an installation
         or periodic auditing process. The third, background packet
         transfer statistics, is a low rate test designed for
@@ -30,7 +30,7 @@
         target_run_length.</t>
 
         <t>A test is considered to be inconclusive if it failed to
-        meet the data rate as specified below, meet the
+        generate the data rate as specified below, meet the
         qualifications defined in 
         <xref target="qualifications" /> or neither run length
         statistical hypothesis was confirmed in the allotted test
