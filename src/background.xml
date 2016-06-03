@@ -15,9 +15,12 @@
         are explicitly not part of the test (for example, the host 
         processing power is not in-scope of path performance tests).</t>
 
-        <t>TCP congestion control seeks equilibrium through a process 
-        of measuring packet transfer metrics (packet loss ratio and/or
-        mean RTT) and modifying packet transmission characteristics in response. By design TCP congestion control keeps
+        <t>Congestion control is an equilibrium process, such that
+        transport protocols change the packet transfer statistics
+        (raise the packet loss ratio and/or RTT) to conform to their 
+        behavior (e.g. Dynamic Equilibrium 
+        @@@@@@@ ACM [ref to wikipedia of other source] ).
+        By design TCP congestion control keeps
         raising the data rate until the network gives some
         indication that its capacity has been exceeded by dropping 
         packets (or marking packets CE, Congestion Experienced on ECN-capable connections). If a TCP sender successfully reaches network 
@@ -26,18 +29,19 @@
         the TCP sender and how aggressively it seeks additional capacity 
         from the network, not the network itself.</t>
 
-        <t>TCP's ability to compensate for network impairments is
-        directly proportional to the number of send-ACK roundtrip exchanges per
-        second (i.e. inversely proportional to the RTT). As a
-        consequence a subpath with limiting bottleneck may pass a short RTT local
-        test even though it fails when the subpath is extended by
-        an effectively perfect network to some larger RTT.</t>
+        <t>TCP's ability to compensate for network impairments (such as 
+        loss, delay and delay variation, outside of those caused by TCP 
+        itself) is directly proportional to the number of send-ACK roundtrip
+        exchanges per second (i.e. inversely proportional to the RTT). As a
+        consequence an impaired subpath may pass a short RTT local test even
+        though it fails when the subpath is extended by an effectively 
+        perfect network to some larger RTT.</t>
 
         <t>TCP has an extreme form of the Observer Effect -
         Measurement and cross traffic interact in unknown and ill
         defined ways, and influence the result. 
         see https://en.wikipedia.org/wiki/Observer_effect_%28physics%29
-        (if we agree this is the right reference, need to re-work text below)
+        @@@@@ (if we agree this is the right reference, need to re-work text below - ACM)
         The situation is actually worse than the
         traditional physics problem where you can at least estimate
         bounds on the relative momentum of the measurement and
@@ -292,9 +296,9 @@
 
           <t>Metric measurements should be repeatable by multiple
           parties with no specialized access to MPs or diagnostic
-          infrastructure. (Comment: I agree this form of reproducibility 
+          infrastructure. (@@@@ Comment: I agree this form of reproducibility 
     is ideal, but we have no evidence (? or do we ?)
-    that the methods described here can achieve this goal => "should")
+    that the methods described here can achieve this goal => "should" - ACM)
           It must be possible for different parties
           to make the same measurement and observe the same
           results. In particular it is specifically important that
