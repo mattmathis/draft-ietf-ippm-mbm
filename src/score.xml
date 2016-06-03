@@ -46,7 +46,7 @@
         stream does not depend on network conditions or IP packets
         received. Any mechanism that introduces feedback between
         the path's measurements and the test stream generation is
-        at risk of introducing nonlinearities that spoil these
+        at risk of introducing non-linearities that spoil these
         properties. Any exceptional event that indicates that such
         feedback has happened should cause the test to be
         considered inconclusive.</t>
@@ -57,13 +57,13 @@
         the IP diagnostic test itself, which may have been caused
         by some uncontrolled feedback from the network.</t>
 
-        <t>Note that procedures that attempt to sweep the target
+        <t>Note that procedures that attempt to search the target
         parameter space to find the limits on some parameter such
         as target_data_rate are at risk of breaking the location
         independent properties of Model Based Metrics, if any part
         of the boundary between passing and inconclusive results is
         sensitive to RTT (which is normally the case).</t>
-
+@@@@@ not entirely clear why this is true, to me at least - ACM
         <t>One of the goals for evolving TIDS designs will be to
         keep sharpening distinction between inconclusive, passing
         and failing tests. The criteria for for passing, failing
@@ -80,13 +80,15 @@
         of the network path and to measure the tools themselves.
         Raw packet transfer statistics can help to drive tool
         evolution. Under some conditions it might be possible to
-        reevaluate the raw data for satisfying alternate Target
+        re-evaluate the raw data for satisfying alternate Target
+@@@@@ Is the makefile eating hyphens???  
+I've seen too many missing hyphens to be typos... - ACM
         Transport Performance. However it is important to guard
         against sampling bias and other implicit feedback which can
         cause false results and exhibit measurement point vantage
         sensitivity. Simply applying different delivery criteria
         based on a different Target Transport Performance is
-        insufficient if the test traffic patterns (bursts, etc)
+        insufficient if the test traffic patterns (bursts, etc.)
         does not match the alternate Target Transport
         Performance.</t>
       </section>

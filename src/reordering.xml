@@ -1,6 +1,6 @@
       <section anchor="reordering" title="Reordering Tolerance">
 
-        <t>All tests must be instrumented for packet level
+        <t>All tests MUST be instrumented for packet level
         reordering 
         <xref target="RFC4737" />. However, there is no consensus
         for how much reordering should be acceptable. Over the last
@@ -30,7 +30,7 @@
         However 
         <xref target="RFC4737" /> still applies: reordering should
         be instrumented and the maximum reordering that can be
-        properly characterized by the test (e.g. bound on history
+        properly characterized by the test (because of the bound on history
         buffers) should be recorded with the measurement
         results.</t>
 
