@@ -2,10 +2,10 @@
     <section anchor="background" title="Background">
 
       <t>At the time the IPPM WG was chartered, sound Bulk
-      Transport Capacity measurement was known to be well beyond
-      our capabilities. Even at the time that Framework for IP
-      Performance Metrics 
-      <xref target="RFC2330" /> was written we knew that we didn't
+      Transport Capacity (BTC) measurement was known to be well beyond
+      our capabilities. Even at the time that Framework for Empirical 
+      BTC Metrics 
+      <xref target="RFC3148" /> was written we knew that we didn't
       fully understand the problem. Now, by hindsight we understand
       why assessing BTC is such a hard problem:
       <list style="symbols">
