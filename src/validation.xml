@@ -14,6 +14,8 @@
       criteria is potentially difficult to prove, because it
       implicitly requires validating a TIDS against all possible
       subpaths and subpaths. The procedures described here are
+@@@@@ "subpaths and subpaths" ?? - ACM
+
       still experimental.</t>
 
       <t>We suggest two approaches, both of which should be
@@ -53,15 +55,16 @@
 
       <t>The most difficult part of setting up such a testbed is
       arranging for it to infinitesimally pass the individual
-      tests. Two approaches: constraining the network devices not
+      tests. Two approaches are suggested: 
+      constraining the network devices not
       to use all available resources (e.g. by limiting available
-      buffer space or data rate); and preloading subpaths with
+      buffer space or data rate); and pre-loading subpaths with
       cross traffic. Note that is it important that a single
       environment be constructed which infinitesimally passes all
       tests at the same time, otherwise there is a chance that TCP
       can exploit extra latitude in some parameters (such as data
       rate) to partially compensate for constraints in other
-      parameters (queue space, or viceversa).</t>
+      parameters (queue space, or vice-versa).</t>
 
       <t>To the extent that a TIDS is used to inform public dialog
       it should be fully publicly documented, including the details
