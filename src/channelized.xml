@@ -42,6 +42,6 @@
         design of the TIDS and in any claims about network
         performance. The IP diagnostic tests MUST be performed
         concurrently with the specified number of connections. For
-        the the tests that use bursty test streams, the bursts
+        the tests that use bursty test streams, the bursts
         should be synchronized across streams.</t>
       </section>

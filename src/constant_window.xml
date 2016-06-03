@@ -8,6 +8,8 @@
         sender where they trigger additional transmissions. The
         window size is computed from the target_data_rate and the
         actual RTT of the test path. The rate is only maintained in
+@@@@ should we add "...actual/measured/estimated (see below) RTT of..."
+Also, see below - ACM
         average over each RTT, and is subject to limitations of the
         transport protocol.</t>
 
@@ -20,11 +22,11 @@
         rates that are too small. Also cross traffic potentially
         raises the RTT, implicitly reducing the rate. Cross traffic
         that raises the RTT nearly always makes the test more
-        strenuous. A FSTIDS specifying a constant window CBR tests
+        strenuous. A FS-TIDS specifying a constant window CBR tests
         MUST explicitly indicate under what conditions errors in
         the data rate causes tests to inconclusive.</t>
 
         <t>Since constant window pseudo CBR testing is sensitive to
-        RTT fluctuations it is less accurate at controling the data
+        RTT fluctuations it is less accurate at controlling the data
         rate in environments with fluctuating delays.</t>
       </section>
