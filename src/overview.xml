@@ -4,9 +4,9 @@
       a Targeted IP Diagnostic Suite from a predetermined Target
       Transport Performance. It is not a complete specification,
       and relies on other standards documents to define important
-      details such as packet type-p selection, sampling techniques,
-      vantage selection, etc. We imagine Fully Specified Targeted
-      IP Diagnostic Suites (FSTIDS), that define all of these
+      details such as packet Type-P selection, sampling techniques,
+      vantage selection, etc. We imagine Fully Specified - Targeted
+      IP Diagnostic Suites (FS-TIDS), that define all of these
       details. We use Targeted IP Diagnostic Suite (TIDS) to refer
       to the subset of such a specification that is in scope for
       this document. This terminology is defined in 
@@ -35,7 +35,7 @@
       the Maximum Transmission Unit (MTU) of the complete path,
       these parameters must also be specified in advance based on
       knowledge about the intended application setting. They may
-      reflect a specific application over real path through the
+      reflect a specific application over a real path through the
       Internet or an idealized application and hypothetical path
       representing a typical user community. 
       <xref target="all_models" /> describes the common parameters
@@ -83,7 +83,7 @@ Traffic parameters |            | Statistical criteria
       delivering bulk data and operating at the Target Data Rate,
       MTU and RTT over a full range of conditions, including flows
       that are bursty at multiple time scales. The traffic patterns
-      are generated based on the three target parameters of
+      are generated based on the three target parameters (Traffic Parameters above? Also in Fig 1, Do "Statistical Criteria" become statistical bounds below?) of
       complete path and independent of the properties of individual
       subpaths using the techniques described in 
       <xref target="generation" />. As much as possible the
@@ -95,33 +95,33 @@ Traffic parameters |            | Statistical criteria
 
       <t>
       <xref target="results" /> describes packet transfer statistics
-      and methods test them against the bounds provided by the
+      and methods to test them against the bounds provided by the
       mathematical models. Since these statistics are typically the
       composition of subpaths of the complete path 
       <xref target="RFC6049" /> , in situ testing requires that the
-      end-to-end statistical bounds be apportioned as separate
+      end-to-end statistical bounds (criteria?) be apportioned as separate
       bounds for each subpath. Subpaths that are expected to be
-      bottlenecks may be expected to contribute a larger fraction
+      bottlenecks would then contribute a larger fraction
       of the total packet loss. In compensation, non-bottlenecked
       subpaths have to be constrained to contribute less packet
-      loss. The criteria for passing each test of a TIDS is an
-      apportioned share of the total bound determined by the
-      mathematical model from the Target Transport Performance.</t>
+      loss. The passing criteria for a subpath in each test of a
+      TIDS is an apportioned share of the total criteria for the complete
+      path, determined by the mathematical model.</t>
 
       <t>
       <xref target="tests" /> describes the suite of individual
       tests needed to verify all of required IP delivery
       properties. A subpath passes if and only if all of the
       individual IP diagnostic tests pass. Any subpath that fails
-      any test indicates that some users are likely fail to attain
+      any test indicates that some users are likely to fail to attain
       their Target Transport Performance under some conditions. In
       addition to passing or failing, a test can be deemed to be
       inconclusive for a number of reasons including: the
       precomputed traffic pattern was not accurately generated; the
       measurement results were not statistically significant; and
       others such as failing to meet some required test
-      preconditions. If all tests pass, except some are
-      inconclusive then the entire suite is deemed to be
+      preconditions. If all tests pass but some are
+      inconclusive, then the entire suite is deemed to be
       inconclusive.</t>
 
       <t>In 
