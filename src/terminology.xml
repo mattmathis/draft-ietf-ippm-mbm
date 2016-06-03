@@ -21,7 +21,7 @@
           specified by or derived from the user's application or
           transport performance requirements.</t>
           <t hangText="Target Transport Performance:">Application
-          or transport performance goals for the complete path. For
+          or transport performance target values for the complete path. For
           Bulk Transport Capacity defined in this note the Target
           Transport Performance includes the Target Data Rate,
           Target RTT and Target MTU as described below.</t>
