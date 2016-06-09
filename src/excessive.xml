@@ -18,5 +18,7 @@
           equilibrium at more than a small fraction of the
           available capacity, if the capacity is enforced by a
           policer. [Citation Pending]. 
+@@@@@ In paths where there are policers, there may be good reasons
+for them, such as limiting each user's traffic on a free service. - ACM
           <!-- @@@@ --></t>
         </section>

@@ -70,7 +70,7 @@
         protocol itself. For the stiffened transport protocols case
         (with non-standard, aggressive congestion control
         algorithms) the details of periodic losses will be
-        dominated by how the the window increase function responds
+        dominated by how the window increase function responds
         to loss. 
         <!-- One more sentence @@ --></t>
 #include src/congestion_avoidance.xml
