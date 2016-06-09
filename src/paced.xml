@@ -47,15 +47,15 @@
         <figure anchor="fig2">
           <artwork>
             <![CDATA[
-time -->    ( - = one packet)
+time ==>    ( - equals one packet)
 Packet stream:
  
 ----  ----  ----  ----  ----                     ----  ---- ... 
   
 |<>| sender interface rate bursts (typically 3 or 4 packets)
-|<--->| burst headway (determined by ACK headway)
-|<------------------------>| slowstart burst size(from the window) 
-|<---------------------------------------------->| slowstart headway
+|<===>| burst headway (determined by ACK headway)
+|<========================>| slowstart burst size(from the window) 
+|<==============================================>| slowstart headway
 \____________ _____________/                     \______ __ ...
              V                                          V
       One slowstart burst                   Repeated slowstart bursts
