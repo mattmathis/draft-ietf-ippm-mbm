@@ -23,7 +23,8 @@
         By design TCP congestion control keeps
         raising the data rate until the network gives some
         indication that its capacity has been exceeded by dropping 
-        packets (or marking packets CE, Congestion Experienced on ECN-capable connections). If a TCP sender successfully reaches network 
+        packets (or marking packets CE, Congestion Experienced on ECN-capable
+	connections). If a TCP sender successfully reaches network 
         capacity of a connection, (e.g. the bottleneck is 100% utilized),
         then packet losses and ECN CE marks are mostly determined by 
         the TCP sender and how aggressively it seeks additional capacity 
@@ -296,10 +297,8 @@
 
           <t>Metric measurements should be repeatable by multiple
           parties with no specialized access to MPs or diagnostic
-          infrastructure. (@@@@ Comment: I agree this form of reproducibility 
-    is ideal, but we have no evidence (? or do we ?)
-    that the methods described here can achieve this goal => "should" - ACM)
-          It must be possible for different parties
+          infrastructure.
+          It should be possible for different parties
           to make the same measurement and observe the same
           results. In particular it is specifically important that
           both a consumer (or their delegate) and ISP be able to

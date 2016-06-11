@@ -37,7 +37,8 @@
       models the transport protocol's response to less than ideal
       IP packet transfer.</t>
 
-      <t>This note describes an alternative to the approach
+      <t>This note addreses Bulk Transport Capacity.  It
+      describes an alternative to the approach
       presented in "A Framework for Defining Empirical Bulk
       Transfer Capacity Metrics" 
       <xref target="RFC3148" />. In the future, other Model Based
@@ -56,10 +57,11 @@
       introduces non-linear equilibrium behaviors that make any
       resulting measurements useless as metrics because they have
       no predictive value for conditions or paths different than
-      that of the measurement itself. These problems are discussed
-      at length in 
-      <xref target="background" />. Therefore, TCP congestion 
-      control must not be included in the measurement method.</t>
+      that of the measurement itself.  In order to prevent these
+      effects it is necessary to suppress the effects of TCP congestion 
+      control in the measurement method.
+      These issues are discussed at length in 
+      <xref target="background" />..</t>
 
       <t>A Targeted IP Diagnostic Suite does not have such
       difficulties. IP diagnostics can be constructed such that
