@@ -7,13 +7,14 @@
           requirement is that the data rate be constrained such
           that even with arbitrary application pauses and bursts
           the data rate and burst sizes stay within the envelope
-          defined by the individual tests described above.</t>
+          defined by the individual tests described above.
 @@@@@ I suspect this is a difficult constraint to meet in the wild, because
 of strategies to send at a "higher than playout" rate to fill the
 initial buffer faster, and rate adaptation which is apparently 
 widespread now (DASH). Another issue is "double chunking"
 where the player downloads two chunks for the same time period,
 possibly at different quality levels (different rates). - ACM
+</t>
 
           <t>If the application's serving_data_rate is less than or
           equal to the target_data_rate and the serving_RTT (the
@@ -23,10 +24,10 @@ possibly at different quality levels (different rates). - ACM
           than:</t>
 
           <t>
-          serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)</t>
+          serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)
 @@@@@ I suggest that this is a difficult calculation where any buffer
 on the order of RTT or more exists on the path. (because that buffer may fill)
-
+</t>
 
           <t>Under the above constraints the serving_window_clamp
           will limit the both the serving data rate and burst sizes
@@ -53,10 +54,10 @@ on the order of RTT or more exists on the path. (because that buffer may fill)
           traffic shaper or pacing at the sender. This would
           provide better control over transmissions but it is
           substantially more complicated to implement and would be
-          likely to have a higher CPU overhead.</t>
+          likely to have a higher CPU overhead.
 @@@@@ yes, more CPU, but also more reliable than assuming we know RTT
 and can keep it stable. - ACM
-
+</t>
 
           <t>Note that these techniques can be applied to any
           content delivery that can be constrained to a reduced data

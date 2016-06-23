@@ -9,11 +9,12 @@
       modem designs the ISP determines that most content is within
       a 50 mS RTT from their users (This is a sufficient to cover
       continental Europe or either US coast from a single serving
-      site.)</t>
+      site.)
 @@@@@ 50 ms RTT would be mostly propagation delay for the regions 
 listed. The modems use advanced processing to improve link-layer
 performance (FEC and Interleaving, to name a few), and all network
 functions add some queue delay. Let's consider adding some delay.
+</t>
 
       <texttable anchor="HDvideo_table">
         <preamble>2.5 Mb/s over a 50 ms path</preamble>
@@ -60,9 +61,10 @@ functions add some queue delay. Let's consider adding some delay.
       10 internal hops). Then all of the subpaths can be tested
       independently, and the spatial composition of passing
       subpaths would be expected to be within the end-to-end loss
-      budget.</t>
+      budget.
 @@@@@ We have to allocate the RTT, too.  
 And, the paragraph below is a completely different topic.
+</t>
 
       <!-- @@@@ move to conclusion? -->
 
