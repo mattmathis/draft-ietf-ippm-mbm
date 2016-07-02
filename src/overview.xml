@@ -57,6 +57,7 @@
                  ------------------
 Traffic parameters |            | Statistical criteria
                    |            | and perf. bounds
+                   |            |
             _______V____________V____Targeted_______
            |       |   * * *    | Diagnostic Suite  |
       _____|_______V____________V________________   |
@@ -107,7 +108,10 @@ Traffic parameters |            | Statistical criteria
       subpaths have to be constrained to contribute less packet
       loss. Thus the performance bound for a subpath in each test of a
       TIDS is an apportioned share of the total performance bound
-      for the complete path, determined by the mathematical model.</t>
+      for the complete path, determined by the mathematical model.
+      [@@@@ This use of "performance bound" clashes with Target Performace. 
+      Can we use something like "metric bounds" or "statical bounds"?]
+      </t>
 
       <t>
       <xref target="tests" /> describes the suite of individual
