@@ -24,10 +24,10 @@ artOnly=[
     "ECN Congestion Experienced CE marks", "ECN CE marks"
     "packet transfer",
     "vantage independence"
-    "test stream", "test streams", 
+    "test stream", "test streams",
 ]
 # These words and phrases are defined in the and used camonically.
-ExplicitArt=[
+ModelArt=[
     # general
     "Model Based Metrics",
     "Target Transport Performance",
@@ -39,13 +39,15 @@ ExplicitArt=[
     "Fully Specified Targeted IP Diagnostic Suites",
     "Bulk Transport Capacity",
     "IP diagnostic test", "IP diagnostic tests",
-    
+]
+TrafficArt=[
     # "traffic patterns"
     "packet transfer statistics",
     "packet loss", "packet loss ratio",
     "apportioned",
     "open loop",
-
+]
+PathArt=[
     # paths
     "data sender", "data receiver",
     "complete path", "subpath", "complete Internet path",
@@ -53,15 +55,17 @@ ExplicitArt=[
     "test path",
     "dominant bottleneck",
     "front path", "back path", "return path", "cross traffic",
-
-    # 
+]
+RateArt=[
+    #
     "Application Data Rate",
     "IP rate", "IP capacity",
     "bottleneck IP capacity",
     "implied bottleneck IP capacity",
     "sender interface rate",
     "header_overhead",
-
+]
+ParameterArt=[
     # Pramerters of models
     "window size", "pipe size", "target_window_size",
     "run length", "target_run_length",
@@ -71,19 +75,20 @@ ExplicitArt=[
     "derating",
     "subpath_IP_capacity",
     "test_path_RTT", "test_path_pipe", "test_window",
-
+]
+TemporalArt=[
     # temporal patterns
     "packet headway", "burst headway",
     "paced single packets", # XXXX Look at 3432
     "paced burst", "slowstart burst", "repeated slowstart burst",
     "paced bursts", "slowstart bursts", "repeated slowstart bursts",
-
+]
+TestArt=[
     # test types
     "capacity test", "monitoring test", "engineering test",
     "capacity tests", "monitoring tests", "engineering tests",
-
 ]
-
+allArt=artOnly+ModelArt+TrafficArt+PathArt+RateArt+ParameterArt+TemporalArt+TestArt
 # Risky or forbidden terms and phrases.  These get diced to individual words.
 # Strong yellow
 stopw=[
@@ -118,8 +123,8 @@ unsafe=[
 def scanfile():
     global wix, white, words, colors
 
-    # parse the entire doc into words and delimiters 
-    for line in fileinput.input():
+    # parse the entire doc into words and delimiters
+    for line in fileinput.input(sys.argv[2:]):
         while line:
             ma=re.match("\W*", line)
             if ma:
@@ -147,7 +152,11 @@ def colorwords(sl, c):
 
 def colorphrases(pl, c, fuzz=False):
     global wix, white, words, colors
-    # Match case exactly, except allow optional 1st capital
+    """Color matching phrases
+
+    If fuzz is set, ignore case.
+    In any case allow the first letter to be capitalized in use.
+    """
     art={}
     if fuzz:
         for w in pl:
@@ -172,12 +181,12 @@ def showfile():
 
     # display it
     begincolor='<span style=\'background-color: {}\'>'
-    endcolor='</span>'                       
+    endcolor='</span>'
     priorcolor=""
     skipping=True
     for wo in range(wix):
         if skipping:
-            print (white[wo]+words[wo], end='') 
+            print (white[wo]+words[wo], end='')
             if words[wo] == "body":
                 skipping=False
         elif priorcolor == colors[wo]:
@@ -191,13 +200,43 @@ def showfile():
 
 
 
+def color_global():
+  scanfile()
+  allwords=stopw+unsafe+allArt
+  colorwords(allwords, "#FFFF00") # Yellow
+  colorwords(safeWords, "#FFFF80") # pale yellow
+  colorwords(commonWords, "#FFFFC0") # very pale yellow
+  colorphrases(artOnly, "PaleGreen")
+  colorphrases(unsafe, "Pink", True)
+  colorphrases(allArt, "PaleGreen")
+  showfile()
 
-scanfile()
-allwords=stopw+artOnly+unsafe+ExplicitArt
-colorwords(allwords, "#FFFF00")
-colorwords(safeWords, "#FFFF80")
-colorwords(commonWords, "#FFFFC0")
-colorphrases(artOnly, "PaleGreen")
-colorphrases(unsafe, "Pink", True)
-colorphrases(ExplicitArt, "PaleGreen")
-showfile()
+def do_color(art):
+  colorwords(art,  "#FFFF00") # Yellow
+  colorphrases(unsafe, "Pink", True)
+  colorphrases(allArt, "PaleGreen")
+
+def color_traffic():
+  scanfile()
+  allwords=stopw+artOnly+unsafe+allArt
+  colorwords(["traffic", "pattern"], "#FFFF00") # Yellow
+#  colorwords(allwords, "#FFFF00") # Yellow
+#  colorphrases(artOnly, "PaleGreen")
+  colorphrases(unsafe, "Pink", True)
+  colorphrases(allArt, "PaleGreen")
+  showfile()
+
+def color_model():
+  scanfile()
+  do_color(ModelArt)
+  showfile()
+
+def main():
+  kw="global"
+  if len(sys.argv) > 1:
+    kw=sys.argv[1]
+  fp=eval("color_"+kw)
+  fp()
+
+if __name__ == "__main__":
+  main()

@@ -54,6 +54,10 @@ $(NAME).txt: $(NAME).xml
 $(NAME).html: $(NAME).xml
 	-echo Making $(NAME).html and $(NAME).color.html ======
 	export $(LIB); xml2rfc --html $(NAME).xml
-#	./decorate.py $(NAME).html > color.html
+
+colorize: $(NAME).html
+	./tools/decorate.py global $(NAME).html > color_global.html
+	./tools/decorate.py traffic $(NAME).html > color_traffic.html
+	./tools/decorate.py model $(NAME).html > color_model.html
 
 
