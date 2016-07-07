@@ -13,9 +13,7 @@
       specified Target Transport Performance. This correctness
       criteria is potentially difficult to prove, because it
       implicitly requires validating a TIDS against all possible
-      subpaths and subpaths. The procedures described here are
-@@@@@ "subpaths and subpaths" ?? - ACM
-
+      paths and subpaths. The procedures described here are
       still experimental.</t>
 
       <t>We suggest two approaches, both of which should be

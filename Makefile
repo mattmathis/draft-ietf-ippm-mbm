@@ -27,7 +27,7 @@ trigger $(NAME).trig:
 clean:
 	rm -f $(NAME).trig $(NAME).tmp $(NAME).xml $(NAME).txt $(NAME).html $(NAME).txt.bar
 
-# link $(PRIOR).txt to Pub/whatever 
+# link prior.txt to Pub/whatever 
 rfcdiff: $(NAME).txt
 	tools/rfcdiff $(PRIOR).txt $(NAME).txt
 	@echo See $(NAME)-from-$(PRIOR).diff.html

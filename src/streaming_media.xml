@@ -8,26 +8,36 @@
           that even with arbitrary application pauses and bursts
           the data rate and burst sizes stay within the envelope
           defined by the individual tests described above.
-@@@@@ I suspect this is a difficult constraint to meet in the wild, because
+
+<!-- @@@@ I suspect this is a difficult constraint to meet in the wild, because
 of strategies to send at a "higher than playout" rate to fill the
 initial buffer faster, and rate adaptation which is apparently 
 widespread now (DASH). Another issue is "double chunking"
 where the player downloads two chunks for the same time period,
 possibly at different quality levels (different rates). - ACM
+I consideed adding a reference here, but it would have to be OS
+specific, and not really relevant in a standard.  e.g.
+search: pkt_sched fq Fair Queue packet scheduler
+- MM
+-->
 </t>
 
           <t>If the application's serving_data_rate is less than or
           equal to the target_data_rate and the serving_RTT (the
           RTT between the sender and client) is less than the
           target_RTT, this constraint is most easily implemented by
-          clamping the transport window size to be no larger
-          than:</t>
+          clamping the transport window size.
+	  An initial estimate of the serving_window_clamp can be
+	  computed from:</t>
 
           <t>
           serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)
-@@@@@ I suggest that this is a difficult calculation where any buffer
-on the order of RTT or more exists on the path. (because that buffer may fill)
-</t>
+	  </t>
+
+	  <t>The actual serving_window_clamp may need to be adjusted slightly
+	  to compensated for the difficult to estimate contribution of 
+	  store and forward delays to the RTT.
+	  See <xref target="windowed_rate" /> for more details.</t>
 
           <t>Under the above constraints the serving_window_clamp
           will limit the both the serving data rate and burst sizes
