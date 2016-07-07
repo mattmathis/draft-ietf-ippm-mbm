@@ -20,7 +20,8 @@
 
           <t>It is deemed inconclusive if the elapsed time to send
           the data burst is not less than half of the time to
-          receive the ACKs. (i.e. sending data too fast is ok, but
+          receive the ACKs.
+	  (i.e. It is acceptable to send data too fast, but
           sending it slower than twice the actual bottleneck rate
           as indicated by the ACKs is deemed inconclusive). The
           headway for the slowstart bursts should be the
@@ -42,12 +43,13 @@
           particular result, however design decisions that affect
           the outcome of this tests also affect how the network
           balances between long and short flows (the "mice vs
-          elephants" problem). The queue at the time of the first
+          elephants" problem). The queue sojourn time for the
+	  first packet delivered after the first
           loss should be at least one half of the target_RTT.</t>
 
-          <t>This is an engineering test: It must be performed on a
+          <t>This is an engineering test: It should be performed on a
           quiescent network or testbed, since cross traffic has the
-          potential to change the results.</t>
+          potential to change the results in ill defined ways.</t>
         </section>
       </section>
 
