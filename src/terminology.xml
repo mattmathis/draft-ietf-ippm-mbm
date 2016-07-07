@@ -45,7 +45,7 @@
           sized packets on the forward path, ACK sized packets
           (typically header_overhead) on the return path. Note that
           Target RTT is specified and not measured, it determines
-          the applicability of MBM measuremets for paths that are
+          the applicability of MBM measurements for paths that are
           different than the measured path.</t>
           <t hangText='Target MTU (Maximum Transmission Unit):'>The
           specified maximum MTU supported by the complete path the
@@ -216,7 +216,7 @@
           sizes, which are the portion of each MTU not available
           for carrying application payload. Without loss of
           generality this is assumed to be the size for returning
-          acknowledgements (ACKs). For TCP, the Maximum Segment
+          acknowledgments (ACKs). For TCP, the Maximum Segment
           Size (MSS) is the Target MTU minus the
           header_overhead.</t>
         </list>
@@ -291,16 +291,23 @@
           under test.</t>
           <t hangText="test_path_RTT:">The RTT observed between two
           measurement points using packet sizes that are consistent
-          with the transport protocol. Generally MTU sized packets
+          with the transport protocol.
+	  This is generally MTU sized packets
           of the forward path, header_overhead sized packets on the
           return path.</t>
           <t hangText="test_path_pipe:">The pipe size of a test
           path. Nominally the test path RTT times the test path
           IP_capacity.</t>
-          <t hangText="test_window:">The window necessary to meet
-          the target_rate over a test path. Typically
-          test_window=target_data_rate*test_path_RTT/(target_MTU -
-          header_overhead).</t>
+          <t hangText="test_window:">The smallest window sufficient
+	  to meet or exceeded
+          the target_rate when operating with a pure self clock over a test path.
+	  The test_window is typically given by
+          ceiling(target_data_rate*test_path_RTT/(target_MTU-header_overhead))
+	  but see the discussion in <xref target="complex" /> about
+	  the effects of channel scheduling on RTT.
+	  On some test paths the test_window may need to be
+	  adjusted slightly to compensate for the RTT being
+	  inflated by the devices that schedule packets.</t>
           <!-- <t hangText="@:">@ @</t> -->
         </list>
       </t>

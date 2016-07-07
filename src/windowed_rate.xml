@@ -5,14 +5,7 @@
           target_run_length while sending at an average rate
           approximately equal to the target_data_rate, by
           controlling (or clamping) the window size of a
-          conventional transport protocol to a fixed value computed
-          from the properties of the test path, typically
-          test_window=target_data_rate*test_path_RTT/target_MTU.
-          Note that if there is any interaction between the forward
-          and return path, test_window may need to be adjusted
-          slightly to compensate for the resulting inflated RTT.
-          However see the discussion in 
-          <xref target="self_interference" />.</t>
+          conventional transport protocol to test_window.</t>
 
           <t>Since losses and ECN CE marks cause transport
           protocols to reduce their data rates, this test is

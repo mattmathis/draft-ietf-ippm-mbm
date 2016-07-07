@@ -7,7 +7,8 @@
         generally means lossless for transient queues, but once the
         queue has been sustained for a sufficient period of time
         (or reaches a sufficient queue depth) there should be a
-        small number of losses to signal to the transport protocol
+        small number of losses or ECN CE marks to signal to the
+	transport protocol
         that it should reduce its window. Losses that are too early
         can prevent the transport from averaging at the
         target_data_rate. Losses that are too late indicate that
@@ -29,7 +30,9 @@
         induced packet loss or ECN CE marks. For theses
         technologies, the discussion of queueing does not apply,
         but it is still required that the onset of losses or ECN CE
-        marks be at an appropriate point and progressive.</t>
+        marks be at an appropriate point and progressive.
+	Start the scan at a window equal to or slightly below
+	the test_window.</t>
 
         <t>Use the procedure in 
         <xref target="scanned_window" /> to sweep the window across
@@ -50,14 +53,9 @@
         identified by the maximum network power, defined to be the
         ratio data rate over the RTT. The network power can be
         computed at each window size, and the window with the
-        maximum are taken as the start of the queueing region.</t>
+        maximum is taken as the start of the queueing region.</t>
 
-        <t>For technologies that do not have conventional queues,
-        start the scan at a window equal to the
-        test_window=target_data_rate*test_path_RTT/target_MTU, i.e.
-        starting at the target rate, instead of the power
-        point.</t>
-
+        
         <t>If there is random background loss (e.g. bit errors,
         etc), precise determination of the onset of queue induced
         packet loss may require multiple scans. Above the onset of

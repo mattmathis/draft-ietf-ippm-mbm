@@ -5,7 +5,7 @@
           such as streaming media, with some additional controls
           and instrumentation in the servers. The essential
           requirement is that the data rate be constrained such
-          that even with arbitrary application pauses and bursts
+          that even with arbitrary application pauses and bursts,
           the data rate and burst sizes stay within the envelope
           defined by the individual tests described above.
 
@@ -22,22 +22,15 @@ search: pkt_sched fq Fair Queue packet scheduler
 -->
 </t>
 
-          <t>If the application's serving_data_rate is less than or
+          <t>If the application's serving data rate can be
+	  constrained to be less than or
           equal to the target_data_rate and the serving_RTT (the
           RTT between the sender and client) is less than the
           target_RTT, this constraint is most easily implemented by
-          clamping the transport window size.
-	  An initial estimate of the serving_window_clamp can be
-	  computed from:</t>
-
-          <t>
-          serving_window_clamp=target_data_rate*serving_RTT/(target_MTU-header_overhead)
+          clamping the transport window size to serving_window_clamp,
+	  set to the test_window,
+	  computed for the actual serving path.
 	  </t>
-
-	  <t>The actual serving_window_clamp may need to be adjusted slightly
-	  to compensated for the difficult to estimate contribution of 
-	  store and forward delays to the RTT.
-	  See <xref target="windowed_rate" /> for more details.</t>
 
           <t>Under the above constraints the serving_window_clamp
           will limit the both the serving data rate and burst sizes
@@ -58,9 +51,9 @@ search: pkt_sched fq Fair Queue packet scheduler
           <t>In an alternative implementation the data rate and
           bursts might be explicitly controlled by a programmable
           traffic shaper or pacing at the sender. This would
-          provide better control over transmissions but it is
-          substantially more complicated to implement and would be
-          likely to have a higher CPU overhead.
+          provide better control over transmissions but is more
+	  complicated to implement, although the requried technology is
+	  availible<xref target="TSO_pacing" /><xref target="TSO_fq_pacing" />.
 	  </t>
 
           <t>Note that these techniques can be applied to any

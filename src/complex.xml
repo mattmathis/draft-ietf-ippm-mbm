@@ -43,7 +43,7 @@
       to offset the longer times between ACKs in order to maintain
       the average data rate.</t>
 
-      <t>It is important to note that due to ubiquitous self
+      <t>Note that due to ubiquitous self
       clocking in Internet protocols, ill conceived channel
       allocation mechanisms are likely to
       increases the queuing stress on the

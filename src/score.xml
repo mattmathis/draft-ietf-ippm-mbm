@@ -64,7 +64,7 @@
         of the boundary between passing and inconclusive or failing
 	results is
         sensitive to RTT (which is normally the case).  For example
-	the maximum date rate for a margional link (e.g.
+	the maximum data rate for a margional link (e.g.
 	exhibiting excess errors) is likely to be sensitive to the
 	test path RTT.  The maximum observed data rate over the test
 	path has very little predictive value for the maximum rate over a

@@ -5,11 +5,11 @@
         packet transfer statistics test. All measure the number of
         packets delivered between losses or ECN Congestion
         Experienced (CE) marks, using a data stream that is rate
-        controlled at or below the target_data_rate.</t>
+        controlled at approximately the target_data_rate.</t>
 
         <t>The tests below differ in how the data rate is
         controlled. The data can be paced on a timer, or window
-        controlled at full Target Data Rate. The first two tests
+        controlled (and self clocked). The first two tests
         implicitly confirm that sub_path has sufficient raw
         capacity to carry the target_data_rate. They are recommended
         for relatively infrequent testing, such as an installation
