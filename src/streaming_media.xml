@@ -54,10 +54,6 @@ search: pkt_sched fq Fair Queue packet scheduler
           (Depending on the application behavior, the data might be
           significantly smoother than specified by any of the burst
           tests.)</t>
-          <!--
-
-<t>Note that it is important that the target_data_rate be above the actual average rate needed by the application so it can recover after transient pauses caused by congestion or the application itself.  @@ @@ not really</t>
--->
 
           <t>In an alternative implementation the data rate and
           bursts might be explicitly controlled by a programmable
@@ -65,12 +61,9 @@ search: pkt_sched fq Fair Queue packet scheduler
           provide better control over transmissions but it is
           substantially more complicated to implement and would be
           likely to have a higher CPU overhead.
-@@@@@ yes, more CPU, but also more reliable than assuming we know RTT
-and can keep it stable. - ACM
-</t>
+	  </t>
 
           <t>Note that these techniques can be applied to any
           content delivery that can be constrained to a reduced data
           rate in order to inhibit TCP equilibrium behavior.</t>
-          <!-- @@ @@ cite TCP trickle, -->
         </section>
