@@ -244,6 +244,21 @@
         <seriesInfo name='Proceedings of IETF 88, TCPM WG'
         value='https://www.ietf.org/proceedings/88/slides/slides-88-tcpm-9.pdf' />
       </reference>
+      <reference anchor='Policing'>
+	<front>
+	  <title>An Internet-Wide Analysis of Traffic Policing</title>
+	  <author initials='T.' surname='Flach' > </author>
+	  <author initials='P.' surname='Papageorge' > </author>
+	  <author initials='A.' surname='Terzis' > </author>
+	  <author initials='L. D.' surname='Pedrosa' > </author>
+	  <author initials='Y.' surname='Cheng' > </author>
+	  <author initials='T.' surname='Karim' > </author>
+	  <author initials='E.' surname='Katz-Bassett' > </author>
+	  <author initials='R.' surname='Govindan' > </author>
+	  <date year='2016' month='August' />
+	</front>
+	<seriesInfo name='ACM SIGCOMM' value='@@@@'/>
+      </reference>
       <!--
 <reference anchor='EmptyRef'><front>
 <title >TITLE</title>

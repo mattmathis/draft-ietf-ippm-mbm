@@ -7,18 +7,20 @@
           non-decreasing subpath throughput at the onset of loss,
           which is easy to meet as long as discarding packets is
           not more expensive than delivering them. (Note when there
-          is a transient drop in subpath throughput, outside of a
+          is a transient drop in subpath throughput outside of a
           standing queue test, a subpath that passes other queue
           tests in this document will have sufficient queue space
           to hold one RTT worth of data).</t>
-          <!-- @@ Links that exhibit punitive behaviors such as sudden high loss under overload may not interact well with TCP's self clock. -->
+          <!-- @@@@
+	  Links that exhibit punitive behaviors such as sudden high
+	  loss under overload may not interact well with TCP's self clock. -->
 
-          <t>Note that conventional Internet policers will not pass
+          <t>Note that conventional Internet token bucket
+	  policers will not pass
           this test, which is correct. TCP often fails to come into
           equilibrium at more than a small fraction of the
           available capacity, if the capacity is enforced by a
-          policer. [Citation Pending]. 
-@@@@@ In paths where there are policers, there may be good reasons
-for them, such as limiting each user's traffic on a free service. - ACM
-          <!-- @@@@ --></t>
+          policer
+	  <xref target="Policing" />. 
+          @@@@ More wordsmithing needed.</t>
         </section>
