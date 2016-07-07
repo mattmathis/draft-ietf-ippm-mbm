@@ -2,7 +2,7 @@
     <section anchor="complex"
     title="The effects of ACK scheduling">
 
-      <t>For many network technologies simple queueing models don't
+      <t>For many network technologies simple queuing models don't
       apply: the network schedules, thins or otherwise alters the
       timing of ACKs and data, generally to raise the efficiency of
       the channel allocation algorithms when confronted with
@@ -15,7 +15,7 @@
       bottleneck IP capacity, making the fine grained slowstart
       bursts either faster or larger and it raises the effective
       RTT by the average time that the ACKs and data are delayed.
-      The first effect can be partially mitigated by reclocking
+      The first effect can be partially mitigated by re-clocking
       ACKs once they are beyond the bottleneck on the return path
       to the sender, however this further raises the effective
       RTT.</t>
@@ -38,13 +38,15 @@
       Bottleneck IP Capacity, which is the average rate at which
       the ACKs advance snd.una. Note that thinning the ACK stream
       (relying on the cumulative nature of seg.ack to permit
-      discarding some ACKs) requires larger sender interface bursts
-      to offset the longer times between ACK in order to maintain
+      discarding some ACKs) causes most TCP implementation to send
+      interface rate bursts
+      to offset the longer times between ACKs in order to maintain
       the average data rate.</t>
 
       <t>It is important to note that due to ubiquitous self
       clocking in Internet protocols, ill conceived channel
-      allocation mechanisms increases the queueing stress on the
+      allocation mechanisms are likely to
+      increases the queuing stress on the
       front path because they cause larger full sender rate data
       bursts.</t>
 
