@@ -61,10 +61,15 @@
         parameter space to find the limits on some parameter such
         as target_data_rate are at risk of breaking the location
         independent properties of Model Based Metrics, if any part
-        of the boundary between passing and inconclusive results is
-        sensitive to RTT (which is normally the case).
-@@@@@ not entirely clear why this is true, to me at least - ACM
-</t>
+        of the boundary between passing and inconclusive or failing
+	results is
+        sensitive to RTT (which is normally the case).  For example
+	the maximum date rate for a margional link (e.g.
+	exhibiting excess errors) is likely to be sensitive to the
+	test path RTT.  The maximum observed data rate over the test
+	path has very little predictive value for the maximum rate over a
+	different path.
+	</t>
 
         <t>One of the goals for evolving TIDS designs will be to
         keep sharpening distinction between inconclusive, passing
@@ -83,8 +88,6 @@
         Raw packet transfer statistics can help to drive tool
         evolution. Under some conditions it might be possible to
         re-evaluate the raw data for satisfying alternate Target
-@@@@@ Is the makefile eating hyphens???  
-I've seen too many missing hyphens to be typos... - ACM
         Transport Performance. However it is important to guard
         against sampling bias and other implicit feedback which can
         cause false results and exhibit measurement point vantage
