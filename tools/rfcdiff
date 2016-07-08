@@ -104,7 +104,7 @@
 
 export version="1.42"
 export progdate=""
-export prelines="10"
+export prelines="50"
 export basename=$(basename $0)
 export workdir="/tmp/$basename-$$"
 export pagecache1="$workdir/pagecache1"
