@@ -6,15 +6,13 @@
       multiple content providers to all of their customers. With
       modern codecs, minimal HD video (720p) generally fits in 2.5
       Mb/s. Due to their geographical size, network topology and
-      modem designs the ISP determines that most content is within
-      a 50 mS RTT from their users (This is a sufficient to cover
-      continental Europe or either US coast from a single serving
-      site.)
-@@@@@ 50 ms RTT would be mostly propagation delay for the regions 
-listed. The modems use advanced processing to improve link-layer
-performance (FEC and Interleaving, to name a few), and all network
-functions add some queue delay. Let's consider adding some delay.
-</t>
+      modem characteristics the ISP determines that most content is within
+      a 50 mS RTT of their users (This example RTT is a sufficient to cover
+      the propagation delay to continental Europe or either US coast
+      with low delay modems or somewhat smaller geographical regions if the modems
+      require additional delay to implement advanced compression and
+      error recovery).
+      </t>
 
       <texttable anchor="HDvideo_table">
         <preamble>2.5 Mb/s over a 50 ms path</preamble>
@@ -62,28 +60,51 @@ functions add some queue delay. Let's consider adding some delay.
       independently, and the spatial composition of passing
       subpaths would be expected to be within the end-to-end loss
       budget.
-@@@@@ We have to allocate the RTT, too.  
-And, the paragraph below is a completely different topic.
-</t>
+      </t>
 
-      <!-- @@@@ move to conclusion? -->
+      <!-- @@@@ move elsewhere or new doc? -->
+      <section anchor="applicability" title="Observations about applicability">
+
+	<t>Guidance on deploying and using MBM belong in a
+	future document.  However this example illustrates some
+	the issues that may need to be considered.</t>
+
+      <t>Note that a another ISP, with different geographical
+      coverage, topology or modem technology may need to assume
+      a different target_RTT, and as a consequence different
+      target_window_size and target_run_length, even for the
+      same target_data rate.
+      One of the implications of this is that infrastructure
+      shared by multiple ISPs, such as inter-exchange points (IXPs) and
+      other interconnects may need to be evaluated on the basis
+      of the most stringent target_window_size and
+      target_run_length of any participating ISP.
+      One way to do this might be to choose target parameters for
+      evaluating such shared infrastructure on the basis of a
+      hypothetical reference path that does not match any actual
+      paths.
+      </t>
 
       <t>Testing interconnects has generally been problematic:
       conventional performance tests run between measurement points
       adjacent to either side of the interconnect, are not
       generally useful. Unconstrained TCP tests, such as iperf 
-      <xref target="iperf" /> are usually overly aggressive because
-      the RTT is so small (often less than 1 mS). With a short RTT
-      these tools are likely to report inflated numbers because for
-      short RTTs these tools can tolerate very high packet loss
+      <xref target="iperf" /> are usually overly aggressive due
+      to the small RTT, often less than 1 mS. With a short RTT
+      these tools are likely to report inflated numbers because on a
+      short RTT these tools can tolerate very high packet loss
       ratios and can push other cross traffic off of the network.
-      As a consequence they are useless for predicting actual user
-      performance, and may themselves be quite disruptive. Model
-      Based Metrics solves this problem. The same test pattern as
-      used on other subpaths can be applied to the interconnect.
-      For our example, when apportioned 40% of the losses, 11
+      As a consequence these measurements are useless for predicting actual user
+      performance over longer paths, and may themselves be quite
+      disruptive. Model
+      Based Metrics solves this problem. The interconnect can be
+      evaluated with the same TIDS as other subpaths.
+      Continuing our example, if the interconnect is
+      apportioned 40% of the losses, 11
       packet bursts sent every 50mS should have fewer than one loss
       per 82 bursts (902 packets).</t>
+
+      </section>
 
       <!-- <t> @@ SPRT example here, or remove reference above </t> -->
       <!--   @@ consider 10 or 20 mS RTT. -->
