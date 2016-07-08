@@ -44,9 +44,9 @@
           specified considering appropriate packets sizes: MTU
           sized packets on the forward path, ACK sized packets
           (typically header_overhead) on the return path. Note that
-          Target RTT is specified and not measured, it determines
-          the applicability of MBM measurements for paths that are
-          different than the measured path.</t>
+          Target RTT is specified and not measured, MBM measurements
+	  derived for a given target_RTT will be applicable to
+	  any path with a smaller RTTs.</t>
           <t hangText='Target MTU (Maximum Transmission Unit):'>The
           specified maximum MTU supported by the complete path the
           over which the application expects to meet the target

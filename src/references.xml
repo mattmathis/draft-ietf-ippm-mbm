@@ -260,7 +260,7 @@
 	  <author initials='R.' surname='Govindan' > </author>
 	  <date year='2016' month='August' />
 	</front>
-	<seriesInfo name='ACM SIGCOMM' value='@@@@'/>
+	<seriesInfo name='ACM SIGCOMM' value=''/>  <!-- @@@@ incomplete -->
       </reference>
       <!--
 <reference anchor='EmptyRef'><front>

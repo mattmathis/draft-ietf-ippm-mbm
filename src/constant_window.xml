@@ -21,5 +21,7 @@
 
         <t>Since constant window pseudo CBR testing is sensitive to
         RTT fluctuations it will be less accurate at controlling the data
-        rate in environments with fluctuating delays.</t>
+        rate in environments with fluctuating delays.  Conventional paced
+	measurement traffic may be more appropriate for these
+	environments. </t>
       </section>
