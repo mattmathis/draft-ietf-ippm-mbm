@@ -6,6 +6,7 @@ WEBNAME=draft-ietf-ippm-model-based-metrics
 PRIOR=prior
 WEBDIR=${HOME}/Downloads
 WEBDIR=${HOME}/www/drafts
+SUFFIX=-08
 FORMATTED=`date`
 LIB='XML_LIBRARY='${PWD}
 
@@ -38,9 +39,9 @@ $(NAME).html: $(NAME).xml
 # Nonstandard rules to help the lazy^H^H^H busy
 
 stage: $(NAME).txt $(NAME).html
-	cp $(NAME).txt ${WEBDIR}/${WEBNAME}.txt
-	cp $(NAME).xml ${WEBDIR}/${WEBNAME}.xml
-	cp $(NAME).html ${WEBDIR}/${WEBNAME}.html
+	cp $(NAME).txt ${WEBDIR}/${WEBNAME}${SUFFIX}.txt
+	cp $(NAME).xml ${WEBDIR}/${WEBNAME}${SUFFIX}.xml
+	cp $(NAME).html ${WEBDIR}/${WEBNAME}${SUFFIX}.html
 	chmod 644 ${WEBDIR}/${WEBNAME}*
 
 # link prior.txt to Pub/whatever 
