@@ -24,6 +24,7 @@
       <?rfc include="References/reference.RFC.7312.xml"?>
       <?rfc include="References/reference.RFC.7398.xml"?>
       <?rfc include="References/reference.RFC.7567.xml"?>
+      <?rfc include="References/reference.RFC.7661.xml"?>
       <?rfc include="References/reference.RFC.7680.xml"?>
       <!-- <?rfc include="References/reference.I-D.draft-ietf-ippm-2680-bis.xml"?> -->
       <!-- <?rfc include="References/reference.I-D.draft-ietf-aqm-recommendation.xml"?> -->
@@ -45,7 +46,7 @@
       <reference anchor='mpingSource'
       target='https://github.com/m-lab/mping'>
         <front>
-          <title>Git Repository for mping: An IP Level Performance
+         <title>Git Repository for mping: An IP Level Performance
           Diagnostic</title>
           <!-- abbrev='TITLE' -->
           <author initials='X.' surname='Fan'>
@@ -96,7 +97,7 @@
         <seriesInfo name='Passive and Active Measurement'
         value="" />
       </reference>
-      <reference anchor='iperf'
+      <reference anchor='iPerf'
       target="http://en.wikipedia.org/w/index.php?title=Iperf&amp;oldid=649720021">
 
         <front>

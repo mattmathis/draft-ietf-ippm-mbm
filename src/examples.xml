@@ -81,17 +81,17 @@
       target_run_length of any participating ISP.
       One way to do this might be to choose target parameters for
       evaluating such shared infrastructure on the basis of a
-      hypothetical reference path that does not match any actual
-      paths.
+      hypothetical reference path that does not necessarily
+      match any actual paths.
       </t>
 
       <t>Testing interconnects has generally been problematic:
       conventional performance tests run between measurement points
-      adjacent to either side of the interconnect, are not
-      generally useful. Unconstrained TCP tests, such as iperf 
-      <xref target="iperf" /> are usually overly aggressive due
-      to the small RTT, often less than 1 mS. With a short RTT
-      these tools are likely to report inflated numbers because on a
+      adjacent to either side of the interconnect are not
+      generally useful. Unconstrained TCP tests, such as iPerf 
+      <xref target="iPerf" /> are usually overly aggressive due
+      to the small RTT (often less than 1 mS). With a short RTT
+      these tools are likely to report inflated data rates because on a
       short RTT these tools can tolerate very high packet loss
       ratios and can push other cross traffic off of the network.
       As a consequence these measurements are useless for predicting actual user

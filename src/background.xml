@@ -57,7 +57,7 @@
 	measurement traffic detects only minimal available capacity.
 	You can not in general determine which scenario might be
 	in effect, so you can not gauge the
-        relative magnitude of the uncertainty that is
+        relative magnitude of the uncertainty
         introduced by interactions with other network traffic.</t>
 
         <t>It is difficult, if not impossible, for two independent
@@ -67,6 +67,7 @@
         other properties listed. </t>
       </list></t>
 
+      <!-- @@@@ Archaic language, consider redoing -->
       <t>These properties are a consequence of the dynamic equilibrium
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control

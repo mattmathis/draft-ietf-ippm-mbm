@@ -4,7 +4,7 @@
         <t>Scanned window pseudo CBR is similar to the constant
         window CBR described above, except the window is scanned
         across a range of sizes designed to include two key events,
-        the onset of queueing and the onset of packet loss or ECN
+        the onset of queuing and the onset of packet loss or ECN
         CE marks. The window is scanned by incrementing it by one
         packet every 2*target_window_size delivered packets. This
         mimics the additive increase phase of standard Reno TCP

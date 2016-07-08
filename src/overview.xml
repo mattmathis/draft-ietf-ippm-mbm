@@ -56,13 +56,12 @@
                  |                |
                  ------------------
 Traffic parameters |            | Statistical criteria
-                   |            | and perf. bounds
                    |            |
             _______V____________V____Targeted_______
            |       |   * * *    | Diagnostic Suite  |
       _____|_______V____________V________________   |
     __|____________V____________V______________  |  |
-    |           IP diagnostic test             | |  |
+    |           IP diagnostic tests            | |  |
     |              |            |              | |  |
     | _____________V__        __V____________  | |  |
     | |   traffic    |        |   Delivery  |  | |  |
@@ -97,20 +96,19 @@ Traffic parameters |            | Statistical criteria
 
       <t>
       <xref target="results" /> describes packet transfer statistics
-      and methods to test them against the bounds provided by the
-      mathematical models. Since the numeric bounds are typically the
+      and methods to test them against the statistical criteria provided by the
+      mathematical models. Since the statistical criteria are typically
        for the complete path (a composition of subpaths)
       <xref target="RFC6049" />, in situ testing requires that the
-      end-to-end numeric bounds be apportioned as separate
-      bounds for each subpath. Subpaths that are expected to be
-      bottlenecks would then contribute a larger fraction to the bound
-      on the total packet loss. In compensation, non-bottlenecked
+      end-to-end statistical criteria be apportioned as separate
+      criteria for each subpath. Subpaths that are expected to be
+      bottlenecks would then be permitted to contribute a larger
+      fraction of the end-to-end
+      packet loss budget. In compensation, non-bottlenecked
       subpaths have to be constrained to contribute less packet
-      loss. Thus the performance bound for a subpath in each test of a
-      TIDS is an apportioned share of the total performance bound
-      for the complete path, determined by the mathematical model.
-      [@@@@ This use of "performance bound" clashes with Target Performace. 
-      Can we use something like "metric bounds" or "statical bounds"?]
+      loss. Thus the statistical criteria for each subpath in each test of a
+      TIDS is an apportioned share of the end-to-end statistical criteria
+      for the complete path which was determined by the mathematical model.
       </t>
 
       <t>
@@ -133,7 +131,7 @@ Traffic parameters |            | Statistical criteria
       <xref target="examples" /> we present an example TIDS that
       might be representative of HD video, and illustrate how Model
       Based Metrics can be used to address difficult measurement
-      situations, such as confirming that intercarrier exchanges
+      situations, such as confirming that inter-carrier exchanges
       have sufficient performance and capacity to deliver HD video
       between ISPs.</t>
 

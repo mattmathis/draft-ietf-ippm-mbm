@@ -36,7 +36,7 @@
       models the transport protocol's response to less than ideal
       IP packet transfer.</t>
 
-      <t>This note addreses Bulk Transport Capacity.  It
+      <t>This note addresses Bulk Transport Capacity.  It
       describes an alternative to the approach
       presented in "A Framework for Defining Empirical Bulk
       Transfer Capacity Metrics" 
@@ -81,6 +81,38 @@
         contributing.</t>
 
         <t>Formatted: FORMATTED</t>
+
+	<t>Changes since -07 draft: 
+        <list style="symbols">
+	  <t>Sharpened the use of "statistical criteria"</t>
+
+	  <t>Sharpened the definition of test_window, and
+	  removed related redundant text in several places</t>
+
+	  <t>Clarified "equilibrium" as "dynamic equilibrium,
+	  similar to processes observed in chemistry"</t>
+
+	  <t>Properly explained "Heisenberg" as "observer effect"</t>
+
+	  <t>Added the observation from RFC 6576 that HW and SW
+	  congestion control implementations do not generally give the
+	  same results.</t>
+
+	  <t>Noted that IP and application metrics differ as to how
+	  overhead is handled.  MBM is explicit about how it handles
+	  overhead.</t>
+
+	  <t>Clarified the language and added a new reference about
+	  the problems caused by token bucket policers.</t>
+
+	  <t>Added an subsection in the example that comments on some of
+	  issues that need to be mentioned in a future usage or
+	  applicability doc.</t>
+
+	  <t>Updated ippm-2680-bis to RFC7680</t>
+	  
+	  <t>Many terminology, punctuation and spelling nits.</t>
+        </list></t>
 
         <t>Changes since -06 draft: 
         <list style="symbols">

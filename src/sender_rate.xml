@@ -18,8 +18,8 @@
 
         <t>Current standards permit TCP to send a full window
         bursts following an application pause. (Congestion Window
-        Validation 
-        <xref target="RFC2861" />, is not required, but even if
+        Validation  <xref target="RFC2861" />
+        <xref target="RFC7661" />, is not required, but even if
         was, it does not take effect until an application pause is
         longer than an RTO.) Since full window bursts are
         consistent with standard behavior, it is desirable that the

@@ -12,13 +12,13 @@
       tools to characterize network performance. Traditional
       methods for measuring Bulk Transport Capacity are sensitive
       to RTT and as a consequence often yield very different
-      results when run local to an ISP or internconnect and when
+      results when run local to an ISP or interconnect and when
       run over a customer's complete path. Neither the ISP nor
-      customer can repeat the other's measurements, leading to high
+      customer can repeat the others measurements, leading to high
       levels of distrust and acrimony. Model Based Metrics are
       expected to greatly improve this situation.</t>
 
       <t>This document only describes a framework for designing
-      Fully Specified Targeted IP Diagnostic Suite. Each FSTIDS
+      Fully Specified Targeted IP Diagnostic Suite. Each FS-TIDS
       MUST include its own security section.</t>
     </section>

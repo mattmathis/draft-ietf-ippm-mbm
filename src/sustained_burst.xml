@@ -18,7 +18,7 @@
 	    by the difference between the time to drain the queue
 	    at the subpath IP capacity, and the target_RTT.
 	    If the
-	    queue does not drain completly it may be an indication
+	    queue does not drain completely it may be an indication
 	    that the the subpath has insufficient IP capacity or
 	    that there is some other problem with the test
 	    (e.g. inconclusive).
