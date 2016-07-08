@@ -18,12 +18,14 @@
       <?rfc include="References/reference.RFC.5681.xml"?>
       <?rfc include="References/reference.RFC.5835.xml"?>
       <?rfc include="References/reference.RFC.6049.xml"?>
+      <?rfc include="References/reference.RFC.6576.xml"?>
       <?rfc include="References/reference.RFC.6673.xml"?>
       <?rfc include="References/reference.RFC.6928.xml"?>
       <?rfc include="References/reference.RFC.7312.xml"?>
       <?rfc include="References/reference.RFC.7398.xml"?>
       <?rfc include="References/reference.RFC.7567.xml"?>
-      <?rfc include="References/reference.I-D.draft-ietf-ippm-2680-bis.xml"?>
+      <?rfc include="References/reference.RFC.7680.xml"?>
+      <!-- <?rfc include="References/reference.I-D.draft-ietf-ippm-2680-bis.xml"?> -->
       <!-- <?rfc include="References/reference.I-D.draft-ietf-aqm-recommendation.xml"?> -->
       <?rfc include="References/LOCAL.mathis07macro.xml"?>
       <reference anchor='WPING'>

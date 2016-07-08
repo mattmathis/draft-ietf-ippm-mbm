@@ -22,7 +22,6 @@
       described below. Unlike typical IPPM metrics which yield
       measures of network properties, Model Based Metrics nominally
       yield pass/fail evaluations of the ability of standard 
-     (meaning fully-specified and modelled) 
       transport protocols to meet the specific performance
       objective over some network path.</t>
 
@@ -51,17 +50,17 @@
       maximizing protocols for measurement. In particular all
       throughput maximizing protocols (and TCP congestion control
       in particular) cause some level of congestion in order to
-      detect when they have reached some available capacity 
+      detect when they have reached the available capacity 
       limitation of the network. This self inflicted
       congestion obscures the network properties of interest and
-      introduces non-linear equilibrium behaviors that make any
+      introduces non-linear dynamic equilibrium behaviors that make any
       resulting measurements useless as metrics because they have
       no predictive value for conditions or paths different than
       that of the measurement itself.  In order to prevent these
       effects it is necessary to suppress the effects of TCP congestion 
       control in the measurement method.
       These issues are discussed at length in 
-      <xref target="background" />..</t>
+      <xref target="background" />.</t>
 
       <t>A Targeted IP Diagnostic Suite does not have such
       difficulties. IP diagnostics can be constructed such that

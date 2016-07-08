@@ -61,7 +61,7 @@
           under test can sustain flows at a specific
           target_data_rate using target_MTU sized packets when the
           RTT of the complete path is target_RTT.</t>
-          <t hangText="Fully Specified Targeted IP Diagnostic Suite:">
+          <t hangText="Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):">
           A TIDS together with additional specification such as
           "type-p", etc which are out of scope for this document,
           but need to be drawn from other standards documents.</t>
@@ -94,7 +94,7 @@
           properties that may be germane to transport
           performance.</t>
           <t hangText="packet loss ratio:">As defined in 
-          <xref target="I-D.ietf-ippm-2680-bis" />.</t>
+          <xref target="RFC7680" />.</t>
           <t hangText="apportioned:">To divide and allocate, for
           example budgeting packet loss across multiple subpaths
           such that the losses will accumulate to less than a
@@ -268,8 +268,8 @@
           <xref target="derive" /></t>
           <t hangText="reference target_run_length:">
           target_run_length computed precisely by the method in 
-          <xref target="models" />. This is likely to be more
-          slightly conservative than required by modern TCP
+          <xref target="models" />. This is likely to be
+          slightly more conservative than required by modern TCP
           implementations.</t>
         </list>
       </t>
@@ -367,7 +367,7 @@
           Target Transport Performance. As long as the test stream
           is within the proper envelope for the Target Transport
           Performance, the average packet losses or ECN Congestion
-          Experienced (CE) marks must be below the threshold
+          Experienced (CE) marks must be below the statistical criteria
           computed by the model. As such, capacity tests reflect
           parameters that can transition from passing to failing as
           a consequence of cross traffic, additional presented load

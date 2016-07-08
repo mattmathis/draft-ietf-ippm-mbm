@@ -13,12 +13,6 @@ top: all
 
 recompile: $(TARGETS)
 
-stage: $(NAME).txt $(NAME).html
-	cp $(NAME).txt ${WEBDIR}/${WEBNAME}.txt
-	cp $(NAME).xml ${WEBDIR}/${WEBNAME}.xml
-	cp $(NAME).html ${WEBDIR}/${WEBNAME}.html
-	chmod 644 ${WEBDIR}/${WEBNAME}*
-
 all: trigger $(TARGETS)  
 
 trigger $(NAME).trig:
@@ -27,21 +21,7 @@ trigger $(NAME).trig:
 clean:
 	rm -f $(NAME).trig $(NAME).tmp $(NAME).xml $(NAME).txt $(NAME).html $(NAME).txt.bar
 
-# link prior.txt to Pub/whatever 
-rfcdiff: $(NAME).txt
-	tools/rfcdiff $(PRIOR).txt $(NAME).txt
-	@echo See $(NAME)-from-$(PRIOR).diff.html
-
-changebar: $(NAME).txt
-	changebar $(NAME).txt $(PRIOR).txt
-
-less: trigger $(NAME).txt changebar
-	less $(NAME).txt.bar
-
-checkxml:
-	for f in src/*.xml; do tidy -e -q -xml $$f ; done
-
-# TODO: enumerate all source files
+# TODO: Properly depend on all source files: src/*.xml
 .PHONY: $(NAME).xml
 $(NAME).xml: $(NAME).trig
 	tools/merge.py main.xml | sed  -e "s/FORMATTED/$(FORMATTED)/g" -e '/<\/rfc>/q' -e '/%/a\\ ' > $(NAME).tmp
@@ -55,9 +35,37 @@ $(NAME).html: $(NAME).xml
 	-echo Making $(NAME).html and $(NAME).color.html ======
 	export $(LIB); xml2rfc --html $(NAME).xml
 
+# Nonstandard rules to help the lazy^H^H^H busy
+
+stage: $(NAME).txt $(NAME).html
+	cp $(NAME).txt ${WEBDIR}/${WEBNAME}.txt
+	cp $(NAME).xml ${WEBDIR}/${WEBNAME}.xml
+	cp $(NAME).html ${WEBDIR}/${WEBNAME}.html
+	chmod 644 ${WEBDIR}/${WEBNAME}*
+
+# link prior.txt to Pub/whatever 
+rfcdiff: $(NAME).txt
+	tools/rfcdiff $(PRIOR).txt $(NAME).txt
+	@echo See $(NAME)-from-$(PRIOR).diff.html
+
+changebar: $(NAME).txt
+	changebar $(NAME).txt prior.txt
+
+spell: $(NAME).txt
+	cat $(NAME).txt | aspell list | sort -u > spell.txt
+
+less: trigger $(NAME).txt changebar
+	less $(NAME).txt.bar
+
+checkxml:
+	for f in src/*.xml; do tidy -e -q -xml $$f ; done
+
 colorize: $(NAME).html
 	./tools/decorate.py global $(NAME).html > color_global.html
 	./tools/decorate.py traffic $(NAME).html > color_traffic.html
 	./tools/decorate.py model $(NAME).html > color_model.html
+
+checks: colorize spell rfcdiff
+
 
 

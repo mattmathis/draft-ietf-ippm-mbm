@@ -15,51 +15,59 @@
         are explicitly not part of the test (for example, the host 
         processing power is not in-scope of path performance tests).</t>
 
-        <t>Congestion control is an equilibrium process, such that
-        transport protocols change the packet transfer statistics
-        (raise the packet loss ratio and/or RTT) to conform to their 
-        behavior (e.g. Dynamic Equilibrium 
-        @@@@@@@ ACM [ref to wikipedia of other source] ).
+        <t>Congestion control is a dynamic equilibrium process,
+	similar to processes observed in chemistry and other fields.
+        The network and transport protocols find an operating point
+	which balances between opposing forces:
+	the transport protocol pushing harder
+	(raising the data rate and or window)
+	while the network pushes back
+	(raising packet loss ratio, RTT and/or ECN CE marks).
         By design TCP congestion control keeps
         raising the data rate until the network gives some
         indication that its capacity has been exceeded by dropping 
-        packets (or marking packets CE, Congestion Experienced on ECN-capable
-	connections). If a TCP sender successfully reaches network 
-        capacity of a connection, (e.g. the bottleneck is 100% utilized),
+        packets or ECN CE marks. If a TCP sender accurately fills a
+	path to its IP capacity, (e.g. the bottleneck is 100% utilized),
         then packet losses and ECN CE marks are mostly determined by 
-        the TCP sender and how aggressively it seeks additional capacity 
-        from the network, not the network itself.</t>
+        the TCP sender and how aggressively it seeks additional capacity,
+        and not the network itself, since the network
+	must send exactly the signals that TCP needs to set its rate.</t>
 
         <t>TCP's ability to compensate for network impairments (such as 
         loss, delay and delay variation, outside of those caused by TCP 
-        itself) is directly proportional to the number of send-ACK roundtrip
+        itself) is directly proportional to the number of send-ACK round trip
         exchanges per second (i.e. inversely proportional to the RTT). As a
         consequence an impaired subpath may pass a short RTT local test even
         though it fails when the subpath is extended by an effectively 
         perfect network to some larger RTT.</t>
 
-        <t>TCP has an extreme form of the Observer Effect -
+        <t>TCP has an extreme form of the Observer Effect
+	(colloquially know as the Heisenberg effect).
         Measurement and cross traffic interact in unknown and ill
-        defined ways, and influence the result. 
-        see https://en.wikipedia.org/wiki/Observer_effect_%28physics%29
-        @@@@@ (if we agree this is the right reference, need to re-work text below - ACM)
+        defined ways.
         The situation is actually worse than the
         traditional physics problem where you can at least estimate
         bounds on the relative momentum of the measurement and
         measured particles. For network measurement you can not in
-        general determine the relative "mass" of either the test
-        stream or the cross traffic, so you can not gauge the
-        relative magnitude of the uncertainty that might be
-        introduced by their interaction.</t>
+        general determine even the order of magnitude of the effect.
+	It is possible to construct measurement scenarios where
+	the measurement traffic starves real user traffic, yielding
+	an overly inflated measurement.  The inverse is also possible:
+	the user traffic can fill the network, such that the
+	measurement traffic detects only minimal available capacity.
+	You can not in general determine which scenario might be
+	in effect, so you can not gauge the
+        relative magnitude of the uncertainty that is
+        introduced by interactions with other network traffic.</t>
 
         <t>It is difficult, if not impossible, for two independent
-        implementations (HW and SW) of TCP congestion control to produce 
-        equivalent performance results (add ref to RFC 6576)
+        implementations (HW or  SW) of TCP congestion control to produce 
+        equivalent performance results <xref target="RFC6576" />
         under the same network conditions, as an outcome of the
         other properties listed. </t>
       </list></t>
 
-      <t>These properties are a consequence of the equilibrium
+      <t>These properties are a consequence of the dynamic equilibrium
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control
       systems based on estimated network metrics to regulate the
@@ -85,7 +93,7 @@
         <t>TCP and SCTP are self clocked protocols that carry the
         vast majority of all Internet data. Their dominant behavior
         is to have an approximately fixed quantity of data and
-        acknowledgements (ACKs) circulating in the network. The
+        acknowledgments (ACKs) circulating in the network. The
         data receiver reports arriving data by returning ACKs to
         the data sender, the data sender typically responds by
         sending exactly the same quantity of data back into the
@@ -101,7 +109,7 @@
 
         <t>A number of protocol features cause bursts of data, even
         in idealized networks that can be modeled as simple
-        queueing systems.</t>
+        queuing systems.</t>
 
         <t>During slowstart the IP rate is doubled on each RTT by
         sending twice as much data as was delivered to the receiver
@@ -130,7 +138,7 @@
         the receiver's delayed ACK algorithm generally sends only
         one ACK per two data segments. Furthermore the modern
         senders use TCP segmentation offload (TSO) to reduce CPU
-        overhead. The sender's software stack builds supersized TCP
+        overhead. The sender's software stack builds super sized TCP
         segments that the TSO hardware splits into MTU sized
         segments on the wire. The net effect of TSO, delayed ACK
         and other efficiency algorithms is to send bursts of

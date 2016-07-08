@@ -14,22 +14,21 @@
           <list style="symbols">
 
             <t>The subpath under test is expected to go idle for
-            some fraction of the time:
-            (subpath_IP_capacity-target_rate/target_MTU-header_overhead*target_MTU)/subpath_IP_capacity.
-            Failing to do so indicates a problem with the procedure
-            and an inconclusive test result.
-@@@@@ Not sure about this, does  a sub-path with CBR rate shaper (at target_rate)
-comply with the equation above? or does it require derating as below?
-(I guess that an extremely short idle time would satisfy this expectation.)
-One set of parens is unnecessary, too. ]
-</t>
+            some fraction of the time, determined
+	    by the difference between the time to drain the queue
+	    at the subpath IP capacity, and the target_RTT.
+	    If the
+	    queue does not drain completly it may be an indication
+	    that the the subpath has insufficient IP capacity or
+	    that there is some other problem with the test
+	    (e.g. inconclusive).
+	    </t>
 
             <t>The burst sensitivity can be derated by sending
             smaller bursts more frequently. E.g. send
             target_window_size*derate packet bursts every
-            target_RTT*derate.
-@@@@@ Derate is a factor less than 1, correct?  is this in the definition?
-</t>
+            target_RTT*derate, where "derate" is less than one.
+	    </t>
 
             <t>When not derated, this test is the most strenuous
             capacity test.</t>
