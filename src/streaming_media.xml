@@ -53,7 +53,7 @@ search: pkt_sched fq Fair Queue packet scheduler
           traffic shaper or pacing at the sender. This would
           provide better control over transmissions but is more
 	  complicated to implement, although the required technology is
-	  available<xref target="TSO_pacing" /><xref target="TSO_fq_pacing" />.
+	  available <xref target="TSO_pacing" /><xref target="TSO_fq_pacing" />.
 	  </t>
 
           <t>Note that these techniques can be applied to any

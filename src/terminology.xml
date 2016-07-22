@@ -299,7 +299,7 @@
           path. Nominally the test path RTT times the test path
           IP_capacity.</t>
           <t hangText="test_window:">The smallest window sufficient
-	  to meet or exceeded
+	  to meet or exceed
           the target_rate when operating with a pure self clock over a test path.
 	  The test_window is typically given by
           ceiling(target_data_rate*test_path_RTT/(target_MTU-header_overhead))
