@@ -1,11 +1,11 @@
     <!-- ======================================================== 4 -->
     <section anchor="background" title="Background">
 
-      <t>At the time the IPPM WG was chartered, sound Bulk
+      <t>In 1997, when performance specification work began in the IETF (and the IPPM WG was chartered), sound Bulk
       Transport Capacity (BTC) measurement was known to be well beyond
-      our capabilities. Even at the time that Framework for Empirical 
+      our capabilities. Even when Framework for Empirical 
       BTC Metrics 
-      <xref target="RFC3148" /> was written we knew that we didn't
+      <xref target="RFC3148" /> was written, we knew that we didn't
       fully understand the problem. Now, by hindsight we understand
       why assessing BTC is such a hard problem:
       <list style="symbols">
@@ -20,7 +20,7 @@
         The network and transport protocols find an operating point
 	which balances between opposing forces:
 	the transport protocol pushing harder
-	(raising the data rate and or window)
+	(raising the data rate and/or window)
 	while the network pushes back
 	(raising packet loss ratio, RTT and/or ECN CE marks).
         By design TCP congestion control keeps
@@ -263,8 +263,8 @@
         load, but may fail in the field due to configuration
         errors, etc. and should be spot checked.</t>
 
-        <t>We are developing a tool that can perform many of the
-        tests described here 
+        <t>The tool that can perform many of the
+        tests is available from  
         <xref target="MBMSource" />.</t>
         <!-- @@ move? -->
       </section>
