@@ -4,11 +4,16 @@
       to assess if a complete Internet path can be expected to meet
       a predefined Target Transport Performance by applying a suite
       of IP diagnostic tests to successive subpaths. The
-      subpath-at-a-time tests can be robustly applied to key
-      infrastructure, such as interconnects or even individual
+      subpath-at-a-time tests can be robustly applied to critical
+      infrastructure, such as internetwork gateways or even individual
       devices, to accurately detect if any part of the
       infrastructure will prevent paths traversing it from meeting
       the Target Transport Performance.</t>
+
+      <t>Model Based Metrics rely on peer-reviewed mathematical models
+      to specify a Targeted Suite of IP Diagnostic tests, designed to
+      assess whether common transport protocols can be expected to meet a
+      predetermined Target Transport Performance over an Internet path.</t>
 
       <t>For Bulk Transport Capacity, the IP diagnostics are built
       on test streams that mimic TCP over the complete path and
