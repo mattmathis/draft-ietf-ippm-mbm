@@ -32,7 +32,7 @@
       bit rate streams, etc.) and statistical
       criteria for evaluating packet transfer. The temporal
       structure of the test streams mimic transport protocol
-      behavior over the complete path, the statistical criteria
+      behavior over the complete path; the statistical criteria
       models the transport protocol's response to less than ideal
       IP packet transfer.</t>
 
@@ -40,7 +40,7 @@
       describes an alternative to the approach
       presented in "A Framework for Defining Empirical Bulk
       Transfer Capacity Metrics" 
-      <xref target="RFC3148" />. In the future, other Model Based
+      <xref target="RFC3148" />. Other Model Based
       Metrics may cover other applications and transports, such as
       VoIP over UDP and RTP, and new transport protocols.</t>
 
