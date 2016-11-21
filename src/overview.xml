@@ -21,7 +21,7 @@
       new mechanisms to implement the required temporal structure.
       (One group of tests, the standing queue tests described in 
       <xref target="standing_queue" />, don't correspond to
-      existing IPPM metrics, but suitable metrics can be patterned
+      existing IPPM metrics, but suitable new IPPM metrics can be patterned
       after the existing definitions.)</t>
 
       <t><xref target="fig1" /> shows the MBM modeling and measurement
@@ -74,7 +74,8 @@ Traffic parameters |            | Statistical criteria
     ----V----------------------------------V--- |
         | |  |                             | |  |
         V V  V                             V V  V
-    fail/inconclusive            pass/fail/inconclusive    
+    fail/inconclusive            pass/fail/inconclusive  
+     (test status)                   (test result)  
 ]]></artwork>
 <postamble>Overall Modeling Framework</postamble></figure>
 
@@ -97,8 +98,8 @@ Traffic parameters |            | Statistical criteria
       <t>
       <xref target="results" /> describes packet transfer statistics
       and methods to test them against the statistical criteria provided by the
-      mathematical models. Since the statistical criteria are typically
-       for the complete path (a composition of subpaths)
+      mathematical models. Since the statistical criteria typically
+      apply to the complete path (a composition of subpaths)
       <xref target="RFC6049" />, in situ testing requires that the
       end-to-end statistical criteria be apportioned as separate
       criteria for each subpath. Subpaths that are expected to be
@@ -129,7 +130,7 @@ Traffic parameters |            | Statistical criteria
 
       <t>In 
       <xref target="examples" /> we present an example TIDS that
-      might be representative of HD video, and illustrate how Model
+      might be representative of High Definition (HD) video, and illustrate how Model
       Based Metrics can be used to address difficult measurement
       situations, such as confirming that inter-carrier exchanges
       have sufficient performance and capacity to deliver HD video
