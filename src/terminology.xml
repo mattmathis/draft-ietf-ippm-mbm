@@ -27,14 +27,14 @@
           Target RTT and Target MTU as described below.</t>
           <t hangText='Target Data Rate:'>The specified application
           data rate required for an application's proper operation.
-          Conventional BTC metrics are focused on the Target Data
+          Conventional Bulk Transport Capacity (BTC) metrics are focused on the Target Data
           Rate, however these metrics had little or no predictive
           value because they do not consider the effects of the
           other two parameters of the Target Transport Performance,
           the RTT and MTU of the complete paths.</t>
           <t hangText='Target RTT (Round Trip Time):'>The specified
           baseline (minimum) RTT of the longest complete path over
-          which the user expects to be able meet the target
+          which the user expects to be able to meet the target
           performance. TCP and other transport protocol's ability
           to compensate for path problems is generally proportional
           to the number of round trips per second. The Target RTT
@@ -50,7 +50,7 @@
           <t hangText='Target MTU (Maximum Transmission Unit):'>The
           specified maximum MTU supported by the complete path the
           over which the application expects to meet the target
-          performance. Assume 1500 Byte MTU unless otherwise
+          performance. Assume a 1500 Byte MTU when testing unless otherwise
           specified. If some subpath has a smaller MTU, then it
           becomes the Target MTU for the complete path, and all
           model calculations and subpath tests must use the same
@@ -63,7 +63,7 @@
           RTT of the complete path is target_RTT.</t>
           <t hangText="Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):">
           A TIDS together with additional specification such as
-          "type-p", etc which are out of scope for this document,
+          "type-p" <xref target="RFC2330" />, etc. which are out of scope for this document,
           but need to be drawn from other standards documents.</t>
           <t hangText="Bulk Transport Capacity:">Bulk Transport
           Capacity Metrics evaluate an Internet path's ability to
@@ -114,7 +114,7 @@
 
       <t>Terminology about paths, etc. See 
       <xref target="RFC2330" /> and 
-      <xref target="RFC7398" />.</t>
+      <xref target="RFC7398" /> for existing terms and definitions.</t>
 
       <t>
         <list style="hanging">
@@ -200,7 +200,8 @@
           delivered through the bottleneck the front path must have
           sufficient buffering to absorb any data bursts at the
           dimensions (duration and IP rate) implied by the ACK
-          stream, potentially doubled during slowstart. If the
+          stream (and potentially twice that buffer to absorb 
+          overshoot in slowstart). If the
           return path is not altering the ACK stream, then the
           implied bottleneck IP capacity will be the same as the
           bottleneck IP capacity. See 
@@ -210,7 +211,7 @@
           corresponds to the IP capacity of the data sender's
           interface. Due to sender efficiency algorithms including
           technologies such as TCP segmentation offload (TSO),
-          nearly all moderns servers deliver data in bursts at full
+          nearly all modern servers deliver data in bursts at full
           interface link rate. Today 1 or 10 Gb/s are typical.</t>
           <t hangText="Header_overhead:">The IP and TCP header
           sizes, which are the portion of each MTU not available
@@ -232,6 +233,7 @@
       <t>
         <list style="hanging">
           <t hangText="Window [size]:">The total quantity of data
+          carried by packets in-flight 
           plus the data represented by ACKs circulating in the
           network is referred to as the window. See 
           <xref target="tcp" />. Sometimes used with other
@@ -331,7 +333,7 @@
         <t hangText="paced bursts:">Send bursts on a timer. Specify
         any 3 of: average data rate, packet size, burst size
         (number of packets) and burst headway (burst start to
-        start). By default the bursts are assumed full sender
+        start). By default the bursts are assumed to occur at full sender
         interface rate, such that the packet headway within each
         burst is the minimum supported by the sender's interface.
         Under some conditions it is useful to explicitly specify
@@ -381,7 +383,7 @@
           load themselves. As such they may miss some details of
           the network's performance, but can serve as a useful
           reduced-cost proxy for a capacity test, for example to
-          support ongoing monitoring.</t>
+          support continuous production network monitoring.</t>
           <t hangText="Engineering tests:">Engineering tests
           evaluate how network algorithms (such as AQM and channel
           allocation) interact with TCP-style self clocked
