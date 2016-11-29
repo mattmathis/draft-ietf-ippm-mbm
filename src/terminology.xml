@@ -197,11 +197,10 @@
           IP capacity over short time scales might be substantially
           larger than the bottleneck IP capacity averaged over a
           full RTT. Since TCP derives its clock from the data
-          delivered through the bottleneck the front path must have
+          delivered through the bottleneck, the front path must have
           sufficient buffering to absorb any data bursts at the
-          dimensions (duration and IP rate) implied by the ACK
-          stream (and potentially twice that buffer to absorb 
-          overshoot in slowstart). If the
+          dimensions (size and IP rate) implied by the ACK
+          stream, which are potentially doubled during slowstart. If the
           return path is not altering the ACK stream, then the
           implied bottleneck IP capacity will be the same as the
           bottleneck IP capacity. See 

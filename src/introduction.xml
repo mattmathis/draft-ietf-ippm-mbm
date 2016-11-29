@@ -60,7 +60,11 @@
       effects it is necessary to suppress the effects of TCP congestion 
       control in the measurement method.
       These issues are discussed at length in 
-      <xref target="background" />.</t>
+      <xref target="background" />.  Readers whom are unfamilar with
+      basic properties of TCP and TCP-like congestion control may
+      find it easier to start at <xref target="background" />
+      or <xref target="tcp" />.
+</t>
 
       <t>A Targeted IP Diagnostic Suite does not have such
       difficulties. IP diagnostics can be constructed such that
