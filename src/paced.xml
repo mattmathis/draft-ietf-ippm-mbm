@@ -2,29 +2,47 @@
 
         <t>TCP slowstart has a two level burst structure as shown
         in 
-        <xref target="fig2" />. The fine structure is caused by the
-        interaction between the ACK clock and TCP efficiency
-        algorithms. Each ACK passing through the return path
-        triggers a small data burst. These bursts are typically
-        full sender interface rate, with the same headway as the
-        returning ACKs, but having twice as much data as the ACK
+        <xref target="fig2" />. The fine time structure is caused
+	by efficiency algorithms that deliberately batch work
+	(CPU, channel allocation, etc) to better amortize
+	certain network and host overheads.
+	ACKs passing through the return path
+        typically cause the sender to transmit small bursts of data at
+        full sender interface rate.
+	For example TCP Segmentation Offload (TSO) and Delayed
+	Acknowledgment both contribute to this effect.
+	During slowstart these bursts are
+	at the same headway as the
+        returning ACKs, but are typically twice as large (e.g.
+	having twice as much data) as the ACK
         reported was delivered to the receiver. Due to variations
         in delayed ACK and algorithms such as Appropriate Byte
         Counting 
         <xref target="RFC3465" />, different pairs of senders and
-        receivers produce different burst patterns. Without loss of
-        generality, we assume each ACK causes 4 packet bursts at an
+        receivers produce slightly different burst patterns. Without loss of
+        generality, we assume each ACK causes 4 packet sender interface rate bursts at an
         average headway equal to the ACK headway, and corresponding
         to sending at an average rate equal to twice the effective
-        bottleneck IP rate. This fine structure defines one
-        slowstart rate burst.</t>
+        bottleneck IP rate.  Each slowstart burst consists of a series of
+	4 packet sender interface rate bursts such that the total number of packets
+	is the current window size (as of the last packet in the burst).</t>
 
-        <t>For a transport protocol the slowstart bursts are
-        repeated every target_RTT. Each slowstart burst is twice as
-        large as the previous burst, and slowstart ends on the
-        first lost packet or ECN mark. For diagnostic tests
-        described below we preserve the fine structure but
-        manipulate the burst size and headway to measure the
+        <t>The coarse time structure is due to each RTT being a
+	reflection of the prior RTT.
+        For real transport protocols,
+	each slowstart burst is twice as
+        large (twice the window) as the previous burst but is
+	spread out in time by the network bottleneck, such that each successive RTT
+	exhibits the same effective bottleneck IP rate.
+	The slowstart phase ends on the first lost packet or ECN mark, which is
+	intended to happen after successive slowstart bursts merge:
+	the next burst starts before the bottleneck queue is fully drained
+	and the prior burst is complete.</t>
+
+	<t>For diagnostic tests
+        described below we preserve the fine time structure but
+        manipulate the coarse structure of the slowstart bursts
+	(burst size and headway) to measure the
         ability of the dominant bottleneck to absorb and smooth
         slowstart bursts.</t>
 
@@ -33,7 +51,7 @@
         interval. At the finest time scale (a few packet times at
         the sender interface) the peak of the average IP rate is
         the same as the sender interface rate; at a medium
-        timescale (a few packet times at the dominant bottleneck)
+        timescale (a few ACK times at the dominant bottleneck)
         the peak of the average IP rate is twice the implied
         bottleneck IP capacity; and at time scales longer than the
         target_RTT and when the burst size is equal to the
@@ -53,8 +71,8 @@ Packet stream:
 ----  ----  ----  ----  ----                     ----  ---- ... 
   
 |<>| sender interface rate bursts (typically 3 or 4 packets)
-|<===>| burst headway (determined by ACK headway)
-|<========================>| slowstart burst size(from the window) 
+|<===>| burst headway (same as the ACK headway)
+|<========================>| slowstart burst size (from the window) 
 |<==============================================>| slowstart headway
 \____________ _____________/                     \______ __ ...
              V                                          V
