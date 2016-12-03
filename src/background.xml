@@ -266,7 +266,7 @@
         load, but may fail in the field due to configuration
         errors, etc. and should be spot checked.</t>
 
-        <t>The tool that can perform many of the
+        <t>A tool that can perform many of the
         tests is available from  
         <xref target="MBMSource" />.</t>
         <!-- @@ move? -->

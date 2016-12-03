@@ -47,7 +47,7 @@
 
       <t>At some point in the future it may make sense to introduce
       fine grained noise sources into the models used for
-      generating test streams, but they are not warranted at this
+      generating test streams, but the complexity is not warranted at this
       time.</t>
 #include src/paced.xml
 #include src/constant_window.xml
