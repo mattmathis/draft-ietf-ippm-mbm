@@ -60,7 +60,7 @@
       effects it is necessary to suppress the effects of TCP congestion 
       control in the measurement method.
       These issues are discussed at length in 
-      <xref target="background" />.  Readers whom are unfamilar with
+      <xref target="background" />.  Readers whom are unfamiliar with
       basic properties of TCP and TCP-like congestion control may
       find it easier to start at <xref target="background" />
       or <xref target="tcp" />.
@@ -88,7 +88,12 @@
 
 	<t>Changes since -08 draft:
 	<list style="symbols">
-	  <t>Nits.</t>
+	  <t>Language, spelling and usage nits.</t>
+	  <t>Interconnects -> network interconnections.</t>
+	  <t>Expanded the abstract slightly.</t>
+	  <t>Clarified stocastic vs non-stocastic test traffic generation.</t>
+	  <t>Eliminated superfluous "future technology" language</t>
+
         </list></t>
 
 	<t>Changes since -07 draft: 
@@ -235,8 +240,5 @@
             <t>load test -&gt; capacity test</t>
           </list></t>
         </list></t>
-        <!--
-
-<t>This interim draft is a partial update since the WGLC, to collect an additional round of feedback on the Introduction, overview, and terminology sections.   Note that some of the prior WGLC comments are still pending.   Later sections (4 and beyond) have only been updated to track changes in the terminology section.   We intend to produce an additional draft prior to the IETF, incorporating  still pending comments from the WGLC and any additional comments on the introduction and overview.  remove/updated</t> -->
       </section>
     </section>

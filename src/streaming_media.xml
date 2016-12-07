@@ -1,9 +1,12 @@
         <section anchor="streaming_media" title="Streaming Media">
 
-          <t>Model Based Metrics can be implicitly implemented as a
-          side effect any non-throughput maximizing application,
-          such as streaming media, with some additional controls
-          and instrumentation in the servers. The essential
+         <t>
+	  Any non-throughput maximizing application,
+	  such as streaming media,
+	  can be used to implement a passive or hybrid <xref target="RFC7799" /> versions of 
+	  Model Based Metrics with some additional instrumentation 
+	  and possibly traffic shapers in the servers.
+	  The essential
           requirement is that the data rate be constrained such
           that even with arbitrary application pauses and bursts,
           the data rate and burst sizes stay within the envelope

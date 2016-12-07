@@ -38,7 +38,7 @@
       Bottleneck IP Capacity, which is the average rate at which
       the ACKs advance snd.una. Note that thinning the ACK stream
       (relying on the cumulative nature of seg.ack to permit
-      discarding some ACKs) causes most TCP implementation to send
+      discarding some ACKs) causes most TCP implementations to send
       interface rate bursts
       to offset the longer times between ACKs in order to maintain
       the average data rate.</t>

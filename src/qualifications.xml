@@ -13,7 +13,7 @@
         were not met, and any test data that was collected even if
         it is not useful for the intended test. Such diagnostic
         information and partial test data may be useful for
-        improving the test in the future.</t>
+        improving the test or test procedures themselves.</t>
 
         <t>It is important to preserve the record that a test was
         scheduled, because otherwise precondition enforcement

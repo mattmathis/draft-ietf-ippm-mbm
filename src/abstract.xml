@@ -5,7 +5,7 @@
       a predefined Target Transport Performance by applying a suite
       of IP diagnostic tests to successive subpaths. The
       subpath-at-a-time tests can be robustly applied to critical
-      infrastructure, such as internetwork gateways or even individual
+      infrastructure, such as network interconnections or even individual
       devices, to accurately detect if any part of the
       infrastructure will prevent paths traversing it from meeting
       the Target Transport Performance.</t>

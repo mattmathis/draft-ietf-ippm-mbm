@@ -1,123 +1,110 @@
+[
+Comments tagged as MM...done are also recorded in the edit history
+]
+
 This document is targeting Experimental, but I did see 
 
    It may seem out of place to allow such latitude in a measurement
    standard, but this section provides offsetting requirements.
    
 in Appendix A, which seems to say this is a standard. Perhaps that could be reworded?
-[ACM] yes, done
+[ACM,MM] yes, done
 
 Starting at the beginning ...
 
 Is "key infrastructure" "critical infrastucture"? I'm sure I've been reading far too many SEC documents lately, but I immediately assumed this was a reference to something like PKI :-)
-[ACM] ok
+[ACM,MM] ok
 
 Is "interconnects" something like "network interconnections"? If that's a term of art, fine, but I wonder how clear that is to non-native English readers.
 [ACM] proposing "internetwork gateways"
+[MM] You missed a handful in section 9.  I have reconsidered, and am using Spenser's term "network interconnections", done
 
 The first sentence in the Introduction, 
-
    Model Based Metrics (MBM) rely on peer-reviewed mathematical models
    to specify a Targeted Suite of IP Diagnostic tests, designed to
    assess whether common transport protocols can be expected to meet a
    predetermined Target Transport Performance over an Internet path.
-   
 provided a LOT of information I didn't get out of the Abstract. Maybe it would be helpful there, too (we're told that people still publish Abstracts of RFCs without the body of the document).
-
-[ACM] I put this sentence as the second paragraph of Abstract
+[ACM,MM] I put this sentence as the second paragraph of Abstract, DONE
 
 [ACM] INTRO comments start
-It's a nit, but 
 
+It's a nit, but 
    The temporal
    structure of the test streams mimic transport protocol behavior over
    the complete path, the statistical criteria models the transport
    protocol's response to less than ideal IP packet transfer.
-   
 seems like a run-on sentence. Maybe split into two sentences at the comma, or use a semicolon?
-[ACM] semicolon I think...
+[ACM,MM] semicolon I think... DONE
 
 I often see reviewers comment on references to "in the future" and "Today" in RFCs that live forever. I think you can just drop "in the future" from 
-
    In the future,
    other Model Based Metrics may cover other applications and
    transports, such as VoIP over UDP and RTP, and new transport
    protocols.
-[ACM] dropped the phrase.   
+[ACM,MM] dropped the phrase. DONE  
 but you might want to search for at least those terms in the document.
 [ACM] see sections 5.4, 6.0, and 8.4 for other occurrences 
-
+[MM] Removed all about future technology.  Only remaining uses of explicit "future" are about docuemtns. DONE
+ 
 [ACM] OVERVIEW
-This text
 
+This text
    (One group of tests, the standing queue tests described in
    Section 8.2, don't correspond to existing IPPM metrics, but suitable
    metrics can be patterned after the existing definitions.)
-   
 was passive enough that I don't know whether you're talking about IPPM developing new metrics, or about something else (perhaps work that developers will do on their own). If you mean what I think you mean, just changing to "suitable new IPPM metrics" would be clear to me, but I'm guessing.
-[ACM] suggest8ion workd for me.
+[ACM,MM] suggest8ion workd for me.  DONE
 
 In Figure 1, I was confused by the distinction between "fail/inconclusive" and "pass/fail/inconclusive". Maybe not for the document, but could you educate me? I think I understand that you have to do Delivery Evaluation to determine "pass/fail/inconclusive", and the description of Section 8 further down the Overview confirmed what I was thinking here, but I'm not understanding what "fail/inconclusive" is telling me about traffic pattern generation, unless it's something like "failed due to configuration errors" (and that's a guess, based on text at the end of Section 4.2).
 [ACM] labelled these as test status and test result.
+[MM] Tweaked to "traffic generation status" DOME
 
 I had to read 
-
    Since the statistical criteria are typically for the
    complete path (a composition of subpaths) [RFC6049]
-   
 a couple of times to parse "typically for". Is this saying 
-
    Since the statistical criteria typically apply to the
    complete path (a composition of subpaths) [RFC6049]
-   
 ?
-[ACM] Yes, that's better wording.
+[ACM,MM] Yes, that's better wording. DONE
 
 "HD video" is probably clear enough for now, but expanding "HD" on first use might be helpful for readers in the future.
 
-[ACM] Terminology
+[ACM,MM] Terminology DONE
 
 <AD whining>
-
 The more I read, the more I found the mixed forms permitted in
-
    Note that terms containing underscores (rather than spaces) appear in
    equations in the modeling sections.  In some cases both forms are
    used for aesthetic reasons, they do not have different meanings.
-   
 confusing. When "test path:", with no underscores, is immediately followed by "test_path_RTT:", with underscores, the usage looks entirely random to the first-time reader, and there are some formulas that use the form with no underscores, that don't stand out as formulas on first reading ("2*target_window_size" is obviously a mathematical expression, but without underscores, it would be less obvious). I'm hesitant to suggest that you make a global change to use underscores during AD Review because that seems really likely to introduce errors, but I really wish I'd said that earlier in the process. Do the right thing.
-
 </AD whining>
-[ACM] this would be a major edit -  Matt ???  @@@@@@
+[ACM] this would be a major edit
+[MM] will think about this.  My sense is that it will make the text rather ugly.  STILL OPEN  
 
 "Bulk Transport Capacity" appears in the definition of "Target Transport Performance" before the definition of "Target Data Rate" where the term "BTC" first appears, but "Bulk Transport Capacity (BTC)" in the first case would have helped me figure out "BTC" on its first use in the document.
-
-[ACM] Done
+[ACM,MM] Done (nit)
 
 It's a nit, but s/able meet the target performance/able to meet the target performance/.
-
-[ACM] Done
+[ACM,MM] Done
 
 I wasn't sure who was assuming a 1500 Byte MTU when, in this text. 
-
    Target MTU (Maximum Transmission Unit):  The specified maximum MTU
       supported by the complete path the over which the application
       expects to meet the target performance.  Assume 1500 Byte MTU
       unless otherwise specified.
-      
 Did that mean "in this document", or "when testing", or something else?
-
 [ACM] When testing, IMO.
+[MM] I went with "in this document" DONE (nit)
 
 I even know what "type-p" is in this text,
-
    Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):  A TIDS
       together with additional specification such as "type-p", etc which
       are out of scope for this document,
-      
 but you could usefully provide a reference for that, and I'm not sure whether "out of scope for this document" means that they exist in other documents. I think you're saying that, but I'm not sure.
-
 [ACM] yes, that's it.
-
+@@@@@@@@
 In this text,
 
    Bulk Transport Capacity:  Bulk Transport Capacity Metrics evaluate an
@@ -385,39 +372,34 @@ I note that
 helped me understand that you meant "derate" as a calculation, and not just a SWAG. It appears really late in the document, and could usefully appear in the definition of "derate" in the terminology section. 
 
 I don't think
-
    Model Based Metrics can be implicitly implemented as a side effect
    any non-throughput maximizing application, such as streaming media,
    with some additional controls and instrumentation in the servers.
-   
 is a complete sentence. Maybe just a couple of missing words, but the second and third lines don't seem tied to the first line.
-
-In 
+[MM] This is an important concept that needs to be clarified.
+Paragraph reworked and RFC7799 citation added.  DONE
 
    In this section a we illustrate
-   
-s/a we/we/. 
+s/a we/we/.
+[MM] nit DONE
 
    "Note that a another ISP"
-   
 also needs /a another/another/.
+[MM] nit DONE
 
 I think 
-
    Much of the acrimony in the Net Neutrality debate is due by the
    historical lack of
-   
 needs s/due by/due to/.
+[MM] nit DONE
 
 In this text,
-
    that all window above
    target_window_size contributes to a standing queue
-   
 "window" may be correct, but it does read oddly. Is there a better way to say this?
+[MM] "that all excess data in flight (window) above" nit DONE
 
 In this text,
-
    "causes most TCP implementation to send"
-   
-s/implementation/implementations/. 
+s/implementation/implementations/.
+[MM] nit DONE
