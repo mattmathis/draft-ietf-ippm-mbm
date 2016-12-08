@@ -94,7 +94,8 @@
 	  <t>Clarified stocastic vs non-stocastic test traffic generation.</t>
 	  <t>Eliminated superfluous "future technology" language</t>
 	  <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
-	  <t>Added language about measuring devices that rely on virtual queues.</t>
+	  <t>Discussed how to measure devices that use on virtual queues.</t>
+	  <t>Described the unsynchronized parallel stream failure case.</t>
         </list></t>
 
 	<t>Changes since -07 draft: 

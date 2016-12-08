@@ -1,5 +1,7 @@
 [
 Comments tagged as MM...done are also recorded in the edit history
+My intent is to all [MM] .... DONE to every comment.
+>>>> action for somebody else
 ]
 
 This document is targeting Experimental, but I did see 
@@ -13,11 +15,11 @@ in Appendix A, which seems to say this is a standard. Perhaps that could be rewo
 Starting at the beginning ...
 
 Is "key infrastructure" "critical infrastucture"? I'm sure I've been reading far too many SEC documents lately, but I immediately assumed this was a reference to something like PKI :-)
-[ACM,MM] ok
+[ACM,MM] DONE
 
 Is "interconnects" something like "network interconnections"? If that's a term of art, fine, but I wonder how clear that is to non-native English readers.
 [ACM] proposing "internetwork gateways"
-[MM] You missed a handful in section 9.  I have reconsidered, and am using Spenser's term "network interconnections", done
+[MM] You missed a handful in section 9.  I have reconsidered, and am using Spenser's term "network interconnections", DONE
 
 The first sentence in the Introduction, 
    Model Based Metrics (MBM) rely on peer-reviewed mathematical models
@@ -304,25 +306,23 @@ The scope of "transport protocol" in
 is really broad. Does this mean "TCP" (or, see my previous note about explicitly describing the transport protocols that this document applies to).
 
 In this text,
-
    Also cross
    traffic potentially raises the RTT, implicitly reducing the rate.
    Cross traffic that raises the RTT nearly always makes the test more
    strenuous.
-   
 I don't know whether a more strenuous test is better or worse. Is that a term of art? If not, could this be clearer?
+[MM] @@@@@
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
+[MM] nit DONE
 
 It's a nit, but 
-
    There are a number of reasons to want to specify performance in term
    of multiple concurrent flows, 
-   
 needs s/in term/in terms/.
+[MM] nit DONE
 
 I wasn't quite sure how to read 
-
    There are a number of reasons to want to specify performance in term
    of multiple concurrent flows, however this approach is not
    recommended for data rates below several megabits per second, which
@@ -330,16 +330,24 @@ I wasn't quite sure how to read
    Since the required run length goes as the square of the data rate, at
    higher rates the run lengths can be unreasonably large, and multiple
    flows might be the only feasible approach.
-   
 It says "not recommended", but if I'm understanding this correctly, are you saying it's not necessary? Is the point that at a high enough data rate, you really do need multiple concurrent flows, but until then, you can fill the path without using them?
+[MM] Yes, this is what I am saying.
+
+Here is an allegory: Using multiple streams on an ordinary path is much like choosing a to drive a jeep in every day life.  The ride is always bad, but potholes don't matter so much.  If you standardize testing with a jeep you might come to the concluding that pavement is overrated and we should save tax payer money by just going back to gravel.
+
+This is akin to the discussion about reordering: How do we draw a line between the problems that should be fixed in the network (reasonable quality) and the problems should be fixed in the stack (not requiring an obscenely low loss rate).
+
+If somebody decides that any path over 1 Mb/s should be channelized, then we will be implicitly giving people permission to build truly crappy networks.
+
+I wish there was a way to say this that did not imply an Internet wide design scale.
+(No text changes at this time).
+>>>> discuss with Spencer
 
 Is 
-
    For the tests that use bursty test streams, the bursts should be
    synchronized across streams.
-   
 because you're trying to ensure that if the bursts DID become synchronized, the path can still meet Target Transport Performance? It might be helpful to provide an explanation for this recommendation.
-[MM]@@@@
+[MM] I made the false pass condition explicit. DONE
 
 (As much for Spencer as for the authors and shepherd) I really like 
    Note that transport retransmission strategies can trade off
@@ -351,9 +359,7 @@ because you're trying to ensure that if the bursts DID become synchronized, the 
    window or 1 mS, whichever is larger.  Within this limit on reorder
    extent, there should be no bound on reordering density.
 and wish that it was more visible to the Internet community than it will be, 40 pages into this document. Please feel free to leave it here, but could we talk about how to make that happen? Seeing what the feedback is during approval for this document will tell us how much agreement there is about the strawman ...
-[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which
-had a huge opportunity cost by implicitly banning cheap sharded routing engines.
-
+[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which had a huge opportunity cost for the entire Internet by implicitly banning cheap sharded routing engines.  The above language had that language in mind (e.g. it choose a position on reordering that would probably have been met by the M160.
 In 
    For some technologies the data might not be subject to increasing
    delays, 
@@ -380,6 +386,7 @@ is a complete sentence. Maybe just a couple of missing words, but the second and
 [MM] This is an important concept that needs to be clarified.
 I retitled the section to "Passive Measurement" and reworked the introductory paragraph.
 Added RFC7799 citation.  DONE
+>>>> ACM signoff needed
 
    In this section a we illustrate
 s/a we/we/.

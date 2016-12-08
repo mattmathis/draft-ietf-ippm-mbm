@@ -35,7 +35,7 @@
         but it is still necessary to confirm that the onset of losses or ECN CE
         marks be at an appropriate point and progressive.
 	If the network bottleneck does not introduce significant queuing delay,
-	modify the procdure described in <xref target="scanned_window"/> to start
+	modify the procedure described in <xref target="scanned_window"/> to start
 	scan at a window equal to or slightly smaller than
 	the test_window.</t>
 
