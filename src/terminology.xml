@@ -285,9 +285,13 @@
           some test parameters as described in 
           <xref target="derate" /> in exchange for a more stringent
           TIDS validation procedures, described in 
-          <xref target="validation" />.</t>
+          <xref target="validation" />.
+	  Models can be derated by including a multiplicative
+	  derating factor to make tests less stringent.
+	  </t>
           <t hangText="subpath_IP_capacity:">The IP capacity of a
-          specific subpath.</t>
+          specific subpath.
+	  </t>
           <t hangText="test path:">A subpath of a complete path
           under test.</t>
           <t hangText="test_path_RTT:">The RTT observed between two

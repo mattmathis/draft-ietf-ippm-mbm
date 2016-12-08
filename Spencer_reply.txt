@@ -339,9 +339,9 @@ Is
    synchronized across streams.
    
 because you're trying to ensure that if the bursts DID become synchronized, the path can still meet Target Transport Performance? It might be helpful to provide an explanation for this recommendation.
+[MM]@@@@
 
 (As much for Spencer as for the authors and shepherd) I really like 
-
    Note that transport retransmission strategies can trade off
    reordering tolerance vs how quickly they can repair losses vs
    overhead from spurious retransmissions.  In advance of new
@@ -350,26 +350,27 @@ because you're trying to ensure that if the bursts DID become synchronized, the 
    the reordering extent is not more than the maximum of one quarter
    window or 1 mS, whichever is larger.  Within this limit on reorder
    extent, there should be no bound on reordering density.
-   
 and wish that it was more visible to the Internet community than it will be, 40 pages into this document. Please feel free to leave it here, but could we talk about how to make that happen? Seeing what the feedback is during approval for this document will tell us how much agreement there is about the strawman ...
+[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which
+had a huge opportunity cost by implicitly banning cheap sharded routing engines.
 
 In 
-
    For some technologies the data might not be subject to increasing
    delays, 
-   
 I didn't understand what "data might not be subject to" meant. I was guessing that this was a reference to senders that don't notice increasing delays, assume that's bufferbloat building up buffer occupancy, and decrease sending rate, but I was guessing.
+[MM] explained virtual queues better.  DONE
 
 In "waists serving and front path capacity", s/waists/wastes/.
+[MM] nit DONE
 
 For "at slowestart rate", s/slowestart/slowstart/.
+[MM] nit DONE
 
 I note that 
-
       E.g. send target_window_size*derate packet
       bursts every target_RTT*derate, where "derate" is less than one.
-      
-helped me understand that you meant "derate" as a calculation, and not just a SWAG. It appears really late in the document, and could usefully appear in the definition of "derate" in the terminology section. 
+helped me understand that you meant "derate" as a calculation, and not just a SWAG. It appears really late in the document, and could usefully appear in the definition of "derate" in the terminology section.
+[MM] added "Models can be derated by including a multiplicative derating factor to make tests less stringent." to the definition DONE
 
 I don't think
    Model Based Metrics can be implicitly implemented as a side effect
@@ -377,7 +378,8 @@ I don't think
    with some additional controls and instrumentation in the servers.
 is a complete sentence. Maybe just a couple of missing words, but the second and third lines don't seem tied to the first line.
 [MM] This is an important concept that needs to be clarified.
-Paragraph reworked and RFC7799 citation added.  DONE
+I retitled the section to "Passive Measurement" and reworked the introductory paragraph.
+Added RFC7799 citation.  DONE
 
    In this section a we illustrate
 s/a we/we/.

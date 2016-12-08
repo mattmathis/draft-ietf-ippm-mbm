@@ -93,7 +93,8 @@
 	  <t>Expanded the abstract slightly.</t>
 	  <t>Clarified stocastic vs non-stocastic test traffic generation.</t>
 	  <t>Eliminated superfluous "future technology" language</t>
-
+	  <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
+	  <t>Added language about measuring devices that rely on virtual queues.</t>
         </list></t>
 
 	<t>Changes since -07 draft: 

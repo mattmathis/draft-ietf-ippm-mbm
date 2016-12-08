@@ -3,7 +3,7 @@
 
         <t>These engineering tests confirm that the bottleneck is
         well behaved across the onset of packet loss, which
-        typically follows after the onset of queueing. Well behaved
+        typically follows after the onset of queuing. Well behaved
         generally means lossless for transient queues, but once the
         queue has been sustained for a sufficient period of time
         (or reaches a sufficient queue depth) there should be a
@@ -24,36 +24,41 @@
         described here, but score the link or subpath on the basis
         of how well it avoids each of these problems.</t>
 
-        <t>For some technologies the data might not be subject to
-        increasing delays, in which case the data rate will vary
+        <t>Some network technologies rely on virtual queues or
+	other techniques to meter traffic without adding any
+	queuing delay,
+	in which case the data rate will vary
         with the window size all the way up to the onset of load
         induced packet loss or ECN CE marks. For theses
-        technologies, the discussion of queueing does not apply,
-        but it is still required that the onset of losses or ECN CE
+        technologies, the discussion of queuing
+	in <xref target="scanned_window"/> does not apply,
+        but it is still necessary to confirm that the onset of losses or ECN CE
         marks be at an appropriate point and progressive.
-	Start the scan at a window equal to or slightly below
+	If the network bottleneck does not introduce significant queuing delay,
+	modify the procdure described in <xref target="scanned_window"/> to start
+	scan at a window equal to or slightly smaller than
 	the test_window.</t>
 
         <t>Use the procedure in 
         <xref target="scanned_window" /> to sweep the window across
-        the onset of queueing and the onset of loss. The tests
+        the onset of queuing and the onset of loss. The tests
         below all assume that the scan emulates standard additive
         increase and delayed ACK by incrementing the window by one
         packet for every 2*target_window_size packets delivered. A
         scan can typically be divided into three regions: below the
-        onset of queueing, a standing queue, and at or beyond the
+        onset of queuing, a standing queue, and at or beyond the
         onset of loss.</t>
 
-        <t>Below the onset of queueing the RTT is typically fairly
+        <t>Below the onset of queuing the RTT is typically fairly
         constant, and the data rate varies in proportion to the
         window size. Once the data rate reaches the subpath IP
         rate, the data rate becomes fairly constant, and the RTT
         increases in proportion to the increase in window size. The
-        precise transition across the start of queueing can be
+        precise transition across the start of queuing can be
         identified by the maximum network power, defined to be the
         ratio data rate over the RTT. The network power can be
         computed at each window size, and the window with the
-        maximum is taken as the start of the queueing region.</t>
+        maximum is taken as the start of the queuing region.</t>
 
         
         <t>If there is random background loss (e.g. bit errors,

@@ -10,8 +10,10 @@
         ISP. See 
         <xref target="complex" />.</t>
 
-	<t>Note that assumption about sender interface rate and how
-	it might change over time should be explicitly stated.</t>
+	<t>Also, there are a several details about sender interface
+	rate bursts that are not fully defiend here.
+	These details, such as the assumed sender interface rate,
+	should be explicitly stated is a FS-TIDS.</t>
 
         <t>Current standards permit TCP to send a full window
         bursts following an application pause. (Congestion Window
