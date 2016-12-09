@@ -1,123 +1,112 @@
+[
+Comments tagged as MM...done are also recorded in the edit history
+My intent is to all [MM] .... DONE to every comment.
+>>>> action for somebody else
+]
+
 This document is targeting Experimental, but I did see 
 
    It may seem out of place to allow such latitude in a measurement
    standard, but this section provides offsetting requirements.
    
 in Appendix A, which seems to say this is a standard. Perhaps that could be reworded?
-[ACM] yes, done
+[ACM,MM] yes, done
 
 Starting at the beginning ...
 
 Is "key infrastructure" "critical infrastucture"? I'm sure I've been reading far too many SEC documents lately, but I immediately assumed this was a reference to something like PKI :-)
-[ACM] ok
+[ACM,MM] DONE
 
 Is "interconnects" something like "network interconnections"? If that's a term of art, fine, but I wonder how clear that is to non-native English readers.
 [ACM] proposing "internetwork gateways"
+[MM] You missed a handful in section 9.  I have reconsidered, and am using Spenser's term "network interconnections", DONE
 
 The first sentence in the Introduction, 
-
    Model Based Metrics (MBM) rely on peer-reviewed mathematical models
    to specify a Targeted Suite of IP Diagnostic tests, designed to
    assess whether common transport protocols can be expected to meet a
    predetermined Target Transport Performance over an Internet path.
-   
 provided a LOT of information I didn't get out of the Abstract. Maybe it would be helpful there, too (we're told that people still publish Abstracts of RFCs without the body of the document).
-
-[ACM] I put this sentence as the second paragraph of Abstract
+[ACM,MM] I put this sentence as the second paragraph of Abstract, DONE
 
 [ACM] INTRO comments start
-It's a nit, but 
 
+It's a nit, but 
    The temporal
    structure of the test streams mimic transport protocol behavior over
    the complete path, the statistical criteria models the transport
    protocol's response to less than ideal IP packet transfer.
-   
 seems like a run-on sentence. Maybe split into two sentences at the comma, or use a semicolon?
-[ACM] semicolon I think...
+[ACM,MM] semicolon I think... DONE
 
 I often see reviewers comment on references to "in the future" and "Today" in RFCs that live forever. I think you can just drop "in the future" from 
-
    In the future,
    other Model Based Metrics may cover other applications and
    transports, such as VoIP over UDP and RTP, and new transport
    protocols.
-[ACM] dropped the phrase.   
+[ACM,MM] dropped the phrase. DONE  
 but you might want to search for at least those terms in the document.
 [ACM] see sections 5.4, 6.0, and 8.4 for other occurrences 
-
+[MM] Removed all about future technology.  Only remaining uses of explicit "future" are about docuemtns. DONE
+ 
 [ACM] OVERVIEW
-This text
 
+This text
    (One group of tests, the standing queue tests described in
    Section 8.2, don't correspond to existing IPPM metrics, but suitable
    metrics can be patterned after the existing definitions.)
-   
 was passive enough that I don't know whether you're talking about IPPM developing new metrics, or about something else (perhaps work that developers will do on their own). If you mean what I think you mean, just changing to "suitable new IPPM metrics" would be clear to me, but I'm guessing.
-[ACM] suggest8ion workd for me.
+[ACM,MM] suggest8ion workd for me.  DONE
 
 In Figure 1, I was confused by the distinction between "fail/inconclusive" and "pass/fail/inconclusive". Maybe not for the document, but could you educate me? I think I understand that you have to do Delivery Evaluation to determine "pass/fail/inconclusive", and the description of Section 8 further down the Overview confirmed what I was thinking here, but I'm not understanding what "fail/inconclusive" is telling me about traffic pattern generation, unless it's something like "failed due to configuration errors" (and that's a guess, based on text at the end of Section 4.2).
 [ACM] labelled these as test status and test result.
+[MM] Tweaked to "traffic generation status" DOME
 
 I had to read 
-
    Since the statistical criteria are typically for the
    complete path (a composition of subpaths) [RFC6049]
-   
 a couple of times to parse "typically for". Is this saying 
-
    Since the statistical criteria typically apply to the
    complete path (a composition of subpaths) [RFC6049]
-   
 ?
-[ACM] Yes, that's better wording.
+[ACM,MM] Yes, that's better wording. DONE
 
 "HD video" is probably clear enough for now, but expanding "HD" on first use might be helpful for readers in the future.
 
-[ACM] Terminology
+[ACM,MM] Terminology DONE
 
 <AD whining>
-
 The more I read, the more I found the mixed forms permitted in
-
    Note that terms containing underscores (rather than spaces) appear in
    equations in the modeling sections.  In some cases both forms are
    used for aesthetic reasons, they do not have different meanings.
-   
 confusing. When "test path:", with no underscores, is immediately followed by "test_path_RTT:", with underscores, the usage looks entirely random to the first-time reader, and there are some formulas that use the form with no underscores, that don't stand out as formulas on first reading ("2*target_window_size" is obviously a mathematical expression, but without underscores, it would be less obvious). I'm hesitant to suggest that you make a global change to use underscores during AD Review because that seems really likely to introduce errors, but I really wish I'd said that earlier in the process. Do the right thing.
-
 </AD whining>
-[ACM] this would be a major edit -  Matt ???  @@@@@@
+[ACM] this would be a major edit
+[MM] will think about this.  My sense is that it will make the text rather ugly.  STILL OPEN  
 
 "Bulk Transport Capacity" appears in the definition of "Target Transport Performance" before the definition of "Target Data Rate" where the term "BTC" first appears, but "Bulk Transport Capacity (BTC)" in the first case would have helped me figure out "BTC" on its first use in the document.
-
-[ACM] Done
+[ACM,MM] Done (nit)
 
 It's a nit, but s/able meet the target performance/able to meet the target performance/.
-
-[ACM] Done
+[ACM,MM] Done
 
 I wasn't sure who was assuming a 1500 Byte MTU when, in this text. 
-
    Target MTU (Maximum Transmission Unit):  The specified maximum MTU
       supported by the complete path the over which the application
       expects to meet the target performance.  Assume 1500 Byte MTU
       unless otherwise specified.
-      
 Did that mean "in this document", or "when testing", or something else?
-
 [ACM] When testing, IMO.
+[MM] I went with "in this document" DONE (nit)
 
 I even know what "type-p" is in this text,
-
    Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):  A TIDS
       together with additional specification such as "type-p", etc which
       are out of scope for this document,
-      
 but you could usefully provide a reference for that, and I'm not sure whether "out of scope for this document" means that they exist in other documents. I think you're saying that, but I'm not sure.
-
 [ACM] yes, that's it.
-
+@@@@@@@@
 In this text,
 
    Bulk Transport Capacity:  Bulk Transport Capacity Metrics evaluate an
@@ -317,25 +306,23 @@ The scope of "transport protocol" in
 is really broad. Does this mean "TCP" (or, see my previous note about explicitly describing the transport protocols that this document applies to).
 
 In this text,
-
    Also cross
    traffic potentially raises the RTT, implicitly reducing the rate.
    Cross traffic that raises the RTT nearly always makes the test more
    strenuous.
-   
 I don't know whether a more strenuous test is better or worse. Is that a term of art? If not, could this be clearer?
+[MM] @@@@@
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
+[MM] nit DONE
 
 It's a nit, but 
-
    There are a number of reasons to want to specify performance in term
    of multiple concurrent flows, 
-   
 needs s/in term/in terms/.
+[MM] nit DONE
 
 I wasn't quite sure how to read 
-
    There are a number of reasons to want to specify performance in term
    of multiple concurrent flows, however this approach is not
    recommended for data rates below several megabits per second, which
@@ -343,18 +330,26 @@ I wasn't quite sure how to read
    Since the required run length goes as the square of the data rate, at
    higher rates the run lengths can be unreasonably large, and multiple
    flows might be the only feasible approach.
-   
 It says "not recommended", but if I'm understanding this correctly, are you saying it's not necessary? Is the point that at a high enough data rate, you really do need multiple concurrent flows, but until then, you can fill the path without using them?
+[MM] Yes, this is what I am saying.
+
+Here is an allegory: Using multiple streams on an ordinary path is much like choosing a to drive a jeep in every day life.  The ride is always bad, but potholes don't matter so much.  If you standardize testing with a jeep you might come to the concluding that pavement is overrated and we should save tax payer money by just going back to gravel.
+
+This is akin to the discussion about reordering: How do we draw a line between the problems that should be fixed in the network (reasonable quality) and the problems should be fixed in the stack (not requiring an obscenely low loss rate).
+
+If somebody decides that any path over 1 Mb/s should be channelized, then we will be implicitly giving people permission to build truly crappy networks.
+
+I wish there was a way to say this that did not imply an Internet wide design scale.
+(No text changes at this time).
+>>>> discuss with Spencer
 
 Is 
-
    For the tests that use bursty test streams, the bursts should be
    synchronized across streams.
-   
 because you're trying to ensure that if the bursts DID become synchronized, the path can still meet Target Transport Performance? It might be helpful to provide an explanation for this recommendation.
+[MM] I made the false pass condition explicit. DONE
 
 (As much for Spencer as for the authors and shepherd) I really like 
-
    Note that transport retransmission strategies can trade off
    reordering tolerance vs how quickly they can repair losses vs
    overhead from spurious retransmissions.  In advance of new
@@ -363,61 +358,57 @@ because you're trying to ensure that if the bursts DID become synchronized, the 
    the reordering extent is not more than the maximum of one quarter
    window or 1 mS, whichever is larger.  Within this limit on reorder
    extent, there should be no bound on reordering density.
-   
 and wish that it was more visible to the Internet community than it will be, 40 pages into this document. Please feel free to leave it here, but could we talk about how to make that happen? Seeing what the feedback is during approval for this document will tell us how much agreement there is about the strawman ...
-
+[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which had a huge opportunity cost for the entire Internet by implicitly banning cheap sharded routing engines.  The above language had that language in mind (e.g. it choose a position on reordering that would probably have been met by the M160.
 In 
-
    For some technologies the data might not be subject to increasing
    delays, 
-   
 I didn't understand what "data might not be subject to" meant. I was guessing that this was a reference to senders that don't notice increasing delays, assume that's bufferbloat building up buffer occupancy, and decrease sending rate, but I was guessing.
+[MM] explained virtual queues better.  DONE
 
 In "waists serving and front path capacity", s/waists/wastes/.
+[MM] nit DONE
 
 For "at slowestart rate", s/slowestart/slowstart/.
+[MM] nit DONE
 
 I note that 
-
       E.g. send target_window_size*derate packet
       bursts every target_RTT*derate, where "derate" is less than one.
-      
-helped me understand that you meant "derate" as a calculation, and not just a SWAG. It appears really late in the document, and could usefully appear in the definition of "derate" in the terminology section. 
+helped me understand that you meant "derate" as a calculation, and not just a SWAG. It appears really late in the document, and could usefully appear in the definition of "derate" in the terminology section.
+[MM] added "Models can be derated by including a multiplicative derating factor to make tests less stringent." to the definition DONE
 
 I don't think
-
    Model Based Metrics can be implicitly implemented as a side effect
    any non-throughput maximizing application, such as streaming media,
    with some additional controls and instrumentation in the servers.
-   
 is a complete sentence. Maybe just a couple of missing words, but the second and third lines don't seem tied to the first line.
-
-In 
+[MM] This is an important concept that needs to be clarified.
+I retitled the section to "Passive Measurement" and reworked the introductory paragraph.
+Added RFC7799 citation.  DONE
+>>>> ACM signoff needed
 
    In this section a we illustrate
-   
-s/a we/we/. 
+s/a we/we/.
+[MM] nit DONE
 
    "Note that a another ISP"
-   
 also needs /a another/another/.
+[MM] nit DONE
 
 I think 
-
    Much of the acrimony in the Net Neutrality debate is due by the
    historical lack of
-   
 needs s/due by/due to/.
+[MM] nit DONE
 
 In this text,
-
    that all window above
    target_window_size contributes to a standing queue
-   
 "window" may be correct, but it does read oddly. Is there a better way to say this?
+[MM] "that all excess data in flight (window) above" nit DONE
 
 In this text,
-
    "causes most TCP implementation to send"
-   
-s/implementation/implementations/. 
+s/implementation/implementations/.
+[MM] nit DONE
