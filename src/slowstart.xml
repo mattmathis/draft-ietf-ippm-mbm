@@ -29,7 +29,7 @@
 
           <t>Note that these are the same parameters as the Sender
           Full Window burst test, except the burst rate is at
-          slowestart rate, rather than sender interface rate.</t>
+          slowstart rate, rather than sender interface rate.</t>
         </section>
         <section title="Slowstart AQM test">
 

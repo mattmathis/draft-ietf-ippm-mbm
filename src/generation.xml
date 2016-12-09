@@ -32,22 +32,26 @@
       are used to eliminate many unintended correlations and sample
       biases. However MBM tests are designed to explicitly mimic
       temporal correlations caused by network or protocol elements
-      themselves and are intended to accurately reflect
-      implementation behavior. Some portion of the system, such as
+      themselves. Some portions of the system, such as
       traffic arrival (test scheduling) are naturally stochastic.
-      Other details, such as protocol processing times, are
-      technically non-deterministic and might be modeled
-      stochastically, but are only a tiny part of the overall
-      behavior which is dominated by implementation specific
-      deterministic effects. Furthermore, it is known that sampling
-      bias is a real problem for some protocol implementations. For
+      Other behaviors, such as back-to-back packet transmissions,
+      are dominated by implementation specific deterministic effects.
+      Although these behaviors always contain 
+      non-deterministic elements and might be modeled
+      stochastically, these details typically do not
+      contribute significantly to the overall system behavior.
+      Furthermore, it is known that real protocols are subject to 
+      failures caused by network property estimators suffering from
+      bias due to correlation in their own traffic. For
       example TCP's RTT estimator used to determine the Retransmit
       Time Out (RTO), can be fooled by periodic cross traffic or
-      start-stop applications.</t>
+      start-stop applications.  For these reasons many details of the
+      test streams are specified deterministically.
+      </t>
 
-      <t>At some point in the future it may make sense to introduce
+      <t>Future Model Based Metrics may introduce
       fine grained noise sources into the models used for
-      generating test streams, but they are not warranted at this
+      generating test streams, but the complexity is not warranted at this
       time.</t>
 #include src/paced.xml
 #include src/constant_window.xml

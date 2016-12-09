@@ -1,7 +1,7 @@
     <!-- ======================================================== 9 -->
     <section anchor="examples" title="An Example">
 
-      <t>In this section a we illustrate a TIDS designed to confirm
+      <t>In this section we illustrate a TIDS designed to confirm
       that an access ISP can reliably deliver HD video from
       multiple content providers to all of their customers. With
       modern codecs, minimal HD video (720p) generally fits in 2.5
@@ -54,7 +54,7 @@
       budget, independent subpath tests could be implemented by
       apportioning the packet loss ratio across subpaths. For
       example 50% of the losses might be allocated to the access or
-      last mile link to the user, 40% to the interconnects with
+      last mile link to the user, 40% to the network interconnections with
       other ISPs and 1% to each internal hop (assuming no more than
       10 internal hops). Then all of the subpaths can be tested
       independently, and the spatial composition of passing
@@ -69,7 +69,7 @@
 	future document.  However this example illustrates some
 	the issues that may need to be considered.</t>
 
-      <t>Note that a another ISP, with different geographical
+      <t>Note that another ISP, with different geographical
       coverage, topology or modem technology may need to assume
       a different target_RTT, and as a consequence different
       target_window_size and target_run_length, even for the
@@ -121,7 +121,7 @@
 <ttcol>units</ttcol>
 <c>target_rate</c><c>1</c><c>Mb/s</c>
 <c>target_RTT</c><c>100</c><c>ms</c>
-<c>traget_MTU</c><c>1500</c><c>bytes</c>
+<c>target_MTU</c><c>1500</c><c>bytes</c>
 
 
 <c>target_window_size</c><c>9</c><c>packets</c>
@@ -145,7 +145,7 @@ Data_table">
 <ttcol>units</ttcol>
 <c>target_rate</c><c>100</c><c>Mb/s</c>
 <c>target_RTT</c><c>200</c><c>ms</c>
-<c>traget_MTU</c><c>1500</c><c>bytes</c>
+<c>target_MTU</c><c>1500</c><c>bytes</c>
 
 
 <c>target_window_size</c><c>1741</c><c>packets</c>

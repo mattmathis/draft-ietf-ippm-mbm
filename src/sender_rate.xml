@@ -10,11 +10,10 @@
         ISP. See 
         <xref target="complex" />.</t>
 
-        <t>Also, there are a several details that are not precisely
-        defined. For starters there is not a standard server
-        interface rate. 1 Gb/s and 10 Gb/s are common today, but
-        higher rates will become cost effective and can be expected
-        to be dominant some time in the future.</t>
+	<t>Also, there are a several details about sender interface
+	rate bursts that are not fully defiend here.
+	These details, such as the assumed sender interface rate,
+	should be explicitly stated is a FS-TIDS.</t>
 
         <t>Current standards permit TCP to send a full window
         bursts following an application pause. (Congestion Window

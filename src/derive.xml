@@ -4,7 +4,7 @@
 
       <t>The reference target_run_length described in 
       <xref target="models" /> is based on very conservative
-      assumptions: that all window above target_window_size
+      assumptions: that all excess data in flight (window) above the target_window_size
       contributes to a standing queue that raises the RTT, and that
       classic Reno congestion control with delayed ACKs are in
       effect. In this section we provide two alternative
