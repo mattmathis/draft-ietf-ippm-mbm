@@ -231,7 +231,8 @@ looks like a run-on sentence, and it's impressively long. I'd suggest splitting 
 "a fully specified TIDS or FSTIDS" looks like two things, but it's the same thing with two names, isn't it?
 [ACM] yes, (or FS-TIDS) should do it. 
 
--=-=-=-=-=-=- STOPPED -=-=-=-=-=-=-=-
+[ACM] Section 5.3 (but what file is this in? 
+various searches coming up empty, did we loose a file?)
 
 I don't think
 
