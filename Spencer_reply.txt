@@ -311,6 +311,8 @@ Figure benefits from clear identification of the Fine and Course
 levels, so I tried that in this patch.
 
 [ACM] New section below  (stopped here)
+[ACM] This is still section 6.1, SD's comments jump 
+around a bit...
 
 The scope of "transport protocol" in 
 
@@ -319,6 +321,8 @@ The scope of "transport protocol" in
    
 is really broad. Does this mean "TCP" (or, see my previous note about explicitly describing the transport protocols that this document applies to).
 
+[ACM]  looks like Matt took care of the comment above already
+
 In this text,
    Also cross
    traffic potentially raises the RTT, implicitly reducing the rate.
@@ -326,6 +330,8 @@ In this text,
    strenuous.
 I don't know whether a more strenuous test is better or worse. Is that a term of art? If not, could this be clearer?
 [MM] @@@@@
+[ACM] makes sense to say how the test becomes more strenuous,
+which seems to be "more demanding for the network path" here.
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
 [MM] nit DONE
