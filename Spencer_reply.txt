@@ -246,6 +246,8 @@ doesn't seem like a 2119 MUST, either.
 
 s/is part the reason/is part of the reason/
 
+[ACM] Section 6.0 comments below (generation.xml)
+
 This text
 
    At some point in the future it may make sense to introduce fine
@@ -260,6 +262,11 @@ won't age well in an RFC, but I think something like
    was written. 
    
 would work.
+
+[ACM] Matt, you made a change here, I revised again to avoid the
+      term "Future" and use part of Spencer's suggestion.
+
+[ACM] comments on section 6.1 below (paced.xml)
 
 I'm not getting 
 
@@ -297,6 +304,12 @@ refers to "fine structure", which doesn't appear in the figure, either. Is that 
 further down, but that's using "fine structure" to define something else, not defining "fine structure". I'm also seeing "finest time scale", but it's only used once - is that related?
 
 I'm pretty sure that making the text match the labels in the Figure is all that's needed, but I'm only understanding the current text by guessing.
+
+[ACM] Matt, this is one we discussed on 12/2. I still think the
+Figure benefits from clear identification of the Fine and Course 
+levels, so I tried that in this patch.
+
+[ACM] New section below  (stopped here)
 
 The scope of "transport protocol" in 
 

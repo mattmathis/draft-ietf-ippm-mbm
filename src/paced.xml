@@ -35,7 +35,7 @@
 	spread out in time by the network bottleneck, such that each successive RTT
 	exhibits the same effective bottleneck IP rate.
 	The slowstart phase ends on the first lost packet or ECN mark, which is
-	intended to happen after successive slowstart bursts merge:
+	intended to happen after successive slowstart bursts merge in time:
 	the next burst starts before the bottleneck queue is fully drained
 	and the prior burst is complete.</t>
 
@@ -55,7 +55,7 @@
         the peak of the average IP rate is twice the implied
         bottleneck IP capacity; and at time scales longer than the
         target_RTT and when the burst size is equal to the
-        target_window_size the average rate is equal to the
+        target_window_size, the average rate is equal to the
         target_data_rate. This pattern corresponds to repeating the
         last RTT of TCP slowstart when delayed ACK and sender side
         byte counting are present but without the limits specified
@@ -66,17 +66,26 @@
           <artwork>
             <![CDATA[
 time ==>    ( - equals one packet)
-Packet stream:
- 
-----  ----  ----  ----  ----                     ----  ---- ... 
-  
+
+Fine Level Structure of the Packet Stream:
+
+----  ----  ----  ----  ----                    
+
 |<>| sender interface rate bursts (typically 3 or 4 packets)
 |<===>| burst headway (same as the ACK headway)
-|<========================>| slowstart burst size (from the window) 
+       \___repeating sender______/ 
+             rate bursts
+
+Course Level structure:
+
+----  ----  ----  ----  ----                     ----  ---- ...
+
+|<========================>| slowstart burst size (from the window)
 |<==============================================>| slowstart headway
 \____________ _____________/                     \______ __ ...
              V                                          V
       One slowstart burst                   Repeated slowstart bursts
+
 ]]></artwork>
 <postamble>Multiple levels of Slowstart Bursts</postamble>
 </figure>
