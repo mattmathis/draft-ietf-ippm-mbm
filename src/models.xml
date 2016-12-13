@@ -36,7 +36,7 @@
         this takes 2 Round Trip Times per increase. To exactly fill
         the pipe, losses must be no closer than when the peak of
         the AIMD sawtooth reached exactly twice the
-        target_window_size otherwise the multiplicative window
+        target_window_size.  Otherwise the multiplicative window
         reduction triggered by the loss would cause the network to
         be underfilled. Following 
         <xref target="MSMO97" /> the number of packets between
@@ -51,7 +51,7 @@
         based on a number of assumptions that may not apply. 
         <xref target="derive" /> discusses these assumptions and
         provides some alternative models. If a different model is
-        used, a fully specified TIDS or FSTIDS MUST document the
+        used, a fully specified TIDS or FS-TIDS MUST document the
         actual method for computing target_run_length and ratio
         between alternate target_run_length and the reference
         target_run_length calculated above, along with a discussion
@@ -72,7 +72,7 @@
         constraints: 
         <list style="symbols">
 
-          <t>The TIDS or FSTIDS MUST document and justify the
+          <t>The TIDS or FS-TIDS MUST document and justify the
           actual method used to compute the derated metric
           parameters.</t>
 
@@ -82,7 +82,7 @@
           Performance with infrastructure that infinitesimally
           passes the derated tests.</t>
 
-          <t>The validation process for a FSTIDS itself must be
+          <t>The validation process for a FS-TIDS itself must be
           documented is such a way that other researchers can
           duplicate the validation experiments.</t>
         </list></t>

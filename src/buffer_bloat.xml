@@ -24,5 +24,5 @@
           two times the target_RTT.</t>
 
           <t>Specified RTT limits that are larger than twice the
-          target_RTT must be fully justified in the FSTIDS.</t>
+          target_RTT must be fully justified in the FS-TIDS.</t>
         </section>

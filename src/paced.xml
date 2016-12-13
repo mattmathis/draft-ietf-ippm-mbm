@@ -48,7 +48,7 @@
 
         <t>Note that a stream of repeated slowstart bursts has
         three different average rates, depending on the averaging
-        interval. At the finest time scale (a few packet times at
+        time interval. At the finest time scale (a few packet times at
         the sender interface) the peak of the average IP rate is
         the same as the sender interface rate; at a medium
         timescale (a few ACK times at the dominant bottleneck)
@@ -66,17 +66,24 @@
           <artwork>
             <![CDATA[
 time ==>    ( - equals one packet)
-Packet stream:
+
+Fine time structure of the packet stream:
  
-----  ----  ----  ----  ----                     ----  ---- ... 
-  
+----  ----  ----  ----  ----
 |<>| sender interface rate bursts (typically 3 or 4 packets)
-|<===>| burst headway (same as the ACK headway)
+|<===>| burst headway (from the ACK headway)
+
+\____repeating sender______/
+       rate bursts
+
+
+Coarse (RTT level) time structure of the packet stream:
+----  ----  ----  ----  ----                     ----  ---- ...
 |<========================>| slowstart burst size (from the window) 
 |<==============================================>| slowstart headway
-\____________ _____________/                     \______ __ ...
-             V                                          V
-      One slowstart burst                   Repeated slowstart bursts
+                                                    (from the RTT)
+\___one slowstart burst____/                     \_________ ...
+                                           Repeated slowstart bursts
 ]]></artwork>
 <postamble>Multiple levels of Slowstart Bursts</postamble>
 </figure>

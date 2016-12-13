@@ -89,13 +89,14 @@
 	<t>Changes since -08 draft:
 	<list style="symbols">
 	  <t>Language, spelling and usage nits.</t>
-	  <t>Interconnects -> network interconnections.</t>
 	  <t>Expanded the abstract slightly.</t>
+	  <t>Interconnects -> network interconnections.</t>
+	  <t>Reworked Fig 2 and 6.1 "Mimicking slowstart"</t>
 	  <t>Clarified stocastic vs non-stocastic test traffic generation.</t>
 	  <t>Eliminated superfluous "future technology" language</t>
-	  <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
-	  <t>Discussed how to measure devices that use on virtual queues.</t>
 	  <t>Described the unsynchronized parallel stream failure case.</t>
+	  <t>Discussed how to measure devices that use on virtual queues.</t>
+	  <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
         </list></t>
 
 	<t>Changes since -07 draft: 

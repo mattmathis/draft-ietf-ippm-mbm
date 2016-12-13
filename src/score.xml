@@ -75,7 +75,7 @@
         keep sharpening distinction between inconclusive, passing
         and failing tests. The criteria for for passing, failing
         and inconclusive tests MUST be explicitly stated for every
-        test in the TIDS or FSTIDS.</t>
+        test in the TIDS or FS-TIDS.</t>
 
         <t>One of the goals of evolving the testing process,
         procedures, tools and measurement point selection should be

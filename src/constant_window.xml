@@ -15,7 +15,8 @@
         rates that are too small. Also cross traffic potentially
         raises the RTT, implicitly reducing the rate. Cross traffic
         that raises the RTT nearly always makes the test more
-        strenuous. A FS-TIDS specifying a constant window CBR test
+        strenuous and potentially prone to false-fail results.
+	A FS-TIDS specifying a constant window CBR test
         MUST explicitly indicate under what conditions errors in
         the data rate cause tests to inconclusive.</t>
 

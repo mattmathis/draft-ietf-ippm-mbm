@@ -2,7 +2,7 @@
 
          <t>
 	  Any non-throughput maximizing application,
-	  such as streaming media,
+	  such as fixed rate streaming media,
 	  can be used to implement passive or hybrid <xref target="RFC7799" /> versions of 
 	  Model Based Metrics with some additional instrumentation 
 	  and possibly a traffic shaper or other controls in the servers.
@@ -60,6 +60,15 @@ search: pkt_sched fq Fair Queue packet scheduler
 	  </t>
 
           <t>Note that these techniques can be applied to any
-          content delivery that can be constrained to a reduced data
-          rate in order to inhibit TCP equilibrium behavior.</t>
+          content delivery that can operated at a constrained data
+          rate to inhibit TCP equilibrium behavior.</t>
+
+	  <t>Furthermore note that Dynamic Adaptive Streaming over HTTP (DASH)
+	  is generally in conflict with passive 
+	  Model Based Metrics measurement,
+	  because it is a rate maximizing protocol.
+	  It can still meet the requirement here if the rate can be capped, for example by 
+	  knowing a priori the maximum rate needed to deliver
+	  a particular piece of content.
+	  </t>
         </section>
