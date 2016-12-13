@@ -195,8 +195,8 @@ looks like a run-on sentence, and it's impressively long. I'd suggest splitting 
 [MM] edited as a nit.  @@@@ ACM Please take a look?  NOT CLOSED
 
 "a fully specified TIDS or STIDS" looks like two things, but it's the same thing with two names, isn't it?
-[ACM] yes, (or FS-TIDS) should do it. 
-
+[ACM] yes, (or FS-TIDS) should do it. (in models.xml)
+[MM] I nuked the redundant test (I kept FS-TIDS) DONE
 
 I don't think
    o  The TIDS or FSTIDS MUST document and justify the actual method
@@ -207,6 +207,8 @@ is an RFC 2119 MUST (and the next two bullets have lower-case "must"s, so that m
 doesn't seem like a 2119 MUST, either.
 
 s/is part the reason/is part of the reason/
+
+[ACM] Section 6.0 comments below (generation.xml)
 
 This text
    At some point in the future it may make sense to introduce fine
@@ -220,6 +222,7 @@ won't age well in an RFC, but I think something like
 would work.
 
 [MM] updated per email thread...
+[ACM] comments on section 6.1 below (paced.xml)
 I'm not getting 
    TCP slowstart has a two level burst structure as shown in Figure 2.
    
@@ -252,11 +255,21 @@ further down, but that's using "fine structure" to define something else, not de
 
 I'm pretty sure that making the text match the labels in the Figure is all that's needed, but I'm only understanding the current text by guessing.
 
+[ACM] Matt, this is one we discussed on 12/2. I still think the
+Figure benefits from clear identification of the Fine and Course 
+levels, so I tried that in this patch.
+
+[ACM] New section below  (stopped here)
+[ACM] This is still section 6.1, SD's comments jump 
+around a bit...
+
 The scope of "transport protocol" in 
    For a transport protocol the slowstart bursts are repeated every
    target_RTT.
 is really broad. Does this mean "TCP" (or, see my previous note about explicitly describing the transport protocols that this document applies to).
 [MM] ...Figure and text overhauled, with words from conversation between Al and Spencer DONE
+
+[ACM]  looks like Matt took care of the comment above already
 
 In this text,
    Also cross
@@ -264,7 +277,9 @@ In this text,
    Cross traffic that raises the RTT nearly always makes the test more
    strenuous.
 I don't know whether a more strenuous test is better or worse. Is that a term of art? If not, could this be clearer?
-[MM] clarified "more strenous" as "potentially prone to false-fail results" DONE
+[MM] @@@@@
+[ACM] makes sense to say how the test becomes more strenuous,
+which seems to be "more demanding for the network path" here.
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
 [MM] nit DONE

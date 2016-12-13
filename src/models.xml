@@ -51,7 +51,7 @@
         based on a number of assumptions that may not apply. 
         <xref target="derive" /> discusses these assumptions and
         provides some alternative models. If a different model is
-        used, a fully specified TIDS or FS-TIDS MUST document the
+        used, a FS-TIDS MUST document the
         actual method for computing target_run_length and ratio
         between alternate target_run_length and the reference
         target_run_length calculated above, along with a discussion

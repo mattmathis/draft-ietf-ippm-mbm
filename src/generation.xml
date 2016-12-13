@@ -49,10 +49,11 @@
       test streams are specified deterministically.
       </t>
 
-      <t>Future Model Based Metrics may introduce
+      <t>It may be proven useful to introduce
       fine grained noise sources into the models used for
-      generating test streams, but the complexity is not warranted at this
-      time.</t>
+      generating test streams in an update of Model Based Metrics,
+      but the complexity is not warranted at the
+      time this document was written.</t>
 #include src/paced.xml
 #include src/constant_window.xml
 #include src/scanned_window.xml
