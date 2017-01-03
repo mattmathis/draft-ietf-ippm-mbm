@@ -3,7 +3,8 @@
          <t>
 	  Any non-throughput maximizing application,
 	  such as fixed rate streaming media,
-	  can be used to implement passive or hybrid <xref target="RFC7799" /> versions of 
+	  can be used to implement passive or hybrid 
+      (defined in <xref target="RFC7799" />) versions of 
 	  Model Based Metrics with some additional instrumentation 
 	  and possibly a traffic shaper or other controls in the servers.
 	  The essential
@@ -18,7 +19,7 @@ initial buffer faster, and rate adaptation which is apparently
 widespread now (DASH). Another issue is "double chunking"
 where the player downloads two chunks for the same time period,
 possibly at different quality levels (different rates). - ACM
-I consideed adding a reference here, but it would have to be OS
+I considered adding a reference here, but it would have to be OS
 specific, and not really relevant in a standard.  e.g.
 search: pkt_sched fq Fair Queue packet scheduler
 - MM

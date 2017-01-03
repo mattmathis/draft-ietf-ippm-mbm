@@ -193,6 +193,7 @@ This text,
 looks like a run-on sentence, and it's impressively long. I'd suggest splitting it.
 [ACM] it is two sentences, but can use a little work.
 [MM] edited as a nit.  @@@@ ACM Please take a look?  NOT CLOSED
+[ACM] I edited a bit more, and I think we can close if you agree.
 
 "a fully specified TIDS or STIDS" looks like two things, but it's the same thing with two names, isn't it?
 [ACM] yes, (or FS-TIDS) should do it. (in models.xml)
@@ -257,7 +258,8 @@ I'm pretty sure that making the text match the labels in the Figure is all that'
 
 [ACM] Matt, this is one we discussed on 12/2. I still think the
 Figure benefits from clear identification of the Fine and Course 
-levels, so I tried that in this patch.
+levels, so I tried that in this patch. 
+@@@@ seems to be agreed below (DONE?)
 
 [ACM] New section below  (stopped here)
 [ACM] This is still section 6.1, SD's comments jump 
@@ -280,6 +282,7 @@ I don't know whether a more strenuous test is better or worse. Is that a term of
 [MM] @@@@@
 [ACM] makes sense to say how the test becomes more strenuous,
 which seems to be "more demanding for the network path" here.
+[ACM]  this seems to be DONE (quoted clarification added in ()s)
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
 [MM] nit DONE
@@ -302,6 +305,9 @@ It says "not recommended", but if I'm understanding this correctly, are you sayi
 [MM] Yes, this is what I am saying.
 
 Here is an allegory: Using multiple streams on an ordinary path is much like choosing a to drive a jeep in every day life.  The ride is always bad, but potholes don't matter so much.  If you standardize testing with a jeep you might come to the concluding that pavement is overrated and we should save tax payer money by just going back to gravel.
+[ACM] I drive a jeep, and frequently drive gravel roads.
+Gravel seems to need much more frequent maintenance (smoothing-out).
+But I get your point.
 
 This is akin to the discussion about reordering: How do we draw a line between the problems that should be fixed in the network (reasonable quality) and the problems should be fixed in the stack (not requiring an obscenely low loss rate).
 
@@ -310,6 +316,12 @@ If somebody decides that any path over 1 Mb/s should be channelized, then we wil
 I wish there was a way to say this that did not imply an Internet wide design scale.
 (No text changes at this time).
 >>>> discuss with Spencer
+[ACM] @@@@@ there seems to be a need to address this more explicitly,
+by indicating a reasonable limit for single flow testing
+(based on link bit error ratios and their implications on loss?).
+Also, we could indicate approximately how to generate a 
+multi-flow stream, and evaluate the loss ratios separately
+of course.
 
 Is 
    For the tests that use bursty test streams, the bursts should be
@@ -328,6 +340,11 @@ because you're trying to ensure that if the bursts DID become synchronized, the 
    extent, there should be no bound on reordering density.
 and wish that it was more visible to the Internet community than it will be, 40 pages into this document. Please feel free to leave it here, but could we talk about how to make that happen? Seeing what the feedback is during approval for this document will tell us how much agreement there is about the strawman ...
 [MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which had a huge opportunity cost for the entire Internet by implicitly banning cheap sharded routing engines.  The above language had that language in mind (e.g. it choose a position on reordering that would probably have been met by the M160.
+[ACM] Since we're discussing trade-offs, perhaps it is time to 
+question the advantage Dup-ACKS for hosts, in light of the 
+more strenuous loss requirement on networks due to their use.
+target_run_lengths are halved for the same target_rate, IIRC.
+
 In 
    For some technologies the data might not be subject to increasing
    delays, 
@@ -354,6 +371,7 @@ is a complete sentence. Maybe just a couple of missing words, but the second and
 [MM] This is an important concept that needs to be clarified.
 I retitled the section to "Passive Measurement" and reworked the introductory paragraph.
 Added RFC7799 citation.  (ACM Signoff, added comments about DASH) DONE
+[ACM] I tweaked the text around the reference to 7799. 
 
 
    In this section a we illustrate

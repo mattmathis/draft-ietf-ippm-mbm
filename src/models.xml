@@ -34,11 +34,11 @@
         standard delayed ACKs. Reno increases the window by one
         packet every pipe_size worth of ACKs. With delayed ACKs
         this takes 2 Round Trip Times per increase. To exactly fill
-        the pipe, losses must be no closer than when the peak of
+        the pipe, the spacing of losses must be no closer than when the peak of
         the AIMD sawtooth reached exactly twice the
-        target_window_size.  Otherwise the multiplicative window
+        target_window_size.  Otherwise, the multiplicative window
         reduction triggered by the loss would cause the network to
-        be underfilled. Following 
+        be under-filled. Following 
         <xref target="MSMO97" /> the number of packets between
         losses must be the area under the AIMD sawtooth. They must
         be no more frequent than every 1 in
