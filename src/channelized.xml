@@ -49,7 +49,7 @@
 	explicit mechanism to stagger bursts many network and
 	application artifacts will sometimes implicitly
 	synchronize bursts.
-	A test that does not control burst synchronization is
-	likely to be prone to false pass results for some applications.
+	A test that does not control burst synchronization may
+	be prone to false pass results for some applications.
 	</t>
       </section>

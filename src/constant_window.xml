@@ -17,7 +17,7 @@
         that raises the RTT nearly always makes the test more
         strenuous (more demanding for the network path). 
         A FS-TIDS specifying a constant window CBR test
-        MUST explicitly indicate under what conditions errors in
+        must explicitly indicate under what conditions errors in
         the data rate cause tests to inconclusive.</t>
 
         <t>Since constant window pseudo CBR testing is sensitive to

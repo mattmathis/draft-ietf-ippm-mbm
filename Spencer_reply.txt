@@ -49,7 +49,7 @@ This text
    Section 8.2, don't correspond to existing IPPM metrics, but suitable
    metrics can be patterned after the existing definitions.)
 was passive enough that I don't know whether you're talking about IPPM developing new metrics, or about something else (perhaps work that developers will do on their own). If you mean what I think you mean, just changing to "suitable new IPPM metrics" would be clear to me, but I'm guessing.
-[ACM,MM] suggestion workd for me.  DONE
+[ACM,MM] suggestion worked for me.  DONE
 
 In Figure 1, I was confused by the distinction between "fail/inconclusive" and "pass/fail/inconclusive". Maybe not for the document, but could you educate me? I think I understand that you have to do Delivery Evaluation to determine "pass/fail/inconclusive", and the description of Section 8 further down the Overview confirmed what I was thinking here, but I'm not understanding what "fail/inconclusive" is telling me about traffic pattern generation, unless it's something like "failed due to configuration errors" (and that's a guess, based on text at the end of Section 4.2).
 [ACM] labelled these as test status and test result.
@@ -98,7 +98,7 @@ I even know what "type-p" is in this text,
       are out of scope for this document,
 but you could usefully provide a reference for that, and I'm not sure whether "out of scope for this document" means that they exist in other documents. I think you're saying that, but I'm not sure.
 [ACM] yes, that's it.
-[MM] I concur.  It would be some combination of existing measurement standards and some TBD measurement profile.    I tried so text here, but it felt like a unfocused digression.
+[MM] I concur.  It would be some combination of existing measurement standards and some TBD measurement profile.    I tried some text here, but it felt like a unfocused digression.
 
 In this text,
    Bulk Transport Capacity:  Bulk Transport Capacity Metrics evaluate an
@@ -107,10 +107,9 @@ In this text,
       images and other content
 How would the reader know what conditions make these metrics applicable to web images and other content?
 [ACM] There is a relationship, but the ability to deliver Web and images is mostly based on RTT (small file size)
-[MM] need to talk about bulk
+[MM] I added a mushy definiton of Bulk transport.  It may draw fire, but it is interesting to note that even 2330 and 3148 don't define the term, except through application types, which may not be correct at today's scales.
 
 "Terminology about paths, etc.  See [RFC2330] and [RFC7398]." is really terse. Do you mean that the list of terms following this are taken from these RFCs, or are you saying the reader should be aware of other terms defined in those RFCs that don't appear in that list of terms? Or is that just a header for the list of terms following? I started wondering that when I saw "Properties determined by the complete path and application.  These are described in more detail in Section 5.1." further down the page, and had the same question.
-
 [ACM] Added "for existing terms and definitions" in the terminology about paths section. DONE
 
 In this text,
@@ -120,8 +119,7 @@ In this text,
       bursts at the dimensions (duration and IP rate) implied by the ACK
       stream, potentially doubled during slowstart.
 is "doubling each RTT" more accurate here? And if you included a reference for slowstart, that would likely be helpful to some readers. It appears a bunch of times in the document, but RFC 5681 isn't referenced until much later than the terminology section. 
-[ACM] I think this is explained later. ??
-[MM] I tweaked up this definition.
+[MM] I tweaked up this definition.  DONE
 
 It's a nit, but s/moderns servers/modern servers/.
 [ACM] found and fixed DONE
@@ -134,7 +132,7 @@ and I think it's because I don't understand the scope of "the total quantity of 
 [ACM] Yes, I think "packets in flight" needs to be added in the right place DONE
 
 "a more stringent TIDS validation procedures" needs help with a numbering mismatch.
-[ACM] I think Section 10 is correct  DONE
+[MM] Section 10 is correct, but added more clarifying text.  DONE
 
 "By default the bursts are assumed full sender interface rate" is really hard to parse.
 [ACM] "assumed to occur at full..." DONE
@@ -147,23 +145,25 @@ In this text,
       reduced-cost proxy for a capacity test, for example to support
       ongoing monitoring.
 does "ongoing monitoring" mean "during engineering testing", or something else? 
-[ACM] it means "continuous production network monitoring" IMO.
+[ACM] it means "continuous production network monitoring" DONE
 
 In this text,
    At the time the IPPM WG was chartered, 
-   
 I THINK thats something like 
    In 2006, when the IETF begain work on performance measurement,
 which tells the reader the timeframe (I had to look - 2006 is the oldest charter in the datatracker) and removes a reference to a working group that is long-lived, but may conclude SOME day.
-[ACM] IPPM started-out sharing a meeting slot with BMWG, in 1997. 
+[ACM] IPPM started-out sharing a meeting slot with BMWG, in 1997.
+[MM] Earlier but no minutes. see: http://staff.psc.edu/mathis/ippm/  I change this to when
+2330 was published.  DONE
+
 
 There's a "and or" with no "/" between them.
-[ACM] ok
+[ACM] ok (nit) DONE
 
 I suspect that the earlier Section 4.1 appears in the document, the clearer the document would be, within limits ... I learned things, and I imagine most readers would benefit from learning them before piling into the terminology section that uses these concepts freely.
 [ACM] This is worth considering Matt, but it's a tricky task with the
             sections in separate files. Same is suggested for 4.3.
-[MM] Added test: "Readers who are unfamiliar with basic properties of TCP and TCP-like congestion control may find it easier to start at Section 4 or Section 4.1." DONE
+[MM] Added text: "Readers who are unfamiliar with basic properties of TCP and TCP-like congestion control may find it easier to start at Section 4 or Section 4.1." DONE
 
 
 SCTP is mentioned once in the document, 17 pages in. Is it worth being more explicit whether this document applies to specific protocols besides TCP? Much of the discussion is either "TCP" or "throughput maximizing protocols", SCTP is only mentioned once, and of course I wondered about DCCP ... 
@@ -192,24 +192,27 @@ This text,
    area under the AIMD sawtooth. 
 looks like a run-on sentence, and it's impressively long. I'd suggest splitting it.
 [ACM] it is two sentences, but can use a little work.
-[MM] edited as a nit.  @@@@ ACM Please take a look?  NOT CLOSED
+[MM] edited more but still not happy
 [ACM] I edited a bit more, and I think we can close if you agree.
+[MM] Closed DONE
 
 "a fully specified TIDS or STIDS" looks like two things, but it's the same thing with two names, isn't it?
 [ACM] yes, (or FS-TIDS) should do it. (in models.xml)
-[MM] I nuked the redundant test (I kept FS-TIDS) DONE
+[MM] I nuked the redundant test (I kept FS-TIDS) (nit) DONE
 
 I don't think
    o  The TIDS or FSTIDS MUST document and justify the actual method
       used to compute the derated metric parameters.
 is an RFC 2119 MUST (and the next two bullets have lower-case "must"s, so that makes me wonder if all three should match, either way).
+[MM] DONE
 
-   Test preconditions and failure actions MUST be specified in a FSTIDS.
+Test preconditions and failure actions MUST be specified in a FSTIDS.
 doesn't seem like a 2119 MUST, either.
+[MM] Done, however a few of the most important requirements for future docs are still MUST.  DONE
 
 s/is part the reason/is part of the reason/
+[MM] DONE
 
-[ACM] Section 6.0 comments below (generation.xml)
 
 This text
    At some point in the future it may make sense to introduce fine
@@ -221,8 +224,9 @@ won't age well in an RFC, but I think something like
    streams, but they were not warranted at the time this document 
    was written. 
 would work.
+[MM] iterated DONE
 
-[MM] updated per email thread...
+
 [ACM] comments on section 6.1 below (paced.xml)
 I'm not getting 
    TCP slowstart has a two level burst structure as shown in Figure 2.
@@ -259,7 +263,7 @@ I'm pretty sure that making the text match the labels in the Figure is all that'
 [ACM] Matt, this is one we discussed on 12/2. I still think the
 Figure benefits from clear identification of the Fine and Course 
 levels, so I tried that in this patch. 
-@@@@ seems to be agreed below (DONE?)
+[MM] iterated in a seperate email thread. DONE
 
 [ACM] New section below  (stopped here)
 [ACM] This is still section 6.1, SD's comments jump 
@@ -270,7 +274,6 @@ The scope of "transport protocol" in
    target_RTT.
 is really broad. Does this mean "TCP" (or, see my previous note about explicitly describing the transport protocols that this document applies to).
 [MM] ...Figure and text overhauled, with words from conversation between Al and Spencer DONE
-
 [ACM]  looks like Matt took care of the comment above already
 
 In this text,
@@ -279,13 +282,12 @@ In this text,
    Cross traffic that raises the RTT nearly always makes the test more
    strenuous.
 I don't know whether a more strenuous test is better or worse. Is that a term of art? If not, could this be clearer?
-[MM] @@@@@
 [ACM] makes sense to say how the test becomes more strenuous,
 which seems to be "more demanding for the network path" here.
-[ACM]  this seems to be DONE (quoted clarification added in ()s)
+[ACM]  this seems to be DONE (quoted clarification added in ()s)  (nit) DONE
 
 I think "a constant window CBR tests" needs help with a numbering mismatch.
-[MM] nit DONE
+[MM] I don't see any numbers to be wrong...?
 
 It's a nit, but 
    There are a number of reasons to want to specify performance in term
@@ -308,20 +310,23 @@ Here is an allegory: Using multiple streams on an ordinary path is much like cho
 [ACM] I drive a jeep, and frequently drive gravel roads.
 Gravel seems to need much more frequent maintenance (smoothing-out).
 But I get your point.
+[MM] But the regrading is for the people driving cars, not the people driving jeeps.
 
-This is akin to the discussion about reordering: How do we draw a line between the problems that should be fixed in the network (reasonable quality) and the problems should be fixed in the stack (not requiring an obscenely low loss rate).
+This is akin to the discussion about reordering: How do we draw a line between the problems that should be fixed in the network (reasonable network quality) and the problems should be fixed in the stack (not requiring an obscenely low loss rate).
 
-If somebody decides that any path over 1 Mb/s should be channelized, then we will be implicitly giving people permission to build truly crappy networks.
+If somebody decides that any path over 1 Mb/s should be channelized, then we will be implicitly giving people permission to build truly crappy networks, and all applications that want to run at more than 1 Mb/s have to be able to channelize their data.
 
 I wish there was a way to say this that did not imply an Internet wide design scale.
 (No text changes at this time).
 >>>> discuss with Spencer
+
 [ACM] @@@@@ there seems to be a need to address this more explicitly,
 by indicating a reasonable limit for single flow testing
 (based on link bit error ratios and their implications on loss?).
 Also, we could indicate approximately how to generate a 
 multi-flow stream, and evaluate the loss ratios separately
 of course.
+[MM] We really do not want to encourage multiflow testing.  It make bad network look ok.
 
 Is 
    For the tests that use bursty test streams, the bursts should be
@@ -339,11 +344,12 @@ because you're trying to ensure that if the bursts DID become synchronized, the 
    window or 1 mS, whichever is larger.  Within this limit on reorder
    extent, there should be no bound on reordering density.
 and wish that it was more visible to the Internet community than it will be, 40 pages into this document. Please feel free to leave it here, but could we talk about how to make that happen? Seeing what the feedback is during approval for this document will tell us how much agreement there is about the strawman ...
-[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which had a huge opportunity cost for the entire Internet by implicitly banning cheap sharded routing engines.  The above language had that language in mind (e.g. it choose a position on reordering that would probably have been met by the M160.
+[MM] Thanks - no doc changes.   I have always wanted to revert the Juniper M160 debacle, which had a huge opportunity cost for the entire Internet by implicitly banning cheap sharded routing engines.  The above language had that goal in mind (e.g. it choose a position on reordering that would probably have been met by the M160.
 [ACM] Since we're discussing trade-offs, perhaps it is time to 
 question the advantage Dup-ACKS for hosts, in light of the 
 more strenuous loss requirement on networks due to their use.
 target_run_lengths are halved for the same target_rate, IIRC.
+[MM] Calls for a beer.  You can save ACKs in average (e.g. fewer the 1/2 ACKS on aggregate paths) but it really screws SACK to thin ACKS during recovery, so you have to be able to support the worst case. 
 
 In 
    For some technologies the data might not be subject to increasing
@@ -370,9 +376,8 @@ I don't think
 is a complete sentence. Maybe just a couple of missing words, but the second and third lines don't seem tied to the first line.
 [MM] This is an important concept that needs to be clarified.
 I retitled the section to "Passive Measurement" and reworked the introductory paragraph.
-Added RFC7799 citation.  (ACM Signoff, added comments about DASH) DONE
+Added RFC7799 citation. DONE
 [ACM] I tweaked the text around the reference to 7799. 
-
 
    In this section a we illustrate
 s/a we/we/.

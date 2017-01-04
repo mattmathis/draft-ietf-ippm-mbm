@@ -13,7 +13,7 @@
           rate. It should not be considered inconclusive as long as
           at least some of the round trips reached the full
           target_data_rate without incurring losses or ECN CE
-          marks. To pass this test the network MUST deliver
+          marks. To pass this test the network must deliver
           target_window_size packets in target_RTT time without any
           losses or ECN CE marks at least once per two
           target_window_size round trips, in addition to meeting

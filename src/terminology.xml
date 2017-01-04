@@ -50,7 +50,7 @@
           <t hangText='Target MTU (Maximum Transmission Unit):'>The
           specified maximum MTU supported by the complete path the
           over which the application expects to meet the target
-          performance. Assume a 1500 Byte MTU when testing unless otherwise
+          performance. In this document assume a 1500 Byte MTU unless otherwise
           specified. If some subpath has a smaller MTU, then it
           becomes the Target MTU for the complete path, and all
           model calculations and subpath tests must use the same
@@ -62,8 +62,8 @@
           target_data_rate using target_MTU sized packets when the
           RTT of the complete path is target_RTT.</t>
           <t hangText="Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):">
-          A TIDS together with additional specification such as
-          "type-p" <xref target="RFC2330" />, etc. which are out of scope for this document,
+          A TIDS together with additional specification such as measurement packet type
+          ("type-p" <xref target="RFC2330" />), etc. which are out of scope for this document,
           but need to be drawn from other standards documents.</t>
           <t hangText="Bulk Transport Capacity:">Bulk Transport
           Capacity Metrics evaluate an Internet path's ability to
@@ -73,7 +73,14 @@
           been based on 
           <xref target="RFC3148" />, which predates our
           understanding of TCP and the requirements described in 
-          <xref target="background" /></t>
+          <xref target="background" />.
+	  In general "Bulk Transport" indicates that performance is
+	  determined by the interplay between the network, cross
+	  traffic and congestion control in the transport protocol.
+	  It excludes situations where
+	  performance is dominated by the RTT alone (e.g. transactions)
+	  or bottlenecks elsewhere, such as in the application itself.
+	  </t>
           <t hangText="IP diagnostic tests:">Measurements or
           diagnostics to determine if packet transfer statistics
           meet some precomputed target.</t>

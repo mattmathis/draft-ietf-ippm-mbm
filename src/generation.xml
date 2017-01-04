@@ -18,7 +18,7 @@
       over the complete path.</t>
 
       <t>Failing to authentically mimic TCP's temporal structure is
-      part the reason why simple performance tools such as iPerf,
+      part of the reason why simple performance tools such as iPerf,
       netperf, nc, etc have the reputation of yielding false pass
       results over short test paths, even when some subpath has a
       flaw.</t>
@@ -32,7 +32,7 @@
       are used to eliminate many unintended correlations and sample
       biases. However MBM tests are designed to explicitly mimic
       temporal correlations caused by network or protocol elements
-      themselves. Some portions of the system, such as
+      themselves. Some portions of these system, such as
       traffic arrival (test scheduling) are naturally stochastic.
       Other behaviors, such as back-to-back packet transmissions,
       are dominated by implementation specific deterministic effects.
@@ -49,7 +49,7 @@
       test streams are specified deterministically.
       </t>
 
-      <t>It may be proven useful to introduce
+      <t>It may  prove useful to introduce
       fine grained noise sources into the models used for
       generating test streams in an update of Model Based Metrics,
       but the complexity is not warranted at the

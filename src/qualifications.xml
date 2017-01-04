@@ -23,6 +23,6 @@
         the network by reducing the number of tests during peak
         network load.</t>
 
-        <t>Test preconditions and failure actions MUST be specified
+        <t>Test preconditions and failure actions must be specified
         in a FS-TIDS.</t>
       </section>

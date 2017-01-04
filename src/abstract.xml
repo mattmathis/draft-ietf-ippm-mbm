@@ -20,7 +20,7 @@
       statistical criteria for evaluating the packet transfer
       statistics of those streams. The temporal structure of the
       test stream (bursts, etc) mimic TCP or other transport
-      protocol carrying bulk data over a long path but are
+      protocol carrying bulk data over a long path.  However they are
       constructed to be independent of the details of the subpath
       under test, end systems or applications. Likewise the success
       criteria evaluates the packet transfer statistics of the

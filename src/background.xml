@@ -1,14 +1,15 @@
     <!-- ======================================================== 4 -->
     <section anchor="background" title="Background">
 
-      <t>In 1997, when the IPPM WG was chartered and the IETF began work
-      on measuring and specifying Intenet perfomance,
+      <t>
+      At the time the "Framework for IP Performance Metrics" 
+      <xref target="RFC2330" /> was published (1998),
       sound Bulk
       Transport Capacity (BTC) measurement was known to be well beyond
       our capabilities. Even when Framework for Empirical 
       BTC Metrics 
-      <xref target="RFC3148" /> was written, we knew that we didn't
-      fully understand the problem. Now, by hindsight we understand
+      <xref target="RFC3148" /> was published, we knew that we didn't
+      really understand the problem. Now, by hindsight we understand
       why assessing BTC is such a hard problem:
       <list style="symbols">
 
@@ -74,14 +75,16 @@
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control
       systems based on estimated network metrics to regulate the
-      quantity of data sent into the network. The packet sending 
+      quantity of data to send into the network. The packet sending 
       characteristics in turn alter the network properties
       estimated by the control system metrics, such that there are 
       circular dependencies between every transmission characteristic
       and every estimated metric. Since some of these dependencies
       are nonlinear, the entire system is nonlinear, and any change 
-      causes a response in packet sending characteristics or
-      estimated network metrics that is difficult to predict.</t>
+      anywhere causes a difficult to predict response in
+      network metrics.   As a consequence Bulk Transport
+      Capacity metrics have entirely thwarted the analytic framework
+      envisioned in <xref target="RFC2330" /></t>
 
       <t>Model Based Metrics overcome these problems by making the
       measurement system open loop: the packet transfer statistics
@@ -100,7 +103,7 @@
         acknowledgments (ACKs) circulating in the network. The
         data receiver reports arriving data by returning ACKs to
         the data sender, the data sender typically responds by
-        sending approximatly the same quantity of data back into the
+        sending approximately the same quantity of data back into the
         network. The total quantity of data plus the data
         represented by ACKs circulating in the network is referred
         to as the window. The mandatory congestion control

@@ -89,14 +89,19 @@
 	<t>Changes since -08 draft:
 	<list style="symbols">
 	  <t>Language, spelling and usage nits.</t>
-	  <t>Expanded the abstract slightly.</t>
+	  <t>Expanded the abstract describe the models.</t>
+	  <t>Remove superfluous standards like language</t>  
+	  <t>Remove superfluous "future technology" language.</t>
 	  <t>Interconnects -> network interconnections.</t>
+	  <t>Added more labels to Figure 1.</t>
+	  <t>Defined Bulk Transport.</t>
+	  <t>Clarified "implied bottleneck IP capacity"</t>
+	  <t>Clarified the history of the BTC metrics.</t>
+	  <t>Clarified stochastic vs non-stochastic test traffic generation.</t>
 	  <t>Reworked Fig 2 and 6.1 "Mimicking slowstart"</t>
-	  <t>Clarified stocastic vs non-stocastic test traffic generation.</t>
-	  <t>Eliminated superfluous "future technology" language</t>
 	  <t>Described the unsynchronized parallel stream failure case.</t>
-	  <t>Discussed how to measure devices that use on virtual queues.</t>
-	  <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
+	  <t>Discussed how to measure devices that use on virtual queues.</t>	
+          <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
         </list></t>
 
 	<t>Changes since -07 draft: 

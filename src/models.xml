@@ -22,7 +22,7 @@
         assume the subpath_IP_capacity is infinitesimally larger
         than the target_data_rate plus the required
         header_overhead. Then target_window_size also predicts the
-        onset of queueing. A larger window will cause a standing
+        onset of queuing. A larger window will cause a standing
         queue at the bottleneck.</t>
 
         <t>Assume the transport protocol is using standard Reno
@@ -51,7 +51,7 @@
         based on a number of assumptions that may not apply. 
         <xref target="derive" /> discusses these assumptions and
         provides some alternative models. If a different model is
-        used, a FS-TIDS MUST document the
+        used, a FS-TIDS must document the
         actual method for computing target_run_length and ratio
         between alternate target_run_length and the reference
         target_run_length calculated above, along with a discussion
@@ -72,7 +72,7 @@
         constraints: 
         <list style="symbols">
 
-          <t>The TIDS or FS-TIDS MUST document and justify the
+          <t>The FS-TIDS must document and justify the
           actual method used to compute the derated metric
           parameters.</t>
 
