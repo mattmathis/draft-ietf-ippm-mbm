@@ -14,7 +14,7 @@ top: all
 
 recompile: $(TARGETS)
 
-all: trigger $(TARGETS)  
+all: trigger $(TARGETS) rfcdiff
 
 trigger $(NAME).trig:
 	touch $(NAME).trig
@@ -44,7 +44,7 @@ stage: $(NAME).txt $(NAME).html
 	cp $(NAME).html ${WEBDIR}/${WEBNAME}${SUFFIX}.html
 	chmod 644 ${WEBDIR}/${WEBNAME}*
 
-# link prior.txt to Pub/whatever 
+# Manually link prior.txt to Pub/whatever first
 rfcdiff: $(NAME).txt
 	tools/rfcdiff $(PRIOR).txt $(NAME).txt
 	@echo See $(NAME)-from-$(PRIOR).diff.html
@@ -62,6 +62,8 @@ checkxml:
 	for f in src/*.xml; do tidy -e -q -xml $$f ; done
 
 colorize: $(NAME).html
+	./tools/decorate.py test $(NAME).html > color_test.html
+	./tools/decorate.py underscores $(NAME).html > color_underscores.html
 	./tools/decorate.py global $(NAME).html > color_global.html
 	./tools/decorate.py traffic $(NAME).html > color_traffic.html
 	./tools/decorate.py model $(NAME).html > color_model.html

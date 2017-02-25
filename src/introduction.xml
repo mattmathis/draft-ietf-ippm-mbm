@@ -100,7 +100,7 @@
 	  <t>Clarified stochastic vs non-stochastic test traffic generation.</t>
 	  <t>Reworked Fig 2 and 6.1 "Mimicking slowstart"</t>
 	  <t>Described the unsynchronized parallel stream failure case.</t>
-	  <t>Discussed how to measure devices that use on virtual queues.</t>	
+	  <t>Discussed how to measure devices that use virtual queues.</t>	
           <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
         </list></t>
 

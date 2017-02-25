@@ -8,10 +8,9 @@
       described in 
       <xref target="RFC2119" />.</t>
 
-      <t>Note that terms containing underscores (rather than
-      spaces) appear in equations in the modeling sections. In some
-      cases both forms are used for aesthetic reasons, they do not
-      have different meanings.</t>
+      <t>Terms containing underscores (rather than spaces) appear in equations
+      and typically have algorithmic definitions.
+      </t>
 
       <t>General Terminology:</t>
 
@@ -308,7 +307,7 @@
           of the forward path, header_overhead sized packets on the
           return path.</t>
           <t hangText="test_path_pipe:">The pipe size of a test
-          path. Nominally the test path RTT times the test path
+          path. Nominally the test_path_RTT times the test path
           IP_capacity.</t>
           <t hangText="test_window:">The smallest window sufficient
 	  to meet or exceed
