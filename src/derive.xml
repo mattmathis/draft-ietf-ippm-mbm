@@ -61,7 +61,7 @@
 
         <t>For some value of Wmin, the window will sweep from Wmin
         packets to 2*Wmin packets in 2*Wmin RTT (due to delayed
-        ACK). Unlike the queueing case where Wmin =
+        ACK). Unlike the queuing case where Wmin =
         target_window_size, we want the average of Wmin and 2*Wmin
         to be the target_window_size, so the average data rate is
         the target rate. Thus we want Wmin =

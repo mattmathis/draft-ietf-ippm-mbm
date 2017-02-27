@@ -11,7 +11,7 @@
         <xref target="complex" />.</t>
 
 	<t>Also, there are a several details about sender interface
-	rate bursts that are not fully defiend here.
+	rate bursts that are not fully defined here.
 	These details, such as the assumed sender interface rate,
 	should be explicitly stated is a FS-TIDS.</t>
 

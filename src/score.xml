@@ -46,7 +46,7 @@
         stream does not depend on network conditions or IP packets
         received. Any mechanism that introduces feedback between
         the path's measurements and the test stream generation is
-        at risk of introducing non-linearities that spoil these
+        at risk of introducing nonlinearities that spoil these
         properties. Any exceptional event that indicates that such
         feedback has happened should cause the test to be
         considered inconclusive.</t>
