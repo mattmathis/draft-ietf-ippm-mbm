@@ -15,12 +15,12 @@
 	These details, such as the assumed sender interface rate,
 	should be explicitly stated is a FS-TIDS.</t>
 
-        <t>Current standards permit TCP to send a full window
+        <t>Current standards permit TCP to send full window
         bursts following an application pause. (Congestion Window
-        Validation  <xref target="RFC2861" />
-        <xref target="RFC7661" />, is not required, but even if
-        was, it does not take effect until an application pause is
-        longer than an RTO.) Since full window bursts are
+        Validation <xref target="RFC2861" /> and updates to support
+	Rate-Limited Traffic 
+        <xref target="RFC7661" />, are not required).
+	Since full window bursts are
         consistent with standard behavior, it is desirable that the
         network be able to deliver such bursts, otherwise
         application pauses will cause unwarranted losses. Note that

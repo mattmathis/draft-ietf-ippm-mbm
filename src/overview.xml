@@ -106,7 +106,7 @@ Traffic parameters |            | Statistical criteria
       bottlenecks would then be permitted to contribute a larger
       fraction of the end-to-end
       packet loss budget. In compensation,
-      subpaths that to not exhibit bottlenecks have must be constrained to contribute less packet
+      subpaths that to not expected exhibit bottlenecks must be constrained to contribute less packet
       loss. Thus the statistical criteria for each subpath in each test of a
       TIDS is an apportioned share of the end-to-end statistical criteria
       for the complete path which was determined by the mathematical model.

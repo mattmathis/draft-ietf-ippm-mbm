@@ -32,7 +32,7 @@
       are used to eliminate many unintended correlations and sample
       biases. However MBM tests are designed to explicitly mimic
       temporal correlations caused by network or protocol elements
-      themselves. Some portions of these system, such as
+      themselves. Some portions of these systems, such as
       traffic arrival (test scheduling) are naturally stochastic.
       Other behaviors, such as back-to-back packet transmissions,
       are dominated by implementation specific deterministic effects.

@@ -29,7 +29,7 @@
 	queuing delay,
 	in which case the data rate will vary
         with the window size all the way up to the onset of load
-        induced packet loss or ECN CE marks. For theses
+        induced packet loss or ECN CE marks. For these
         technologies, the discussion of queuing
 	in <xref target="scanned_window"/> does not apply,
         but it is still necessary to confirm that the onset of losses or ECN CE

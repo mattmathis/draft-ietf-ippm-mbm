@@ -6,7 +6,7 @@ WEBNAME=draft-ietf-ippm-model-based-metrics
 PRIOR=prior
 WEBDIR=${HOME}/Downloads
 WEBDIR=${HOME}/www/drafts
-SUFFIX=-08
+SUFFIX=-09
 FORMATTED=`date`
 LIB='XML_LIBRARY='${PWD}
 
