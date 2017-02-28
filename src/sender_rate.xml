@@ -10,18 +10,17 @@
         ISP. See 
         <xref target="complex" />.</t>
 
-        <t>Also, there are a several details that are not precisely
-        defined. For starters there is not a standard server
-        interface rate. 1 Gb/s and 10 Gb/s are common today, but
-        higher rates will become cost effective and can be expected
-        to be dominant some time in the future.</t>
+	<t>Also, there are a several details about sender interface
+	rate bursts that are not fully defined here.
+	These details, such as the assumed sender interface rate,
+	should be explicitly stated is a FS-TIDS.</t>
 
-        <t>Current standards permit TCP to send a full window
+        <t>Current standards permit TCP to send full window
         bursts following an application pause. (Congestion Window
-        Validation  <xref target="RFC2861" />
-        <xref target="RFC7661" />, is not required, but even if
-        was, it does not take effect until an application pause is
-        longer than an RTO.) Since full window bursts are
+        Validation <xref target="RFC2861" /> and updates to support
+	Rate-Limited Traffic 
+        <xref target="RFC7661" />, are not required).
+	Since full window bursts are
         consistent with standard behavior, it is desirable that the
         network be able to deliver such bursts, otherwise
         application pauses will cause unwarranted losses. Note that

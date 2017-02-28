@@ -26,11 +26,12 @@ artOnly=[
     "vantage independence"
     "test stream", "test streams",
 ]
-# These words and phrases are defined in the and used camonically.
+# These words and phrases are defined in the doc and used camonically.
 ModelArt=[
     # general
     "Model Based Metrics",
     "Target Transport Performance",
+    #"Target",
     "Target Data Rate",
     "Target RTT",
     "Target MTU", "Maximum Transmission Unit",
@@ -41,7 +42,7 @@ ModelArt=[
     "IP diagnostic test", "IP diagnostic tests",
 ]
 TrafficArt=[
-    # "traffic patterns"
+    "traffic pattern", "traffic patterns",
     "packet transfer statistics",
     "packet loss", "packet loss ratio",
     "apportioned",
@@ -80,6 +81,7 @@ TemporalArt=[
     # temporal patterns
     "packet headway", "burst headway",
     "paced single packets", # XXXX Look at 3432
+    "slowstart rate",
     "paced burst", "slowstart burst", "repeated slowstart burst",
     "paced bursts", "slowstart bursts", "repeated slowstart bursts",
 ]
@@ -115,7 +117,6 @@ unsafe=[
 
     "data rate", "ECN", "average rate", "traffic",
     "precomputed", "traffic", "patterns", "pattern",
-    "parameter", "parameters",
     "flow", "flows",
     "packet delivery"
 ]
@@ -150,27 +151,27 @@ def colorwords(sl, c):
         except (KeyError):
             pass
 
-def colorphrases(pl, c, fuzz=False):
+def colorphrases(pl, c, casefold=False):
     global wix, white, words, colors
     """Color matching phrases
 
-    If fuzz is set, ignore case.
+    If casefold is set, ignore case.
     In any case allow the first letter to be capitalized in use.
     """
-    art={}
-    if fuzz:
+    art={} # Dictionary of words yielding colors
+    if casefold:
         for w in pl:
-            art[w]=c.casefold()
+            art[w.casefold()]=c
     else:
         for w in pl:
             art[w]=c
             if w[0].islower():
-                # only adjust the very first letter
+                # add the first word again
                 art[w[0].capitalize()+w[1:]]=c
     for wo in range(wix):
         for i in range(1, 7):
             t = " ".join(words[wo-i:wo])
-            if fuzz:
+            if casefold:
                 t = t.casefold()
             if wo>i and t in art:
                 for ii in range(1, i+1):
@@ -204,8 +205,8 @@ def color_global():
   scanfile()
   allwords=stopw+unsafe+allArt
   colorwords(allwords, "#FFFF00") # Yellow
-  colorwords(safeWords, "#FFFF80") # pale yellow
-  colorwords(commonWords, "#FFFFC0") # very pale yellow
+  colorwords(safeWords, "#FFFFC0") # pale yellow
+  colorwords(commonWords, "#FFFFF0") # very pale yellow
   colorphrases(artOnly, "PaleGreen")
   colorphrases(unsafe, "Pink", True)
   colorphrases(allArt, "PaleGreen")
@@ -229,6 +230,31 @@ def color_traffic():
 def color_model():
   scanfile()
   do_color(ModelArt)
+  showfile()
+
+def color_underscores():
+  usc=[];
+  usf=[]
+  for w in allArt:
+    wf=w.replace('_', ' ')
+    if wf != w:
+      usc=usc + [w]
+      usf=usf + [wf]
+  scanfile()
+  colorwords(usc, "PaleGreen")
+  colorphrases(usf, "Pink")
+  showfile()
+
+def color_test():
+  scanfile()
+  testArt=["Bulk Transport Capacity"]
+  colorwords(testArt, "#FFFF80")
+  colorphrases(testArt, "PaleGreen")
+
+  testArt=["run_length"]
+  colorwords(["run", "length"], "#FFFF80")
+  colorphrases(testArt, "PaleGreen")
+
   showfile()
 
 def main():

@@ -3,7 +3,7 @@
 
           <t>A subpath passes the congestion avoidance standing
           queue test if more than target_run_length packets are
-          delivered between the onset of queueing (as determined by
+          delivered between the onset of queuing (as determined by
           the window with the maximum network power as described
 	  above) and the first
           loss or ECN CE mark. If this test is implemented using a
@@ -13,7 +13,7 @@
           <xref target="Pathdiag" />.</t>
 
           <t>For technologies that do not have conventional queues,
-          use the test_window in place of the onset of queueing.
+          use the test_window in place of the onset of queuing.
           i.e. A subpath passes the congestion avoidance standing
           queue test if more than target_run_length packets are
           delivered between start of the scan at test_window and

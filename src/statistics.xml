@@ -12,7 +12,7 @@
 
         <t>The generalized measurement can be described as
         recursive testing: send packets (individually or in
-        patterns) and observe the packet delivery performance
+        patterns) and observe the packet transfer performance
         (packet loss ratio or other metric, any marking we
         define).</t>
 

@@ -20,7 +20,7 @@
 	  slowstart to recover their self clock.
 	  Even if they can recover from the massive losses the
 	  sudden change in available capacity
-	  at the bottleneck waists serving and front path capacity
+	  at the bottleneck wastes serving and front path capacity
 	  until TCP can adapt to the new
 	  rate <xref target="Policing" />. 
           </t>

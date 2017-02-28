@@ -18,7 +18,7 @@
 
           <t>The duplex self interference test fails if the RTT
           rises by more than a fixed bound above the expected
-          queueing time computed from trom the excess window
+          queuing time computed from the excess window
           divided by the subpath IP Capacity. This bound must be
           smaller than target_RTT/2 to avoid reverting to stop and
           wait behavior. (e.g. Data packets and ACKs both have to

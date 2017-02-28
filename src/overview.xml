@@ -9,7 +9,7 @@
       IP Diagnostic Suites (FS-TIDS), that define all of these
       details. We use Targeted IP Diagnostic Suite (TIDS) to refer
       to the subset of such a specification that is in scope for
-      this document. This terminology is defined in 
+      this document.  This terminology is defined in 
       <xref target="terminology" />.</t>
 
       <t><xref target="background" /> describes some key aspects of TCP
@@ -75,7 +75,7 @@ Traffic parameters |            | Statistical criteria
         | |  |                             | |  |
         V V  V                             V V  V
     fail/inconclusive            pass/fail/inconclusive  
-     (test status)                   (test result)  
+(traffic generation status)           (test result)  
 ]]></artwork>
 <postamble>Overall Modeling Framework</postamble></figure>
 
@@ -89,7 +89,7 @@ Traffic parameters |            | Statistical criteria
       complete path and independent of the properties of individual
       subpaths using the techniques described in 
       <xref target="generation" />. As much as possible the
-      test stream is generated deterministically
+      test streams are generated deterministically
       (precomputed) to minimize the extent to which test
       methodology, measurement points, measurement vantage or path
       partitioning affect the details of the measurement
@@ -105,8 +105,8 @@ Traffic parameters |            | Statistical criteria
       criteria for each subpath. Subpaths that are expected to be
       bottlenecks would then be permitted to contribute a larger
       fraction of the end-to-end
-      packet loss budget. In compensation, non-bottlenecked
-      subpaths have to be constrained to contribute less packet
+      packet loss budget. In compensation,
+      subpaths that to not expected exhibit bottlenecks must be constrained to contribute less packet
       loss. Thus the statistical criteria for each subpath in each test of a
       TIDS is an apportioned share of the end-to-end statistical criteria
       for the complete path which was determined by the mathematical model.
