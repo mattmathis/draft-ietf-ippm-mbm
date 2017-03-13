@@ -60,7 +60,11 @@
       effects it is necessary to suppress the effects of TCP congestion 
       control in the measurement method.
       These issues are discussed at length in 
-      <xref target="background" />.</t>
+      <xref target="background" />.  Readers whom are unfamiliar with
+      basic properties of TCP and TCP-like congestion control may
+      find it easier to start at <xref target="background" />
+      or <xref target="tcp" />.
+</t>
 
       <t>A Targeted IP Diagnostic Suite does not have such
       difficulties. IP diagnostics can be constructed such that
@@ -81,6 +85,29 @@
         contributing.</t>
 
         <t>Formatted: FORMATTED</t>
+
+	<t>Changes since -09 draft:
+	<list style="symbols">
+	  <t>Five last minute editing nits.</t>
+        </list></t>
+
+	<t>Changes since -08 draft:
+	<list style="symbols">
+	  <t>Language, spelling and usage nits.</t>
+	  <t>Expanded the abstract describe the models.</t>
+	  <t>Remove superfluous standards like language</t>  
+	  <t>Remove superfluous "future technology" language.</t>
+	  <t>Interconnects -> network interconnections.</t>
+	  <t>Added more labels to Figure 1.</t>
+	  <t>Defined Bulk Transport.</t>
+	  <t>Clarified "implied bottleneck IP capacity"</t>
+	  <t>Clarified the history of the BTC metrics.</t>
+	  <t>Clarified stochastic vs non-stochastic test traffic generation.</t>
+	  <t>Reworked Fig 2 and 6.1 "Mimicking slowstart"</t>
+	  <t>Described the unsynchronized parallel stream failure case.</t>
+	  <t>Discussed how to measure devices that use virtual queues.</t>	
+          <t>Changed section 8.5.2 (Streaming Media) to be Passive Measurements.</t>
+        </list></t>
 
 	<t>Changes since -07 draft: 
         <list style="symbols">
@@ -226,8 +253,5 @@
             <t>load test -&gt; capacity test</t>
           </list></t>
         </list></t>
-        <!--
-
-<t>This interim draft is a partial update since the WGLC, to collect an additional round of feedback on the Introduction, overview, and terminology sections.   Note that some of the prior WGLC comments are still pending.   Later sections (4 and beyond) have only been updated to track changes in the terminology section.   We intend to produce an additional draft prior to the IETF, incorporating  still pending comments from the WGLC and any additional comments on the introduction and overview.  remove/updated</t> -->
       </section>
     </section>

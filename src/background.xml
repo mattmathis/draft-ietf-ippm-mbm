@@ -1,12 +1,15 @@
     <!-- ======================================================== 4 -->
     <section anchor="background" title="Background">
 
-      <t>In 1997, when performance specification work began in the IETF (and the IPPM WG was chartered), sound Bulk
+      <t>
+      At the time the "Framework for IP Performance Metrics" 
+      <xref target="RFC2330" /> was published (1998),
+      sound Bulk
       Transport Capacity (BTC) measurement was known to be well beyond
       our capabilities. Even when Framework for Empirical 
       BTC Metrics 
-      <xref target="RFC3148" /> was written, we knew that we didn't
-      fully understand the problem. Now, by hindsight we understand
+      <xref target="RFC3148" /> was published, we knew that we didn't
+      really understand the problem. Now, by hindsight we understand
       why assessing BTC is such a hard problem:
       <list style="symbols">
 
@@ -26,7 +29,7 @@
         By design TCP congestion control keeps
         raising the data rate until the network gives some
         indication that its capacity has been exceeded by dropping 
-        packets or ECN CE marks. If a TCP sender accurately fills a
+        packets or adding ECN CE marks. If a TCP sender accurately fills a
 	path to its IP capacity, (e.g. the bottleneck is 100% utilized),
         then packet losses and ECN CE marks are mostly determined by 
         the TCP sender and how aggressively it seeks additional capacity,
@@ -60,11 +63,11 @@
         relative magnitude of the uncertainty
         introduced by interactions with other network traffic.</t>
 
-        <t>It is difficult, if not impossible, for two independent
-        implementations (HW or  SW) of TCP congestion control to produce 
+        <t>As a consequence of the properties listed above
+	it is difficult, if not impossible, for two independent
+        implementations (HW or SW) of TCP congestion control to produce 
         equivalent performance results <xref target="RFC6576" />
-        under the same network conditions, as an outcome of the
-        other properties listed. </t>
+        under the same network conditions,  </t>
       </list></t>
 
       <!-- @@@@ Archaic language, consider redoing -->
@@ -72,14 +75,16 @@
       behavior intrinsic to how all throughput maximizing protocols
       interact with the Internet. These protocols rely on control
       systems based on estimated network metrics to regulate the
-      quantity of data sent into the network. The packet sending 
+      quantity of data to send into the network. The packet sending 
       characteristics in turn alter the network properties
       estimated by the control system metrics, such that there are 
       circular dependencies between every transmission characteristic
       and every estimated metric. Since some of these dependencies
       are nonlinear, the entire system is nonlinear, and any change 
-      causes a response in packet sending characteristics or
-      estimated network metrics that is difficult to predict.</t>
+      anywhere causes a difficult to predict response in
+      network metrics.   As a consequence Bulk Transport
+      Capacity metrics have entirely thwarted the analytic framework
+      envisioned in <xref target="RFC2330" /></t>
 
       <t>Model Based Metrics overcome these problems by making the
       measurement system open loop: the packet transfer statistics
@@ -91,13 +96,14 @@
       system to slow the traffic below the Target Data Rate.</t>
       <section anchor="tcp" title="TCP properties">
 
-        <t>TCP and SCTP are self clocked protocols that carry the
-        vast majority of all Internet data. Their dominant behavior
+        <t>TCP and other self clocked protocols (e.g. SCTP) carry the
+        vast majority of all Internet data. Their dominant bulk data
+	transport behavior
         is to have an approximately fixed quantity of data and
         acknowledgments (ACKs) circulating in the network. The
         data receiver reports arriving data by returning ACKs to
         the data sender, the data sender typically responds by
-        sending exactly the same quantity of data back into the
+        sending approximately the same quantity of data back into the
         network. The total quantity of data plus the data
         represented by ACKs circulating in the network is referred
         to as the window. The mandatory congestion control
@@ -225,7 +231,7 @@
           <t>The observed packet transfer statistics are better
           than required by a suitable TCP performance model (e.g.
           fewer packet losses or ECN CE marks). See 
-          <xref target="basicdata" /> or any number of low rate
+          <xref target="basicdata" /> or any number of low or fixed rate
           packet loss tests outside of MBM.</t>
 
           <t>There is sufficient buffering at the dominant
@@ -263,7 +269,7 @@
         load, but may fail in the field due to configuration
         errors, etc. and should be spot checked.</t>
 
-        <t>The tool that can perform many of the
+        <t>A tool that can perform many of the
         tests is available from  
         <xref target="MBMSource" />.</t>
         <!-- @@ move? -->

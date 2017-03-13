@@ -20,9 +20,9 @@
           queue is acceptable. The factor of two chosen here
           reflects a rule of thumb. In conjunction with the
           previous test, this test implies that the first loss
-          should occur at a queueing delay which is between one and
+          should occur at a queuing delay which is between one and
           two times the target_RTT.</t>
 
           <t>Specified RTT limits that are larger than twice the
-          target_RTT must be fully justified in the FSTIDS.</t>
+          target_RTT must be fully justified in the FS-TIDS.</t>
         </section>

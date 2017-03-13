@@ -46,7 +46,7 @@
         stream does not depend on network conditions or IP packets
         received. Any mechanism that introduces feedback between
         the path's measurements and the test stream generation is
-        at risk of introducing non-linearities that spoil these
+        at risk of introducing nonlinearities that spoil these
         properties. Any exceptional event that indicates that such
         feedback has happened should cause the test to be
         considered inconclusive.</t>
@@ -66,7 +66,7 @@
         sensitive to RTT (which is normally the case).  For example
 	the maximum data rate for a marginal link (e.g.
 	exhibiting excess errors) is likely to be sensitive to the
-	test path RTT.  The maximum observed data rate over the test
+	test_path_RTT.  The maximum observed data rate over the test
 	path has very little predictive value for the maximum rate over a
 	different path.
 	</t>
@@ -75,7 +75,7 @@
         keep sharpening distinction between inconclusive, passing
         and failing tests. The criteria for for passing, failing
         and inconclusive tests MUST be explicitly stated for every
-        test in the TIDS or FSTIDS.</t>
+        test in the TIDS or FS-TIDS.</t>
 
         <t>One of the goals of evolving the testing process,
         procedures, tools and measurement point selection should be

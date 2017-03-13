@@ -38,7 +38,7 @@
 
       <t>For example, for the HD streaming video TIDS described in 
       <xref target="examples" />, the IP capacity should be exactly
-      the header overhead above 2.5 Mb/s, the per packet random
+      the header_overhead above 2.5 Mb/s, the per packet random
       background loss ratio should be 1/363, for a run length of
       363 packets, the bottleneck queue should be 11 packets and
       the front path should have just enough buffering to withstand

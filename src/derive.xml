@@ -4,7 +4,7 @@
 
       <t>The reference target_run_length described in 
       <xref target="models" /> is based on very conservative
-      assumptions: that all window above target_window_size
+      assumptions: that all excess data in flight (window) above the target_window_size
       contributes to a standing queue that raises the RTT, and that
       classic Reno congestion control with delayed ACKs are in
       effect. In this section we provide two alternative
@@ -61,7 +61,7 @@
 
         <t>For some value of Wmin, the window will sweep from Wmin
         packets to 2*Wmin packets in 2*Wmin RTT (due to delayed
-        ACK). Unlike the queueing case where Wmin =
+        ACK). Unlike the queuing case where Wmin =
         target_window_size, we want the average of Wmin and 2*Wmin
         to be the target_window_size, so the average data rate is
         the target rate. Thus we want Wmin =

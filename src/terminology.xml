@@ -8,10 +8,9 @@
       described in 
       <xref target="RFC2119" />.</t>
 
-      <t>Note that terms containing underscores (rather than
-      spaces) appear in equations in the modeling sections. In some
-      cases both forms are used for aesthetic reasons, they do not
-      have different meanings.</t>
+      <t>Terms containing underscores (rather than spaces) appear in equations
+      and typically have algorithmic definitions.
+      </t>
 
       <t>General Terminology:</t>
 
@@ -50,7 +49,7 @@
           <t hangText='Target MTU (Maximum Transmission Unit):'>The
           specified maximum MTU supported by the complete path the
           over which the application expects to meet the target
-          performance. Assume a 1500 Byte MTU when testing unless otherwise
+          performance. In this document assume a 1500 Byte MTU unless otherwise
           specified. If some subpath has a smaller MTU, then it
           becomes the Target MTU for the complete path, and all
           model calculations and subpath tests must use the same
@@ -62,8 +61,8 @@
           target_data_rate using target_MTU sized packets when the
           RTT of the complete path is target_RTT.</t>
           <t hangText="Fully Specified Targeted IP Diagnostic Suite (FS-TIDS):">
-          A TIDS together with additional specification such as
-          "type-p" <xref target="RFC2330" />, etc. which are out of scope for this document,
+          A TIDS together with additional specification such as measurement packet type
+          ("type-p" <xref target="RFC2330" />), etc. which are out of scope for this document,
           but need to be drawn from other standards documents.</t>
           <t hangText="Bulk Transport Capacity:">Bulk Transport
           Capacity Metrics evaluate an Internet path's ability to
@@ -73,7 +72,14 @@
           been based on 
           <xref target="RFC3148" />, which predates our
           understanding of TCP and the requirements described in 
-          <xref target="background" /></t>
+          <xref target="background" />.
+	  In general "Bulk Transport" indicates that performance is
+	  determined by the interplay between the network, cross
+	  traffic and congestion control in the transport protocol.
+	  It excludes situations where
+	  performance is dominated by the RTT alone (e.g. transactions)
+	  or bottlenecks elsewhere, such as in the application itself.
+	  </t>
           <t hangText="IP diagnostic tests:">Measurements or
           diagnostics to determine if packet transfer statistics
           meet some precomputed target.</t>
@@ -197,11 +203,10 @@
           IP capacity over short time scales might be substantially
           larger than the bottleneck IP capacity averaged over a
           full RTT. Since TCP derives its clock from the data
-          delivered through the bottleneck the front path must have
+          delivered through the bottleneck, the front path must have
           sufficient buffering to absorb any data bursts at the
-          dimensions (duration and IP rate) implied by the ACK
-          stream (and potentially twice that buffer to absorb 
-          overshoot in slowstart). If the
+          dimensions (size and IP rate) implied by the ACK
+          stream, which are potentially doubled during slowstart. If the
           return path is not altering the ACK stream, then the
           implied bottleneck IP capacity will be the same as the
           bottleneck IP capacity. See 
@@ -286,9 +291,13 @@
           some test parameters as described in 
           <xref target="derate" /> in exchange for a more stringent
           TIDS validation procedures, described in 
-          <xref target="validation" />.</t>
+          <xref target="validation" />.
+	  Models can be derated by including a multiplicative
+	  derating factor to make tests less stringent.
+	  </t>
           <t hangText="subpath_IP_capacity:">The IP capacity of a
-          specific subpath.</t>
+          specific subpath.
+	  </t>
           <t hangText="test path:">A subpath of a complete path
           under test.</t>
           <t hangText="test_path_RTT:">The RTT observed between two
@@ -298,7 +307,7 @@
           of the forward path, header_overhead sized packets on the
           return path.</t>
           <t hangText="test_path_pipe:">The pipe size of a test
-          path. Nominally the test path RTT times the test path
+          path. Nominally the test_path_RTT times the test path
           IP_capacity.</t>
           <t hangText="test_window:">The smallest window sufficient
 	  to meet or exceed

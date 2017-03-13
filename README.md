@@ -12,7 +12,7 @@ You need to have xml2rfc version 2.5.1, available from the IETF: http://xml2rfc.
 
 Between IETF, you can build a "bis" doc:
 
-make clean
+make clean;
 make
 
 

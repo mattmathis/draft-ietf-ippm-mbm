@@ -6,7 +6,7 @@
         TCP connection or measurement stream. In an ideal world, we
         would disallow all performance claims based multiple
         concurrent streams, but this is not practical due to at
-        least two different issues. First, many very high rate link
+        least two issues. First, many very high rate link
         technologies are channelized and at last partially pin the
         flow to channel mapping to minimize packet reordering
         within flows. Second, TCP itself has scaling limits.
@@ -29,7 +29,7 @@
         similar responses to congestion.</t>
 
         <t>There are a number of reasons to want to specify
-        performance in term of multiple concurrent flows, however
+        performance in terms of multiple concurrent flows, however
         this approach is not recommended for data rates below
         several megabits per second, which can be attained with run
         lengths under 10000 packets on many paths. Since the
@@ -38,10 +38,18 @@
         multiple flows might be the only feasible approach.</t>
 
         <t>If multiple flows are deemed necessary to meet aggregate
-        performance targets then this MUST be stated both the
+        performance targets then this MUST be stated in both the
         design of the TIDS and in any claims about network
         performance. The IP diagnostic tests MUST be performed
         concurrently with the specified number of connections. For
         the tests that use bursty test streams, the bursts
-        should be synchronized across streams.</t>
+        should be synchronized across streams unless there is
+	a priori knowledge that the applications have some explicit mechanism
+	to stagger their own bursts.  In the absences of an
+	explicit mechanism to stagger bursts many network and
+	application artifacts will sometimes implicitly
+	synchronize bursts.
+	A test that does not control burst synchronization may
+	be prone to false pass results for some applications.
+	</t>
       </section>
