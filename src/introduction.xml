@@ -86,6 +86,12 @@
 
         <t>Formatted: FORMATTED</t>
 
+	<t>Changes since -10 draft:
+	<list style="symbols">
+	  <t>(From IETF LC review comments.)</t>
+	  <t>David Mandelberg: design metrics to prevent DDOS</t>
+        </list></t>
+
 	<t>Changes since -09 draft:
 	<list style="symbols">
 	  <t>Five last minute editing nits.</t>

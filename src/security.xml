@@ -18,7 +18,15 @@
       levels of distrust and acrimony. Model Based Metrics are
       expected to greatly improve this situation.</t>
 
+      <t>Note that in situ measurements sometimes requires sending
+      synthetic measurement traffic between arbitrary locations in the
+      network, and as such are potentially attractive platforms for
+      launching DDOS attacks.  All active measurement tools and
+      protocols must be deigned to minimize the opportunities for
+      these misuses.</t>
+
       <t>This document only describes a framework for designing
       Fully Specified Targeted IP Diagnostic Suite. Each FS-TIDS
       MUST include its own security section.</t>
+
     </section>
