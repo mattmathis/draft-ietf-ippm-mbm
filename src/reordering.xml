@@ -1,6 +1,6 @@
       <section anchor="reordering" title="Reordering Tolerance">
 
-        <t>All tests MUST be instrumented for packet level
+        <t>All tests must be instrumented for packet level
         reordering 
         <xref target="RFC4737" />. However, there is no consensus
         for how much reordering should be acceptable. Over the last
@@ -36,7 +36,7 @@
 
         <t>Reordering tolerance and diagnostic limitations, such as
         the size of the history buffer used to diagnose packets
-        that are way out-of-order, MUST be specified in a
+        that are way out-of-order, must be specified in a
         FSTIDS.</t>
         <!--
 

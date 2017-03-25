@@ -1,9 +1,10 @@
     <!-- ======================================================== 11 -->
+<!--
     <references title='Normative References'>
       <?rfc include="References/reference.RFC.2119"?>
-      <!-- <?rfc include="References/reference.RFC.2026"?> -->
     </references>
-    <references title='Informative References'>
+-->
+    <references>
       <?rfc include="References/reference.RFC.0863.xml"?>
       <?rfc include="References/reference.RFC.0864.xml"?>
       <!-- <?rfc include="References/reference.RFC.2309.xml"?> -->

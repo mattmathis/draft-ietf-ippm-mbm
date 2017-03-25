@@ -88,8 +88,11 @@
 
 	<t>Changes since -10 draft:
 	<list style="symbols">
+	  <t>A few more nits from various sources.</t>
 	  <t>(From IETF LC review comments.)</t>
-	  <t>David Mandelberg: design metrics to prevent DDOS</t>
+	  <t>David Mandelberg: design metrics to prevent DDOS.</t>
+	  <t>Robert Sparks: Remove all legacy 2119 language.</t>
+	  <t>RS: Fixed Xr notation problem.</t>
         </list></t>
 
 	<t>Changes since -09 draft:

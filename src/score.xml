@@ -74,7 +74,7 @@
         <t>One of the goals for evolving TIDS designs will be to
         keep sharpening distinction between inconclusive, passing
         and failing tests. The criteria for for passing, failing
-        and inconclusive tests MUST be explicitly stated for every
+        and inconclusive tests must be explicitly stated for every
         test in the TIDS or FS-TIDS.</t>
 
         <t>One of the goals of evolving the testing process,

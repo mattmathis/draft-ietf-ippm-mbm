@@ -107,12 +107,12 @@
         <t>
           <list style="symbols">
 
-            <t>Xa &lt; defect_count(n) &lt; Xb: continue
+            <t>Xa &lt; defect_count(n) &lt; Xr: continue
             testing</t>
 
             <t>defect_count(n) &lt;= Xa: Accept H0</t>
 
-            <t>defect_count(n) &gt;= Xb: Accept H1</t>
+            <t>defect_count(n) &gt;= Xr: Accept H1</t>
           </list>
         </t>
 

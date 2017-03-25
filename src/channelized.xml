@@ -38,9 +38,9 @@
         multiple flows might be the only feasible approach.</t>
 
         <t>If multiple flows are deemed necessary to meet aggregate
-        performance targets then this MUST be stated in both the
+        performance targets then this must be stated in both the
         design of the TIDS and in any claims about network
-        performance. The IP diagnostic tests MUST be performed
+        performance. The IP diagnostic tests must be performed
         concurrently with the specified number of connections. For
         the tests that use bursty test streams, the bursts
         should be synchronized across streams unless there is

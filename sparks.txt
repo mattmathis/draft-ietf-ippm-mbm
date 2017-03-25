@@ -38,14 +38,19 @@ Subject: Review of draft-ietf-ippm-model-based-metrics-10
 > line containing "Xa < defect_count(n) < Xb". Where is Xb defined? Was
 > it supposed to be Xr from further up the page? (or perhaps that Xr
 > should have been Xb?
-> 
+
+DONE use Xr
+
 > The document starts using 2119 MUSTs in section 7.3. None of the uses
 > are appropriate 2119 keywords - they aren't talking about protocol.
 > Please rewrite the prose without using the 2119 keywords.
-> 
+
+DONE (Also dropped 2119 reference, etc)
+
 > Section 8.2.4 seems to be missing an actual description/definition of
 > the test it is trying to talk about.
 > 
+
 > 
 > Minor issues:
 > 
@@ -55,12 +60,9 @@ Subject: Review of draft-ietf-ippm-model-based-metrics-10
 > note")
 > 
 > Where the document claims it is neccessary to "suppress the effects
-> of
-> TCP congestion control", it should say "avoid the effects". The
-> mechanism
-> of using precalculated traffic patterns discussed in the document
-> avoids,
-> but does not suppress.
+> of TCP congestion control", it should say "avoid the effects". The
+> mechanism of using precalculated traffic patterns discussed in the
+> document avoids, but does not suppress.
 > 
 > At the end of section 1, you call out "multiple standardized versions
 > of
