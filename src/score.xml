@@ -67,7 +67,7 @@
 	the maximum data rate for a marginal link (e.g.
 	exhibiting excess errors) is likely to be sensitive to the
 	test_path_RTT.  The maximum observed data rate over the test
-	path has very little predictive value for the maximum rate over a
+	path has very little value for predicting the maximum rate over a
 	different path.
 	</t>
 

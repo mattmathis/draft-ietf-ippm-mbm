@@ -83,7 +83,7 @@
       are nonlinear, the entire system is nonlinear, and any change 
       anywhere causes a difficult to predict response in
       network metrics.   As a consequence Bulk Transport
-      Capacity metrics have entirely thwarted the analytic framework
+      Capacity metrics have not fulfilled the analytic framework
       envisioned in <xref target="RFC2330" /></t>
 
       <t>Model Based Metrics overcome these problems by making the
@@ -176,8 +176,11 @@
         higher IP rate so they potentially exercise queues at
         arbitrary points along the front path from the data sender
         up to and including the queue at the dominant bottleneck.
-        There is no model for how frequent or what sizes of sender
-        rate bursts the network should tolerate.</t>
+	It is known that these bursts can hurt network performance,
+	especially in conjunction with other queue pressure, however
+        we are not aware of any models for how frequent sender rate
+	bursts the network should be able to
+	tolerate at various burst sizes.</t>
 
         <t>In conclusion, to verify that a path can meet a Target
         Transport Performance, it is necessary to independently

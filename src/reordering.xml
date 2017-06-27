@@ -9,8 +9,8 @@
         example 
         <xref target="RFC4015" />), in response to the gradual
         increase in reordering in the network. This increase has
-        been due to the deployment of technologies such as multi
-        threaded routing lookups and Equal Cost MultiPath (ECMP)
+        been due to the deployment of technologies such as
+	multithreaded routing lookups and Equal Cost MultiPath (ECMP)
         routing. These techniques increase parallelism in network
         and are critical to enabling overall Internet growth to
         exceed Moore's Law.</t>
@@ -22,7 +22,12 @@
         following strawman: Transport protocols should be able to
         adapt to reordering as long as the reordering extent is not
         more than the maximum of one quarter window or 1 mS,
-        whichever is larger. Within this limit on reorder extent,
+        whichever is larger.  (These values come from experience
+	prototyping Early Retransmit <xref target="RFC5827" /> and
+	related algorithms. They agree with the values being proposed
+	for "RACK: a time-based fast loss detection
+	algorithm" <xref target="I-D.ietf-tcpm-rack" />.)
+	Within this limit on reorder extent,
         there should be no bound on reordering density.</t>
 
         <t>By implication, recording which is less than these

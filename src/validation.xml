@@ -21,16 +21,17 @@
       including what assumptions were used and and how it was
       derived, such that the research community can evaluate the
       design decisions, test them and comment on their
-      applicability; and second, demonstrate that an applications
-      running over an infinitesimally passing testbed do meet the
-      performance targets.</t>
+      applicability; and second, demonstrate that applications
+      do meet the Target Transport Performance when
+      running over a network testbed which has the tightest
+      possible constraints that still allow the tests in the TIDS to pass.</t>
 
-      <t>An infinitesimally passing testbed resembles a
+      <t>This procedure resembles an
       epsilon-delta proof in calculus. Construct a test network
       such that all of the individual tests of the TIDS pass by
       only small (infinitesimal) margins, and demonstrate that a
       variety of authentic applications running over real TCP
-      implementations (or other protocol as appropriate) meets the
+      implementations (or other protocols as appropriate) meets the
       Target Transport Performance over such a network. The
       workloads should include multiple types of streaming media
       and transaction oriented short flows (e.g. synthetic web
@@ -44,22 +45,24 @@
       the front path should have just enough buffering to withstand
       11 packet interface rate bursts. We want every one of the
       TIDS tests to fail if we slightly increase the relevant test
-      parameter, so for example sending a 12 packet bursts should
+      parameter, so for example sending a 12 packet burst should
       cause excess (possibly deterministic) packet drops at the
-      dominant queue at the bottleneck. On this infinitesimally
-      passing network it should be possible for a real application
+      dominant queue at the bottleneck. This network has the tightest
+      possible constraints that can be expected to pass the TIDS,
+      yet it should be possible for a real application
       using a stock TCP implementation in the vendor's default
       configuration to attain 2.5 Mb/s over an 50 mS path.</t>
 
       <t>The most difficult part of setting up such a testbed is
-      arranging for it to infinitesimally pass the individual
+      arranging for it to have the tightest possible constraints
+      that still allow it to pass the individual
       tests. Two approaches are suggested: 
-      constraining the network devices not
+      constraining (configuring) the network devices not
       to use all available resources (e.g. by limiting available
       buffer space or data rate); and pre-loading subpaths with
       cross traffic. Note that is it important that a single
-      environment be constructed which infinitesimally passes all
-      tests at the same time, otherwise there is a chance that TCP
+      tightly constrained environment just barely passes all
+      tests, otherwise there is a chance that TCP
       can exploit extra latitude in some parameters (such as data
       rate) to partially compensate for constraints in other
       parameters (queue space, or vice-versa).</t>

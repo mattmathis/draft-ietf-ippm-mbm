@@ -15,10 +15,11 @@
       assess whether common transport protocols can be expected to meet a
       predetermined Target Transport Performance over an Internet path.</t>
 
-      <t>For Bulk Transport Capacity, the IP diagnostics are built
-      on test streams that mimic TCP over the complete path and
+      <t>For Bulk Transport Capacity IP diagnostics are built
+      using test streams and
       statistical criteria for evaluating the packet transfer
-      statistics of those streams. The temporal structure of the
+      that mimic TCP over the complete path.
+      The temporal structure of the
       test stream (bursts, etc) mimic TCP or other transport
       protocol carrying bulk data over a long path.  However they are
       constructed to be independent of the details of the subpath
@@ -37,10 +38,12 @@
       tests by comparing results from multiple measurement
       points.</t>
 
-      <t>This document does not define the IP diagnostic tests, but
+      <t>This document
       provides a framework for designing suites of IP diagnostic
       tests that are tailored to confirming that infrastructure can
-      meet the predetermined Target Transport Performance.</t>
+      meet the predetermined Target Transport Performance.
+      It does not fully specify the IP diagnostics tests needed to assure
+      any specific target performance.</t>
       <!--  Comment out to publish
 
 <t>Interim DRAFT Formatted: FORMATTED</t>

@@ -51,6 +51,8 @@ DONE (Also dropped 2119 reference, etc)
 > the test it is trying to talk about.
 > 
 
+DONE 
+
 > 
 > Minor issues:
 > 
@@ -58,31 +60,43 @@ DONE (Also dropped 2119 reference, etc)
 > The abstract says this document does not define tests. The rest of the
 > document says it does. (See phrases like "The tests described in this
 > note")
-> 
+
+DONE - reworded abstract
+
 > Where the document claims it is neccessary to "suppress the effects
 > of TCP congestion control", it should say "avoid the effects". The
 > mechanism of using precalculated traffic patterns discussed in the
 > document avoids, but does not suppress.
-> 
+
+DONE suppress -> avoids
+
 > At the end of section 1, you call out "multiple standardized versions
 > of
 > TCP". Please clarify what you're trying to point to?
-> 
+
+DONE Removed the incomplete thought.
+
 > In the definition of "traffic patterns", you note that the goal is to
 > "mimic the range of common patterns". Consider qualifying that to
 > "current common patterns", and add some discussion later in the
 > document when you talk about pregenerating traffic patterns to point
 > out that these change over time.
-> 
+
+NOT DONE
+
 > At the next to last paragraph of section 4.1, you say "metrics have
 > entirely thwarted the analytic framework". I don't think that's what
 > you mean. I suspect you mean to say attempts to create metrics have
 > been unsuccessful (I suggest you avoid the word "thwarted").
-> 
+
+DONE 
+
 > At the 3rd paragraph on page 19, you say "There is no model". Do you
 > mean no model exists in the world for this, or only that this document
 > does not provide a model.
-> 
+
+DONE
+
 > I strongly object to the attempt to use "infinitesimal" to describe
 > the conditions on the test network you are trying to convey. At the
 > very least, you are dealing with a finite (if arbitrarily large) set
@@ -92,28 +106,39 @@ DONE (Also dropped 2119 reference, etc)
 > infinitesimal concept here with it's definition (which you have to
 > call out anyway). Just _say_ "has the tightest available constraints
 > that allow the tests to pass."
-> 
+
+DONE
+
 > Consider providing some rational for the numbers you came up with in
 > the strawman in the second paragraph on page 33. 1mS seems pretty
 > arbitrary otherwise. I'm not asking for you to _defend_ the choice as
 > the right number - just talk about why you picked it instead of
 > something else.
-> 
-> 
+
+DONE
+
 > Nits:
 > 
 > - Consider pointing to the models you are actually using in the first
 >   sentence of the first paragraph on page 9
-> 
+
+DONE
+
 > - The third paragraph of the abstract is particularly hard to read.
 >   Please consider breaking the compound sentences into simpler ones.
-> 
+
+DONE
+
 > - You use "engineering test" before you say what you mean by that (see
 >   sections 8.2.4 and 8.3.2 for examples)
-> 
+
+??? "Engineering test" is defined in section 3, before it is used.
+
 > - There are several places where you talk about tests being
 >   inconclusive because the precomputed traffic was not accurately
 >   generated. Are you trying to say "if you have an inconclusive test
 >   and can't otherwise figure out why, look closely at your precomputed
 >   traffic", or "Double-check your precomputed traffic before you run
 >   your test or risk garbage-in/garbage out"?
+
+Neither. 

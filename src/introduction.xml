@@ -57,7 +57,7 @@
       resulting measurements useless as metrics because they have
       no predictive value for conditions or paths different than
       that of the measurement itself.  In order to prevent these
-      effects it is necessary to suppress the effects of TCP congestion 
+      effects it is necessary to avoid the effects of TCP congestion 
       control in the measurement method.
       These issues are discussed at length in 
       <xref target="background" />.  Readers whom are unfamiliar with
@@ -70,10 +70,11 @@
       difficulties. IP diagnostics can be constructed such that
       they make strong statistical statements about path properties
       that are independent of the measurement details, such as
-      vantage and choice of measurement points. Model Based Metrics
+      vantage and choice of measurement points.
+<!-- Model Based Metrics
       are designed to bridge the gap between empirical IP
       measurements and expected TCP performance for multiple 
-      standardized versions of TCP.</t>
+      standardized versions of TCP. --></t>
       <section title="Version Control">
 
         <t>RFC Editor: Please remove this entire subsection prior
@@ -91,8 +92,21 @@
 	  <t>A few more nits from various sources.</t>
 	  <t>(From IETF LC review comments.)</t>
 	  <t>David Mandelberg: design metrics to prevent DDOS.</t>
-	  <t>Robert Sparks: Remove all legacy 2119 language.</t>
-	  <t>RS: Fixed Xr notation problem.</t>
+	  <t>From Robert Sparks:<list style="symbols">
+	    <t>Remove all legacy 2119 language.</t>
+	    <t>Fixed Xr notation inconsistency.</t>
+	    <t>Adjusted abstract: tests are only partially specified.</t>
+	    <t>Avoid rather than suppress the effects of congestion control</t>
+	    <t>Removed the unnecessary, excessively abstract and unclear thought
+	    about IP vs TCP measurements.</t>
+	    <t>Changed "thwarted" to "not fulfilled".</t>
+	    <t>Qualified language about burst models.</t>
+	    <t>Replaced "infinitesimal" with other language.</t>
+	    <t>Added citations for the reordering strawman.</t>
+	    <t>Pointed out that psuedo CBR tests depending on self clock.</t>
+	    <t>Fixed some run on sentences.</t>
+	    </list></t>
+	  <t>TODO: update language to reflect AQM</t>
         </list></t>
 
 	<t>Changes since -09 draft:

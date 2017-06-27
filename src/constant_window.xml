@@ -9,20 +9,27 @@
         <t>Since the test_window is constrained to be an integer
         number of packets, for small RTTs or low data rates there
         may not be sufficiently precise control over the data rate.
-        Rounding the test_window up (the default) is likely to
+        Rounding the test_window up (as defined above) is likely to
         result in data rates that are higher than the target rate,
         but reducing the window by one packet may result in data
         rates that are too small. Also cross traffic potentially
         raises the RTT, implicitly reducing the rate. Cross traffic
         that raises the RTT nearly always makes the test more
-        strenuous (more demanding for the network path). 
+        strenuous (more demanding for the network path).</t>
+
+        <t>Note that Constant window pseudo CBR (and Scanned window
+        pseudo CBR in the next section) both rely on a self clock
+        which is at least partially derived from the properties of the
+        subnet under test.  This introduces the possibility that the
+        subnet under test exhibits behaviors such as extreme RTT
+        fluctuations that prevent these algorithms from accurately
+        controlling data rates.</t>
+	
+	<t>
         A FS-TIDS specifying a constant window CBR test
         must explicitly indicate under what conditions errors in
-        the data rate cause tests to inconclusive.</t>
-
-        <t>Since constant window pseudo CBR testing is sensitive to
-        RTT fluctuations it will be less accurate at controlling the data
-        rate in environments with fluctuating delays.  Conventional paced
+        the data rate cause tests to be inconclusive.
+	Conventional paced
 	measurement traffic may be more appropriate for these
 	environments. </t>
       </section>

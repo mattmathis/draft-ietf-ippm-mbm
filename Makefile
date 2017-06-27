@@ -4,12 +4,14 @@ TARGETS=$(NAME).html $(NAME).txt
 WEBNAME=draft-ietf-ippm-model-based-metrics
 # Make file below a link to the most recent published version
 PRIOR=prior
+RFCDIFF=$(NAME)-from-$(PRIOR).diff
 WEBDIR=${HOME}/Downloads
 WEBDIR=${HOME}/www/drafts
-SUFFIX=-10
+GSDIR=gs://${USER}/drafts
+SUFFIX=-10bis
 FORMATTED=`date`
 LIB='XML_LIBRARY='${PWD}
-
+COLORS=color_test.html color_underscores.html color_global.html color_traffic.html color_model.html
 top: all
 
 recompile: $(TARGETS)
@@ -20,7 +22,7 @@ trigger $(NAME).trig:
 	touch $(NAME).trig
 
 clean:
-	rm -f $(NAME).trig $(NAME).tmp $(NAME).xml $(NAME).txt $(NAME).html $(NAME).txt.bar
+	rm -f $(NAME).trig $(NAME).tmp $(NAME).xml $(NAME).txt $(NAME).html $(NAME).txt.bar $(RFCDIFF).html $(COLORS) spell.txt
 
 # TODO: Properly depend on all source files: src/*.xml
 .PHONY: $(NAME).xml
@@ -44,10 +46,16 @@ stage: $(NAME).txt $(NAME).html
 	cp $(NAME).html ${WEBDIR}/${WEBNAME}${SUFFIX}.html
 	chmod 644 ${WEBDIR}/${WEBNAME}*
 
+gstage: rfcdiff $(NAME).txt $(NAME).html
+	gsutil cp $(NAME).txt ${GSDIR}/${WEBNAME}${SUFFIX}.txt
+	gsutil cp $(NAME).xml ${GSDIR}/${WEBNAME}${SUFFIX}.xml
+	gsutil cp $(NAME).html ${GSDIR}/${WEBNAME}${SUFFIX}.html
+	gsutil cp $(RFCDIFF).html ${GSDIR}/$(RFCDIFF).html
+
 # Manually link prior.txt to Pub/whatever first
 rfcdiff: $(NAME).txt
 	tools/rfcdiff $(PRIOR).txt $(NAME).txt
-	@echo See $(NAME)-from-$(PRIOR).diff.html
+	@echo See $(RFCDIFF).html
 
 changebar: $(NAME).txt
 	changebar $(NAME).txt prior.txt

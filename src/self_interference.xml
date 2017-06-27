@@ -3,7 +3,7 @@
 
           <t>This engineering test confirms a bound on the
           interactions between the forward data path and the ACK
-          return path.</t>
+          return path when the share a half duplex link..</t>
 
           <t>Some historical half duplex technologies had the
           property that each direction held the channel until it
