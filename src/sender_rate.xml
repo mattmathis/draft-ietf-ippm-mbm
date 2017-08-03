@@ -42,8 +42,9 @@
 
         <t>There is not yet theory to unify these costs or to
         provide a framework for trying to optimize global
-        efficiency. We do not yet have a model for how much the
-        network should tolerate server rate bursts. Some bursts
+        efficiency. We do not yet have a model for how much
+	server rate bursts should be tolerated by the
+        network. Some bursts
         must be tolerated by the network, but it is probably
         unreasonable to expect the network to be able to
         efficiently deliver all data as a series of bursts.</t>

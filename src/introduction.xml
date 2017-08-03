@@ -80,6 +80,10 @@
         <t>RFC Editor: Please remove this entire subsection prior
         to publication.</t>
 
+	<t>REF Editor: The reference to draft-ietf-tcpm-rack is to attribute
+	an idea.  This document should not block waiting for the completion of
+	that one.</t>
+
         <t>Please send comments about this draft to ippm@ietf.org.
         See http://goo.gl/02tkD for more information including:
         interim drafts, an up to date todo list and information on
@@ -103,10 +107,11 @@
 	    <t>Qualified language about burst models.</t>
 	    <t>Replaced "infinitesimal" with other language.</t>
 	    <t>Added citations for the reordering strawman.</t>
-	    <t>Pointed out that psuedo CBR tests depending on self clock.</t>
+	    <t>Pointed out that psuedo CBR tests depend on self clock.</t>
 	    <t>Fixed some run on sentences.</t>
 	    </list></t>
-	  <t>TODO: update language to reflect AQM</t>
+	  <t>Update language to reflect RFC7567, AQM recommendations.</t>
+	  <t>Suggestion from Merry Mou (MIT)</t>
         </list></t>
 
 	<t>Changes since -09 draft:

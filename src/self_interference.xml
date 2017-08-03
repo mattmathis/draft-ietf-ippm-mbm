@@ -3,7 +3,7 @@
 
           <t>This engineering test confirms a bound on the
           interactions between the forward data path and the ACK
-          return path when the share a half duplex link..</t>
+          return path when they share a half duplex link.</t>
 
           <t>Some historical half duplex technologies had the
           property that each direction held the channel until it
@@ -12,7 +12,7 @@
           passing in opposite directions through such a link, the
           behavior often reverts to stop-and-wait. Each additional
           packet added to the window raises the observed RTT by two
-          packet times, once as it passes through the data path,
+          packet times, once as the additional packet passes through the data path,
           and once for the additional delay incurred by the ACK
           waiting on the return path.</t>
 

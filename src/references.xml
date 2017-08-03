@@ -26,13 +26,26 @@
       <?rfc include="References/reference.RFC.7312.xml"?>
       <?rfc include="References/reference.RFC.7398.xml"?>
       <?rfc include="References/reference.RFC.7567.xml"?>
+      <?rfc include="References/reference.RFC.7594.xml"?>
       <?rfc include="References/reference.RFC.7661.xml"?>
       <?rfc include="References/reference.RFC.7680.xml"?>
       <?rfc include="References/reference.RFC.7799.xml"?>
       <!-- <?rfc include="References/reference.I-D.draft-ietf-ippm-2680-bis.xml"?> -->
       <!-- <?rfc include="References/reference.I-D.draft-ietf-aqm-recommendation.xml"?> -->
+      <!-- Note that the tcp-rack reference is citing the origin of an idea,
+      RFC editor, please do not block this document on RACK's progress -->
       <?rfc include="References/reference.I-D.draft-ietf-tcpm-rack-02.xml"?>
-      <?rfc include="References/LOCAL.mathis07macro.xml"?>
+      <reference anchor='MSMO97'>
+	<front>
+	  <title abbrev='Macroscopic Model'>The Macroscopic Behavior of the TCP Congestion Avoidance Algorithm</title>
+	  <author initials='M.' surname='Mathis' ></author>
+	  <author initials='J.' surname='Semke' ></author>
+	  <author initials='J.' surname='Mahdavi' ></author>
+	  <author initials='T.' surname='Ott' ></author>
+	  <date year='1997' month='July' />
+	</front>
+	<seriesInfo name='Computer Communications Review' value='volume 27, number3' />
+      </reference>
       <reference anchor='WPING'>
         <front>
           <title>Windowed Ping: An IP Level Performance
@@ -123,7 +136,23 @@
 <annotation>See Max Connections column</annotation>
 </reference>
 -->
-      <reference anchor="StatQC">
+      <reference anchor='Wald45'>
+	<front>
+	  <title >Sequential Tests of Statistical Hypotheses</title> <!-- abbrev='TITLE' -->
+	  <author initials='A.' surname='Wald' > <!-- fullname='Matt Mathis' -->
+	  </author>
+	  <date year='1945' month='June' />
+	</front>
+	<seriesInfo
+	  name="The Annals of Mathematical Statistics,"
+	  value="Vol. 16, No. 2, pp. 117-186"
+	/>
+	<seriesInfo
+	  name="Published by:  Institute of Mathematical Statistics,"
+	  value="Stable URL: http://www.jstor.org/stable/2235829"
+	/>
+      </reference>
+      <reference anchor="Montgomery90">
         <front>
           <title>Introduction to Statistical Quality Control - 2nd
           ed.</title>

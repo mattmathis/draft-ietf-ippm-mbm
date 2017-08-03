@@ -79,7 +79,7 @@ Traffic parameters |            | Statistical criteria
 ]]></artwork>
 <postamble>Overall Modeling Framework</postamble></figure>
 
-      <t>The mathematical models are used to determine Traffic 
+      <t>Mathematical TCP models are used to determine Traffic 
 	  parameters and subsequently to design traffic
       patterns that mimic TCP or other transport protocol
       delivering bulk data and operating at the Target Data Rate,

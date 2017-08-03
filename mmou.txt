@@ -1,0 +1,30 @@
+Apologies for the delayed reply, hope this is not too late. I think
+the points that would be most helpful for understanding section 7.2
+are:
+
+- The hypothesis test models packet transmissions as Bernoulli
+  processes, which assumes packet loss probabilities are independent
+  and identically distributed (i.i.d.).
+
+- Second, the hypothesis test approximates individual packet loss
+  probabilities using the link's loss rate (the count of "lost"
+  packets over count of total packets sent). This also assumes that
+  packet loss probabilities are i.i.d..
+
+- (Ultimately though, my understanding is that the measurement we are
+  interested in is not the packet loss probability, but the frequency
+  of "decrease window size events.")
+
+- The rate of false PASSes/FAILs depends not only on the specified
+  acceptable Type I and Type II error rates, but also on the
+  probability cutoff used in the alternate hypothesis, the value of
+  which was chosen "[b]ased on analysis of typical values and
+  practical limits on measurement duration".
+
+- Also, to reiterate the purpose of this hypothesis test - this
+  hypothesis test does not estimate the value of the packet loss rate,
+  but only whether or not the packet loss rate is likely "low enough"
+  (when we accept the null hypothesis; PASS), or "too high" (when we
+  accept the alternate hypothesis; FAIL).
+
+Please let me know if you have any questions and/or comments!

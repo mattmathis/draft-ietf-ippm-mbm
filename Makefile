@@ -8,7 +8,7 @@ RFCDIFF=$(NAME)-from-$(PRIOR).diff
 WEBDIR=${HOME}/Downloads
 WEBDIR=${HOME}/www/drafts
 GSDIR=gs://${USER}/drafts
-SUFFIX=-10bis
+SUFFIX=-11
 FORMATTED=`date`
 LIB='XML_LIBRARY='${PWD}
 COLORS=color_test.html color_underscores.html color_global.html color_traffic.html color_model.html

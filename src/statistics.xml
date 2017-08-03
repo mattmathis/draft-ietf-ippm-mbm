@@ -65,7 +65,8 @@
 
         <t>The problem above is formulated to match the Sequential
         Probability Ratio Test (SPRT) 
-        <xref target="StatQC" />. Note that as originally framed
+	<xref target="Wald45" /> and 
+        <xref target="Montgomery90" />. Note that as originally framed
         the events under consideration were all manufacturing
         defects. In networking, ECN CE marks and lost packets are
         not defects but signals, indicating that the transport
@@ -133,72 +134,19 @@
           </list>
         </t>
 
-        <!-- @@ DID NOT MAKE IT <t>For an example of these calculations see <xref target="examples" />.</t> -->
-        <!--
-<section anchor="statistics2" title="Alternate criteria for measuring run_length">
+	<t>
+	  Note that the derivations in <xref target="Wald45" /> and
+	  <xref target="Montgomery90" /> differ.  Montgomery's
+	  simplified derivation of SPRT may assume a Bernoulli processes,
+	  where the packet loss probabilities are independent and
+	  identically distributed, making the SPRT more
+	  accessible.  Wald's seminal paper showed that this
+	  assumption is not necessary.  It helps to remember that
+	  the goal of SPRT is not to estimate the value of the packet
+	  loss rate, but only whether or not the packet loss ratio is
+	  likely low enough (when we accept the H0 null hypothesis)
+	  yielding success; or too high (when we accept the H1
+	  alternate hypothesis) yielding failure.
+	</t>
 
-
-
-<t>An alternate calculation, contributed by Alex Gilgur (Google).</t>
-
-
-
-<t>The probability of failure within an interval whose length is target_run_length is given by an exponential distribution with rate = 1 / target_run_length (a memoryless process).  The implication of this is that it will be different, depending on the total count of packets that have been through the pipe, the formula being:</t>
-
-
-
-<t>P(t1 < T < t2) = R(t1) - R(t2), </t>
-
-
-
-<t>where 
-<figure><artwork><![CDATA[
-T = number of packets at which a failure will occur with probability P; 
-t = number of packets:
-t1 = number of packets (e.g., when failure last occurred)
-t2 = t1 + target_run_length
-R = failure rate:
-R(t1) = exp (-t1/target_run_length) 
-R(t2) = exp (-t2/target_run_length) 
-]]></artwork></figure></t>
-
-
-
-<t>The algorithm:
-<figure><artwork><![CDATA[
-initialize the packet.counter = 0
-initialize the failed.packet.counter = 0
-start the loop
-if paket_response = ACK:
-increment the packet.counter
-else:
-### The packet failed
-increment the packet.counter
-increment the failed.packet.counter
-
-
-P_fail_observed = failed.packet.counter/packet.counter
-
-
-upper_bound =  packet.counter + target.run.length / 2
-lower_bound =  packet.counter - target.run.length / 2
-
-
-R1 = exp( -upper_bound / target.run.length)
-R0 = R(max(0, lower_bound)/ target.run.length)
-
-
-P_fail_predicted = R1-R0
-Compare P_fail_observed vs. P_fail_predicted
-end-if
-continue the loop
-]]></artwork></figure></t>
-
-
-
-<t>This algorithm allows accurate comparison of the observed failure probability with the corresponding values predicted based on a fixed target_failure_rate, which is equal to 1.0 / target_run_length.</t>
-
-
-</section>
--->
       </section>

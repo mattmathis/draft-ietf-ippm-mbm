@@ -23,7 +23,8 @@
       network, and as such are potentially attractive platforms for
       launching DDOS attacks.  All active measurement tools and
       protocols must be deigned to minimize the opportunities for
-      these misuses.</t>
+      these misuses.   See the discussion in section 7
+      of <xref target="RFC7594" />.</t>
 
       <t>This document only describes a framework for designing
       Fully Specified Targeted IP Diagnostic Suite. Each FS-TIDS

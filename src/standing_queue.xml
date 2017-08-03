@@ -9,14 +9,16 @@
         (or reaches a sufficient queue depth) there should be a
         small number of losses or ECN CE marks to signal to the
 	transport protocol
-        that it should reduce its window. Losses that are too early
+        that it should reduce its window or data rate. Losses that are too early
         can prevent the transport from averaging at the
         target_data_rate. Losses that are too late indicate that
-        the queue might be subject to bufferbloat 
-        <xref target="wikiBloat" /> and inflict excess queuing
-        delays on all flows sharing the bottleneck queue. Excess
+        the queue might not have an appropriate AQM <xref target="RFC7567" />
+	and as a consequence subject to bufferbloat 
+        <xref target="wikiBloat" />. Queues without AQM have the potential
+	to inflict excess
+        delays on all flows sharing the bottleneck. Excess
         losses (more than half of the window) at the onset of
-        congestion make loss recovery problematic for the transport
+        loss make loss recovery problematic for the transport
         protocol. Non-linear, erratic or excessive RTT increases
         suggest poor interactions between the channel acquisition
         algorithms and the transport self clock. All of the tests
@@ -36,7 +38,7 @@
         marks be at an appropriate point and progressive.
 	If the network bottleneck does not introduce significant queuing delay,
 	modify the procedure described in <xref target="scanned_window"/> to start
-	scan at a window equal to or slightly smaller than
+	the scan at a window equal to or slightly smaller than
 	the test_window.</t>
 
         <t>Use the procedure in 
