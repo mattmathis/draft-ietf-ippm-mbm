@@ -94,6 +94,7 @@
           without tying our applicability to specific applications,
           implementations or technologies, which are sure to become
           stale.</t>
+	  <t hangText="Explicit Congestion Notification (ECN):">See <xref target="RFC3168" />.</t>
           <t hangText="packet transfer statistics:">Raw, detailed
           or summary statistics about packet transfer properties of
           the IP layer including packet losses, ECN Congestion
@@ -238,6 +239,10 @@
 
       <t>
         <list style="hanging">
+	  <t hangText="Network power:">The observed data rate 
+	  divided by the observed RTT.  Network power indicates
+	  how effectively a transport protocol is filling a network.
+	  </t>
           <t hangText="Window [size]:">The total quantity of data
           carried by packets in-flight 
           plus the data represented by ACKs circulating in the
@@ -249,8 +254,7 @@
           <t hangText="pipe size:">A general term for number of
           packets needed in flight (the window size) to exactly
           fill some network path or subpath. It corresponds to the
-          window size which maximizes network power, the observed
-          data rate divided by the observed RTT. Often used with
+          window size which maximizes network power. Often used with
           additional qualifiers to specify which path, or under
           what conditions, etc.</t>
           <t hangText="target_window_size:">The average number of

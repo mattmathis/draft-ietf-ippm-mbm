@@ -4,13 +4,14 @@
       <?rfc include="References/reference.RFC.2119"?>
     </references>
 -->
-    <references>
+    <references title='Informative References'>
       <?rfc include="References/reference.RFC.0863.xml"?>
       <?rfc include="References/reference.RFC.0864.xml"?>
       <!-- <?rfc include="References/reference.RFC.2309.xml"?> -->
       <?rfc include="References/reference.RFC.2330.xml"?>
       <?rfc include="References/reference.RFC.2861.xml"?>
       <?rfc include="References/reference.RFC.3148.xml"?>
+      <?rfc include="References/reference.RFC.3168.xml"?>
       <?rfc include="References/reference.RFC.3465.xml"?>
       <?rfc include="References/reference.RFC.4015.xml"?>
       <?rfc include="References/reference.RFC.4737.xml"?>
