@@ -28,7 +28,7 @@
 
       <t>Some of the tests described in the note are not intended for frequent
       network monitoring since they have the potential to
-      cause high network loads and might adversely effect on other traffic.
+      cause high network loads and might adversely affect other traffic.
       </t>
 
       <t>This document only describes a framework for designing

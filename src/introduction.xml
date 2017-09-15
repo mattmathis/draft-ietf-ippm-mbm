@@ -37,7 +37,7 @@
       IP packet transfer.  In control theory terms, the tests are
       "open loop".
       Note that running a test requires the coordinated activity of
-      two measurement points.
+      sending and receiving measurement points.
       </t>
 
       <t>This note addresses Bulk Transport Capacity.  It
@@ -108,21 +108,19 @@
 	<list style="symbols">
 	  <t>(From IESG review comments.)</t>
 	  <t>Ben Campbell: Shorten the Abstract.</t>
-	  <t>Mirja Kuhlewind: Reduced redundency. (See message)</t>
-	  <t>MK: Mentioned open loop in the introduction.</t>
-	  <t>MK: Spelled out ECN and put in an explicit reference to RFC3168 (informal).</t>
-	  <t>MK: Added a paragraph to the introduction about assumes a traditional self clocked,
-	  window controlled transport protocol. (I did not add references for QIUC or BBR).</t>
-	  <t>MK: Regarding the list at the end of section 4.1 on bursts: Shouldn't the initial
-	  window (which is usually today more than 4 packets) be mentioned additionally?</t>
-	  <t>MK: Network power could be defined in the terminology section.</t>
-	  <t>MK: It might also be useful to spell out more clearly in the intro that for these tests both
-	  endpoints (of the subpath under test) need to be under control of the tester.</t>
-	  <t>MK: As mentioned several times in the document, some of the tests are not intended
+	  <t>Mirja Kuhlewind: Reduced redundancy. (See message)</t>
+	  <t>MK: Mention open loop in the introduction.</t>
+	  <t>MK: Spelled out ECN and reference RFC3168.</t>
+	  <t>MK: Added a paragraph to the introduction about assuming a traditional self clocked,
+	  window controlled transport protocol.</t>
+	  <t>MK: Added language about initial window to the list at about bursts at the end of section 4.1.</t>
+	  <t>MK: Network power is defined in the terminology section.</t>
+	  <t>MK: The introduction mention coordinated activity of both endpoints.</t>
+	  <t>MK: The security section restates that some of the tests are not intended
 	  for frequent monitoring tests as the high load can impact other traffic
-	  negatively. This should be re-stated clearly  in the security considerations.</t>
+	  negatively.</t>
 	  <t>MK: Restored "Informative References" section name.</t>
-	  <t>And a few more nits.</t>
+	  <t>And a few minor nits.</t>
 	  
 	</list></t>
   
@@ -142,7 +140,7 @@
 	    <t>Qualified language about burst models.</t>
 	    <t>Replaced "infinitesimal" with other language.</t>
 	    <t>Added citations for the reordering strawman.</t>
-	    <t>Pointed out that psuedo CBR tests depend on self clock.</t>
+	    <t>Pointed out that pseudo CBR tests depend on self clock.</t>
 	    <t>Fixed some run on sentences.</t>
 	    </list></t>
 	  <t>Update language to reflect RFC7567, AQM recommendations.</t>

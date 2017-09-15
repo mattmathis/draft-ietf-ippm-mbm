@@ -14,7 +14,7 @@ Please see the README file for additional information.
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <rfc ipr="trust200902" category="exp"
-docName="draft-ietf-ippm-model-based-metrics-11bis.txt">
+docName="draft-ietf-ippm-model-based-metrics-12.txt">
   <front>
     <title abbrev="Model Based Metrics">Model Based Metrics for
     Bulk Transport Capacity</title>
@@ -45,7 +45,7 @@ docName="draft-ietf-ippm-model-based-metrics-11bis.txt">
         <email>acmorton@att.com</email>
       </address>
     </author>
-    <date month="June" day="30" year="2017" />
+    <date month="September" day="15" year="2017" />
     <area>Operations Area</area>
     <workgroup>IP Performance Working Group</workgroup>
     <!-- ======================================================== -->
