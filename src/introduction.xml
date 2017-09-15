@@ -35,7 +35,10 @@
       behavior over the complete path; the statistical criteria
       models the transport protocol's response to less than ideal
       IP packet transfer.  In control theory terms, the tests are
-      "open loop".</t>
+      "open loop".
+      Note that running a test requires the coordinated activity of
+      two measurement points.
+      </t>
 
       <t>This note addresses Bulk Transport Capacity.  It
       describes an alternative to the approach
@@ -45,7 +48,7 @@
       Metrics may cover other applications and transports, such as
       VoIP over UDP and RTP, and new transport protocols.</t>
 
-      <t>This note assumes a traditional TCP style, self clocked,
+      <t>This note assumes a traditional Reno TCP style self clocked,
       window controlled transport protocol that uses
       packet loss and ECN CE marks for congestion feedback.
       There are currently some experimental protocols
@@ -101,13 +104,14 @@
 
         <t>Formatted: FORMATTED</t>
 
-	<t>Changes since -10 draft:
+	<t>Changes since -11 draft:
 	<list style="symbols">
 	  <t>(From IESG review comments.)</t>
-	  <t>TODO Shorten Abstract (Ben Campbell)</t>
-	  <t>Mentioned open loop in the introduction.</t>
-	  <t>Spelled out ECN and put in an explicit reference to RFC3168 (informal).</t>
-	  <t>Added a paragraph to the introduction about assumes a traditional self clocked,
+	  <t>Ben Campbell: Shorten the Abstract.</t>
+	  <t>Mirja Kuhlewind: Reduced redundency. (See message)</t>
+	  <t>MK: Mentioned open loop in the introduction.</t>
+	  <t>MK: Spelled out ECN and put in an explicit reference to RFC3168 (informal).</t>
+	  <t>MK: Added a paragraph to the introduction about assumes a traditional self clocked,
 	  window controlled transport protocol. (I did not add references for QIUC or BBR).</t>
 	  <t>MK: Regarding the list at the end of section 4.1 on bursts: Shouldn't the initial
 	  window (which is usually today more than 4 packets) be mentioned additionally?</t>
@@ -117,7 +121,7 @@
 	  <t>MK: As mentioned several times in the document, some of the tests are not intended
 	  for frequent monitoring tests as the high load can impact other traffic
 	  negatively. This should be re-stated clearly  in the security considerations.</t>
-	  <t>Restored "Informative References" section name (multiple)</t>
+	  <t>MK: Restored "Informative References" section name.</t>
 	  <t>And a few more nits.</t>
 	  
 	</list></t>

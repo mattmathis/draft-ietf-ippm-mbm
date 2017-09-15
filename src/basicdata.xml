@@ -2,12 +2,8 @@
       title="Basic Data Rate and Packet Transfer Tests">
 
         <t>We propose several versions of the basic data rate and
-        packet transfer statistics test. All measure the number of
-        packets delivered between losses or ECN Congestion
-        Experienced (CE) marks, using a data stream that is rate
-        controlled at approximately the target_data_rate.</t>
-
-        <t>The tests below differ in how the data rate is
+        packet transfer statistics test that differ in how the
+	data rate is
         controlled. The data can be paced on a timer, or window
         controlled (and self clocked). The first two tests
         implicitly confirm that sub_path has sufficient raw
@@ -17,24 +13,6 @@
         transfer statistics, is a low rate test designed for
         ongoing monitoring for changes in subpath quality.</t>
 
-        <t>All rely on the data receiver accumulating packet
-        transfer statistics as described in 
-        <xref target="statistics" /> to score the outcome:</t>
-
-        <t>Pass: it is statistically significant that the observed
-        interval between losses or ECN CE marks is larger than the
-        target_run_length.</t>
-
-        <t>Fail: it is statistically significant that the observed
-        interval between losses or ECN CE marks is smaller than the
-        target_run_length.</t>
-
-        <t>A test is considered to be inconclusive if it failed to
-        generate the data rate as specified below, meet the
-        qualifications defined in 
-        <xref target="qualifications" /> or neither run length
-        statistical hypothesis was confirmed in the allotted test
-        duration.</t>
 #include src/fullrate.xml
 #include src/windowed_rate.xml
 #include src/backloss.xml

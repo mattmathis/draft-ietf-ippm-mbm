@@ -10,12 +10,12 @@
       infrastructure will prevent paths traversing it from meeting
       the Target Transport Performance.</t>
 
-      <t>Model Based Metrics rely on peer-reviewed mathematical models
+      <t>Model Based Metrics rely on mathematical models
       to specify a Targeted Suite of IP Diagnostic tests, designed to
       assess whether common transport protocols can be expected to meet a
       predetermined Target Transport Performance over an Internet path.</t>
 
-      <t>For Bulk Transport Capacity IP diagnostics are built
+      <t>For Bulk Transport Capacity the IP diagnostics are built
       using test streams and
       statistical criteria for evaluating the packet transfer
       that mimic TCP over the complete path.
@@ -30,20 +30,6 @@
       complete path. The success criteria also does not depend on
       the details of the subpath, end systems or application.</t>
 
-      <t>Model Based Metrics exhibit several important new
-      properties not present in other Bulk Transport Capacity
-      Metrics, including the ability to reason about concatenated
-      or overlapping subpaths. The results are vantage independent
-      which is critical for supporting independent validation of
-      tests by comparing results from multiple measurement
-      points.</t>
-
-      <t>This document
-      provides a framework for designing suites of IP diagnostic
-      tests that are tailored to confirming that infrastructure can
-      meet the predetermined Target Transport Performance.
-      It does not fully specify the IP diagnostics tests needed to assure
-      any specific target performance.</t>
       <!--  Comment out to publish
 
 <t>Interim DRAFT Formatted: FORMATTED</t>

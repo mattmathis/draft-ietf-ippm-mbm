@@ -202,7 +202,9 @@
             statistics.</t>
 
             <t>Infrequent sender interface rate bursts that are
-            full target_window_size. Target_run_length may be
+            the maximum of the full target_window_size and the
+	    initial window size (10 segments in <xref target="RFC6928" />).
+	    The Target_run_length may be
             derated for these large fast bursts.</t>
           </list>
         </t>

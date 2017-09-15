@@ -1,13 +1,20 @@
     <!-- ======================================================== 7 -->
     <section anchor="tests" title="IP Diagnostic Tests">
 
-      <t>The IP diagnostic tests below are organized by traffic
-      pattern: basic data rate and packet transfer statistics,
-      standing queues, slowstart bursts, and sender rate bursts. We
+      <t>The IP diagnostic tests below are organized the technique
+      used to generate the test stream as described
+      in <xref target="generation" />.
+
+      All of the results are evaluated in accordance
+      with <xref target="results" />, possibly with additional
+      test specific critera.</t>
+
+       <t> We
       also introduce some combined tests which are more efficient
       when networks are expected to pass, but conflate diagnostic
       signatures when they fail.</t>
 
+<!-- DO WE NEED THIS AT ALL? -MM
       <t>There are a number of test details which are not fully
       defined here. They must be fully specified in a FS-TIDS. From
       a standardization perspective, this lack of specificity will
@@ -18,6 +25,7 @@
       likely to have better repeatability than many existing BTC
       like metrics. Once we have good field experience, the missing
       details can be fully specified.</t>
+-->
 #include src/basicdata.xml
 #include src/standing_queue.xml
 #include src/slowstart.xml
