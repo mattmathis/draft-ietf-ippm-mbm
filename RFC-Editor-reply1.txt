@@ -1,0 +1,1008 @@
+Al, Please maintain invarents:
+    All ">" lines are RFC-Editor verbatum
+    All of our comments start in column 1
+
+From RFC-Editor, 8 Nov 2017
+Subject: [RV] Questions about draft-ietf-ippm-model-based-metrics-13.txt
+
+> 1) Is "imagine" the correct word choice here?
+>
+> Original
+>    We imagine
+>    Fully Specified - Targeted IP Diagnostic Suites (FS-TIDS), that
+>    define all of these details.  
+> 
+> Perhaps
+>    Fully Specified - Targeted IP Diagnostic Suites (FS-TIDSs)
+>    define all of these details.  
+> 
+> 
+> 2) In Figure 1, should "Targeted Diagnostic Suite" read "Targeted
+> IP Diagnostic Suite" (i.e., include "IP")?
+> 
+> 
+> 3) We had trouble understanding how "including flows that are
+> bursty at multiple time scales" connects to the rest of the
+> sentence. Please clarify.
+> 
+> Original
+>    Mathematical TCP models are used to determine Traffic parameters and
+>    subsequently to design traffic patterns that mimic TCP or other
+>    transport protocol delivering bulk data and operating at the Target
+>    Data Rate, MTU and RTT over a full range of conditions, including
+>    flows that are bursty at multiple time scales. 
+> 
+> 
+> 4) We had trouble with this sentence. Please clarify. Also, would
+> it be helpful to include what the "three target parameters" are? We
+> believe the three parameters are Target Data Rate, Target RTT, and Target MTU.
+> 
+> Original
+>    The traffic patterns
+>    are generated based on the three Target parameters of complete path
+>    and independent of the properties of individual subpaths using the
+>    techniques described in Section 6. 
+> 
+> Perhaps
+>    Using the techniques described in Section 6, the traffic patterns
+>    are generated based on the three Target parameters of the complete path
+>    (Target Data Rate, Target RTT, and Target MTU),
+>    independent of the properties of individual subpaths. 
+> 
+> 
+> 5) Should "to test" here read "and tests"?
+> 
+> Original
+>    Section 7 describes packet transfer statistics and methods to test
+>    them against the statistical criteria provided by the mathematical
+>    models. 
+> 
+> 
+> 6) Would it be helpful to readers to divide the text in Terminology
+> section into subsections?
+> 
+> Original
+> 3.  Terminology
+> 
+> Perhaps
+> 3.  Terminology
+>    3.1.  General Terminology  
+>    3.2.  Terminology about Paths
+>    3.3.  Properties
+>    3.4.  Basic Parameters
+>    3.5.  Ancillary Parameters
+>    3.6.  Temporal Patterns for Test Streams
+>    3.7.  Tests
+> 
+> 
+> 7) Is the "etc." needed here?
+> 
+> Original
+>    Terminology about paths, etc.  See [RFC2330] and [RFC7398] for
+>    existing terms and definitions.
+> 
+> Perhaps
+>    Terminology about paths.  See [RFC2330] and [RFC7398] for
+>    existing terms and definitions.
+> 
+> 
+> 8) Should the parenthetical here include "e.g.,"?
+> 
+> Original
+>    cross traffic:  Other, potentially interfering, traffic competing for
+>       network resources (bandwidth and/or queue capacity).
+> 
+> Perhaps
+>    cross traffic:  Other, potentially interfering, traffic competing for
+>       network resources (e.g., bandwidth and/or queue capacity).
+> 
+> 
+> 9) Should "part to" here read "part of"? Or is another meaning intended?
+> 
+> Original
+>    This is the payload data rate, and explicitly excludes transport and
+>    lower level headers (TCP/IP or other protocols), retransmissions
+>    and other overhead that is not part to the total quantity of data
+>    delivered to the application.
+> 
+> Perhaps
+>    This is the payload data rate and explicitly excludes transport- and
+>    lower-level headers (TCP/IP or other protocols), retransmissions,
+>    and other overhead that is not part of the total quantity of data
+>    delivered to the application.
+> 
+> 
+> 10) Please clarify "Follows from" in the text below. Is the intended
+> meaning "Derived from" or something else? 
+> 
+> Original
+>    Follows from IP-type-P Link Usage [RFC5136].
+> ...
+>    Follows from IP-type-P Link Capacity [RFC5136].
+> 
+> 
+> 11) How does "and MTU" connect to the rest of the sentence? 
+> 
+> Original
+>    The average number of packets in flight (the
+>    window size) needed to meet the Target Data Rate, for the
+>    specified Target RTT, and MTU.
+> 
+> Perhaps
+>    The average number of packets in flight (the
+>    window size) needed to meet the Target Data Rate for the
+>    specified Target RTT and to meet the Target MTU.
+> 
+> Or
+>    The average number of packets in flight (the
+>    window size) needed to meet the Target Data Rate for the
+>    specified Target RTT and Target MTU.
+> 
+> 
+> 12) Are the parentheses needed around "(expected to be)" here?
+> 
+> Original
+>    A general term for the observed, measured, or specified
+>    number of packets that are (expected to be) delivered between
+>    losses or ECN Congestion Experienced (CE) marks. 
+> 
+> Perhaps
+>    A general term for the observed, measured, or specified
+>    number of packets that are expected to be delivered between
+>    losses or ECN CE marks. 
+> 
+> Or
+>    A general term for the observed, measured, or specified
+>    number of packets that are delivered (or are expected to be delivered)
+>    between losses or ECN CE marks. 
+> 
+> 
+> 13) Please clarify this sentence. Should "there" read "they"
+> or "the probabilities", or is another meaning intended?
+> 
+> Original
+>    Nominally one
+>    over the sum of the loss and ECN CE marking probabilities, if
+>    there are independently and identically distributed.
+> 
+> Perhaps
+>    Nominally, it is one
+>    over the sum of the loss and ECN CE marking probabilities, if
+>    they are independently and identically distributed.
+> 
+> 
+> 14) Is "packet paced bursts" correct here?
+> 
+> Original
+>    Mimic TCP slowstart by sending 4 packet paced bursts
+>    at an average data rate equal to twice the implied bottleneck IP
+>    capacity (but not more than the sender interface rate). 
+> 
+> 
+> 15) May we split this sentence as follows to make it easier to read?
+> 
+> Original
+>    If a TCP sender
+>    accurately fills a path to its IP capacity, (e.g. the bottleneck
+>    is 100% utilized), then packet losses and ECN CE marks are mostly
+>    determined by the TCP sender and how aggressively it seeks
+>    additional capacity, and not the network itself, since the network
+>    must send exactly the signals that TCP needs to set its rate.
+> 
+> Perhaps
+>    If a TCP sender
+>    accurately fills a path to its IP capacity (e.g., the bottleneck
+>    is 100% utilized), then packet losses and ECN CE marks are mostly
+>    determined by the TCP sender and how aggressively it seeks
+>    additional capacity; they are not determined by the network itself, 
+>    because the network must send exactly the signals that TCP needs to set its
+>    rate.
+> 
+> 
+> 16) May we expand "HW or SW" here to read "hardware or software"?
+> 
+> Original
+>    As a consequence of the properties listed above it is difficult,
+>    if not impossible, for two independent implementations (HW or SW)
+>    of TCP congestion control to produce equivalent performance
+>    results [RFC6576] under the same network conditions,
+> 
+> 
+> 17) Would it be helpful to add "i.e.," to the parenthetical here?
+> 
+> Original
+>    If the application pauses (stops reading or writing data) for some
+>    fraction of an RTT, many TCP implementations catch up to their
+>    earlier window size by sending a burst of data at the full sender
+>    interface rate. 
+> 
+> Perhaps
+>    If the application pauses (i.e., stops reading or writing data) for some
+>    fraction of an RTT, many TCP implementations catch up to their
+>    earlier window size by sending a burst of data at the full sender
+>    interface rate. 
+> 
+> 
+> 18) Please confirm that "To fill a network with a realistic
+> application" is correct here.
+> 
+> Original
+>    To fill a network with a realistic application, the
+>    network has to be able to tolerate sender interface rate bursts large
+>    enough to restore the prior window following application pauses.
+> 
+> 
+> 19) Please clarify the last part of this sentence (i.e., "for how
+> frequent sender rate...").
+> 
+> Original
+>    It is known that these bursts can hurt network
+>    performance, especially in conjunction with other queue pressure,
+>    however we are not aware of any models for how frequent sender rate
+>    bursts the network should be able to tolerate at various burst sizes.
+> 
+> Perhaps
+>    It is known that these bursts can hurt network
+>    performance, especially in conjunction with other queue pressure;
+>    however, we are not aware of any models that illustrate the frequency of these
+>    bursts that the network should be able to tolerate at various burst sizes.
+> 
+> 
+> 20) Would it be helpful to update this sentence as follows for
+> clarity?
+> 
+> Original
+>    A complete path of a given RTT and MTU, which are equal to or smaller
+>    than the Target RTT and equal to or larger than the Target MTU
+>    respectively, is expected to be able to attain a specified Bulk
+>    Transport Capacity when all of the following conditions are met:
+> 
+> Perhaps
+>    If a given RTT is equal to or smaller
+>    than the Target RTT and a given MTU is equal to or larger than the Target MTU,
+>    the complete path is expected to be able to attain a specified Bulk
+>    Transport Capacity when all of the following conditions are met:
+> 
+> 
+> 21) Please confirm that the citation to RFC 7567 is correct here.
+> 
+> Original
+>    When there is a slowly rising standing queue at the bottleneck
+>    the onset of packet loss has to be at an appropriate point (time
+>    or queue depth) and progressive [RFC7567]. 
+> 
+> 
+> 22) Is "half duplex" correct here or should it read "a half-duplex
+> link" or something else?
+> 
+> Original
+>    When there is a standing queue at a bottleneck for a shared media
+>    subpath (e.g. half duplex), there must be a suitable bounds on
+>    the interaction between ACKs and data, for example due to the
+>    channel arbitration mechanism. 
+> 
+> 
+> 23) Please clarify "above TCP" here? Is the intended meaning "above
+> the TCP layer"?
+> 
+> Original
+>    The target parameters are in units that make sense to
+>    upper layers: payload bytes delivered to the application, above TCP.
+> 
+> Perhaps
+>    The target parameters are in units that make sense to
+>    upper layers: payload bytes delivered to the application above the TCP layer.
+> 
+> Or
+>    The target parameters are in units that make sense to
+>    layers above the TCP layer: payload bytes delivered to the
+>    application.
+> 
+> 
+> 24) Please clarify the parenthetical "(header_overhead)" in this
+> sentence. Does "(header_overhead)" describe "this difference"?
+> 
+> Original
+>    Note that IP-based
+>    network services include TCP headers and retransmissions as part of
+>    delivered payload, and this difference is recognized in calculations
+>    below (header_overhead).
+> 
+> Perhaps
+>    Note that IP-based
+>    network services include TCP headers and retransmissions as part of
+>    delivered payload; this difference (header_overhead) is recognized in
+>    calculations below. 
+> 
+> 
+> 25) It is unclear to us how the text after the semi-colon connects
+> to the rest of the sentence. Please clarify.
+> 
+> Original
+>    Note that the target parameters can be specified for a hypothetical
+>    path, for example to construct TIDS designed for bench testing in the
+>    absence of a real application; or for a live in situ test of
+>    production infrastructure.
+> 
+> Perhaps
+>    Note that the target parameters can be specified for a hypothetical
+>    path (for example, to construct TIDS designed for bench testing in the
+>    absence of a real application or for a live in situ test of
+>    production infrastructure).
+> 
+> Or
+>    Note that the target parameters can be specified for a hypothetical
+>    path (for example, to construct TIDS designed for bench testing in the
+>    absence of a real application) or for a live in situ test of
+>    production infrastructure.
+> 
+> 
+> 26) Is there a better way to introduce the equation here?
+> 
+> Original
+>    It is given by:
+> 
+>    target_window_size = ceiling( target_rate * target_RTT / ( target_MTU
+>    - header_overhead ) )
+> 
+> Perhaps
+>    To calculate target_window_size:
+> 
+>    target_window_size = ceiling( target_rate * target_RTT / ( target_MTU
+>    - header_overhead ) )
+> 
+> 
+> 27) Is "imply" the correct word choice here?
+> 
+> Original
+>    These two parameters, target_window_size and target_run_length,
+>    directly imply most of the individual parameters for the tests in
+>    Section 8.
+> 
+> Perhaps
+>    Most of the individual parameters for the tests in
+>    Section 8 are derived from target_window_size and target_run_length.
+> 
+> 
+> 28) Please clarify the last part of this sentence, i.e.,
+> "appropriate preamble packet stream to testing to put reactive network
+> elements into the proper states".
+> 
+> Original
+>    Examples include: the presence or non-presence of cross
+>    traffic on specific subpaths; negotiating ECN; and appropriate
+>    preamble packet stream to testing to put reactive network elements
+>    into the proper states [RFC7312]. 
+> 
+> 
+> 29) Please clarify the parenthetical here. Are the parentheses
+> needed? Or should it read "(e.g., test scheduling)" or something else? 
+> 
+> Original
+>    Some portions of
+>    these systems, such as traffic arrival (test scheduling) are
+>    naturally stochastic.
+> 
+> Perhaps
+>    Some portions of
+>    these systems, such as traffic arrival and test scheduling, are
+>    naturally stochastic.
+> 
+> Or
+>    Some portions of
+>    these systems, such as traffic arrival (e.g., test scheduling), are
+>    naturally stochastic.
+> 
+> 
+> 30) How can we rephrase this sentence for readability and clarity?
+> 
+> Original
+>    Without loss of generality, we
+>    assume each ACK causes 4 packet sender interface rate bursts at an
+>    average headway equal to the ACK headway, and corresponding to
+>    sending at an average rate equal to twice the effective bottleneck IP
+>    rate.  
+> 
+> Perhaps
+>    Without loss of generality, we
+>    assume each ACK causes four packet sender interface rate bursts at an
+>    average headway equal to the ACK headway; this corresponds to
+>    sending at an average rate equal to twice the effective bottleneck IP
+>    rate.  
+> 
+> 
+> 31) How can we clarify "increases separated by intervals" here?  
+> 
+> Original
+>    Normally the window increases separated by intervals slightly longer than
+>    twice the target_RTT.
+> 
+> 
+> 32) Is "built" necessary here? May we update the sentence as shown
+> below?
+> 
+> Original
+>    There are two ways to implement this test: one built by applying a
+>    window clamp to standard congestion control in a standard protocol
+>    such as TCP and the other built by stiffening a non-standard
+>    transport protocol. 
+> 
+> Perhaps
+>    There are two ways to implement this test: 1) applying a
+>    window clamp to standard congestion control in a standard protocol
+>    such as TCP and 2) stiffening a non-standard
+>    transport protocol. 
+> 
+> 
+> 33) Should "loses control the window size" read "loses control of the
+> window size" (include "of")? Or is another meaning intended?
+> 
+> Original
+>    When standard congestion control is in effect,
+>    any losses or ECN CE marks cause the transport to revert to a window
+>    smaller than the clamp such that the scanning clamp loses control the
+>    window size. 
+> 
+> Perhaps
+>    When standard congestion control is in effect,
+>    any losses or ECN CE marks cause the transport to revert to a window
+>    smaller than the clamp, such that the scanning clamp loses control of the
+>    window size. 
+> 
+> 
+> 34) Is "the paper" here a reference to [WPING] or [mpingSource]?
+> 
+> Original
+>    The Windowed Ping tool implements such a test [WPING].  The tool
+>    described in the paper has been updated.[mpingSource]
+> 
+> Perhaps
+>    The Windowed Ping tool implements such a test [WPING]. This tool
+>    has been updated (see [mpingSource]).
+> 
+> 
+> 35) Is "the standard" here referring to RFC 5681? Also, may we split
+> up this long sentence as follows to improve readability?
+> 
+> Original
+>    All congestion control algorithms that are philosophically aligned
+>    with the standard [RFC5681] (e.g. claim some level of TCP
+>    compatibility, friendliness or fairness) have scaling limits, in the
+>    sense that as a long fast network (LFN) with a fixed RTT and MTU gets
+>    faster, these congestion control algorithms get less accurate and as
+>    a consequence have difficulty filling the network [CCscaling]. 
+> 
+> Perhaps
+>    All congestion control algorithms that are philosophically aligned
+>    with [RFC5681] (e.g., claim some level of TCP
+>    compatibility, friendliness, or fairness) have scaling limits; that is, 
+>    as a long fast network (LFN) with a fixed RTT and MTU gets
+>    faster, these congestion control algorithms get less accurate and, as
+>    a consequence, have difficulty filling the network [CCscaling]. 
+> 
+> 
+> 36) Is "goes as" correct here? Would "is" be correct?
+> 
+> Original
+>    Since the required run length goes as the square of the data rate, at
+>    higher rates the run lengths can be unreasonably large, and multiple
+>    flows might be the only feasible approach.
+> 
+> Perhaps
+>    Since the required run length is the square of the data rate, at
+>    higher rates, the run lengths can be unreasonably large, and multiple
+>    flows might be the only feasible approach.
+> 
+> 
+> 37) Would it be helpful to readers to offer more explanation in the
+> parenthetical here?
+> 
+> Original
+>    For example consider a test that implements Constant Window Pseudo
+>    CBR (Section 6.2) by adding rate controls and detailed IP packet
+>    transfer instrumentation to TCP (e.g.  [RFC4898]). 
+> 
+> Perhaps
+>    For example, consider a test that implements Constant Window Pseudo
+>    CBR (Section 6.2) by adding rate controls and detailed IP packet
+>    transfer instrumentation to TCP (e.g., using the extended performance
+>    statistics for TCP as described in [RFC4898]). 
+> 
+> 
+> 38) Should the parenthetical here include "i.e.," or something else?
+> Note that we updated "hypnosis" to read "hypothesis".
+> 
+> Original
+>    Note that for capacity tests, if the observed packet transfer
+>    statistics meet the statistical criteria for failing (accepting
+>    hypnosis H1 in Section 7.2), ...
+> 
+> Perhaps
+>    Note that for capacity tests, if the observed packet transfer
+>    statistics meet the statistical criteria for failing (i.e., accepting
+>    hypothesis H1 in Section 7.2),...
+> 
+> Or
+>    Note that for capacity tests, if the observed packet transfer
+>    statistics meet the statistical criteria for failing (based on acceptance of
+>    hypothesis H1 in Section 7.2), ...
+> 
+> 
+> 39) Is "boundary between passing and inconclusive or failing
+> results" correct? Or should it read "boundaries between passing,
+> inconclusive, or failing results"?
+> 
+> Original
+>    Note that procedures that attempt to search the target parameter
+>    space to find the limits on some parameter such as target_data_rate
+>    are at risk of breaking the location independent properties of Model
+>    Based Metrics, if any part of the boundary between passing and
+>    inconclusive or failing results is sensitive to RTT (which is
+>    normally the case).
+> 
+> Perhaps
+>    Note that procedures that attempt to search the target parameter
+>    space to find the limits on a parameter such as target_data_rate
+>    are at risk of breaking the location-independent properties of Model
+>    Based Metrics if any part of the boundary between passing,
+>    inconclusive, or failing results is sensitive to RTT (which is
+>    normally the case).
+> 
+> 
+> 40) Please confirm that RFC 4015 is the correct citation here. We
+> do not see mention of "reordering" in that RFC.
+> 
+> Original
+>    Over the last two decades the general trend has been to
+>    make protocols and applications more tolerant to reordering (see for
+>    example [RFC4015]), in response to the gradual increase in reordering
+>    in the network. 
+> 
+> 
+> 41) Please review the desciptions of the tests in Section 8 for
+> consistency. For example, Section 8.1.1 and 8.1.2 begin with "Confirm
+> that ..." while Section 8.2.2 and 8.2.3 use "This test confirms that
+> ...". Should the style here be consistent?
+> 
+> 
+> 42) May we update these sentence as follows to clarify what will
+> pass or fail? Also, in the first sentence below, how can we clarfy "more delay
+> than than twice target_RTT"?
+> 
+> Original
+>    Pass if the onset of loss occurs before a standing queue has
+>    introduced more delay than than twice target_RTT, or other well
+>    defined and specified limit. 
+> ...
+>    Pass if
+>    losses are equal or less than the increase in the cross traffic plus
+>    the test stream window increase since the previous RTT.
+> ...
+>    Pass if it is statistically significant that the
+>    observed number of good packets delivered between losses or ECN CE
+>    marks is larger than the target_run_length. 
+> ...
+>    Fail if it is
+>    statistically significant that the observed interval between losses
+>    or ECN CE marks is smaller than the target_run_length.
+> 
+> Perhaps
+>    The test will pass if the onset of loss occurs before a standing queue has
+>    introduced delay greater than twice the target_RTT or another well-defined and
+>    specified limit. 
+> ...
+>    The test will pass if
+>    losses are equal to or less than the increase in the cross traffic plus
+>    the test stream window increase since the previous RTT.
+> ...
+>    The test will pass if it is statistically significant that the
+>    observed number of good packets delivered between losses or ECN CE
+>    marks is larger than the target_run_length. 
+> ...
+>    The test will fail if it is
+>    statistically significant that the observed interval between losses
+>    or ECN CE marks is smaller than the target_run_length.
+> 
+> 
+> 43) Would it be helpful to introduce the steps of the test as follows?
+> 
+> Original
+>    This is a capacity test to confirm that slowstart is not likely to
+>    exit prematurely.  Send slowstart bursts that are target_window_size
+>    total packets.
+> 
+>    Accumulate packet transfer statistics as described in Section 7.2 to
+>    score the outcome.  Pass if it is statistically significant that the
+>    observed number of good packets delivered between losses or ECN CE
+>    marks is larger than the target_run_length.  Fail if it is
+>    statistically significant that the observed interval between losses
+>    or ECN CE marks is smaller than the target_run_length.
+> 
+> Perhaps
+>    This is a capacity test to confirm that slowstart is not likely to
+>    exit prematurely.  To perform this test:
+> 
+>    o  Send slowstart bursts that are target_window_size
+>       total packets.
+> 
+>    o  Accumulate packet transfer statistics as described in Section 7.2 to
+>       score the outcome.  
+> 
+>    The test passes if it is statistically significant that the
+>    observed number of good packets delivered between losses or ECN CE
+>    marks is larger than the target_run_length.  The test fails if it is
+>    statistically significant that the observed interval between losses
+>    or ECN CE marks is smaller than the target_run_length.
+> 
+> 
+> 44) We do not see "Sender Full Window burst test" elsewhere in this
+> document. Is this referring to the tests defined in Section 8.4? Or is it
+> defined in another document? Would including a section reference or citation
+> be helpful for the reader?
+> 
+> Original
+>    Note that these are the same parameters as the Sender Full Window
+>    burst test, except the burst rate is at slowstart rate, rather than
+>    sender interface rate.
+> 
+> 
+> 45) Would it be helpful here to introduce the steps?
+> 
+> Original
+>    Do a continuous slowstart (send data continuously at twice the
+>    implied IP bottleneck capacity), until the first loss, stop, allow
+>    the network to drain and repeat, gathering statistics on how many
+>    packets were delivered before the loss, the pattern of losses,
+>    maximum observed RTT and window size.  Justify the results. 
+> 
+> Perhaps
+>    To perform this test:
+> 
+>    o Do a continuous slowstart (send data continuously at twice the
+>      implied IP bottleneck capacity), until the first loss
+> 
+>    o Stop and allow the network to drain and repeat, gathering statistics on how many
+>      packets were delivered before the loss, the pattern of losses,
+>      maximum observed RTT, and window size.  
+> 
+>    o Justify the results. 
+> 
+> 
+> 46) Should "is" read "in" here? Or is another meaning intended?
+> 
+> Original
+>    These details, such as the assumed
+>    sender interface rate, should be explicitly stated is a FS-TIDS.
+> 
+> 
+> 47) Would it be helpful to update this text as follows (i.e.,
+> rephrase the introductory text and add bullets)?
+> 
+> Original
+>    It is simply:
+> 
+>    Send target_window_size bursts of packets at server interface rate
+>    with target_RTT burst headway (burst start to next burst start).
+>    Verify that the observed packet transfer statistics meets the
+>    target_run_length.
+> 
+> Perhaps
+>    To run this test, simply:
+> 
+>    o Send target_window_size bursts of packets at server interface rate
+>      with target_RTT burst headway (burst start to next burst start).
+> 
+>    o Verify that the observed packet transfer statistics meets the
+>      target_run_length.
+> 
+> 
+> 48) In this sentence, are [MBMSource], [RFC0863], [RFC0864] examples?
+> 
+> Original
+>    This test can be implemented with instrumented TCP [RFC4898],
+>    using a specialized measurement application at one end [MBMSource]
+>    and a minimal service at the other end [RFC0863] [RFC0864].
+> 
+> Perhaps
+>    This test can be implemented with instrumented TCP [RFC4898],
+>    using a specialized measurement application at one end (e.g., [MBMSource])
+>    and a minimal service at the other end (e.g., [RFC0863] and [RFC0864]).
+> 
+> 
+> 49) We had trouble understanding the last part of this sentence
+> (i.e., "implemented by..."). Please clarify.
+> 
+> Original
+>    If the application's serving data rate can be constrained to be less
+>    than or equal to the target_data_rate and the serving_RTT (the RTT
+>    between the sender and client) is less than the target_RTT, this
+>    constraint is most easily implemented by clamping the transport
+>    window size to serving_window_clamp, set to the test_window, computed
+>    for the actual serving path.
+> 
+> Perhaps
+>    If the application's serving data rate can be constrained to be less
+>    than or equal to the target_data_rate and the serving_RTT (the RTT
+>    between the sender and client) is less than the target_RTT, this
+>    constraint is most easily implemented by clamping the transport
+>    window size to serving_window_clamp (which is set to the test_window 
+>    and computed for the actual serving path).
+> 
+> 
+> 50) Please clarify "no larger than the procedures in Section 8.1.2 and 
+> Section 8.4 or Section 8.5.1".
+> 
+> Original
+>    Under the above constraints the serving_window_clamp will limit the
+>    both the serving data rate and burst sizes to be no larger than the
+>    procedures in Section 8.1.2 and Section 8.4 or Section 8.5.1.  
+> 
+> 
+> 51) We had trouble understanding this sentence. What does "their"
+> refer to? 
+> 
+> Original
+>    Due to their geographical
+>    size, network topology and modem characteristics the ISP determines
+>    that most content is within a 50 mS RTT of their users
+> 
+> 
+> 52) We had trouble understanding how the last part of the sentence
+> (i.e., "confirming that there...") connects to the first part of the
+> sentence. 
+> 
+> Original
+>    Such a test would send 11
+>    packet bursts every 50mS, and confirming that there was no more than
+>    1 packet loss per 33 bursts (363 total packets in 1.650 seconds).
+> 
+> Perhaps
+>    Such a test would send 11
+>    packet bursts every 50 ms and confirm that there was no more than
+>    1 packet loss per 33 bursts (363 total packets in 1.650 seconds).
+> 
+> Or 
+>    Such a test would send 11
+>    packet bursts every 50 ms, confirming that there was no more than
+>    1 packet loss per 33 bursts (363 total packets in 1.650 seconds).
+> 
+> 
+> 53) It is unclear to us what "this example" refers to here? Would
+> "this section" be more accurate?
+> 
+> Original
+>    However this example illustrates some the issues that may need to be
+>    considered.
+> 
+> 
+> 54) It is unclear to us if "for a run length of 363 packets"
+> connects to the text before or after it. Please clarify.
+> 
+> Original
+>    For example, for the HD streaming video TIDS described in Section 9,
+>    the IP capacity should be exactly the header_overhead above 2.5 Mb/s,
+>    the per packet random background loss ratio should be 1/363, for a
+>    run length of 363 packets, the bottleneck queue should be 11 packets
+>    and the front path should have just enough buffering to withstand 11
+>    packet interface rate bursts.
+> 
+> Perhaps
+>    For example, for the HD streaming video TIDS described in Section 9,
+>    the IP capacity should be exactly the header_overhead above 2.5 Mb/s,
+>    the per packet random background loss ratio should be 1/363 (for a
+>    run length of 363 packets), the bottleneck queue should be 11 packets,
+>    and the front path should have just enough buffering to withstand 11
+>    packet interface rate bursts.
+> 
+> Or
+>    For example, for the HD streaming video TIDS described in Section 9,
+>    the IP capacity should be exactly the header_overhead above 2.5 Mb/s;
+>    the per packet random background loss ratio should be 1/363; for a
+>    run length of 363 packets, the bottleneck queue should be 11 packets;
+>    and the front path should have just enough buffering to withstand 11
+>    packet interface rate bursts.
+> 
+> 
+> 55) We had trouble understanding the use of "vice-versa" in the
+> parenthetical here. Please clarify.
+> 
+> Original
+>    Note that is it
+>    important that a single tightly constrained environment just barely
+>    passes all tests, otherwise there is a chance that TCP can exploit
+>    extra latitude in some parameters (such as data rate) to partially
+>    compensate for constraints in other parameters (queue space, or vice-
+>    versa).
+> 
+> 
+> 56) This reference entry points to an old revision of the iPerf
+> wikipedia page. Would you like to point to the most recent version?
+> 
+> Original
+>    [iPerf]    Wikipedia Contributors, , "iPerf", Wikipedia, The Free
+>               Encyclopedia , cited March 2015,
+>               <http://en.wikipedia.org/w/
+>               index.php?title=Iperf&oldid=649720021>.
+> 
+> Perhaps
+>    [iPerf]    Wikipedia, "iPerf", August 2017,
+>               <https://en.wikipedia.org/w/index.php?title=Iperf&oldid=796473004>.
+> 
+> 
+> 57) We note that there is a new edition for the book cited in this
+> reference entry (see
+> https://www.amazon.com/Statistical-Quality-Control-Douglas-Montgomery/dp/1118146816/ref=dp_ob_title_bk)
+> Would you like to cite the new edition?
+> 
+> Original
+>    [Montgomery90]
+>               Montgomery, D., "Introduction to Statistical Quality
+>               Control - 2nd ed.", ISBN 0-471-51988-X, 1990.
+> 
+> Perhaps
+>    [Montgomery90]
+>               Montgomery, D., "Introduction to Statistical Quality
+>               Control", 7th Edition, ISBN 1118146816, 2012.
+> 
+> 
+> 58) This reference entry points to an old revision of the Bufferbloat
+> wikipedia page (the reference entry notes "March 2015" but the included URL
+> notes "May 2014). Would you like to point to the most recent version?     
+> 
+> Original
+>    [wikiBloat]
+>               Wikipedia, "Bufferbloat", http://en.wikipedia.org/
+>               w/ index.php?title=Bufferbloat&oldid=608805474, March
+>               2015.
+> 
+> Perhaps
+>    [wikiBloat]
+>               Wikipedia, "Bufferbloat", October 2017,
+> 	      <https://en.wikipedia.org/w/index.php?title=Bufferbloat&oldid=805090783>.
+> 
+> 
+> 59) Please note that we replaced "F. Fernando" and "S. Steven" in
+> this reference entry  with "F. Paganini" and "S. Low" per
+> http://ieeexplore.ieee.org/document/980095/. In addition, the URL in
+> the following reference entry doesn't work, so we deleted it. Please
+> review and let us know if any further updates are needed.
+> 
+> Original
+>    [CCscaling]
+>               Fernando, F., Doyle, J., and S. Steven, "Scalable laws for
+>               stable network congestion control", Proceedings of
+>               Conference on Decision and
+>               Control, http://www.ee.ucla.edu/~paganini, December 2001.
+> 
+> Updated
+>    [CCscaling]
+>               Paganini, F., Doyle, J., and S. Low, "Scalable laws for
+>               stable network congestion control", Proceedings of IEEE
+>               Conference on Decision and Control,,
+>               DOI 10.1109/CDC.2001.980095, December 2001.
+> 
+> 
+> 60) Please review the parenthetical "(window)" here. Are any updates
+> needed for clarity?
+> 
+> Original
+>    The reference target_run_length described in Section 5.2 is based on
+>    very conservative assumptions: that all excess data in flight
+>    (window) above the target_window_size contributes to a standing queue
+>    that raises the RTT, and that classic Reno congestion control with
+>    delayed ACKs are in effect. 
+> 
+> Perhaps
+>    The reference target_run_length described in Section 5.2 is based on
+>    very conservative assumptions: that all excess data in flight
+>    (i.e., the window size) above the target_window_size contributes to a standing queue
+>    that raises the RTT and that classic Reno congestion control with
+>    delayed ACKs is in effect. 
+> 
+> 
+> 61) Acronyms
+> 
+> a) Should the acronym "MP" in this this document be expanded as "measurement
+> point" or something else?
+> 
+> b) How should the acronym "NPAD" be expanded in this document?
+> 
+> c) How should the acronym "NIC" be expanded in this document?
+> 
+> d) "IXP" is expanded as "inter-exchange point" in this document. We do not see
+> this expansion in past RFCs. Past RFCs use "Internet Exchange Point
+> (IXP)". Please review and let us know if any updates are needed.
+> 
+> 
+> 62) Terminology
+> 
+> a) We have added a hyphen in the term "Model-Based Metrics". Please let us
+> know any objections.
+> 
+> 
+> b) In this document, we see "FS-TIDS" expanded both with and without a hyphen
+> (see below). Please let us know which form to use for consistency. Also,
+> please note that when the plural "Suites" is used in the expanded form, we
+> have updated the acronym to read "FS-TIDSs".
+> 
+> Fully Specified - Targeted IP Diagnostic Suite
+> Fully Specified Targeted IP Diagnostic Suite
+> 
+> 
+> c) How is "FS-TIDS" pronounced? As "eff-es-tids"? We ask for guidance in order
+> to choose the appropriate indefinite article for it to follow (i.e., "a" or
+> "an").
+> 
+> 
+> d) In these sentence from the Abstract and Introduction, should "Targeted
+> Suite of IP Diagnostic tests" read "Targeted IP Diagnostic Suite (TIDS)"?
+> Does the suggested text accuratel convey the intended meaning?
+> 
+> Original
+>    Model Based Metrics rely on mathematical models to specify a Targeted
+>    Suite of IP Diagnostic tests, designed to assess whether common
+>    transport protocols can be expected to meet a predetermined Target
+>    Transport Performance over an Internet path.
+> ...
+>    Model Based Metrics (MBM) rely on peer-reviewed mathematical models
+>    to specify a Targeted Suite of IP Diagnostic tests, designed to
+>    assess whether common transport protocols can be expected to meet a
+>    predetermined Target Transport Performance over an Internet path.
+> 
+> Perhaps
+>    Model Based Metrics rely on mathematical models to specify a Targeted
+>    IP Diagnostic Suite (TIDS), a set of IP diagnostic tests designed to assess
+>    whether common
+>    transport protocols can be expected to meet a predetermined Target
+>    Transport Performance over an Internet path.
+> ...
+>    Model Based Metrics (MBM) rely on peer-reviewed mathematical models
+>    to specify a Targeted IP Diagnostic Suite (TIDS), a set of IP diagnostic
+>    tests designed to
+>    assess whether common transport protocols can be expected to meet a
+>    predetermined Target Transport Performance over an Internet path.
+> 
+> 
+> e) We see a number of cases of "IPPM metrics" in this document (we included a
+> few examples below). Should these simply read "IPPM" as "metrics" is the "M"
+> in "IPPM", or are they okay as is? 
+> 
+>    In most cases, the IP diagnostic tests can be implemented by
+>    combining existing IPPM metrics with additional controls for
+>    generating test streams having a specified temporal structure ...
+> ...
+>    Most of the IP
+>    diagnostic tests needed to confirm that the path meets these
+>    properties can be built on existing IPPM metrics ...
+> ...
+>    One group of tests, the standing queue tests described in
+>    Section 8.2, don't correspond to existing IPPM metrics ...
+> 
+> 
+> f) The term "slowstart" (one word) is used consistently in this
+> document. However, we note that "slow-start" and "slow start" are used more
+> often in past RFCs. Please review and let us know if any updates are needed.
+> 
+> 
+> g) We see instances of both "mS" and "ms" in the document. We have updated
+> instances of "mS" to read "ms". Please let us know any objections.
+> 
+> 
+> h) Should "long fast network" here read "long fat network"?
+> 
+>    ... in the sense that as a long fast network (LFN) with a fixed RTT and MTU
+>    gets faster ...
+> 
+> 
+> i) We note inconsistencies in the terms below throughout the text.  Should
+> these be uniform? If so, please let us know which form is preferred.
+> 
+> Constant window pseudo CBR vs. constant window CBR vs. Constant Window Pseudo
+> CBR
+> 
+> sustained burst test vs. sustained bursts test
+> 
+> 
+> 
+> 
+> 

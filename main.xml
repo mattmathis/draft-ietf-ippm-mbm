@@ -14,7 +14,7 @@ Please see the README file for additional information.
 <?rfc tocdepth="6"?>
 <?rfc symrefs="yes"?>
 <rfc ipr="trust200902" category="exp"
-docName="draft-ietf-ippm-model-based-metrics-12.txt">
+docName="draft-ietf-ippm-model-based-metrics-13.txt">
   <front>
     <title abbrev="Model Based Metrics">Model Based Metrics for
     Bulk Transport Capacity</title>
