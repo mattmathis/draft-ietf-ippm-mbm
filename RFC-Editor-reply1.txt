@@ -1,6 +1,3 @@
-Al, Please maintain invariant:
-    All ">" lines are RFC-Editor verbatim
-    All of our comments start in column 1
 
 From RFC-Editor, 8 Nov 2017
 Subject: [RV] Questions about draft-ietf-ippm-model-based-metrics-13.txt
@@ -31,13 +28,14 @@ Yes
 >    transport protocol delivering bulk data and operating at the Target
 >    Data Rate, MTU and RTT over a full range of conditions, including
 >    flows that are bursty at multiple time scales. 
+
 Most readers will have no intuition about why "traffic patterns that mimic TCP"
 is important or how it is different.
 
 Consider:
    Mathematical TCP models are used to determine Traffic parameters and
    subsequently to design traffic patterns that mimic TCP 
-   (which is bursty at multiple time scales) or other
+   (which has burst characteristics at multiple time scales) or other
    transport protocol delivering bulk data and operating at the Target
    Data Rate, MTU and RTT over a full range of conditions. 
 
@@ -65,8 +63,10 @@ Yes, definitely clearer.
 >    them against the statistical criteria provided by the mathematical
 >    models. 
 
-"to test against (criteria)" is proper statistics terminology in wide use.
-@@@@ Al, comments or changes?
+Suggest:
+    Section 7 describes packet transfer statistics and methods to test
+    against statistical criteria provided by the mathematical
+    models.
 
 > 6) Would it be helpful to readers to divide the text in Terminology
 > section into subsections?
@@ -124,10 +124,10 @@ only cases I can construct are rather contrived.
 >    delivered to the application.
 Correct.
 
-I note the proposed also has a hyphenation change that looks a bit odd to
+I note the proposed text also has a hyphenation change that looks a bit odd to
 me: "transport- and lower-level headers".   Both "transport level" and 
-"lower level" are in common usage, but "level headers" is not, so prior
-text does not introduce any ambiguity.
+"lower level" are in common usage, but "level headers" is not, so the
+existing text does not introduce any ambiguity.
 
 > 10) Please clarify "Follows from" in the text below. Is the intended
 > meaning "Derived from" or something else? 
@@ -136,13 +136,16 @@ text does not introduce any ambiguity.
 >    Follows from IP-type-P Link Usage [RFC5136].
 > ...
 >    Follows from IP-type-P Link Capacity [RFC5136].
+
 IP rate and IP capacity are less pedantic forms of the well known
 concepts defined pedantically in RFC5136 as IP-type-P Link Usage and
 IP-type-P Link Usage Capacity.
 
-Perhaps "same as ... in".  Using the full 5136 language would make
-some of the text here even more opaque.  The additional precision would
-not improve clarity.
+Perhaps "same as IP-type-P Link Usage in [RFC5136]".
+
+BTW Using the full 5136 language would make some of the text in this
+document even more opaque.  The additional precision would not improve
+clarity.
 
 > 11) How does "and MTU" connect to the rest of the sentence? 
 > 
@@ -174,13 +177,15 @@ Yes!
 >    A general term for the observed, measured, or specified
 >    number of packets that are expected to be delivered between
 >    losses or ECN CE marks. 
-No because observed clashes with expected.
+No because "observed" clashes with "expected".
 
 > Or
 >    A general term for the observed, measured, or specified
 >    number of packets that are delivered (or are expected to be delivered)
 >    between losses or ECN CE marks. 
-This is technically correct but in my mind, does not improve clarity.
+
+This is OK, it is technically correct but in my mind, does not improve
+clarity.  Can we leave it?
  
 > 13) Please clarify this sentence. Should "there" read "they"
 > or "the probabilities", or is another meaning intended?
@@ -202,15 +207,16 @@ Yes
 >    Mimic TCP slowstart by sending 4 packet paced bursts
 >    at an average data rate equal to twice the implied bottleneck IP
 >    capacity (but not more than the sender interface rate). 
-Good catch!
-I think this should be "four-packet paced bursts".  It is a direct reference
-to the previous definition, but specifying a burst size (4 packets) and an
-average rate.
-
-Note that section 6.1 covers this in more detail.  While the descriptions here
-are accurate as far as they go they are not pedantically complete.  Making them
-complete would make the text opaque.  I thought very hard about how to get the
-right level of detail here.
+Suggest a different wording:
+    Mimic TCP slowstart by sending paced bursts of four packets each
+    at an average data rate equal to twice the implied bottleneck IP
+    capacity (but not more than the sender interface rate).
+The text continues unmodified:
+      This is a
+      two level burst pattern described in more detail in Section 6.1.
+      If the implied bottleneck IP capacity is more than half of the
+      sender interface rate, slowstart rate becomes sender interface
+      rate.
 
 > 15) May we split this sentence as follows to make it easier to read?
 > 
@@ -257,7 +263,7 @@ Yes
 
 Yes although e.g. might be better because there are other events that
 have the same effect as "stops reading or writing data" but different
-underlying causes.   Both make the necessary point.
+underlying causes.
 
 > 18) Please confirm that "To fill a network with a realistic
 > application" is correct here.
@@ -283,10 +289,11 @@ It sounds fine to me....?  The issue is that non-realistic applications
 >    performance, especially in conjunction with other queue pressure;
 >    however, we are not aware of any models that illustrate the frequency of these
 >    bursts that the network should be able to tolerate at various burst sizes.
+
 No, consider:
-   It is known that these bursts can hurt network
-   performance, especially in conjunction with other queue pressure;
-   however we are not aware of any models for estimating the impact nor prescribing
+   It is known that these bursts can hurt network performance,
+   especially in conjunction with other queue pressure; however we are
+   not aware of any models for estimating the impact nor prescribing
    limits on the size or frequency of sender rate bursts.
 
 > 20) Would it be helpful to update this sentence as follows for
@@ -303,17 +310,13 @@ No, consider:
 >    than the Target RTT and a given MTU is equal to or larger than the Target MTU,
 >    the complete path is expected to be able to attain a specified Bulk
 >    Transport Capacity when all of the following conditions are met:
-Perhaps this is better, but "given RTT" and "given MTU" aren't sufficiently 
-connected to the complete path, also the causality is sort of backwards.
-The logic should be:
-- Pick the path
-- observe RTT and MTU
-- confirm observed RTT less than or equal to the Target RTT
-- confirm observed MTU greater than or equal to the Target MTU
-- then it is expected ....
 
-I wrestled with this paragraph quite a bit and haven't been able to make
-it clear.
+Suggest: 
+
+   A complete path is expected to be able to attain a specified Bulk
+   Transport Capacity if the path's RTT is equal to or smaller than
+   the Target RTT and the path's MTU is equal to or larger than the
+   Target MTU and all of the following conditions are met:
 
 > 21) Please confirm that the citation to RFC 7567 is correct here.
 > 
@@ -322,11 +325,10 @@ it clear.
 >    the onset of packet loss has to be at an appropriate point (time
 >    or queue depth) and progressive [RFC7567]. 
 Yes, but perhaps more words would help:
-   When there is a slowly rising standing queue at the bottleneck
-   the onset of packet loss has to be at an appropriate point (time
-   or queue depth) and progressive, for example by use of Active
-   Queue Management [RFC7567].
-
+   When there is a slowly rising standing queue at the bottleneck, then
+   the onset of packet loss has to be at an appropriate point (in time
+   or in queue depth) and progressive, for example by use of Active
+   Queue Management [RFC7567]
 
 > 22) Is "half duplex" correct here or should it read "a half-duplex
 > link" or something else?
@@ -338,9 +340,9 @@ Yes, but perhaps more words would help:
 >    channel arbitration mechanism. 
 half-duplex link would correct
 
-Proposed:
+Proposed  (note some commas were removed too):
    When there is a standing queue at a bottleneck for a shared media
-   subpath (e.g. a half-duplex link), there must be a suitable bounds on
+   subpath (e.g. a half-duplex link), there must be a suitable bound on
    the interaction between ACKs and data, for example due to the
    channel arbitration mechanism.  See Section 8.2.4.
 
@@ -435,14 +437,14 @@ Yes
 >    traffic on specific subpaths; negotiating ECN; and appropriate
 >    preamble packet stream to testing to put reactive network elements
 >    into the proper states [RFC7312]. 
-@@@@ Al I am at a loss here: RFC7312 mentions "packet History" but
-does not prescribe methodologies or even terminology.
 
 Consider:
    Examples include: the presence or non-presence of cross
-   traffic on specific subpaths; negotiating ECN; and failing to
-   construct appropriate packet histories as needed to put
-   reactive network elements into the specified states [RFC7312].  
+   traffic on specific subpaths; negotiating ECN; and and in the
+   presence of reactive network elements (as defined in section 1.1 of
+   [RFC7312]) that would require as a pre-condition a test stream
+   preamble of appropriate length to achieve stable access to network
+   resources.
 
 > 29) Please clarify the parenthetical here. Are the parentheses
 > needed? Or should it read "(e.g., test scheduling)" or something else? 
@@ -565,11 +567,11 @@ Yes
 >    Since the required run length is the square of the data rate, at
 >    higher rates, the run lengths can be unreasonably large, and multiple
 >    flows might be the only feasible approach.
-Math slang
-How about
-   Since the required run length is proportional to the square of the data rate, at
-   higher rates, the run lengths can be unreasonably large, and multiple
-   flows might be the only feasible approach.
+"goes as" is common math slang, but how about:
+
+   Since the required run length is proportional to the square of the
+   data rate, at higher rates the run lengths can be unreasonably
+   large, and multiple flows might be the only feasible approach.
 
 > 37) Would it be helpful to readers to offer more explanation in the
 > parenthetical here?
@@ -598,12 +600,13 @@ Yes
 >    Note that for capacity tests, if the observed packet transfer
 >    statistics meet the statistical criteria for failing (i.e., accepting
 >    hypothesis H1 in Section 7.2),...
-> 
+>
+No
 > Or
 >    Note that for capacity tests, if the observed packet transfer
 >    statistics meet the statistical criteria for failing (based on acceptance of
 >    hypothesis H1 in Section 7.2), ...
-better  @@@@ Al?
+Yes, thanks for the suggestion.
 
 > 39) Is "boundary between passing and inconclusive or failing
 > results" correct? Or should it read "boundaries between passing,
@@ -752,10 +755,11 @@ Missed edit after renaming some of the tests.   It should have been:
    (Section 8.5.1) except the burst rate is at slowstart rate, rather than
    sender interface rate.
 
-However this raises a minor point about section 8.5.1: It probably should have
-been titled "Sustained Full Rate Bursts Test".  This would be a more accurate
-description.  The section name is not referenced except in the TOC and the
-fragment above.   Is this a permitted change at this stage?
+However this raises a point about section 8.5.1: It should have been
+titled "Sustained Full Rate Bursts Test".  The section name is not
+referenced except in the TOC and the fragment above.  Is this within
+scope for "RFC editor changes" or do we need to refer to the AD?
+(Also readjust the text above).
  
 > 45) Would it be helpful here to introduce the steps?
 > 
@@ -881,7 +885,7 @@ That is exactly what the rest of the paragraph does....?  Does this help:
 >    that most content is within a 50 mS RTT of their users
 
 Consider:
-   Due to the ISPs geographical
+   Due to the ISP's geographical
    size, network topology and modem characteristics the ISP determines
    that most content is within a 50 mS RTT of their users
 
@@ -917,8 +921,8 @@ Nope
 "This section" would be ok, except does that mean Section 9 or 9.1?
 
 How about:
-   However the example above illustrates some the issues that may need to be
-   considered.
+   However the example above illustrates some of the issues that
+   may need to be considered.
 
 > 54) It is unclear to us if "for a run length of 363 packets"
 > connects to the text before or after it. Please clarify.
@@ -970,9 +974,6 @@ Consider:
    queue space tests has the potential to enable TCP to compensate
    for insufficient data rate headroom.
 
-Although I am not sure that the extra sentence improves the overall
-clarity.
-
 > 56) This reference entry points to an old revision of the iPerf
 > wikipedia page. Would you like to point to the most recent version?
 > 
@@ -1002,7 +1003,12 @@ How do close do you normally track such changes?
 >    [Montgomery90]
 >               Montgomery, D., "Introduction to Statistical Quality
 >               Control", 7th Edition, ISBN 1118146816, 2012.
-Fine with me.  AL this is really your call @@@@
+
+The material we are referencing is rather esoteric and might easily
+have been dropped in a new edition.  We do not know if it is still
+present in the 7th edition and don't have an easy way to find out.
+(We have both seen complication arise from arbitrary reference
+updates, so lets be safe)
 
 > 58) This reference entry points to an old revision of the Bufferbloat
 > wikipedia page (the reference entry notes "March 2015" but the included URL
@@ -1073,7 +1079,7 @@ Measurement Point.
 
 > b) How should the acronym "NPAD" be expanded in this document?
 
-NPAD (Network Path and Application Diagnostics) for the only use.
+"NPAD (Network Path and Application Diagnostics)" for the only use.
 It was an NSF project name.
 
 > c) How should the acronym "NIC" be expanded in this document?
@@ -1086,8 +1092,7 @@ Consider just expanding it in place:
 > this expansion in past RFCs. Past RFCs use "Internet Exchange Point
 > (IXP)". Please review and let us know if any updates are needed.
 
-The I'm fine with Internet Exchange Point.  I think Al may have a history
-story lurking here....  @@@@ Al, any comments?
+Go with Internet Exchange Point.
 
 > 62) Terminology
 > 
